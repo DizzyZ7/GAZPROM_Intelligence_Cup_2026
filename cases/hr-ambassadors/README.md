@@ -19,6 +19,9 @@
 - [KPI и ресурсная модель](metrics.md)
 - [Управление четырьмя кураторами и расчет нагрузки](governance-and-capacity.md)
 - [Мотивация и каталог инициатив](motivation-and-activities.md)
+- [Протокол измерения эффекта](measurement-protocol.md)
+- [Реестр рисков и контрольные меры](risk-register.md)
+- [Сценарии масштабирования и защита](scaling-and-defense.md)
 - [Структура презентации](presentation-plan.md)
 
 ## Принцип
