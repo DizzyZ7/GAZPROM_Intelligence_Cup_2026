@@ -17,6 +17,8 @@
 - [Сравнение с существующими практиками и источники](benchmark.md)
 - [План пилота](pilot-playbook.md)
 - [KPI и ресурсная модель](metrics.md)
+- [Управление четырьмя кураторами и расчет нагрузки](governance-and-capacity.md)
+- [Мотивация и каталог инициатив](motivation-and-activities.md)
 - [Структура презентации](presentation-plan.md)
 
 ## Принцип
