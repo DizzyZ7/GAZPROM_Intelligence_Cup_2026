@@ -4,6 +4,7 @@ import json
 from pulse import Ticket, analyze
 from pipeline import analyze_semantic
 from store import SignalStore
+from cluster_identity import reconcile
 
 class ExactTokenProvider:
     """Детерминированный демонстрационный провайдер, не является ML-моделью."""
@@ -27,7 +28,8 @@ def import_tickets(db_path, file_path, mode="rules", provider=None, threshold=0.
         result = analyze(tickets)
     store = SignalStore(db_path)
     try:
-        inserted = store.ingest(result["signals"])
+        signals = reconcile(store, result["signals"]) if mode == "semantic" else result["signals"]
+        inserted = store.ingest(signals)
     finally:
         store.close()
     return {"processed": result["processed"], "signals_found": len(result["signals"]),
