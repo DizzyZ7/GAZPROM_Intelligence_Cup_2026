@@ -8,6 +8,7 @@ from fastapi import FastAPI, Header, HTTPException, Depends
 from pydantic import BaseModel, Field
 from store import SignalStore
 from evidence import get_signal
+from pulse import Ticket, analyze
 
 app = FastAPI(title="ТИИм Pulse — проверка сигналов", version="0.5.0")
 DB_PATH = os.getenv("PULSE_DB", str(Path(__file__).with_name("pulse-demo.sqlite3")))
@@ -99,3 +100,31 @@ def dashboard_asset(asset_name: str):
     if asset_name not in allowed:
         raise HTTPException(status_code=404, detail="Файл не найден")
     return FileResponse(Path(__file__).with_name(asset_name), media_type=allowed[asset_name])
+
+class ImportRequest(BaseModel):
+    tickets: list[dict] = Field(min_length=1, max_length=500)
+
+@app.post("/imports")
+def import_batch(payload: ImportRequest, actor: str = Depends(reviewer)):
+    if any(set(item) - {"id","product","text","channel"} for item in payload.tickets):
+        raise HTTPException(status_code=422, detail="Неизвестные поля обращения")
+    try:
+        tickets = [Ticket(**item) for item in payload.tickets]
+    except TypeError as exc:
+        raise HTTPException(status_code=422, detail="Некорректная структура обращения") from exc
+    if any(not isinstance(t.id,str) or not isinstance(t.product,str) or
+           not isinstance(t.text,str) or not t.id.strip() or
+           not t.product.strip() or not t.text.strip() or
+           len(t.text)>10000 for t in tickets):
+        raise HTTPException(status_code=422, detail="Некорректные поля обращения")
+    ids = [t.id for t in tickets]
+    if len(set(ids)) != len(ids):
+        raise HTTPException(status_code=422, detail="Повторяющиеся идентификаторы обращений")
+    result = analyze(tickets)
+    with storage() as store:
+        try:
+            added = store.ingest(result["signals"])
+        except ValueError as exc:
+            raise HTTPException(status_code=409, detail=str(exc)) from exc
+    return {"processed":result["processed"],"signals_found":len(result["signals"]),
+            "new_signals":added,"mode":"rules"}
