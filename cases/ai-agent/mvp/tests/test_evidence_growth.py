@@ -18,8 +18,13 @@ class GrowthTests(unittest.TestCase):
                 self.assertEqual(store.list_signals()[0]["ticket_count"], 3)
                 self.assertEqual(store.list_signals()[0]["status"], "approved")
                 self.assertEqual(len(store.audit(signal["id"])), 1)
+                history = store.evidence_history(signal["id"])
+                self.assertEqual(len(history), 2)
+                self.assertEqual(history[0]["added_ticket_ids"], ["1", "2"])
+                self.assertEqual(history[1]["added_ticket_ids"], ["3"])
                 self.assertEqual(store.ingest([next_batch]), 0)
                 self.assertEqual(store.list_signals()[0]["ticket_count"], 3)
+                self.assertEqual(len(store.evidence_history(signal["id"])), 2)
             finally:
                 store.close()
 
