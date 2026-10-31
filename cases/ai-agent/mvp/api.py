@@ -5,7 +5,7 @@ from contextlib import contextmanager
 from pathlib import Path
 from fastapi.responses import FileResponse
 from fastapi import FastAPI, Header, HTTPException, Depends
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict, StrictStr
 from store import SignalStore
 from evidence import get_signal
 from pulse import Ticket, analyze
