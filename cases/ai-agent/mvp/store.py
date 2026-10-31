@@ -1,7 +1,7 @@
 """SQLite review queue for offline demo; not a production authorization layer."""
 import json
 import sqlite3
-from contextlib import contextmanager
+from contextlib import contextmanager, nullcontext
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -61,7 +61,7 @@ class SignalStore:
         """Идемпотентное сохранение обезличенных обращений."""
         from pulse import redact
         inserted = 0
-        with self.db:
+        with (nullcontext() if self.db.in_transaction else self.db):
             for ticket in tickets:
                 sanitized = redact(ticket.text)
                 row = self.db.execute(
@@ -90,7 +90,7 @@ class SignalStore:
         Существующие решения аналитика не сбрасываются.
         """
         inserted = 0
-        with self.db:
+        with (nullcontext() if self.db.in_transaction else self.db):
             for s in signals:
                 incoming_ids = list(dict.fromkeys(s.get('ticket_ids', [])))
                 if len(incoming_ids) != s['ticket_count']:
