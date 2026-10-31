@@ -68,3 +68,22 @@ def signal_detail(signal_id: str, actor: str = Depends(reviewer)):
             return get_signal(store, signal_id)
         except KeyError as exc:
             raise HTTPException(status_code=404, detail="Сигнал не найден") from exc
+
+@app.get("/signals/{signal_id}/timeline")
+def signal_timeline(signal_id: str, actor: str = Depends(reviewer)):
+    with storage() as store:
+        try:
+            evidence = store.evidence_history(signal_id)
+        except KeyError as exc:
+            raise HTTPException(status_code=404, detail="Сигнал не найден") from exc
+        decisions = store.audit(signal_id)
+    events = [
+        {"type": "evidence_added", "at": row["created_at"],
+         "added_ticket_ids": row["added_ticket_ids"]}
+        for row in evidence
+    ] + [
+        {"type": "review", "at": row["created_at"],
+         "actor": row["actor"], "action": row["action"], "reason": row["reason"]}
+        for row in decisions
+    ]
+    return sorted(events, key=lambda event: event["at"])
