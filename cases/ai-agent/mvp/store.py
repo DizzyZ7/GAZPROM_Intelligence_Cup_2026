@@ -32,16 +32,43 @@ class SignalStore:
         self.db.commit()
 
     def ingest(self, signals):
+        """Идемпотентный импорт с накоплением новых источников.
+
+        Существующие решения аналитика не сбрасываются.
+        """
         inserted = 0
         with self.db:
             for s in signals:
-                result = self.db.execute('''INSERT OR IGNORE INTO signals
-                (id,product,category,workflow,ticket_count,payload,status,created_at,updated_at)
-                VALUES (?,?,?,?,?,?,?,?,?)''',
-                (s['id'], s['product'], s['category'], s['workflow'],
-                 s['ticket_count'], json.dumps(s, ensure_ascii=False),
-                 'pending_human_review', utcnow(), utcnow()))
-                inserted += result.rowcount
+                incoming_ids = list(dict.fromkeys(s.get('ticket_ids', [])))
+                if len(incoming_ids) != s['ticket_count']:
+                    raise ValueError('Количество обращений не совпадает со списком источников')
+                current = self.db.execute(
+                    'SELECT product,category,workflow,payload FROM signals WHERE id=?',
+                    (s['id'],)).fetchone()
+                if current is None:
+                    payload = dict(s, ticket_ids=incoming_ids)
+                    self.db.execute('''INSERT INTO signals
+                    (id,product,category,workflow,ticket_count,payload,status,created_at,updated_at)
+                    VALUES (?,?,?,?,?,?,?,?,?)''',
+                    (s['id'],s['product'],s['category'],s['workflow'],
+                     len(incoming_ids),json.dumps(payload,ensure_ascii=False),
+                     'pending_human_review',utcnow(),utcnow()))
+                    inserted += 1
+                    continue
+                if (current['product'],current['category'],current['workflow']) != (
+                    s['product'],s['category'],s['workflow']):
+                    raise ValueError('Конфликт идентификатора сигнала')
+                old = json.loads(current['payload'])
+                merged_ids = list(dict.fromkeys(old.get('ticket_ids', []) + incoming_ids))
+                if len(merged_ids) == len(old.get('ticket_ids', [])):
+                    continue
+                old['ticket_ids'] = merged_ids
+                old['ticket_count'] = len(merged_ids)
+                old['examples'] = list(dict.fromkeys(
+                    old.get('examples', []) + s.get('examples', [])))[:2]
+                self.db.execute(
+                    'UPDATE signals SET ticket_count=?,payload=?,updated_at=? WHERE id=?',
+                    (len(merged_ids),json.dumps(old,ensure_ascii=False),utcnow(),s['id']))
         return inserted
 
     def list_signals(self, status=None):
