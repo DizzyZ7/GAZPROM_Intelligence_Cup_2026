@@ -106,5 +106,24 @@ class APITests(unittest.TestCase):
         ticket={"id":"a","product":"P","text":"x"*10001}
         self.assertEqual(self.client.post("/imports",headers=headers,json={"tickets":[ticket]}).status_code,422)
 
+    def test_signal_emerges_across_batches(self):
+        headers={"X-Review-Token":"secret-test-token"}
+        first={"tickets":[{"id":"first","product":"R","text":"Очередь ошибка 404"}]}
+        second={"tickets":[{"id":"second","product":"R","text":"Очередь ошибка 404"}]}
+        r1=self.client.post("/imports",headers=headers,json=first)
+        self.assertEqual(r1.status_code,200,r1.text)
+        self.assertEqual(r1.json()["signals_found"],0)
+        r2=self.client.post("/imports",headers=headers,json=second)
+        self.assertEqual(r2.status_code,200,r2.text)
+        self.assertEqual(r2.json()["new_signals"],1)
+        self.assertEqual(r2.json()["analyzed_total"],2)
+
+    def test_ticket_id_conflict(self):
+        headers={"X-Review-Token":"secret-test-token"}
+        first={"tickets":[{"id":"unique","product":"R","text":"Очередь ошибка 404"}]}
+        second={"tickets":[{"id":"unique","product":"S","text":"Очередь ошибка 404"}]}
+        self.assertEqual(self.client.post("/imports",headers=headers,json=first).status_code,200)
+        self.assertEqual(self.client.post("/imports",headers=headers,json=second).status_code,409)
+
 if __name__=="__main__":
     unittest.main()
