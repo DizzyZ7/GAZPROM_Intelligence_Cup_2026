@@ -125,5 +125,22 @@ class APITests(unittest.TestCase):
         self.assertEqual(self.client.post("/imports",headers=headers,json=first).status_code,200)
         self.assertEqual(self.client.post("/imports",headers=headers,json=second).status_code,409)
 
+    def test_staging_redacts_personal_data(self):
+        headers={"X-Review-Token":"secret-test-token"}
+        payload={"tickets":[{"id":"pii","product":"R",
+            "text":"Очередь ошибка 404, почта alice@example.com, телефон +7 999 123 45 67"}]}
+        response=self.client.post("/imports",headers=headers,json=payload)
+        self.assertEqual(response.status_code,200,response.text)
+        from store import SignalStore
+        store=SignalStore(os.environ["PULSE_DB"])
+        try:
+            row=store.db.execute("SELECT text FROM staged_tickets WHERE id='pii'").fetchone()
+            self.assertNotIn("alice@example.com",row["text"])
+            self.assertNotIn("999 123 45 67",row["text"])
+            self.assertIn("[EMAIL]",row["text"])
+            self.assertIn("[PHONE]",row["text"])
+        finally:
+            store.close()
+
 if __name__=="__main__":
     unittest.main()
