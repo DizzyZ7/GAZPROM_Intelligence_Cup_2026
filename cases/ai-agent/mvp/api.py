@@ -120,9 +120,10 @@ def import_batch(payload: ImportRequest, actor: str = Depends(reviewer)):
         raise HTTPException(status_code=422, detail="Повторяющиеся идентификаторы обращений")
     with storage() as store:
         try:
-            staged = store.stage_tickets(tickets)
-            result = analyze(store.staged_tickets())
-            added = store.ingest(result["signals"])
+            with store.atomic():
+                staged = store.stage_tickets(tickets)
+                result = analyze(store.staged_tickets())
+                added = store.ingest(result["signals"])
         except ValueError as exc:
             raise HTTPException(status_code=409, detail=str(exc)) from exc
     return {"processed":len(tickets),"staged_new":staged,
