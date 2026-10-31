@@ -6,6 +6,7 @@ from pathlib import Path
 from fastapi import FastAPI, Header, HTTPException, Depends
 from pydantic import BaseModel, Field
 from store import SignalStore
+from evidence import get_signal
 
 app = FastAPI(title="ТИИм Pulse — проверка сигналов", version="0.5.0")
 DB_PATH = os.getenv("PULSE_DB", str(Path(__file__).with_name("pulse-demo.sqlite3")))
@@ -59,3 +60,11 @@ def review(signal_id: str, request: ReviewRequest, actor: str = Depends(reviewer
         except ValueError as exc:
             raise HTTPException(status_code=409, detail=str(exc)) from exc
     return {"signal_id": signal_id, "status": request.action, "reviewer": actor}
+
+@app.get("/signals/{signal_id}")
+def signal_detail(signal_id: str, actor: str = Depends(reviewer)):
+    with storage() as store:
+        try:
+            return get_signal(store, signal_id)
+        except KeyError as exc:
+            raise HTTPException(status_code=404, detail="Сигнал не найден") from exc
