@@ -58,5 +58,34 @@ class APITests(unittest.TestCase):
         self.client.post(url,headers=h,json={"action":"approved","reason":"verified"})
         self.assertEqual(self.client.post(url,headers=h,json={"action":"approved","reason":"verified"}).status_code,409)
 
+    def test_import_requires_token(self):
+        payload={"tickets":[{"id":"a","product":"P","text":"Очередь ошибка 404"},{"id":"b","product":"P","text":"Очередь ошибка 404"}]}
+        self.assertEqual(self.client.post("/imports",json=payload).status_code,401)
+
+    def test_import_and_timeline(self):
+        headers={"X-Review-Token":"secret-test-token"}
+        payload={"tickets":[{"id":"a","product":"Q","text":"Очередь ошибка 404"},{"id":"b","product":"Q","text":"Очередь ошибка 404"}]}
+        response=self.client.post("/imports",headers=headers,json=payload)
+        self.assertEqual(response.status_code,200,response.text)
+        self.assertEqual(response.json()["new_signals"],1)
+        detail=self.client.get("/signals/Q:bug:booking_queue",headers=headers)
+        self.assertEqual(detail.status_code,200,detail.text)
+        self.assertEqual(detail.json()["ticket_count"],2)
+        timeline=self.client.get("/signals/Q:bug:booking_queue/timeline",headers=headers)
+        self.assertEqual(timeline.status_code,200,timeline.text)
+        self.assertEqual(timeline.json()[0]["type"],"evidence_added")
+        repeated=self.client.post("/imports",headers=headers,json=payload)
+        self.assertEqual(repeated.json()["new_signals"],0)
+
+    def test_import_duplicate_ids(self):
+        headers={"X-Review-Token":"secret-test-token"}
+        ticket={"id":"x","product":"Q","text":"Очередь ошибка 404"}
+        self.assertEqual(self.client.post("/imports",headers=headers,json={"tickets":[ticket,ticket]}).status_code,422)
+
+    def test_dashboard_assets(self):
+        self.assertEqual(self.client.get("/dashboard").status_code,200)
+        self.assertEqual(self.client.get("/assets/dashboard.js").status_code,200)
+        self.assertEqual(self.client.get("/assets/unknown.js").status_code,404)
+
 if __name__=="__main__":
     unittest.main()
