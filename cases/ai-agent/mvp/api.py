@@ -92,3 +92,10 @@ def signal_timeline(signal_id: str, actor: str = Depends(reviewer)):
 @app.get("/dashboard", include_in_schema=False)
 def dashboard():
     return FileResponse(Path(__file__).with_name("dashboard.html"), media_type="text/html", headers={"Cache-Control":"no-store","Content-Security-Policy":"default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"})
+
+@app.get("/assets/{asset_name}", include_in_schema=False)
+def dashboard_asset(asset_name: str):
+    allowed = {"dashboard.css": "text/css", "dashboard.js": "application/javascript"}
+    if asset_name not in allowed:
+        raise HTTPException(status_code=404, detail="Файл не найден")
+    return FileResponse(Path(__file__).with_name(asset_name), media_type=allowed[asset_name])
