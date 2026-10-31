@@ -101,22 +101,20 @@ def dashboard_asset(asset_name: str):
         raise HTTPException(status_code=404, detail="Файл не найден")
     return FileResponse(Path(__file__).with_name(asset_name), media_type=allowed[asset_name])
 
+class TicketInput(BaseModel):
+    model_config = ConfigDict(extra="forbid", str_strip_whitespace=True)
+    id: StrictStr = Field(min_length=1, max_length=128)
+    product: StrictStr = Field(min_length=1, max_length=128)
+    text: StrictStr = Field(min_length=1, max_length=10000)
+    channel: StrictStr = Field(default="web", min_length=1, max_length=64)
+
 class ImportRequest(BaseModel):
-    tickets: list[dict] = Field(min_length=1, max_length=500)
+    model_config = ConfigDict(extra="forbid")
+    tickets: list[TicketInput] = Field(min_length=1, max_length=500)
 
 @app.post("/imports")
 def import_batch(payload: ImportRequest, actor: str = Depends(reviewer)):
-    if any(set(item) - {"id","product","text","channel"} for item in payload.tickets):
-        raise HTTPException(status_code=422, detail="Неизвестные поля обращения")
-    try:
-        tickets = [Ticket(**item) for item in payload.tickets]
-    except TypeError as exc:
-        raise HTTPException(status_code=422, detail="Некорректная структура обращения") from exc
-    if any(not isinstance(t.id,str) or not isinstance(t.product,str) or
-           not isinstance(t.text,str) or not t.id.strip() or
-           not t.product.strip() or not t.text.strip() or
-           len(t.text)>10000 for t in tickets):
-        raise HTTPException(status_code=422, detail="Некорректные поля обращения")
+    tickets = [Ticket(**item.model_dump()) for item in payload.tickets]
     ids = [t.id for t in tickets]
     if len(set(ids)) != len(ids):
         raise HTTPException(status_code=422, detail="Повторяющиеся идентификаторы обращений")
