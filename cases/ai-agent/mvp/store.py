@@ -29,6 +29,13 @@ class SignalStore:
           FOREIGN KEY(signal_id) REFERENCES signals(id)
         );
         ''')
+        self.db.execute("""CREATE TABLE IF NOT EXISTS evidence_events (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          signal_id TEXT NOT NULL,
+          added_ticket_ids TEXT NOT NULL,
+          created_at TEXT NOT NULL,
+          FOREIGN KEY(signal_id) REFERENCES signals(id)
+        )""")
         self.db.commit()
 
     def ingest(self, signals):
@@ -53,6 +60,9 @@ class SignalStore:
                     (s['id'],s['product'],s['category'],s['workflow'],
                      len(incoming_ids),json.dumps(payload,ensure_ascii=False),
                      'pending_human_review',utcnow(),utcnow()))
+                    self.db.execute(
+                        'INSERT INTO evidence_events(signal_id,added_ticket_ids,created_at) VALUES(?,?,?)',
+                        (s['id'],json.dumps(incoming_ids,ensure_ascii=False),utcnow()))
                     inserted += 1
                     continue
                 if (current['product'],current['category'],current['workflow']) != (
@@ -62,6 +72,10 @@ class SignalStore:
                 merged_ids = list(dict.fromkeys(old.get('ticket_ids', []) + incoming_ids))
                 if len(merged_ids) == len(old.get('ticket_ids', [])):
                     continue
+                additions = [item for item in merged_ids if item not in old.get('ticket_ids', [])]
+                self.db.execute(
+                    'INSERT INTO evidence_events(signal_id,added_ticket_ids,created_at) VALUES(?,?,?)',
+                    (s['id'],json.dumps(additions,ensure_ascii=False),utcnow()))
                 old['ticket_ids'] = merged_ids
                 old['ticket_count'] = len(merged_ids)
                 old['examples'] = list(dict.fromkeys(
@@ -99,6 +113,15 @@ class SignalStore:
         return [dict(x) for x in self.db.execute(
             'SELECT actor,action,reason,created_at FROM review_events WHERE signal_id=? ORDER BY id',
             (signal_id,)).fetchall()]
+
+    def evidence_history(self, signal_id):
+        if self.db.execute('SELECT 1 FROM signals WHERE id=?', (signal_id,)).fetchone() is None:
+            raise KeyError(signal_id)
+        rows = self.db.execute(
+            'SELECT added_ticket_ids,created_at FROM evidence_events WHERE signal_id=? ORDER BY id',
+            (signal_id,)).fetchall()
+        return [{'added_ticket_ids':json.loads(row['added_ticket_ids']),
+                 'created_at':row['created_at']} for row in rows]
 
     def close(self):
         self.db.close()
