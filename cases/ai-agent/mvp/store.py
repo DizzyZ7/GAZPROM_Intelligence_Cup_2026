@@ -1,6 +1,7 @@
 """SQLite review queue for offline demo; not a production authorization layer."""
 import json
 import sqlite3
+from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -41,6 +42,20 @@ class SignalStore:
           channel TEXT NOT NULL, created_at TEXT NOT NULL
         )""")
         self.db.commit()
+
+    @contextmanager
+    def atomic(self):
+        """Единая транзакция для staging, анализа и сохранения сигналов."""
+        if self.db.in_transaction:
+            raise RuntimeError("Нельзя открыть вложенную транзакцию импорта")
+        self.db.execute("BEGIN IMMEDIATE")
+        try:
+            yield
+        except BaseException:
+            self.db.rollback()
+            raise
+        else:
+            self.db.commit()
 
     def stage_tickets(self, tickets):
         """Идемпотентное сохранение обезличенных обращений."""
