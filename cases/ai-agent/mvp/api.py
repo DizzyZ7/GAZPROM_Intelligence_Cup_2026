@@ -38,7 +38,7 @@ def health():
     return {"status": "ok", "mode": "local-demo"}
 
 @app.get("/signals")
-def signals(status: str | None = None):
+def signals(status: str | None = None, actor: str = Depends(reviewer)):
     with storage() as store:
         try:
             return store.list_signals(status)
