@@ -3,6 +3,7 @@ import os
 import sqlite3
 from contextlib import contextmanager
 from pathlib import Path
+from fastapi.responses import FileResponse
 from fastapi import FastAPI, Header, HTTPException, Depends
 from pydantic import BaseModel, Field
 from store import SignalStore
@@ -87,3 +88,7 @@ def signal_timeline(signal_id: str, actor: str = Depends(reviewer)):
         for row in decisions
     ]
     return sorted(events, key=lambda event: event["at"])
+
+@app.get("/dashboard", include_in_schema=False)
+def dashboard():
+    return FileResponse(Path(__file__).with_name("dashboard.html"), media_type="text/html", headers={"Cache-Control":"no-store","Content-Security-Policy":"default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'"})
