@@ -38,10 +38,10 @@ class APITests(unittest.TestCase):
         self.assertEqual(self.client.get("/health").status_code,200)
 
     def test_list(self):
-        self.assertEqual(len(self.client.get("/signals").json()),1)
+        self.assertEqual(len(self.client.get("/signals",headers={"X-Review-Token":"secret-test-token"}).json()),1)
 
     def test_invalid_status(self):
-        self.assertEqual(self.client.get("/signals?status=invalid").status_code,422)
+        self.assertEqual(self.client.get("/signals?status=invalid",headers={"X-Review-Token":"secret-test-token"}).status_code,422)
 
     def test_review_needs_token(self):
         self.assertEqual(self.client.post("/signals/P:bug:queue/review",json={"action":"approved","reason":"verified"}).status_code,401)
@@ -57,6 +57,9 @@ class APITests(unittest.TestCase):
         url="/signals/P:bug:queue/review"
         self.client.post(url,headers=h,json={"action":"approved","reason":"verified"})
         self.assertEqual(self.client.post(url,headers=h,json={"action":"approved","reason":"verified"}).status_code,409)
+
+    def test_list_requires_token(self):
+        self.assertEqual(self.client.get("/signals").status_code,401)
 
     def test_import_requires_token(self):
         payload={"tickets":[{"id":"a","product":"P","text":"Очередь ошибка 404"},{"id":"b","product":"P","text":"Очередь ошибка 404"}]}
