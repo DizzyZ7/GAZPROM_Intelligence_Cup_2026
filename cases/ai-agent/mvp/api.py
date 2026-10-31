@@ -118,11 +118,14 @@ def import_batch(payload: ImportRequest, actor: str = Depends(reviewer)):
     ids = [t.id for t in tickets]
     if len(set(ids)) != len(ids):
         raise HTTPException(status_code=422, detail="Повторяющиеся идентификаторы обращений")
-    result = analyze(tickets)
     with storage() as store:
         try:
+            staged = store.stage_tickets(tickets)
+            result = analyze(store.staged_tickets())
             added = store.ingest(result["signals"])
         except ValueError as exc:
             raise HTTPException(status_code=409, detail=str(exc)) from exc
-    return {"processed":result["processed"],"signals_found":len(result["signals"]),
+    return {"processed":len(tickets),"staged_new":staged,
+            "analyzed_total":result["processed"],
+            "signals_found":len(result["signals"]),
             "new_signals":added,"mode":"rules"}
