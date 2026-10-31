@@ -90,5 +90,21 @@ class APITests(unittest.TestCase):
         self.assertEqual(self.client.get("/assets/dashboard.js").status_code,200)
         self.assertEqual(self.client.get("/assets/unknown.js").status_code,404)
 
+    def test_import_rejects_unknown_fields(self):
+        headers={"X-Review-Token":"secret-test-token"}
+        ticket={"id":"a","product":"P","text":"Очередь ошибка 404","secret":"unexpected"}
+        response=self.client.post("/imports",headers=headers,json={"tickets":[ticket]})
+        self.assertEqual(response.status_code,422,response.text)
+
+    def test_import_rejects_non_string_fields(self):
+        headers={"X-Review-Token":"secret-test-token"}
+        ticket={"id":123,"product":"P","text":"Очередь ошибка 404"}
+        self.assertEqual(self.client.post("/imports",headers=headers,json={"tickets":[ticket]}).status_code,422)
+
+    def test_import_rejects_long_text(self):
+        headers={"X-Review-Token":"secret-test-token"}
+        ticket={"id":"a","product":"P","text":"x"*10001}
+        self.assertEqual(self.client.post("/imports",headers=headers,json={"tickets":[ticket]}).status_code,422)
+
 if __name__=="__main__":
     unittest.main()
