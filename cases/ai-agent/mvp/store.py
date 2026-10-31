@@ -36,7 +36,38 @@ class SignalStore:
           created_at TEXT NOT NULL,
           FOREIGN KEY(signal_id) REFERENCES signals(id)
         )""")
+        self.db.execute("""CREATE TABLE IF NOT EXISTS staged_tickets (
+          id TEXT PRIMARY KEY, product TEXT NOT NULL, text TEXT NOT NULL,
+          channel TEXT NOT NULL, created_at TEXT NOT NULL
+        )""")
         self.db.commit()
+
+    def stage_tickets(self, tickets):
+        """Идемпотентное сохранение обезличенных обращений."""
+        from pulse import redact
+        inserted = 0
+        with self.db:
+            for ticket in tickets:
+                sanitized = redact(ticket.text)
+                row = self.db.execute(
+                    'SELECT product,text,channel FROM staged_tickets WHERE id=?',
+                    (ticket.id,)).fetchone()
+                if row is not None:
+                    if (row['product'],row['text'],row['channel']) != (
+                        ticket.product,sanitized,ticket.channel):
+                        raise ValueError('Идентификатор обращения уже используется с другим содержимым')
+                    continue
+                self.db.execute(
+                    'INSERT INTO staged_tickets(id,product,text,channel,created_at) VALUES(?,?,?,?,?)',
+                    (ticket.id,ticket.product,sanitized,ticket.channel,utcnow()))
+                inserted += 1
+        return inserted
+
+    def staged_tickets(self):
+        from pulse import Ticket
+        return [Ticket(row['id'],row['product'],row['text'],row['channel'])
+                for row in self.db.execute(
+                    'SELECT id,product,text,channel FROM staged_tickets ORDER BY id')]
 
     def ingest(self, signals):
         """Идемпотентный импорт с накоплением новых источников.
