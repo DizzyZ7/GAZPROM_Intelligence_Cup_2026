@@ -2,6 +2,7 @@
 import os
 from contextlib import contextmanager
 from pathlib import Path
+from typing import Literal
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi import FastAPI, Header, HTTPException, Depends
 from fastapi.exceptions import RequestValidationError
@@ -38,6 +39,41 @@ def reviewer(x_review_token: str | None = Header(default=None)) -> str:
 class ReviewRequest(BaseModel):
     action: str
     reason: str = Field(min_length=3, max_length=1000)
+
+class ExclusionRequest(BaseModel):
+    ticket_id: StrictStr = Field(min_length=1, max_length=128)
+    reason: str = Field(min_length=3, max_length=1000)
+
+class ProductDecision(BaseModel):
+    decision: Literal["in_progress", "known", "needs_clarification"]
+    reason: str = Field(min_length=3, max_length=1000)
+
+@app.post("/signals/{signal_id}/exclude")
+def exclude(signal_id: str, payload: ExclusionRequest, actor: str = Depends(reviewer)):
+    with storage() as store:
+        try:
+            store.exclude_source(signal_id, payload.ticket_id, actor, payload.reason)
+            return get_signal(store, signal_id)
+        except KeyError as exc:
+            raise HTTPException(status_code=404, detail="Сигнал не найден") from exc
+        except ValueError as exc:
+            raise HTTPException(status_code=409, detail=str(exc)) from exc
+
+@app.get("/product-queue")
+def product_queue(actor: str = Depends(reviewer)):
+    with storage() as store:
+        return store.queue()
+
+@app.post("/product-queue/{signal_id}/decision")
+def product_decision(signal_id: str, payload: ProductDecision, actor: str = Depends(reviewer)):
+    with storage() as store:
+        try:
+            store.decide(signal_id, payload.decision, payload.reason)
+        except KeyError as exc:
+            raise HTTPException(status_code=404, detail="Сигнал не передан владельцу") from exc
+        except ValueError as exc:
+            raise HTTPException(status_code=409, detail=str(exc)) from exc
+    return {"signal_id": signal_id, "decision": payload.decision}
 
 @app.get("/health")
 def health():
@@ -85,6 +121,7 @@ def signal_timeline(signal_id: str, actor: str = Depends(reviewer)):
         except KeyError as exc:
             raise HTTPException(status_code=404, detail="Сигнал не найден") from exc
         decisions = store.audit(signal_id)
+        exclusions = store.exclusions(signal_id)
     events = [
         {"type": "evidence_added", "at": row["created_at"],
          "added_ticket_ids": row["added_ticket_ids"]}
@@ -94,6 +131,12 @@ def signal_timeline(signal_id: str, actor: str = Depends(reviewer)):
          "actor": row["actor"], "action": row["action"], "reason": row["reason"]}
         for row in decisions
     ]
+    events.extend(
+        {"type": "source_excluded", "at": row["created_at"],
+         "action": "Исключён источник " + row["ticket_id"],
+         "actor": row["actor"], "reason": row["reason"]}
+        for row in exclusions
+    )
     return sorted(events, key=lambda event: event["at"])
 
 @app.get("/dashboard", include_in_schema=False)
@@ -113,10 +156,12 @@ class TicketInput(BaseModel):
     product: StrictStr = Field(min_length=1, max_length=128)
     text: StrictStr = Field(min_length=1, max_length=10000)
     channel: StrictStr = Field(default="web", min_length=1, max_length=64)
+    occurred_at: StrictStr | None = Field(default=None, max_length=40)
 
 class ImportRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     tickets: list[TicketInput] = Field(min_length=1, max_length=500)
+    mode: Literal["rules", "experimental"] = "rules"
 
 @app.post("/imports")
 def import_batch(payload: ImportRequest, actor: str = Depends(reviewer)):
@@ -126,7 +171,7 @@ def import_batch(payload: ImportRequest, actor: str = Depends(reviewer)):
         raise HTTPException(status_code=422, detail="Повторяющиеся идентификаторы обращений")
     with storage() as store:
         try:
-            result = ingest_batch(store, tickets)
+            result = ingest_batch(store, tickets, mode=payload.mode)
         except ValueError as exc:
             raise HTTPException(status_code=409, detail=str(exc)) from exc
     return result

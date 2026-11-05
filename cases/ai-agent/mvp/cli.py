@@ -11,7 +11,7 @@ def main():
     sub = parser.add_subparsers(dest="command", required=True)
     imp = sub.add_parser("import")
     imp.add_argument("--file", default=str(Path(__file__).with_name("sample_tickets.json")))
-    imp.add_argument("--mode", choices=["rules", "semantic"], default="rules")
+    imp.add_argument("--mode", choices=["rules", "semantic", "experimental"], default="rules")
     imp.add_argument("--threshold", type=float, default=0.86)
     ls = sub.add_parser("list")
     ls.add_argument("--status")

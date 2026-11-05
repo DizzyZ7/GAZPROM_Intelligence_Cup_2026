@@ -5,3 +5,4 @@
 .import-controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0}
 #import-json{width:100%;min-height:95px;resize:vertical;font-family:ui-monospace,monospace;font-size:12px}
 #import-result{min-height:18px}
+.source-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}.source-grid article{overflow-wrap:anywhere}#product-queue textarea{display:block;width:100%;margin:8px 0}

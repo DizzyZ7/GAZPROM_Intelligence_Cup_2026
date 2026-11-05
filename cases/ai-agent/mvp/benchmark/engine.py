@@ -67,9 +67,11 @@ def apply_threshold(analysis, threshold):
     )
 
 
-def _context(left, right):
+def _context(left, right, include_unknown=False):
     if left["product"] != right["product"]:
         return "different_product"
+    if include_unknown and "unknown" in (left["category"], right["category"]):
+        return "context_pass"
     if left["category"] != right["category"]:
         return "different_category"
     if (
@@ -108,10 +110,19 @@ def _validated_vectors(provider, texts):
 
 
 def analyze_method(
-    method, tickets, threshold=None, tfidf=None, provider=None, max_pairs=MAX_PAIRS
+    method,
+    tickets,
+    threshold=None,
+    tfidf=None,
+    provider=None,
+    max_pairs=MAX_PAIRS,
+    *,
+    include_unknown=False,
 ):
     if method not in METHODS or len({t.id for t in tickets}) != len(tickets):
         raise ValueError("Неизвестный метод или повторные ID")
+    if method == "rules" and include_unknown:
+        raise ValueError("Поиск неизвестных тем требует оценки сходства")
     if (
         type(max_pairs) is not int
         or max_pairs < 0
@@ -163,7 +174,7 @@ def analyze_method(
         pairs = []
         for i, j in combinations(range(len(predictions)), 2):
             left, right = predictions[i], predictions[j]
-            reason = _context(left, right)
+            reason = _context(left, right, include_unknown)
             score = None
             if reason == "context_pass":
                 score = (

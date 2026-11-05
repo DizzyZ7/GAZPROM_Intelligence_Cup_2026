@@ -13,6 +13,7 @@ def get_signal(store, signal_id):
         "workflow": row["workflow"],
         "ticket_count": row["ticket_count"],
         "ticket_ids": payload.get("ticket_ids", []),
+        "sources": store.sources(payload.get("ticket_ids", [])),
         "examples": payload.get("examples", []),
         "method": payload.get("method", "rules"),
         "status": row["status"],

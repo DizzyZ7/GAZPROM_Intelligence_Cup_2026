@@ -19,6 +19,7 @@ class Ticket:
     product: str
     text: str
     channel: str = 'web'
+    occurred_at: str | None = None
 
 def classify(text: str) -> tuple[str, str, float]:
     t = text.casefold()
