@@ -1,0 +1,144 @@
+{
+  "calibration": {
+    "best_validation_f1": 0.0,
+    "best_validation_tp": 0,
+    "calibration_status": "no_true_positives",
+    "gold_positive_pairs": 71
+  },
+  "classification": {
+    "abstention_fraction": 1.0,
+    "accuracy": 0.14,
+    "confusion_matrix": {
+      "bug": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 30
+      },
+      "feature_request": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 14
+      },
+      "how_to": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 14
+      },
+      "other": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 14
+      },
+      "service_request": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 14
+      },
+      "unknown": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 14
+      }
+    },
+    "count": 100,
+    "macro_f1": 0.04093567251461988,
+    "macro_precision": 0.023333333333333334,
+    "macro_recall": 0.16666666666666666,
+    "per_category": {
+      "bug": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 30
+      },
+      "feature_request": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 14
+      },
+      "how_to": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 14
+      },
+      "other": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 14
+      },
+      "service_request": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 14
+      },
+      "unknown": {
+        "f1": 0.24561403508771928,
+        "precision": 0.14,
+        "recall": 1.0,
+        "support": 14
+      }
+    }
+  },
+  "classifier": "rules-v1-shared; score не является вероятностью",
+  "clustering": {
+    "f1": 0.0,
+    "false_merge_fraction": null,
+    "fn": 71,
+    "fp": 0,
+    "missed_repeat_fraction": 1.0,
+    "pair_count": 4950,
+    "precision": 0.0,
+    "recall": 0.0,
+    "signal_candidates": 0,
+    "singleton_count": 100,
+    "tn": 4879,
+    "tp": 0
+  },
+  "method": "tfidf",
+  "retrieval_pairs": {
+    "f1": 0.0,
+    "false_merge_fraction": null,
+    "fn": 71,
+    "fp": 0,
+    "missed_repeat_fraction": 1.0,
+    "pair_count": 4950,
+    "precision": 0.0,
+    "recall": 0.0,
+    "tn": 4879,
+    "tp": 0
+  },
+  "retrieval_top_k": {
+    "k": 5,
+    "precision_at_k": 0.0,
+    "queries_with_repeats": 40,
+    "query_hit_fraction": 0.0,
+    "recall_at_k": 0.0,
+    "relevant_neighbors": 142,
+    "returned_neighbors": 0,
+    "returned_precision_at_k": 0.0
+  },
+  "status": "ok",
+  "threshold": 0.95
+}
