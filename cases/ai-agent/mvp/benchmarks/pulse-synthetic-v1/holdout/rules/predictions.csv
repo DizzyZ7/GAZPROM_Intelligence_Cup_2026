@@ -1,0 +1,101 @@
+ticket_id,product,category,workflow,classifier_score,cluster_id,gold_category,gold_workflow,gold_cluster_id
+t_02a72ef9bb1db98d384c,Вектор: Портал,unknown,unclassified,0.0,699df94875db0a46192a,bug,report_export,Вектор: Портал|export_encoding
+t_03c93b1ca56faf41b0db,Вектор: Портал,unknown,unclassified,0.0,90ae9e39e78389e08500,service_request,account_owner,
+t_0722e4fc97df0cc03c12,Горизонт: Запись,unknown,unclassified,0.0,5044843177902d18212c,how_to,booking_queue,
+t_09127112452e445ec68a,Вектор: Портал,unknown,unclassified,0.0,17e38fb007e0f4f4cdfa,other,unsolicited,
+t_0a1eab901f03f524aebd,Горизонт: Запись,unknown,unclassified,0.0,c9345b31a083d600f897,other,unsolicited,
+t_14c5144941a607e7affe,Вектор: Портал,unknown,unclassified,0.0,891417445efbb34f0dcd,how_to,booking_queue,
+t_162442bd05b4b2ef0d40,Вектор: Портал,unknown,unclassified,0.0,cba493640e58865010d5,unknown,unclassified,
+t_163f54050c856f564f94,Север: Кабинет,unknown,unclassified,0.0,b5a1a7e056bb798bdfdf,bug,contract_next_button,Север: Кабинет|contract_button
+t_16c653cfe69bc355396f,Горизонт: Запись,unknown,unclassified,0.0,295071445d32ac3d65ad,feature_request,accessibility,Горизонт: Запись|font_scale
+t_17a7a51b91ca9285c65f,Север: Кабинет,unknown,unclassified,0.0,46bd5988c524a10c4a2e,bug,contract_next_button,Север: Кабинет|contract_button
+t_17c72436077a76540e57,Горизонт: Запись,unknown,unclassified,0.0,b5342a210c8ccb525e74,bug,report_export,Горизонт: Запись|export_encoding
+t_188c2ec1a71d6c5e2112,Вектор: Портал,unknown,unclassified,0.0,8ae19f26985c9de3a256,bug,contract_next_button,
+t_1fca5f4e7a6564377d9f,Вектор: Портал,unknown,unclassified,0.0,06656a1500be020ceb2b,bug,contract_next_button,Вектор: Портал|contract_button
+t_20064460add44cfce13e,Север: Кабинет,unknown,unclassified,0.0,1964d2b7608362525ac5,bug,report_export,Север: Кабинет|export_encoding
+t_22f08c46960254b16768,Вектор: Портал,unknown,unclassified,0.0,f003e3d3197c1c684d73,how_to,booking_queue,
+t_248dd16b70fcccb6c5a4,Вектор: Портал,unknown,unclassified,0.0,15faf726ed63e599d51b,bug,contract_next_button,Вектор: Портал|contract_button
+t_24fdd98004ae951729b9,Горизонт: Запись,unknown,unclassified,0.0,bf5b837cfeec72fb559f,unknown,unclassified,
+t_25586b1522035be58420,Горизонт: Запись,unknown,unclassified,0.0,8be682b08f66e698089e,bug,report_export,Горизонт: Запись|export_encoding
+t_27b99a0d8fae0811a191,Горизонт: Запись,unknown,unclassified,0.0,75344de5a96d3beca6c4,service_request,account_owner,
+t_27fd42eff8f63b13a6c3,Север: Кабинет,unknown,unclassified,0.0,70183c8cfb7d1fe9f449,how_to,booking_queue,
+t_2a25c49c48db08e70a9d,Горизонт: Запись,unknown,unclassified,0.0,936c067f0da6604640fc,how_to,booking_queue,
+t_2f84f3ff4604f2a6e858,Север: Кабинет,unknown,unclassified,0.0,a81d81366dd426165681,unknown,unclassified,
+t_32c7e4ed6aedfb7a51a3,Север: Кабинет,unknown,unclassified,0.0,ccdf1a4373cf8c8e59a7,how_to,booking_queue,
+t_355509106e9cc54fe876,Вектор: Портал,unknown,unclassified,0.0,2840678796a4d93f4580,bug,report_export,Вектор: Портал|export_encoding
+t_374bb2d5867b420f0677,Север: Кабинет,unknown,unclassified,0.0,f014225cb6db1841d864,bug,contract_next_button,Север: Кабинет|contract_button
+t_377fb2831cf1c65d8ebf,Горизонт: Запись,unknown,unclassified,0.0,21c52125433dd9a4d23f,unknown,unclassified,
+t_388b4726535a437ba508,Горизонт: Запись,unknown,unclassified,0.0,d4a029a57e4032049f5a,other,unsolicited,
+t_3890cf812bcc47535a93,Вектор: Портал,unknown,unclassified,0.0,5d3848acf25f5f2d6ad1,other,unsolicited,
+t_39d516d0403a40d2c3db,Вектор: Портал,unknown,unclassified,0.0,6f62c19db3083520b719,other,unsolicited,
+t_3a0d5e9d4a2704af5a15,Горизонт: Запись,unknown,unclassified,0.0,abdb56289d3e2f6b6167,bug,contract_next_button,Горизонт: Запись|contract_button
+t_3aa6be47880f31d1ae5b,Север: Кабинет,unknown,unclassified,0.0,5957aabb992cab777b8a,unknown,unclassified,
+t_3abecfca83cccb7fb30e,Горизонт: Запись,unknown,unclassified,0.0,d2be12cc9fb88ee0885e,bug,contract_next_button,Горизонт: Запись|contract_button
+t_406cca5861289cb0c2d5,Вектор: Портал,unknown,unclassified,0.0,5a06621496086880dc17,service_request,account_owner,
+t_40a85e1cbe39125bdf26,Вектор: Портал,unknown,unclassified,0.0,b0a42b9a5c4735d6f5b7,unknown,unclassified,
+t_422f5c43a50335d69744,Вектор: Портал,unknown,unclassified,0.0,93ebfc87c42d14dea1d4,bug,contract_next_button,Вектор: Портал|contract_button
+t_430edc1cc3afcde1aa39,Горизонт: Запись,unknown,unclassified,0.0,2ea032736610a22892ce,feature_request,accessibility,Горизонт: Запись|font_scale
+t_47fa3aea7dca5ec98a2f,Север: Кабинет,unknown,unclassified,0.0,5c7f396b1cb5cac7d59a,feature_request,accessibility,Север: Кабинет|font_scale
+t_480a9fc8e8af8199fab4,Горизонт: Запись,unknown,unclassified,0.0,738e3709a00b59895748,bug,contract_next_button,Горизонт: Запись|contract_button
+t_493bda909a3a51d26fad,Север: Кабинет,unknown,unclassified,0.0,ff9b7e03baf9c4342be3,other,unsolicited,
+t_4bacadf51e31c79696ce,Вектор: Портал,unknown,unclassified,0.0,15eaf5c5afbfce009065,service_request,account_owner,
+t_4bc095788a3d04318df1,Север: Кабинет,unknown,unclassified,0.0,786427c22b7c1a68b76c,other,unsolicited,
+t_4ce2219ef9c28badaecc,Север: Кабинет,unknown,unclassified,0.0,f38c4af2d1fa0b11b5cd,feature_request,accessibility,Север: Кабинет|font_scale
+t_4de86f82b92f1b549dc9,Вектор: Портал,unknown,unclassified,0.0,bb6bbe9793cdd589c7e0,feature_request,accessibility,Вектор: Портал|font_scale
+t_577d4c4181ac42759fb2,Вектор: Портал,unknown,unclassified,0.0,902e0221d55a77d7c216,feature_request,accessibility,Вектор: Портал|font_scale
+t_58a92abd52568c86dc6f,Север: Кабинет,unknown,unclassified,0.0,b387c04988136ec23c06,service_request,account_owner,
+t_62e66359a34358ab741d,Горизонт: Запись,unknown,unclassified,0.0,9a73ef9715e29c21287e,how_to,booking_queue,
+t_65333357d6f512d8d2f0,Горизонт: Запись,unknown,unclassified,0.0,eab1bb35b3814c76dd69,service_request,account_owner,
+t_68b6d5e3bce52da71459,Горизонт: Запись,unknown,unclassified,0.0,045e72b5470271d3a3be,unknown,unclassified,
+t_68cca5440dfe3add80f3,Горизонт: Запись,unknown,unclassified,0.0,bfbf0591c442eb64c7de,bug,report_export,Горизонт: Запись|export_encoding
+t_69089edc2ae0739f850c,Вектор: Портал,unknown,unclassified,0.0,3339149c3c11187b3899,bug,report_export,Вектор: Портал|export_encoding
+t_6c8a9e29a1eebe661462,Север: Кабинет,unknown,unclassified,0.0,8be7b8cd718d3bd2770b,bug,contract_next_button,Север: Кабинет|contract_button
+t_6e2a1727d885e1aa5b86,Север: Кабинет,unknown,unclassified,0.0,5083079bfb2c4c3f367f,other,unsolicited,
+t_6fa158c70e529721055d,Вектор: Портал,unknown,unclassified,0.0,9cfa10746f61466b2053,unknown,unclassified,
+t_787317d13309de4d74b3,Горизонт: Запись,unknown,unclassified,0.0,657cc55d5d1f198f49e7,other,unsolicited,
+t_813d0d1943eb6d062ce2,Горизонт: Запись,unknown,unclassified,0.0,c371362f21c00a3f9753,service_request,account_owner,
+t_8628c31494843e3cb867,Горизонт: Запись,unknown,unclassified,0.0,41bab9385826ca8f8e8d,bug,contract_next_button,Горизонт: Запись|contract_button
+t_884fa9838ab4ee958fa0,Север: Кабинет,unknown,unclassified,0.0,23615d2c49212a2ab284,bug,pdf_viewer,Север: Кабинет|rare_pdf_rotation
+t_8c1ec168700afa52aecc,Горизонт: Запись,unknown,unclassified,0.0,bc9129acaaa2230cc914,service_request,account_owner,
+t_8d575afc96a874cc764c,Север: Кабинет,unknown,unclassified,0.0,427e35e360bdd424581d,bug,report_export,Север: Кабинет|export_encoding
+t_91c25a05182a928d9f35,Север: Кабинет,unknown,unclassified,0.0,e0494df22f6c717aee41,other,unsolicited,
+t_9224057b591b3dafb605,Горизонт: Запись,unknown,unclassified,0.0,71dc71c5022c40ecd394,bug,report_export,Горизонт: Запись|export_encoding
+t_941474df279f2e0fe949,Север: Кабинет,unknown,unclassified,0.0,07c7c645db9101617538,other,unsolicited,
+t_94ee8febcccc1a018124,Север: Кабинет,unknown,unclassified,0.0,aed6dac7283236c8eb66,service_request,account_owner,
+t_9625561a6b860621fbe2,Север: Кабинет,unknown,unclassified,0.0,3e55381cd738ac9991ad,how_to,booking_queue,
+t_998837a1b7d4effaa255,Вектор: Портал,unknown,unclassified,0.0,4882828bb3099e8c3afa,service_request,account_owner,
+t_99e6169b36171b274692,Север: Кабинет,unknown,unclassified,0.0,9349f1249944fe1dd50b,feature_request,accessibility,Север: Кабинет|font_scale
+t_9d4781a3d38c1c1d5035,Север: Кабинет,unknown,unclassified,0.0,039858f42d332e3b88ea,how_to,booking_queue,
+t_a2f1d6c2a4c49f16d6aa,Север: Кабинет,unknown,unclassified,0.0,301b7ed9016af48f3bdc,unknown,unclassified,
+t_a354bf339f864ea73dfb,Север: Кабинет,unknown,unclassified,0.0,5926edfa83442a17f515,bug,report_export,Север: Кабинет|export_encoding
+t_a7ff658330e6bc571f4e,Горизонт: Запись,unknown,unclassified,0.0,6ee84b18dfb2e960df17,other,unsolicited,
+t_a9d57ea5a429742deb74,Север: Кабинет,unknown,unclassified,0.0,d9e3e8bfb06792440566,bug,report_export,Север: Кабинет|export_encoding
+t_aa3291bdd64d5ea0c941,Горизонт: Запись,unknown,unclassified,0.0,12968167f35246798b2a,service_request,account_owner,
+t_ab1912451a8424a58840,Север: Кабинет,unknown,unclassified,0.0,8e7d02cdcbc10073df32,bug,contract_next_button,Север: Кабинет|contract_button
+t_af2031c29b6c5305d5b0,Север: Кабинет,unknown,unclassified,0.0,ddf08a7a7fecae841753,how_to,booking_queue,
+t_b50bf27ec655cfa2b017,Вектор: Портал,unknown,unclassified,0.0,ee253e051de190426fcb,service_request,account_owner,
+t_c2c1188a65ee890044f8,Горизонт: Запись,unknown,unclassified,0.0,b79f82d09d5341914629,feature_request,accessibility,Горизонт: Запись|font_scale
+t_c33312fa3d53ee611db2,Вектор: Портал,unknown,unclassified,0.0,f4d6562ae92d28546380,how_to,booking_queue,
+t_c49df4d0a37d401098cd,Север: Кабинет,unknown,unclassified,0.0,fc873e30000428e86a85,bug,report_export,Север: Кабинет|export_encoding
+t_c630705df35585ec7260,Север: Кабинет,unknown,unclassified,0.0,d1f89735a16a4fb6d063,bug,accessibility_reader,Север: Кабинет|rare_screenreader
+t_cb36fb44d3e199b17198,Вектор: Портал,unknown,unclassified,0.0,a367800d496ba94d75a0,feature_request,accessibility,Вектор: Портал|font_scale
+t_d19dba11e78c83d4fb28,Вектор: Портал,unknown,unclassified,0.0,41edbfa746542bf752b9,bug,report_export,Вектор: Портал|export_encoding
+t_d1f95edf4d7fecf3c5ef,Горизонт: Запись,unknown,unclassified,0.0,e64893a3ba0fb6777a1e,feature_request,accessibility,Горизонт: Запись|font_scale
+t_d53a19fade4667713529,Вектор: Портал,unknown,unclassified,0.0,d97caf868d39e90e4caf,other,unsolicited,
+t_d7c4a11e483c681cc9aa,Горизонт: Запись,unknown,unclassified,0.0,5683a899a5f1749eff1d,bug,contract_next_button,Горизонт: Запись|contract_button
+t_d8ae643ef9cc28fbd07b,Север: Кабинет,unknown,unclassified,0.0,7dcbedfe07e160c4412c,feature_request,accessibility,Север: Кабинет|font_scale
+t_e1b13c82150776eb8c4a,Север: Кабинет,unknown,unclassified,0.0,ebfda2c70f4d29bc6a56,service_request,account_owner,
+t_e5b58b6f0d3390bd16bb,Вектор: Портал,unknown,unclassified,0.0,31255e85a9a24516dc05,unknown,unclassified,
+t_e67c8fad1cd327c80adc,Горизонт: Запись,unknown,unclassified,0.0,f962175752999143bcad,feature_request,accessibility,Горизонт: Запись|font_scale
+t_e6d3f47650cf2930bc4a,Горизонт: Запись,unknown,unclassified,0.0,0bff583e012448a4e876,how_to,booking_queue,
+t_e9dfd84427fcc71d29f8,Север: Кабинет,unknown,unclassified,0.0,06d403a18df60a991af7,service_request,account_owner,
+t_ebcb6c6ec06242657f00,Горизонт: Запись,unknown,unclassified,0.0,c57632b078f05cc368b2,how_to,booking_queue,
+t_ed322298f1af8319053a,Вектор: Портал,unknown,unclassified,0.0,43e925162e47564c2cec,how_to,booking_queue,
+t_ed6d5d7551d07928bd9a,Горизонт: Запись,unknown,unclassified,0.0,9b0125160f5232a22724,bug,report_export,
+t_f5ea1097d25e64a1b671,Север: Кабинет,unknown,unclassified,0.0,99b58c894d0b662adcaa,unknown,unclassified,
+t_f7360c85d075d1ec5c07,Север: Кабинет,unknown,unclassified,0.0,db73cdafbdfa3f46d335,feature_request,accessibility,Север: Кабинет|font_scale
+t_f7e1c5adb1518c41e2ce,Вектор: Портал,unknown,unclassified,0.0,b66c15f25df50726a373,feature_request,accessibility,Вектор: Портал|font_scale
+t_f8253d288dc218990dd0,Горизонт: Запись,unknown,unclassified,0.0,3429cb928eae2e45ba2d,other,unsolicited,
+t_fa972820f40ef90a20ca,Горизонт: Запись,unknown,unclassified,0.0,dfbc67abe936c152481a,unknown,unclassified,
+t_fab08686a101afd355a9,Горизонт: Запись,unknown,unclassified,0.0,fa265d1c37b160b841e1,unknown,unclassified,
+t_fb087dc448305b3ff435,Вектор: Портал,unknown,unclassified,0.0,497b14bf4cd98ff06bca,unknown,unclassified,

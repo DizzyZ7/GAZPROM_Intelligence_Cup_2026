@@ -1,0 +1,9 @@
+{
+  "classification": null,
+  "clustering": null,
+  "method": "embeddings",
+  "reason": "Локальный embedding-provider не задан; инференс не выполнялся",
+  "retrieval_pairs": null,
+  "retrieval_top_k": null,
+  "status": "not_checked"
+}

@@ -1,0 +1,95 @@
+{
+  "benchmark_version": "pulse-benchmark-v1",
+  "configuration_sha256": "16a5d8d5239b24af232d6a20a64a371a8382a39170a50d3d38dd4e62c20964eb",
+  "dataset_manifest_sha256": "9b7f27a487fc6fce8968d1b5323c6fca528d08a4f518e72f1fcad3b1ba6b0cfb",
+  "environment": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+    "python": "3.12.14"
+  },
+  "evaluation_split": "holdout",
+  "files": {
+    "comparison.csv": {
+      "bytes": 471,
+      "sha256": "7aee57cffac44743817e01152d3d2d3574540b29f54c4f9278da08b8ecd492d9"
+    },
+    "comparison.md": {
+      "bytes": 1574,
+      "sha256": "59330ee7aa2cb28195d3288a0786bd6d28773408f4fbab4695a3e2f7c6de06d3"
+    },
+    "embeddings/performance.json": {
+      "bytes": 5,
+      "sha256": "38e0b9de817f645c4bec37c0d4a3e58baecccb040f5718dc069a72c7385a0bed"
+    },
+    "embeddings/report.json": {
+      "bytes": 271,
+      "sha256": "c9d727c8d309cbb984d9eaee21061ac879b560c5d0d8587e9bcc21b3ea85fe74"
+    },
+    "frozen-config.json": {
+      "bytes": 2344,
+      "sha256": "7acc8a1bba830552a6ca995f058784f609ab650d08ee305ecea93c9e37f2de70"
+    },
+    "rules/confusion.csv": {
+      "bytes": 206,
+      "sha256": "19d1d94ba10a5a441de5ba2ba5091f4c763cb15087db5ebe3ceaf975111027c9"
+    },
+    "rules/errors.json": {
+      "bytes": 53483,
+      "sha256": "e9e94916e71ffb916de58111352388659627360d2fc0c9a8f31e52dc4c4c4060"
+    },
+    "rules/groups.json": {
+      "bytes": 3803,
+      "sha256": "20389d36a1ef66632b251f8472632b29a0e4e4c59b5a9898e6362a3c26614036"
+    },
+    "rules/performance.json": {
+      "bytes": 389,
+      "sha256": "3f7a3e3a632ce2560212789a3960058b4fc2afafff9e420e3a4686b61854cd39"
+    },
+    "rules/predictions.csv": {
+      "bytes": 14024,
+      "sha256": "3d0d0b6f4144109dc1f131c1cd924e064319ba1a5623cc811b7ca18fa9714d15"
+    },
+    "rules/report.json": {
+      "bytes": 2975,
+      "sha256": "f9fdd222b83500d8e515ae1842f39e0f8e0919b28e17cdb8c3f979db88eddaf5"
+    },
+    "rules/retrieval.csv": {
+      "bytes": 27,
+      "sha256": "94b7af999ffe2912dcfaee61da4358e9caaba8f17441ec3ae4087fcc60315082"
+    },
+    "tfidf/confusion.csv": {
+      "bytes": 206,
+      "sha256": "19d1d94ba10a5a441de5ba2ba5091f4c763cb15087db5ebe3ceaf975111027c9"
+    },
+    "tfidf/errors.json": {
+      "bytes": 53483,
+      "sha256": "e9e94916e71ffb916de58111352388659627360d2fc0c9a8f31e52dc4c4c4060"
+    },
+    "tfidf/groups.json": {
+      "bytes": 3803,
+      "sha256": "20389d36a1ef66632b251f8472632b29a0e4e4c59b5a9898e6362a3c26614036"
+    },
+    "tfidf/performance.json": {
+      "bytes": 394,
+      "sha256": "fcf1563db68532e2bd8656b22759cfbfdbc2d707aaea0f80f2b66037e5d38f3f"
+    },
+    "tfidf/predictions.csv": {
+      "bytes": 14024,
+      "sha256": "3d0d0b6f4144109dc1f131c1cd924e064319ba1a5623cc811b7ca18fa9714d15"
+    },
+    "tfidf/report.json": {
+      "bytes": 3115,
+      "sha256": "eb20c6193e3ec697d146048f11e18d25819af7b6308ee590c98fb47718e6b926"
+    },
+    "tfidf/retrieval.csv": {
+      "bytes": 27,
+      "sha256": "94b7af999ffe2912dcfaee61da4358e9caaba8f17441ec3ae4087fcc60315082"
+    }
+  },
+  "methods": {
+    "embeddings": "not_checked",
+    "rules": "ok",
+    "tfidf": "ok"
+  },
+  "schema_version": 1,
+  "status": "partial"
+}
