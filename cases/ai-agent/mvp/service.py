@@ -29,10 +29,10 @@ def ingest_batch(store, tickets, mode="rules", provider=None, threshold=0.86):
         accumulated = store.staged_tickets()
         if mode == "semantic":
             result = analyze_semantic(accumulated, provider, threshold=threshold)
-            signals = reconcile(store, result["signals"])
         else:
             result = analyze(accumulated)
-            signals = result["signals"]
+        # Смена метода анализа не должна обходить запрет на слияние старых сигналов.
+        signals = reconcile(store, result["signals"])
         inserted = store.ingest(signals)
     return {"processed": len(tickets), "staged_new": staged,
             "analyzed_total": result["processed"], "signals_found": len(signals),

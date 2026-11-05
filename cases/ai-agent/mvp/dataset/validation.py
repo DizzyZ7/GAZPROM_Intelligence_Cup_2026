@@ -3,6 +3,7 @@
 import hashlib
 import json
 from collections import Counter
+from datetime import datetime
 from pathlib import Path
 
 from .generator import DATASET_VERSION, SPLITS
@@ -30,9 +31,25 @@ def _require(condition, reason):
 def _validate_events(data, sources):
     events, labels = data["events"], data["event_labels"]
     _require(len(events) == len(labels), "Число событий и эталонов различается")
-    seen, revisions, created = {}, {}, set()
+    seen, revisions, times, created = {}, {}, {}, set()
     for event, label in zip(events, labels):
         _require(set(event) == EVENT_FIELDS, "Неверная схема события")
+        _require(
+            all(
+                isinstance(event[key], str) and event[key].strip()
+                for key in EVENT_FIELDS - {"revision"}
+            ),
+            "Поля события должны быть непустыми строками",
+        )
+        _require(len(event["text"]) <= 10000, "Текст события превышает контракт MVP")
+        try:
+            occurred_at = datetime.fromisoformat(event["occurred_at"])
+        except ValueError as exc:
+            raise ValueError("Неверное время события") from exc
+        _require(
+            occurred_at.tzinfo is not None,
+            "Время события должно содержать часовой пояс",
+        )
         _require(
             event["event_id"] == label["event_id"], "Эталон относится к другому событию"
         )
@@ -69,12 +86,17 @@ def _validate_events(data, sources):
                 "Нарушен порядок версий",
             )
             _require(event["text"] != source["text"], "Обновление не меняет текст")
+            _require(
+                occurred_at > times[ticket_id],
+                "Время обновления не следует за предыдущей версией",
+            )
             expected = "update"
         _require(
             label["expected_action"] == expected, "Неверный эталон обработки события"
         )
         seen[event["event_id"]] = payload
         revisions[ticket_id] = max(revisions.get(ticket_id, 0), event["revision"])
+        times[ticket_id] = max(times.get(ticket_id, occurred_at), occurred_at)
     _require(created == set(sources), "Не у всех обращений есть исходное событие")
 
 

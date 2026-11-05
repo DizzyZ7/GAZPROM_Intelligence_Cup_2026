@@ -136,6 +136,37 @@ class DatasetTests(unittest.TestCase):
                 actions.add(label["expected_action"])
         self.assertEqual(actions, {"insert", "ignore_duplicate", "update"})
 
+    def test_rejects_invalid_event_text_and_time(self):
+        from dataset.validation import validate_dataset
+
+        for field, value in (
+            ("text", {}),
+            ("text", ""),
+            ("text", "x" * 10001),
+            ("occurred_at", None),
+            ("occurred_at", "2026-10-01"),
+            ("occurred_at", "2025-01-01T00:00:00+00:00"),
+            ("event_id", ""),
+            ("batch_id", ""),
+        ):
+            broken = copy.deepcopy(self.bundle)
+            event = next(
+                e
+                for e in broken["splits"]["development"]["events"]
+                if e["event_type"] == "updated"
+            )
+            event[field] = value
+            if field == "event_id":
+                index = broken["splits"]["development"]["events"].index(event)
+                broken["splits"]["development"]["event_labels"][index]["event_id"] = (
+                    value
+                )
+            with (
+                self.subTest(field=field, value=str(value)[:30]),
+                self.assertRaises(ValueError),
+            ):
+                validate_dataset(broken)
+
     def test_validator_rejects_gold_in_feature_and_broken_labels(self):
         from dataset.validation import validate_dataset
 

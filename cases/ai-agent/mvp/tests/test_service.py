@@ -88,5 +88,33 @@ class ServiceTests(unittest.TestCase):
             self.assertEqual(store.list_signals(), [])
         finally:
             store.close()
+
+    def test_rules_cannot_merge_two_existing_semantic_signals(self):
+        from pulse import Ticket
+        store = SignalStore(self.db)
+        try:
+            store.stage_tickets([Ticket(str(i), "P", "Очередь ошибка 404") for i in range(1, 6)])
+            for identity, members, action in (
+                ("semantic-first", ["1", "2", "3"], "approved"),
+                ("semantic-second", ["4", "5"], "rejected"),
+            ):
+                store.ingest([{"id":identity,"product":"P","category":"bug",
+                               "workflow":"booking_queue", "ticket_count":len(members),
+                               "ticket_ids":members,"examples":[]}])
+                store.review(identity, action, "analyst", "Проверено по источникам")
+        finally:
+            store.close()
+        self.file.write_text(json.dumps([
+            {"id":"6","product":"P","text":"Очередь ошибка 404"}
+        ]), encoding="utf-8")
+        with self.assertRaises(ValueError):
+            import_tickets(self.db, self.file)
+        store = SignalStore(self.db)
+        try:
+            self.assertEqual(len(store.staged_tickets()), 5)
+            self.assertEqual(len(store.list_signals()), 2)
+            self.assertEqual([s["status"] for s in store.list_signals()], ["approved", "rejected"])
+        finally:
+            store.close()
 if __name__=="__main__":
     unittest.main()
