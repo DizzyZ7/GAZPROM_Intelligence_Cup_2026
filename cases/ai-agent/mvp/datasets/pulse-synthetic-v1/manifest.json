@@ -1,0 +1,69 @@
+{
+  "catalog_sha256": "bbf88a56fbeacbddfc4fa71c841deb747620e562f293a7e86024081aed681b28",
+  "counts": {
+    "development": 300,
+    "holdout": 100,
+    "validation": 100
+  },
+  "dataset_version": "pulse-synthetic-v1",
+  "expert_review": "pending; слепая выборка development/validation, два эксперта и арбитраж",
+  "files": {
+    "development.event_labels.jsonl": {
+      "bytes": 24644,
+      "sha256": "81c0bd9585c94f36fe64a2e92708213f3fc65e6d51a54d99220d637d4c6e2ebf"
+    },
+    "development.events.jsonl": {
+      "bytes": 254275,
+      "sha256": "07aafa9c61f580aa31aacf0492bba328aaabe9bf1307541e11c4595bc993252d"
+    },
+    "development.inputs.json": {
+      "bytes": 169627,
+      "sha256": "9a664478135758e406e84c5b414ccfbb0f52f440dbd649b96845c72ff18bbdb0"
+    },
+    "development.labels.jsonl": {
+      "bytes": 300946,
+      "sha256": "1478cdbb6eaccb064424d99435dd57cc2a30e375cbbeb7e516639d2005890dbc"
+    },
+    "expert-review.csv": {
+      "bytes": 18904,
+      "sha256": "523e7911ebeab3fa1c1ed6f2da7fc23dcfb66ab228ca8450e64cb690996861e3"
+    },
+    "holdout.event_labels.jsonl": {
+      "bytes": 8260,
+      "sha256": "b63d276e0a90f9d020c4d3e60d601375928e8301c4bd7d69b334b6e43fb2aed2"
+    },
+    "holdout.events.jsonl": {
+      "bytes": 84968,
+      "sha256": "800e269a92fb75325bb125c0c70556de9eb484434cebf4c904d0812793c177b7"
+    },
+    "holdout.inputs.json": {
+      "bytes": 55596,
+      "sha256": "3cc1dfef23eedecc6a548a906829a15a96f649f3de95cc9107a4632aacdc6980"
+    },
+    "holdout.labels.jsonl": {
+      "bytes": 98309,
+      "sha256": "bb07b911696d1397e582980fe2c9c1e3eefab3f45cf675d23c397fc1304629cf"
+    },
+    "validation.event_labels.jsonl": {
+      "bytes": 8260,
+      "sha256": "9b7bac3ef462fbcc035a02c46033ee53e8d6eaae8776d26956067fd4060aed14"
+    },
+    "validation.events.jsonl": {
+      "bytes": 86270,
+      "sha256": "aa8f0ae561459331948135faf62556fb7f47c3eed624aff803a8b87c47ae167f"
+    },
+    "validation.inputs.json": {
+      "bytes": 56392,
+      "sha256": "c8c310923cde2df25b917223be7b3ff1aa0eda07ec555a44962bedbc20f144ee"
+    },
+    "validation.labels.jsonl": {
+      "bytes": 98749,
+      "sha256": "7b61b9f87230cff7014baa6bbc7da1ef3a164de7e4246c471c34c9e8cc7b126b"
+    }
+  },
+  "limitations": "Синтетические данные не доказывают качество на корпоративных обращениях; holdout не используется для настройки",
+  "schema_version": 1,
+  "seed": 20261105,
+  "size": 500,
+  "split_policy": "Независимые семейства сценариев, включая все продукты и события: 60/20/20"
+}
