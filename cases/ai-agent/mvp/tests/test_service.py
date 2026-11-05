@@ -46,5 +46,47 @@ class ServiceTests(unittest.TestCase):
         self.file.write_text('{"bad":1}',encoding="utf-8")
         with self.assertRaises(ValueError):
             import_tickets(self.db,self.file)
+
+    def test_signal_emerges_across_files(self):
+        for identifier in ("first", "second"):
+            self.file.write_text(json.dumps([
+                {"id":identifier,"product":"P","text":"Очередь ошибка 404"}
+            ]), encoding="utf-8")
+            result = import_tickets(self.db, self.file)
+        self.assertEqual(result["new_signals"], 1)
+        with_store = SignalStore(self.db)
+        try:
+            self.assertEqual(len(with_store.staged_tickets()), 2)
+            self.assertEqual(with_store.list_signals()[0]["ticket_count"], 2)
+        finally:
+            with_store.close()
+
+    def test_conflicting_file_rolls_back_entire_batch(self):
+        import_tickets(self.db, self.file)
+        self.file.write_text(json.dumps([
+            {"id":"new","product":"P","text":"Очередь ошибка 404"},
+            {"id":"1","product":"Q","text":"Очередь ошибка 404"}
+        ]), encoding="utf-8")
+        with self.assertRaises(ValueError):
+            import_tickets(self.db, self.file)
+        store = SignalStore(self.db)
+        try:
+            self.assertEqual({t.id for t in store.staged_tickets()}, {"1", "2"})
+            self.assertEqual(len(store.evidence_history("P:bug:booking_queue")), 1)
+        finally:
+            store.close()
+
+    def test_provider_failure_rolls_back_staging(self):
+        class BrokenProvider:
+            def embed(self, texts):
+                raise RuntimeError("Модель недоступна")
+        with self.assertRaises(RuntimeError):
+            import_tickets(self.db, self.file, mode="semantic", provider=BrokenProvider())
+        store = SignalStore(self.db)
+        try:
+            self.assertEqual(store.staged_tickets(), [])
+            self.assertEqual(store.list_signals(), [])
+        finally:
+            store.close()
 if __name__=="__main__":
     unittest.main()

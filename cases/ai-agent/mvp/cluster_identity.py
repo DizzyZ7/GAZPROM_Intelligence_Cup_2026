@@ -25,8 +25,8 @@ def reconcile(store, signals):
                 candidates.append((overlap,row["id"]))
         candidates.sort(key=lambda item:(-item[0],item[1]))
         if candidates:
-            if len(candidates)>1 and candidates[0][0]==candidates[1][0]:
-                raise ValueError("Неоднозначное соответствие кластеров: требуется проверка")
+            if len(candidates) > 1:
+                raise ValueError("Объединение существующих сигналов требует согласования аналитика")
             identity = candidates[0][1]
             if identity in used:
                 raise ValueError("Несколько новых кластеров соответствуют одному сигналу")

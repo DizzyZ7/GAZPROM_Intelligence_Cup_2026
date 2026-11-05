@@ -34,5 +34,14 @@ class IdentityTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             reconcile(self.store,[signal("new1",["1","3"]),signal("new2",["2","4"])])
 
+    def test_unequal_overlap_cannot_merge_reviewed_signals(self):
+        self.store.ingest([signal("first",["1","2"]),signal("second",["3","4"])])
+        self.store.review("first", "approved", "analyst", "Проверено")
+        self.store.review("second", "rejected", "analyst", "Другая причина")
+        with self.assertRaises(ValueError):
+            reconcile(self.store,[signal("new",["1","2","3"])])
+        self.assertEqual([row["status"] for row in self.store.list_signals()],
+                         ["approved", "rejected"])
+
 if __name__=="__main__":
     unittest.main()
