@@ -2,6 +2,7 @@
 import os
 from contextlib import contextmanager
 from pathlib import Path
+from typing import Literal
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi import FastAPI, Header, HTTPException, Depends
 from fastapi.exceptions import RequestValidationError
@@ -117,6 +118,7 @@ class TicketInput(BaseModel):
 class ImportRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     tickets: list[TicketInput] = Field(min_length=1, max_length=500)
+    mode: Literal["rules", "context"] = "rules"
 
 @app.post("/imports")
 def import_batch(payload: ImportRequest, actor: str = Depends(reviewer)):
@@ -126,7 +128,7 @@ def import_batch(payload: ImportRequest, actor: str = Depends(reviewer)):
         raise HTTPException(status_code=422, detail="Повторяющиеся идентификаторы обращений")
     with storage() as store:
         try:
-            result = ingest_batch(store, tickets)
+            result = ingest_batch(store, tickets, mode=payload.mode)
         except ValueError as exc:
             raise HTTPException(status_code=409, detail=str(exc)) from exc
     return result

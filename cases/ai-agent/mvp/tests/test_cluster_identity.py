@@ -43,5 +43,37 @@ class IdentityTests(unittest.TestCase):
         self.assertEqual([row["status"] for row in self.store.list_signals()],
                          ["approved", "rejected"])
 
+    def test_exact_migration_persists_context_and_preserves_decision(self):
+        original = signal("original", ["1", "2"])
+        self.store.ingest([original])
+        self.store.review("original", "approved", "analyst", "Проверено")
+        contextual = dict(signal("new", ["2", "1"]), analysis_version="context-v1",
+                          context={"operation": "report_export", "symptom": "schedule"})
+        self.store.ingest(reconcile(self.store, [contextual]))
+        from evidence import get_signal
+        detail = get_signal(self.store, "original")
+        self.assertEqual(detail["context"], contextual["context"])
+        self.assertEqual(detail["status"], "approved")
+        self.assertEqual(len(self.store.evidence_history("original")), 1)
+        self.assertEqual(reconcile(self.store, [original])[0]["id"], "original")
+        with self.assertRaises(ValueError):
+            reconcile(self.store, [signal("original", ["1", "2", "3"])])
+
+    def test_context_cannot_reinterpret_old_sources_as_another_workflow(self):
+        self.store.ingest([signal("original", ["1", "2"])])
+        contextual = dict(signal("new", ["1", "2"]), workflow="other_workflow",
+                          analysis_version="context-v1", context={"operation": "export", "symptom": "schedule"})
+        with self.assertRaises(ValueError):
+            reconcile(self.store, [contextual])
+
+    def test_context_cannot_extend_embedding_cluster_without_its_checks(self):
+        def contextual(identifier, ids, method):
+            return dict(signal(identifier, ids), method=method, analysis_version="context-v1",
+                        context={"operation": "export", "symptom": "schedule"})
+
+        self.store.ingest([contextual("original", ["1", "2"], "complete_link_embeddings")])
+        with self.assertRaises(ValueError):
+            reconcile(self.store, [contextual("new", ["1", "2", "3"], "context_rules")])
+
 if __name__=="__main__":
     unittest.main()

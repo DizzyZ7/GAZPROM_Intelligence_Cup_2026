@@ -5,6 +5,8 @@ from contextlib import contextmanager, nullcontext
 from datetime import datetime, timezone
 from pathlib import Path
 
+from cluster_identity import ensure_compatible
+
 STATES = {'pending_human_review', 'approved', 'rejected'}
 
 def utcnow():
@@ -115,20 +117,37 @@ class SignalStore:
                     s['product'],s['category'],s['workflow']):
                     raise ValueError('Конфликт идентификатора сигнала')
                 old = json.loads(current['payload'])
-                merged_ids = list(dict.fromkeys(old.get('ticket_ids', []) + incoming_ids))
-                if len(merged_ids) == len(old.get('ticket_ids', [])):
+                ensure_compatible(old, s)
+                previous_ids = old.get('ticket_ids', [])
+                previous_set = set(previous_ids)
+                additions = [item for item in incoming_ids if item not in previous_set]
+                adds_context = 'context' in s and 'context' not in old
+                incoming_embeddings = s.get('method') == 'complete_link_embeddings'
+                adds_embeddings = incoming_embeddings and old.get('method') != 'complete_link_embeddings'
+                revision = s.get('embedding_revision')
+                sets_revision = (incoming_embeddings and revision and not old.get('embedding_revision')
+                                 and (adds_embeddings or s.get('threshold') == old.get('threshold')))
+                if not (additions or adds_context or adds_embeddings or sets_revision):
                     continue
-                additions = [item for item in merged_ids if item not in old.get('ticket_ids', [])]
-                self.db.execute(
-                    'INSERT INTO evidence_events(signal_id,added_ticket_ids,created_at) VALUES(?,?,?)',
-                    (s['id'],json.dumps(additions,ensure_ascii=False),utcnow()))
-                old['ticket_ids'] = merged_ids
-                old['ticket_count'] = len(merged_ids)
-                old['examples'] = list(dict.fromkeys(
-                    old.get('examples', []) + s.get('examples', [])))[:2]
+                if adds_context:
+                    old.update(context=s['context'], analysis_version=s['analysis_version'])
+                    if old.get('method') != 'complete_link_embeddings':
+                        old['method'] = s.get('method', 'context_rules')
+                if adds_embeddings:
+                    old.update(method=s['method'], threshold=s['threshold'])
+                if sets_revision:
+                    old['embedding_revision'] = revision
+                if additions:
+                    self.db.execute(
+                        'INSERT INTO evidence_events(signal_id,added_ticket_ids,created_at) VALUES(?,?,?)',
+                        (s['id'],json.dumps(additions,ensure_ascii=False),utcnow()))
+                    old['ticket_ids'] = previous_ids + additions
+                    old['ticket_count'] = len(old['ticket_ids'])
+                    old['examples'] = list(dict.fromkeys(
+                        old.get('examples', []) + s.get('examples', [])))[:2]
                 self.db.execute(
                     'UPDATE signals SET ticket_count=?,payload=?,updated_at=? WHERE id=?',
-                    (len(merged_ids),json.dumps(old,ensure_ascii=False),utcnow(),s['id']))
+                    (old['ticket_count'],json.dumps(old,ensure_ascii=False),utcnow(),s['id']))
         return inserted
 
     def list_signals(self, status=None):
