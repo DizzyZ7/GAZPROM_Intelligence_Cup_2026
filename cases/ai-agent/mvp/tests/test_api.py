@@ -106,6 +106,16 @@ class APITests(unittest.TestCase):
         ticket={"id":"a","product":"P","text":"x"*10001}
         self.assertEqual(self.client.post("/imports",headers=headers,json={"tickets":[ticket]}).status_code,422)
 
+    def test_validation_does_not_echo_sensitive_input(self):
+        headers={"X-Review-Token":"secret-test-token"}
+        ticket={"id":"private","product":"P","text":"private@example.invalid " * 1000,
+                "password":"do-not-reflect-this"}
+        response=self.client.post("/imports",headers=headers,json={"tickets":[ticket]})
+        self.assertEqual(response.status_code,422)
+        self.assertNotIn("private@example.invalid", response.text)
+        self.assertNotIn("do-not-reflect-this", response.text)
+        self.assertNotIn('"input"', response.text)
+
     def test_signal_emerges_across_batches(self):
         headers={"X-Review-Token":"secret-test-token"}
         first={"tickets":[{"id":"first","product":"R","text":"Очередь ошибка 404"}]}

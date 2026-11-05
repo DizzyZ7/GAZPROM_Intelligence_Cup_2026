@@ -2,7 +2,16 @@
 import ipaddress
 import json
 from urllib.parse import urlsplit
-from urllib.request import Request, urlopen
+from urllib.request import HTTPRedirectHandler, ProxyHandler, Request, build_opener
+
+
+class _NoRedirect(HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        raise ValueError("Перенаправления embedding-запросов запрещены")
+
+
+# Изолированный транспорт не использует proxy из окружения и redirect.
+urlopen = build_opener(ProxyHandler({}), _NoRedirect()).open
 
 
 class OllamaEmbeddingProvider:

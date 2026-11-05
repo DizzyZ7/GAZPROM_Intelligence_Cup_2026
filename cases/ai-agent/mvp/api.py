@@ -1,18 +1,24 @@
 """Демонстрационный API проверки сигналов. Только для локального запуска."""
 import os
-import sqlite3
 from contextlib import contextmanager
 from pathlib import Path
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 from fastapi import FastAPI, Header, HTTPException, Depends
+from fastapi.exceptions import RequestValidationError
 from pydantic import BaseModel, Field, ConfigDict, StrictStr
 from store import SignalStore
 from evidence import get_signal
-from pulse import Ticket, analyze
+from pulse import Ticket
+from service import ingest_batch
 
 app = FastAPI(title="ТИИм Pulse — проверка сигналов", version="0.5.0")
 DB_PATH = os.getenv("PULSE_DB", str(Path(__file__).with_name("pulse-demo.sqlite3")))
 TOKEN = os.getenv("PULSE_REVIEW_TOKEN")
+
+@app.exception_handler(RequestValidationError)
+async def validation_error(request, exc):
+    # Вход и имена произвольных неизвестных полей могут содержать ПДн/секреты.
+    return JSONResponse(status_code=422, content={"detail": "Запрос не соответствует схеме API"})
 
 @contextmanager
 def storage():
@@ -120,13 +126,7 @@ def import_batch(payload: ImportRequest, actor: str = Depends(reviewer)):
         raise HTTPException(status_code=422, detail="Повторяющиеся идентификаторы обращений")
     with storage() as store:
         try:
-            with store.atomic():
-                staged = store.stage_tickets(tickets)
-                result = analyze(store.staged_tickets())
-                added = store.ingest(result["signals"])
+            result = ingest_batch(store, tickets)
         except ValueError as exc:
             raise HTTPException(status_code=409, detail=str(exc)) from exc
-    return {"processed":len(tickets),"staged_new":staged,
-            "analyzed_total":result["processed"],
-            "signals_found":len(result["signals"]),
-            "new_signals":added,"mode":"rules"}
+    return result
