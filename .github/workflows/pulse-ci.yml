@@ -45,10 +45,14 @@ jobs:
           ruff format --isolated --check dataset tests/test_dataset.py
           ruff check --isolated --select E9,F,I benchmark tests/test_benchmark_*.py
           ruff format --isolated --check benchmark tests/test_benchmark_*.py
+          ruff check --isolated --select E9,F,I cluster_identity.py context_eval.py pipeline.py service.py ticket_context.py tests/test_context*.py
+          ruff format --isolated --check cluster_identity.py context_eval.py pipeline.py service.py ticket_context.py tests/test_context*.py
           bandit -q -r . -x ./tests -ll
       - name: Validate committed dataset
         run: python -m dataset validate --directory datasets/pulse-synthetic-v1
       - name: Verify benchmark evidence
         run: python -m benchmark verify --directory benchmarks/pulse-synthetic-v1/holdout
+      - name: Verify contextual evaluation evidence
+        run: python -m context_eval verify --dataset datasets/pulse-context-holdout-v1 --output benchmarks/pulse-context-holdout-v1/holdout
       - name: Audit runtime dependencies
         run: pip-audit -r requirements-api.txt

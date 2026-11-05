@@ -1,0 +1,421 @@
+{
+  "dataset_version": "pulse-context-holdout-v1",
+  "methods": {
+    "context": {
+      "analysis_seconds": 0.0284407789999932,
+      "classification": {
+        "abstention_fraction": 0.8289473684210527,
+        "accuracy": 0.19078947368421054,
+        "confusion_matrix": {
+          "bug": {
+            "bug": 10,
+            "feature_request": 0,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 72
+          },
+          "feature_request": {
+            "bug": 2,
+            "feature_request": 7,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 21
+          },
+          "how_to": {
+            "bug": 0,
+            "feature_request": 0,
+            "how_to": 3,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 7
+          },
+          "other": {
+            "bug": 0,
+            "feature_request": 0,
+            "how_to": 0,
+            "other": 1,
+            "service_request": 0,
+            "unknown": 9
+          },
+          "service_request": {
+            "bug": 1,
+            "feature_request": 0,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 9
+          },
+          "unknown": {
+            "bug": 1,
+            "feature_request": 1,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 8
+          }
+        },
+        "count": 152,
+        "macro_f1": 0.22295968135751418,
+        "macro_precision": 0.6087962962962963,
+        "macro_recall": 0.25921409214092145,
+        "per_category": {
+          "bug": {
+            "f1": 0.20833333333333334,
+            "precision": 0.7142857142857143,
+            "recall": 0.12195121951219512,
+            "support": 82
+          },
+          "feature_request": {
+            "f1": 0.3684210526315789,
+            "precision": 0.875,
+            "recall": 0.23333333333333334,
+            "support": 30
+          },
+          "how_to": {
+            "f1": 0.46153846153846156,
+            "precision": 1.0,
+            "recall": 0.3,
+            "support": 10
+          },
+          "other": {
+            "f1": 0.18181818181818182,
+            "precision": 1.0,
+            "recall": 0.1,
+            "support": 10
+          },
+          "service_request": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 10
+          },
+          "unknown": {
+            "f1": 0.11764705882352941,
+            "precision": 0.06349206349206349,
+            "recall": 0.8,
+            "support": 10
+          }
+        }
+      },
+      "clustering": {
+        "f1": 0.0,
+        "false_merge_fraction": null,
+        "fn": 84,
+        "fp": 0,
+        "missed_repeat_fraction": 1.0,
+        "pair_count": 11476,
+        "precision": 0.0,
+        "recall": 0.0,
+        "tn": 11392,
+        "tp": 0
+      },
+      "cross_product_pairs": 0,
+      "errors": {
+        "false_merges": [],
+        "missed_repeats": [
+          [
+            "t-01ce86f2ca9d409d9a19131c09951e2c",
+            "t-afa2cca6d5f64f6d96b66951f1ecef23"
+          ],
+          [
+            "t-059e39138c37472f825bff031fba1808",
+            "t-f148f096f0084dc689dcfb5b7b4f95bd"
+          ],
+          [
+            "t-09a7b1e2509343ad8ea21b56cab4b974",
+            "t-444175f08c2442f3bb4b15d651413bf4"
+          ],
+          [
+            "t-09a7b1e2509343ad8ea21b56cab4b974",
+            "t-8570cc2e1fa4469190a2ba9c9302f1ba"
+          ],
+          [
+            "t-0b17f5b79b1f40869d773d134dc915fe",
+            "t-13fa9c326c4a41a782cb54323d3778a6"
+          ],
+          [
+            "t-0b17f5b79b1f40869d773d134dc915fe",
+            "t-5a35859404cb4e01b63600b6c05fd953"
+          ],
+          [
+            "t-0b60093ca4bc4f9499aee1291e9e8dc6",
+            "t-76a88dbd3e4a41da89ddae56d89fda55"
+          ],
+          [
+            "t-0b60093ca4bc4f9499aee1291e9e8dc6",
+            "t-808a834a1aa7418eadb0641965e0eca3"
+          ],
+          [
+            "t-0e22c170a6ca49f0a03f312b5c9d7916",
+            "t-dcf1ecc5051c4f7492fc768dd184ce5c"
+          ],
+          [
+            "t-0e90b477d0484596b7086b45856426bd",
+            "t-14788ffb0a724252940570f126c2a735"
+          ],
+          [
+            "t-1007000a62df4f86bf2c19cc0482b14c",
+            "t-98e3aeac331846d381bd2449ad2cc59d"
+          ],
+          [
+            "t-1007000a62df4f86bf2c19cc0482b14c",
+            "t-b96b51fe926d47278f6680f239380c85"
+          ],
+          [
+            "t-122dc58920284841b1d541d3e01fcd03",
+            "t-4fa68a5edd624d3c97a229cf8bad905b"
+          ],
+          [
+            "t-13fa9c326c4a41a782cb54323d3778a6",
+            "t-5a35859404cb4e01b63600b6c05fd953"
+          ],
+          [
+            "t-142d38b468a742aaa398b7ec37776965",
+            "t-685d9c770aa042de927459c5160e0f10"
+          ]
+        ],
+        "wrong_categories": [
+          "t-01ce86f2ca9d409d9a19131c09951e2c",
+          "t-020cc06f0a8a4b4d8b7edacb7d4c586e",
+          "t-02bd58f66d16442488383a70f932f2bd",
+          "t-059e39138c37472f825bff031fba1808",
+          "t-09a7b1e2509343ad8ea21b56cab4b974",
+          "t-0b17f5b79b1f40869d773d134dc915fe",
+          "t-0b60093ca4bc4f9499aee1291e9e8dc6",
+          "t-0d6439f626fd4b318bad4f399157b00c",
+          "t-0e22c170a6ca49f0a03f312b5c9d7916",
+          "t-0e90b477d0484596b7086b45856426bd",
+          "t-1007000a62df4f86bf2c19cc0482b14c",
+          "t-122dc58920284841b1d541d3e01fcd03",
+          "t-13fa9c326c4a41a782cb54323d3778a6",
+          "t-142d38b468a742aaa398b7ec37776965",
+          "t-143c2f6c3d1b4eccaf1ca4c403e43e73"
+        ]
+      },
+      "instruction_cases": 6,
+      "instruction_cases_in_clusters": 0,
+      "reasons": {
+        "ambiguous_workflow": 3,
+        "context_resolved": 5,
+        "guidance_requested": 3,
+        "informational": 1,
+        "insufficient_context": 124,
+        "missing_operation": 1,
+        "missing_symptom": 6,
+        "missing_workflow": 7,
+        "mixed_intents": 2
+      },
+      "signals": 0,
+      "tickets_per_second": 5344.438701908845
+    },
+    "rules": {
+      "analysis_seconds": 0.0006144839999251417,
+      "classification": {
+        "abstention_fraction": 0.9539473684210527,
+        "accuracy": 0.08552631578947369,
+        "confusion_matrix": {
+          "bug": {
+            "bug": 2,
+            "feature_request": 0,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 80
+          },
+          "feature_request": {
+            "bug": 4,
+            "feature_request": 1,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 25
+          },
+          "how_to": {
+            "bug": 0,
+            "feature_request": 0,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 10
+          },
+          "other": {
+            "bug": 0,
+            "feature_request": 0,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 10
+          },
+          "service_request": {
+            "bug": 0,
+            "feature_request": 0,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 10
+          },
+          "unknown": {
+            "bug": 0,
+            "feature_request": 0,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 10
+          }
+        },
+        "count": 152,
+        "macro_f1": 0.03983382209188661,
+        "macro_precision": 0.23371647509578544,
+        "macro_recall": 0.17628726287262872,
+        "per_category": {
+          "bug": {
+            "f1": 0.045454545454545456,
+            "precision": 0.3333333333333333,
+            "recall": 0.024390243902439025,
+            "support": 82
+          },
+          "feature_request": {
+            "f1": 0.06451612903225806,
+            "precision": 1.0,
+            "recall": 0.03333333333333333,
+            "support": 30
+          },
+          "how_to": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 10
+          },
+          "other": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 10
+          },
+          "service_request": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 10
+          },
+          "unknown": {
+            "f1": 0.12903225806451613,
+            "precision": 0.06896551724137931,
+            "recall": 1.0,
+            "support": 10
+          }
+        }
+      },
+      "clustering": {
+        "f1": 0.023255813953488372,
+        "false_merge_fraction": 0.5,
+        "fn": 83,
+        "fp": 1,
+        "missed_repeat_fraction": 0.9880952380952381,
+        "pair_count": 11476,
+        "precision": 0.5,
+        "recall": 0.011904761904761904,
+        "tn": 11391,
+        "tp": 1
+      },
+      "cross_product_pairs": 0,
+      "errors": {
+        "false_merges": [
+          [
+            "t-361ea53150114bf49e848613e628d1cd",
+            "t-eb15d45ad6354dd8bac155e5cd035cf9"
+          ]
+        ],
+        "missed_repeats": [
+          [
+            "t-01ce86f2ca9d409d9a19131c09951e2c",
+            "t-afa2cca6d5f64f6d96b66951f1ecef23"
+          ],
+          [
+            "t-059e39138c37472f825bff031fba1808",
+            "t-f148f096f0084dc689dcfb5b7b4f95bd"
+          ],
+          [
+            "t-09a7b1e2509343ad8ea21b56cab4b974",
+            "t-444175f08c2442f3bb4b15d651413bf4"
+          ],
+          [
+            "t-09a7b1e2509343ad8ea21b56cab4b974",
+            "t-8570cc2e1fa4469190a2ba9c9302f1ba"
+          ],
+          [
+            "t-0b17f5b79b1f40869d773d134dc915fe",
+            "t-13fa9c326c4a41a782cb54323d3778a6"
+          ],
+          [
+            "t-0b17f5b79b1f40869d773d134dc915fe",
+            "t-5a35859404cb4e01b63600b6c05fd953"
+          ],
+          [
+            "t-0b60093ca4bc4f9499aee1291e9e8dc6",
+            "t-76a88dbd3e4a41da89ddae56d89fda55"
+          ],
+          [
+            "t-0b60093ca4bc4f9499aee1291e9e8dc6",
+            "t-808a834a1aa7418eadb0641965e0eca3"
+          ],
+          [
+            "t-0e22c170a6ca49f0a03f312b5c9d7916",
+            "t-dcf1ecc5051c4f7492fc768dd184ce5c"
+          ],
+          [
+            "t-0e90b477d0484596b7086b45856426bd",
+            "t-14788ffb0a724252940570f126c2a735"
+          ],
+          [
+            "t-1007000a62df4f86bf2c19cc0482b14c",
+            "t-98e3aeac331846d381bd2449ad2cc59d"
+          ],
+          [
+            "t-1007000a62df4f86bf2c19cc0482b14c",
+            "t-b96b51fe926d47278f6680f239380c85"
+          ],
+          [
+            "t-122dc58920284841b1d541d3e01fcd03",
+            "t-4fa68a5edd624d3c97a229cf8bad905b"
+          ],
+          [
+            "t-13fa9c326c4a41a782cb54323d3778a6",
+            "t-5a35859404cb4e01b63600b6c05fd953"
+          ],
+          [
+            "t-142d38b468a742aaa398b7ec37776965",
+            "t-685d9c770aa042de927459c5160e0f10"
+          ]
+        ],
+        "wrong_categories": [
+          "t-01ce86f2ca9d409d9a19131c09951e2c",
+          "t-020cc06f0a8a4b4d8b7edacb7d4c586e",
+          "t-02bd58f66d16442488383a70f932f2bd",
+          "t-02bd5db535ec41a2aeb2c4a9634c0e0f",
+          "t-059e39138c37472f825bff031fba1808",
+          "t-09a7b1e2509343ad8ea21b56cab4b974",
+          "t-0b17f5b79b1f40869d773d134dc915fe",
+          "t-0b60093ca4bc4f9499aee1291e9e8dc6",
+          "t-0d6439f626fd4b318bad4f399157b00c",
+          "t-0e22c170a6ca49f0a03f312b5c9d7916",
+          "t-0e90b477d0484596b7086b45856426bd",
+          "t-1007000a62df4f86bf2c19cc0482b14c",
+          "t-122dc58920284841b1d541d3e01fcd03",
+          "t-13fa9c326c4a41a782cb54323d3778a6",
+          "t-142d38b468a742aaa398b7ec37776965"
+        ]
+      },
+      "instruction_cases": 6,
+      "instruction_cases_in_clusters": 0,
+      "reasons": {},
+      "signals": 2,
+      "tickets_per_second": 247362.01433807408
+    }
+  },
+  "python": "3.12.14",
+  "tickets": 152,
+  "version": "pulse-context-evaluation-v1"
+}

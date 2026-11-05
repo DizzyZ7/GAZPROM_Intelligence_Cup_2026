@@ -1,0 +1,25 @@
+{
+  "files": {
+    "comparison.csv": {
+      "bytes": 590,
+      "sha256": "ced0592a24e943aa847e79f8b442c00cdaedd0f90b962a67a7b62c004f679266"
+    },
+    "frozen-config.json": {
+      "bytes": 1686,
+      "sha256": "1a373b4d36275d0eb1081c669180c2b9a12a0ce047235170e64b20c6becfab8c"
+    },
+    "predictions.csv": {
+      "bytes": 40479,
+      "sha256": "21fdfd6069824e7fc07ecf5558892ce54dfdc488a2eaf23f53f148b249d40c39"
+    },
+    "receipt.json": {
+      "bytes": 210,
+      "sha256": "88e1c09464250bc6af91a73445adae535c5c97391fc1eb1f808a25f5f40f089f"
+    },
+    "summary.json": {
+      "bytes": 12248,
+      "sha256": "e060a9e5d9d477fff469c80746544d100a1d1e07601ed76dd82e470e59e7573e"
+    }
+  },
+  "version": "pulse-context-evaluation-v1"
+}
