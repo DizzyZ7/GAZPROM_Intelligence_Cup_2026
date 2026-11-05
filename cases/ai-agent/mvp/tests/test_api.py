@@ -37,6 +37,74 @@ class APITests(unittest.TestCase):
     def test_health(self):
         self.assertEqual(self.client.get("/health").status_code,200)
 
+    def test_context_mode_groups_across_imports_and_exposes_evidence(self):
+        headers = {"X-Review-Token": "secret-test-token"}
+        first = {"id": "a", "product": "Q", "text": "Скачивание отчета возвращает HTTP 404"}
+        second = {"id": "b", "product": "Q", "text": "При попытке скачать отчет появилась ошибка 404"}
+        for tickets, expected in (([first], 0), ([second], 1), ([second], 0)):
+            response = self.client.post("/imports", headers=headers,
+                                        json={"mode": "context", "tickets": tickets})
+            self.assertEqual(response.status_code, 200, response.text)
+            self.assertEqual(response.json()["new_signals"], expected)
+            if tickets == [first]:
+                self.assertEqual(response.json()["ungrouped"], [{"ticket_id": "a", "reason": "no_matching_cluster"}])
+            else:
+                self.assertEqual(response.json()["ungrouped"], [])
+        signals = self.client.get("/signals", headers=headers).json()
+        identity = next(row["id"] for row in signals if row["product"] == "Q")
+        detail = self.client.get(f"/signals/{identity}", headers=headers).json()
+        self.assertEqual(detail["ticket_ids"], ["a", "b"])
+        self.assertEqual(detail["analysis_version"], "context-v1")
+        self.assertEqual(detail["context"], {"operation": "report_download", "symptom": "http_404"})
+
+    def test_context_migration_refuses_split_of_reviewed_signal_and_rolls_back(self):
+        headers = {"X-Review-Token": "secret-test-token"}
+        tickets = [{"id": identity, "product": "Q", "text": f"Очередь ошибка {code}"}
+                   for identity, code in (("a", 404), ("b", 404), ("c", 500), ("d", 500))]
+        self.assertEqual(self.client.post("/imports", headers=headers, json={"tickets": tickets}).status_code, 200)
+        signal = "/signals/Q:bug:booking_queue"
+        response = self.client.post(f"{signal}/review", headers=headers,
+                                    json={"action": "approved", "reason": "Решение аналитика"})
+        self.assertEqual(response.status_code, 200, response.text)
+        additional = {"id": "new", "product": "Q", "text": "Очередь ошибка 500"}
+        response = self.client.post("/imports", headers=headers,
+                                    json={"mode": "context", "tickets": [additional]})
+        self.assertEqual(response.status_code, 409, response.text)
+        detail = self.client.get(signal, headers=headers).json()
+        self.assertEqual(detail["status"], "approved")
+        self.assertEqual(detail["ticket_ids"], ["a", "b", "c", "d"])
+        self.assertEqual(len(self.client.get(f"{signal}/timeline", headers=headers).json()), 2)
+        from store import SignalStore
+        store = SignalStore(os.environ["PULSE_DB"])
+        try:
+            self.assertEqual({ticket.id for ticket in store.staged_tickets()}, {"a", "b", "c", "d"})
+        finally:
+            store.close()
+
+    def test_context_migration_refuses_disappearance_below_minimum_cluster_size(self):
+        headers = {"X-Review-Token": "secret-test-token"}
+        tickets = [{"id": identity, "product": "Q", "text": f"Очередь ошибка {code}"}
+                   for identity, code in (("a", 404), ("b", 500))]
+        response = self.client.post("/imports", headers=headers, json={"tickets": tickets})
+        self.assertEqual(response.status_code, 200, response.text)
+        signal = "/signals/Q:bug:booking_queue"
+        response = self.client.post(f"{signal}/review", headers=headers,
+                                    json={"action": "approved", "reason": "Решение аналитика"})
+        self.assertEqual(response.status_code, 200, response.text)
+        new_ticket = {"id": "new", "product": "Q", "text": "Как скачать отчет?"}
+        response = self.client.post("/imports", headers=headers,
+                                    json={"mode": "context", "tickets": [new_ticket]})
+        self.assertEqual(response.status_code, 409, response.text)
+        detail = self.client.get(signal, headers=headers).json()
+        self.assertEqual(detail["status"], "approved")
+        self.assertEqual(detail["ticket_ids"], ["a", "b"])
+        from store import SignalStore
+        store = SignalStore(os.environ["PULSE_DB"])
+        try:
+            self.assertEqual({ticket.id for ticket in store.staged_tickets()}, {"a", "b"})
+        finally:
+            store.close()
+
     def test_list(self):
         self.assertEqual(len(self.client.get("/signals",headers={"X-Review-Token":"secret-test-token"}).json()),1)
 

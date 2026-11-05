@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "dataset_version": "pulse-context-holdout-v1",
+  "counts": {
+    "holdout": 152
+  },
+  "files": {
+    "holdout.inputs.json": {
+      "sha256": "1c5b5e6e2028bdcaf8c61731210c8a2c19252604c6b0a5f68d9b70b8608a1881",
+      "bytes": 62518
+    },
+    "holdout.labels.jsonl": {
+      "sha256": "1b1e053a0f2bbe298a4871ffe9fce3cb6827af001b9483504bf5d27987855972",
+      "bytes": 43105
+    }
+  },
+  "aggregate": {
+    "categories": {
+      "bug": 82,
+      "feature_request": 30,
+      "how_to": 10,
+      "other": 10,
+      "service_request": 10,
+      "unknown": 10
+    },
+    "channels": {
+      "app_review": 23,
+      "chat": 27,
+      "community": 21,
+      "email": 28,
+      "phone_transcript": 24,
+      "web_form": 29
+    },
+    "product_count": 2,
+    "tickets_per_product": [
+      76,
+      76
+    ],
+    "workflow_count": 21,
+    "grouped_tickets": 96,
+    "ungrouped_tickets": 56,
+    "grouped_issue_count": 18,
+    "gold_cluster_count": 36,
+    "gold_cluster_sizes": {
+      "2": 12,
+      "3": 24
+    },
+    "gold_cluster_categories": {
+      "bug": 24,
+      "feature_request": 12
+    },
+    "gold_positive_pairs": 84,
+    "exact_cross_product_negative_pairs": 9,
+    "lexical_overlap_issue_count": 12,
+    "case_types": {
+      "ambiguous_mixed": 4,
+      "context_negation": 12,
+      "cross_product_exact": 18,
+      "embedded_instruction": 6,
+      "informational": 5,
+      "lexical_overlap": 51,
+      "missing_context": 4,
+      "off_topic": 2,
+      "repeated_feature": 19,
+      "routine_how_to": 8,
+      "routine_service": 10,
+      "singleton_bug": 8,
+      "singleton_feature": 5
+    }
+  },
+  "provenance": {
+    "kind": "independently_authored_synthetic",
+    "reference_catalog_revision": "601db953c51ec60c17680f5c06e3f72e5c8feaa6",
+    "independent_expert_review": false
+  }
+}

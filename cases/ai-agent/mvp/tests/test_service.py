@@ -29,6 +29,51 @@ class ServiceTests(unittest.TestCase):
         result=import_tickets(self.db,self.file,mode="semantic",provider=SameVector())
         self.assertEqual(result["new_signals"],1)
         self.assertEqual(result["mode"],"semantic")
+
+    def test_legacy_semantic_group_can_be_requalified_with_same_sources(self):
+        from evidence import get_signal
+
+        import_tickets(self.db, self.file, mode="semantic", provider=SameVector())
+        result = import_tickets(self.db, self.file, mode="semantic", provider=SameVector(),
+                                embedding_revision="fixture/model:v1")
+        self.assertEqual(result["new_signals"], 0)
+        store = SignalStore(self.db)
+        self.addCleanup(store.close)
+        identity = store.list_signals()[0]["id"]
+        self.assertEqual(get_signal(store, identity)["embedding_revision"], "fixture/model:v1")
+        self.assertEqual(len(store.evidence_history(identity)), 1)
+
+    def test_embedding_upgrade_preserves_identity_and_locks_future_growth(self):
+        from evidence import get_signal
+
+        store = SignalStore(self.db)
+        self.addCleanup(store.close)
+        import_tickets(self.db, self.file, mode="context")
+        identity = store.list_signals()[0]["id"]
+        store.review(identity, "approved", "analyst", "Проверено по источникам")
+
+        def write_ticket(number):
+            self.file.write_text(json.dumps([
+                {"id": str(number), "product": "P", "text": "Очередь ошибка 404"}
+            ]), encoding="utf-8")
+
+        revision = "fixture/model:v1"
+        write_ticket(3)
+        import_tickets(self.db, self.file, mode="semantic", provider=SameVector(), embedding_revision=revision)
+        detail = get_signal(store, identity)
+        self.assertEqual(detail["method"], "complete_link_embeddings")
+        self.assertEqual(detail["embedding_revision"], revision)
+        self.assertEqual(detail["status"], "approved")
+        self.assertEqual(detail["ticket_ids"], ["1", "2", "3"])
+
+        write_ticket(4)
+        with self.assertRaises(ValueError):
+            import_tickets(self.db, self.file, mode="context")
+        with self.assertRaises(ValueError):
+            import_tickets(self.db, self.file, mode="semantic", provider=SameVector(), embedding_revision="fixture/model:v2")
+        self.assertEqual({ticket.id for ticket in store.staged_tickets()}, {"1", "2", "3"})
+        import_tickets(self.db, self.file, mode="semantic", provider=SameVector(), embedding_revision=revision)
+        self.assertEqual(get_signal(store, identity)["ticket_ids"], ["1", "2", "3", "4"])
     def test_review_is_preserved(self):
         import_tickets(self.db,self.file)
         store=SignalStore(self.db)
