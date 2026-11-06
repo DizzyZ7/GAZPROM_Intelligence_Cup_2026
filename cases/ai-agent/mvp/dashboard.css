@@ -5,3 +5,13 @@
 .import-controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0}
 #import-json{width:100%;min-height:95px;resize:vertical;font-family:ui-monospace,monospace;font-size:12px}
 #import-result{min-height:18px}
+.owner-queue{background:#fff;border:1px solid #e8edf5;border-radius:18px;margin-top:20px}
+.queue-entry{padding:16px 0;border-top:1px solid #e8edf5;overflow-wrap:anywhere}
+.queue-entry h3{margin:0;font-size:16px}
+.queue-entry details{margin-top:12px}
+.queue-entry summary{cursor:pointer;color:#2c659d}
+.queue-entry .actions{max-width:460px}
+.source{display:grid;justify-items:start;gap:8px}
+.timeline li,.detail .message{overflow-wrap:anywhere}
+.message:empty{display:none}
+.import-controls input{max-width:100%}

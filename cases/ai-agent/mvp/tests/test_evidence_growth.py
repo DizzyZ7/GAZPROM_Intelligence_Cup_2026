@@ -1,6 +1,8 @@
 import tempfile
 import unittest
 from pathlib import Path
+from evidence import get_signal
+from pulse import Ticket
 from store import SignalStore
 
 class GrowthTests(unittest.TestCase):
@@ -11,12 +13,16 @@ class GrowthTests(unittest.TestCase):
                       "category":"feature_request","workflow":"export",
                       "ticket_count":2,"ticket_ids":["1","2"],"examples":["Экспорт"]}
             try:
+                store.stage_tickets([Ticket(str(i), "p", "Пожелание по экспорту") for i in range(1, 4)])
                 self.assertEqual(store.ingest([signal]), 1)
-                store.review(signal["id"],"approved","analyst","Проверено")
+                store.review(signal["id"], "approved", "analyst", "Проверено",
+                             expected_revision=get_signal(store, signal["id"])["revision"])
+                snapshot = store.queue()[0]["snapshot"]
                 next_batch = dict(signal, ticket_ids=["2","3"])
                 self.assertEqual(store.ingest([next_batch]), 0)
                 self.assertEqual(store.list_signals()[0]["ticket_count"], 3)
                 self.assertEqual(store.list_signals()[0]["status"], "approved")
+                self.assertEqual(store.queue()[0]["snapshot"], snapshot)
                 self.assertEqual(len(store.audit(signal["id"])), 1)
                 history = store.evidence_history(signal["id"])
                 self.assertEqual(len(history), 2)
