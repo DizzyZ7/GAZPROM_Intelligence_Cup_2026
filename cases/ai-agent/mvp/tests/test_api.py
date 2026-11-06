@@ -46,17 +46,30 @@ class APITests(unittest.TestCase):
     def test_review_needs_token(self):
         self.assertEqual(self.client.post("/signals/P:bug:queue/review",json={"action":"approved","reason":"verified"}).status_code,401)
 
+    def import_reviewable_signal(self, headers):
+        response = self.client.post("/imports", headers=headers, json={"tickets": [
+            {"id": "review-1", "product": "Q", "text": "Очередь ошибка 404"},
+            {"id": "review-2", "product": "Q", "text": "Бронирование очереди ошибка 404"},
+        ]})
+        self.assertEqual(response.status_code, 200, response.text)
+        return "/signals/Q:bug:booking_queue"
+
     def test_review_and_audit(self):
         h={"X-Review-Token":"secret-test-token"}
-        r=self.client.post("/signals/P:bug:queue/review",headers=h,json={"action":"approved","reason":"verified"})
+        url=self.import_reviewable_signal(h)
+        revision=self.client.get(url,headers=h).json()["revision"]
+        r=self.client.post(url+"/review",headers=h,json={
+            "action":"approved","reason":"verified","expected_revision":revision})
         self.assertEqual(r.status_code,200)
-        self.assertEqual(self.client.get("/signals/P:bug:queue/audit",headers=h).json()[0]["action"],"approved")
+        self.assertEqual(self.client.get(url+"/audit",headers=h).json()[0]["action"],"approved")
 
     def test_no_repeat_review(self):
         h={"X-Review-Token":"secret-test-token"}
-        url="/signals/P:bug:queue/review"
-        self.client.post(url,headers=h,json={"action":"approved","reason":"verified"})
-        self.assertEqual(self.client.post(url,headers=h,json={"action":"approved","reason":"verified"}).status_code,409)
+        url=self.import_reviewable_signal(h)
+        revision=self.client.get(url,headers=h).json()["revision"]
+        body={"action":"approved","reason":"verified","expected_revision":revision}
+        self.assertEqual(self.client.post(url+"/review",headers=h,json=body).status_code,200)
+        self.assertEqual(self.client.post(url+"/review",headers=h,json=body).status_code,409)
 
     def test_list_requires_token(self):
         self.assertEqual(self.client.get("/signals").status_code,401)

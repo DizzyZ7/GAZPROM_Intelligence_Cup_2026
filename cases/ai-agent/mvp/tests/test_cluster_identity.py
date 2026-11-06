@@ -3,6 +3,8 @@ import unittest
 from pathlib import Path
 from store import SignalStore
 from cluster_identity import reconcile
+from evidence import get_signal
+from pulse import Ticket
 
 def signal(identifier, ids, product="P"):
     return {"id":identifier,"product":product,"category":"feature_request",
@@ -35,9 +37,12 @@ class IdentityTests(unittest.TestCase):
             reconcile(self.store,[signal("new1",["1","3"]),signal("new2",["2","4"])])
 
     def test_unequal_overlap_cannot_merge_reviewed_signals(self):
+        self.store.stage_tickets([Ticket(str(i), "P", "Пожелание по экспорту") for i in range(1, 5)])
         self.store.ingest([signal("first",["1","2"]),signal("second",["3","4"])])
-        self.store.review("first", "approved", "analyst", "Проверено")
-        self.store.review("second", "rejected", "analyst", "Другая причина")
+        self.store.review("first", "approved", "analyst", "Проверено",
+                          expected_revision=get_signal(self.store, "first")["revision"])
+        self.store.review("second", "rejected", "analyst", "Другая причина",
+                          expected_revision=get_signal(self.store, "second")["revision"])
         with self.assertRaises(ValueError):
             reconcile(self.store,[signal("new",["1","2","3"])])
         self.assertEqual([row["status"] for row in self.store.list_signals()],

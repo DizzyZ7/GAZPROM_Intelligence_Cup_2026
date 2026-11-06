@@ -2,6 +2,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from evidence import get_signal
 from service import import_tickets
 from store import SignalStore
 
@@ -33,7 +34,8 @@ class ServiceTests(unittest.TestCase):
         import_tickets(self.db,self.file)
         store=SignalStore(self.db)
         signal_id=store.list_signals()[0]["id"]
-        store.review(signal_id,"approved","analyst","verified")
+        store.review(signal_id,"approved","analyst","verified",
+                     expected_revision=get_signal(store, signal_id)["revision"])
         store.close()
         import_tickets(self.db,self.file)
         store=SignalStore(self.db)
@@ -101,7 +103,8 @@ class ServiceTests(unittest.TestCase):
                 store.ingest([{"id":identity,"product":"P","category":"bug",
                                "workflow":"booking_queue", "ticket_count":len(members),
                                "ticket_ids":members,"examples":[]}])
-                store.review(identity, action, "analyst", "Проверено по источникам")
+                store.review(identity, action, "analyst", "Проверено по источникам",
+                             expected_revision=get_signal(store, identity)["revision"])
         finally:
             store.close()
         self.file.write_text(json.dumps([

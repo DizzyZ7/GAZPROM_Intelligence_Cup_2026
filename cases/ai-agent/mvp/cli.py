@@ -2,6 +2,7 @@
 import argparse
 import json
 from pathlib import Path
+from evidence import get_signal
 from service import import_tickets
 from store import SignalStore
 
@@ -15,11 +16,14 @@ def main():
     imp.add_argument("--threshold", type=float, default=0.86)
     ls = sub.add_parser("list")
     ls.add_argument("--status")
+    show = sub.add_parser("show")
+    show.add_argument("signal_id")
     review = sub.add_parser("review")
     review.add_argument("signal_id")
     review.add_argument("--action", choices=["approved", "rejected"], required=True)
     review.add_argument("--actor", required=True)
     review.add_argument("--reason", required=True)
+    review.add_argument("--revision", required=True, help="Версия карточки из команды show")
     audit = sub.add_parser("audit")
     audit.add_argument("signal_id")
     args = parser.parse_args()
@@ -32,11 +36,18 @@ def main():
     try:
         if args.command == "list":
             print(json.dumps(store.list_signals(args.status),ensure_ascii=False,indent=2))
+        elif args.command == "show":
+            print(json.dumps(get_signal(store, args.signal_id), ensure_ascii=False, indent=2))
         elif args.command == "review":
-            store.review(args.signal_id,args.action,args.actor,args.reason)
+            store.review(args.signal_id, args.action, args.actor, args.reason,
+                         expected_revision=args.revision)
             print("Решение сохранено")
         elif args.command == "audit":
             print(json.dumps(store.audit(args.signal_id),ensure_ascii=False,indent=2))
+    except KeyError:
+        parser.error("Сигнал не найден")
+    except ValueError as exc:
+        parser.error(str(exc))
     finally:
         store.close()
 
