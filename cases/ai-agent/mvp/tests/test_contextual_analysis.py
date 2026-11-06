@@ -13,6 +13,56 @@ class ContextualAnalysisTests(unittest.TestCase):
             ("bug", "report_download", "http_404"),
         )
 
+    def test_status_at_end_of_observed_result_is_not_a_quantity(self):
+        for text in (
+            "При бронировании очереди вместо подтверждения открывается 404.",
+            "Электронная очередь возвращает 404.",
+            "Электронная очередь возвращает страницу с кодом 404.",
+        ):
+            with self.subTest(text=text):
+                context = classify_context(text)
+                self.assertEqual(
+                    (context.category, context.symptom), ("bug", "http_404")
+                )
+                self.assertTrue(context.groupable)
+        for text in (
+            "Очередь не возвращает 404.",
+            "Очередь возвращает 404 записи.",
+            "Сервис очереди возвращает 404.5.",
+        ):
+            with self.subTest(text=text):
+                self.assertFalse(classify_context(text).groupable)
+
+    def test_password_reset_context_is_distinct_from_a_request_to_reset(self):
+        for text, symptom in (
+            ("Код для смены пароля по SMS не принимается.", "rejected_input"),
+            ("При сбросе пароля код сброса просрочен.", "expired"),
+        ):
+            with self.subTest(text=text):
+                context = classify_context(text)
+                self.assertEqual(
+                    (context.category, context.workflow, context.symptom),
+                    ("bug", "sms_recovery", symptom),
+                )
+                self.assertTrue(context.groupable)
+        for text in (
+            "Сбросьте мой пароль.",
+            "Смени пароль.",
+            "Нужен сброс пароля.",
+        ):
+            self.assertEqual(classify_context(text).category, "service_request")
+
+    def test_duplicate_payment_requires_a_shared_purchase(self):
+        context = classify_context("В истории две оплаты одной покупки.")
+        self.assertEqual(
+            (context.category, context.workflow, context.symptom),
+            ("bug", "payment", "duplicate"),
+        )
+        self.assertTrue(context.groupable)
+        self.assertFalse(
+            classify_context("В истории две оплаты разных покупок.").groupable
+        )
+
     def test_negated_and_hypothetical_error_are_not_observed_failures(self):
         cases = (
             "Как скачать отчет? Сейчас скачивание проходит без ошибки 404.",

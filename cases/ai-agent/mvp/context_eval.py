@@ -1,4 +1,4 @@
-"""Фиксация и однократная оценка контекстного анализа на независимой выборке."""
+"""Воспроизводимая оценка контекстного анализа по отдельным выборкам."""
 
 import argparse
 import json
@@ -25,6 +25,7 @@ from ticket_context import ANALYSIS_VERSION
 
 VERSION = "pulse-context-evaluation-v1"
 MIN_TICKETS = 2
+SPLITS = ("development", "validation", "holdout")
 ANALYZERS = {
     "rules": partial(analyze, threshold=MIN_TICKETS),
     "context": partial(analyze_contextual, min_tickets=MIN_TICKETS),
@@ -39,8 +40,10 @@ ARTIFACTS = {
 ERROR_LIMIT = 15
 
 
-def _configuration(reader):
-    count = reader.manifest.get("counts", {}).get("holdout")
+def _configuration(reader, split):
+    if split not in SPLITS:
+        raise ValueError("Неизвестная выборка")
+    count = reader.manifest.get("counts", {}).get(split)
     if type(count) is not int or count < 1 or count * (count - 1) // 2 > MAX_PAIRS:
         raise ValueError("Недопустимый размер контрольной выборки")
     sources = source_fingerprints()
@@ -48,7 +51,7 @@ def _configuration(reader):
         sources[name] = sha256(Path(__file__).with_name(name).read_bytes())
     return {
         "version": VERSION,
-        "split": "holdout",
+        "split": split,
         "dataset_version": reader.manifest["dataset_version"],
         "dataset_manifest_sha256": reader.fingerprint,
         "sources": sources,
@@ -59,8 +62,8 @@ def _configuration(reader):
     }
 
 
-def freeze(dataset_dir, config_path):
-    config = _configuration(DatasetReader(dataset_dir))
+def freeze(dataset_dir, config_path, *, split="holdout"):
+    config = _configuration(DatasetReader(dataset_dir), split)
     with Path(config_path).open("xb") as stream:
         stream.write(json_bytes(config))
     return config
@@ -99,7 +102,7 @@ def _score(analysis, labels, elapsed):
         {
             "ticket_id": identity,
             "product": gold[identity]["product_id"],
-            "case_type": gold[identity]["case_type"],
+            "case_type": gold[identity].get("case_type"),
             "gold_category": gold[identity]["category"],
             "predicted_category": predicted[identity]["category"],
             "predicted_workflow": predicted[identity]["workflow"],
@@ -111,7 +114,18 @@ def _score(analysis, labels, elapsed):
         }
         for identity in ids
     ]
-    instructions = [row for row in rows if row["case_type"] == "embedded_instruction"]
+    instructions = [
+        row
+        for row in rows
+        if row["case_type"] == "embedded_instruction"
+        or "prompt_injection"
+        in (gold[row["ticket_id"]].get("security_test_type") or "").split("+")
+    ]
+    resolved_groups = Counter(
+        (row["product"], row["gold_cluster"])
+        for row in rows
+        if row["reason"] == "context_resolved" and row["gold_cluster"] is not None
+    )
     return {
         "classification": classification_metrics(
             [row["gold_category"] for row in rows],
@@ -120,7 +134,15 @@ def _score(analysis, labels, elapsed):
         "clustering": pair_metrics(gold_pairs, predicted_pairs),
         "signals": len(analysis["signals"]),
         "cross_product_pairs": cross_product,
+        "resolved_gold_pairs": (
+            sum(count * (count - 1) // 2 for count in resolved_groups.values())
+            if any("reason" in row for row in predicted.values())
+            else None
+        ),
         "instruction_cases": len(instructions),
+        "instruction_cases_detected": sum(
+            row["reason"] == "untrusted_instruction" for row in instructions
+        ),
         "instruction_cases_in_clusters": sum(
             row["predicted_cluster"] is not None for row in instructions
         ),
@@ -148,22 +170,23 @@ def evaluate(dataset_dir, config_path, output):
     config = json.loads(config_bytes)
     if config.get("dataset_manifest_sha256") != reader.fingerprint:
         raise ValueError("Набор отличается от зафиксированного")
-    if config != _configuration(reader):
+    split = config.get("split")
+    if config != _configuration(reader, split):
         raise ValueError("Код или параметры изменены после фиксации")
     run = {"configuration_sha256": sha256(config_bytes)}
-    receipt = config_path.with_name(f"holdout-{reader.fingerprint}.receipt.json")
+    receipt = config_path.with_name(f"{split}-{reader.fingerprint}.receipt.json")
     with receipt.open("xb") as stream:
         stream.write(json_bytes(dict(run, status="started")))
 
     try:
-        sources, _ = reader.read_split("holdout", gold=False)
+        sources, _ = reader.read_split(split, gold=False)
         tickets = [Ticket(**dict(row, text=redact(row["text"]))) for row in sources]
         results = {}
         for method, analyzer in ANALYZERS.items():
             start = time.perf_counter()
             analysis = analyzer(tickets)
             results[method] = (analysis, time.perf_counter() - start)
-        _, labels = reader.read_split("holdout")
+        _, labels = reader.read_split(split)
 
         reports, predictions, comparisons = {}, [], []
         for method, (analysis, elapsed) in results.items():
@@ -181,6 +204,8 @@ def evaluate(dataset_dir, config_path, output):
                     **report["clustering"],
                     "signals": report["signals"],
                     "cross_product_pairs": report["cross_product_pairs"],
+                    "resolved_gold_pairs": report["resolved_gold_pairs"],
+                    "instruction_cases_detected": report["instruction_cases_detected"],
                     "instruction_cases_in_clusters": report[
                         "instruction_cases_in_clusters"
                     ],
@@ -190,6 +215,7 @@ def evaluate(dataset_dir, config_path, output):
             )
         summary = {
             "version": VERSION,
+            "split": split,
             "dataset_version": config["dataset_version"],
             "tickets": len(tickets),
             "python": platform.python_version(),
@@ -246,11 +272,14 @@ def verify(directory, dataset_dir):
         "summary_sha256": sha256((root / "summary.json").read_bytes()),
     }:
         raise ValueError("Квитанция не соответствует отчету")
-    sources, _ = reader.read_split("holdout")
+    split = config.get("split")
+    current = _configuration(reader, split)
+    sources, _ = reader.read_split(split)
     return {
         "status": "ok",
+        "split": split,
         "tickets": len(sources),
-        "source_matches_current": config == _configuration(reader),
+        "source_matches_current": config == current,
     }
 
 
@@ -260,6 +289,8 @@ def main():
     for name in ("freeze", "evaluate", "verify"):
         command = commands.add_parser(name)
         command.add_argument("--dataset", required=True)
+        if name == "freeze":
+            command.add_argument("--split", choices=SPLITS, default="holdout")
         if name != "verify":
             command.add_argument("--config", required=True)
         if name != "freeze":
@@ -267,7 +298,7 @@ def main():
     args = parser.parse_args()
     try:
         if args.command == "freeze":
-            result = freeze(args.dataset, args.config)
+            result = freeze(args.dataset, args.config, split=args.split)
         elif args.command == "evaluate":
             result = evaluate(args.dataset, args.config, args.output)
         else:

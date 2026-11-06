@@ -54,7 +54,9 @@ class APITests(unittest.TestCase):
         identity = next(row["id"] for row in signals if row["product"] == "Q")
         detail = self.client.get(f"/signals/{identity}", headers=headers).json()
         self.assertEqual(detail["ticket_ids"], ["a", "b"])
-        self.assertEqual(detail["analysis_version"], "context-v1")
+        from ticket_context import ANALYSIS_VERSION
+
+        self.assertEqual(detail["analysis_version"], ANALYSIS_VERSION)
         self.assertEqual(detail["context"], {"operation": "report_download", "symptom": "http_404"})
 
     def test_context_migration_refuses_split_of_reviewed_signal_and_rolls_back(self):
