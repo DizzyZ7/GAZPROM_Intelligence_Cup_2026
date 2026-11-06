@@ -16,7 +16,6 @@ class ContextualAnalysisTests(unittest.TestCase):
     def test_status_at_end_of_observed_result_is_not_a_quantity(self):
         for text in (
             "При бронировании очереди вместо подтверждения открывается 404.",
-            "Электронная очередь возвращает 404.",
             "Электронная очередь возвращает страницу с кодом 404.",
         ):
             with self.subTest(text=text):
@@ -29,6 +28,8 @@ class ContextualAnalysisTests(unittest.TestCase):
             "Очередь не возвращает 404.",
             "Очередь возвращает 404 записи.",
             "Сервис очереди возвращает 404.5.",
+            "Счетчик заявок электронной очереди возвращает 404.",
+            "Что делать, если вместо подтверждения бронирования открывается 404?",
         ):
             with self.subTest(text=text):
                 self.assertFalse(classify_context(text).groupable)
@@ -49,19 +50,31 @@ class ContextualAnalysisTests(unittest.TestCase):
             "Сбросьте мой пароль.",
             "Смени пароль.",
             "Нужен сброс пароля.",
+            "Прошу сброс пароля.",
+            "Требуется смена пароля.",
         ):
             self.assertEqual(classify_context(text).category, "service_request")
+        access = classify_context("Не могу войти в кабинет. Сброс пароля не помог.")
+        self.assertEqual(
+            (access.workflow, access.symptom), ("account_access", "login_failed")
+        )
 
-    def test_duplicate_payment_requires_a_shared_purchase(self):
-        context = classify_context("В истории две оплаты одной покупки.")
+    def test_duplicate_payment_requires_one_confirmed_payment_action(self):
+        context = classify_context(
+            "В истории две оплаты после одного подтверждения оплаты."
+        )
         self.assertEqual(
             (context.category, context.workflow, context.symptom),
             ("bug", "payment", "duplicate"),
         )
         self.assertTrue(context.groupable)
-        self.assertFalse(
-            classify_context("В истории две оплаты разных покупок.").groupable
-        )
+        for text in (
+            "В истории две оплаты разных покупок.",
+            "В истории две оплаты одной покупки в рассрочку.",
+            "Две оплаты одной покупки: предоплата и доплата.",
+        ):
+            with self.subTest(text=text):
+                self.assertFalse(classify_context(text).groupable)
 
     def test_negated_and_hypothetical_error_are_not_observed_failures(self):
         cases = (
