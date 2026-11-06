@@ -1,6 +1,7 @@
 import json
 import tempfile
 import unittest
+from contextlib import closing
 from pathlib import Path
 from evidence import get_signal
 from pulse import Ticket
@@ -119,6 +120,54 @@ class ServiceTests(unittest.TestCase):
             self.assertEqual([s["status"] for s in store.list_signals()], ["approved", "rejected"])
         finally:
             store.close()
+
+    def test_semantic_growth_keeps_method_threshold_and_reviewed_snapshot(self):
+        text = "Бронирование очереди ошибка 404 подтверждение слота"
+        initial = [Ticket(ticket_id, "P", text) for ticket_id in ("a", "b")]
+        unrelated = Ticket("other", "Q", "Вопрос о работе сервиса")
+        later = [Ticket("c", "P", text), unrelated]
+        options = {"mode": "semantic", "provider": ExactTokenProvider(), "threshold": 0.91}
+        with closing(SignalStore(self.db)) as store:
+            ingest_batch(store, initial, **options)
+            row, = store.list_signals()
+            signal_id = row["id"]
+            card = get_signal(store, signal_id)
+            store.review(signal_id, "approved", "analyst", "Проверены источники",
+                         expected_revision=card["revision"])
+            approved = get_signal(store, signal_id)
+            queue = store.queue()
+            self.assertEqual(ingest_batch(store, initial)["staged_new"], 0)
+            for incompatible in ({}, dict(options, threshold=0.85)):
+                with self.subTest(options=incompatible):
+                    with self.assertRaisesRegex(ValueError, "полный семантический анализ"):
+                        ingest_batch(store, later, **incompatible)
+                    self.assertEqual(store.staged_tickets(), initial)
+                    self.assertEqual(get_signal(store, signal_id), approved)
+                    self.assertEqual(store.queue(), queue)
+
+            self.assertEqual(ingest_batch(store, [unrelated])["staged_new"], 1)
+            self.assertEqual(ingest_batch(store, later, **options)["staged_new"], 1)
+            self.assertEqual(get_signal(store, signal_id)["ticket_ids"], ["a", "b", "c"])
+            self.assertEqual(store.queue(), queue)
+            self.assertEqual(len(store.audit(signal_id)), 1)
+
+    def test_semantic_growth_rechecks_all_previous_members(self):
+        # Обращение a сходно с b, но не с c. Старый кластер содержит b и c.
+        initial = [
+            Ticket("b", "P", "Бронирование очереди ошибка 404 подтверждение слота"),
+            Ticket("c", "P", "Бронирование очереди ошибка 404 проверка слота"),
+        ]
+        later = Ticket("a", "P", "Бронирование очереди ошибка 404 подтверждение талона")
+        options = {"mode": "semantic", "provider": ExactTokenProvider(), "threshold": 0.82}
+        with closing(SignalStore(self.db)) as store:
+            ingest_batch(store, initial, **options)
+            row, = store.list_signals()
+            signal_id = row["id"]
+            card = get_signal(store, signal_id)
+            with self.assertRaisesRegex(ValueError, "полный семантический анализ"):
+                ingest_batch(store, [later], **options)
+            self.assertEqual(store.staged_tickets(), initial)
+            self.assertEqual(get_signal(store, signal_id), card)
 
     def test_semantic_replay_does_not_recreate_excluded_only_cluster(self):
         booking_error = "Бронирование очереди ошибка 404 подтверждение слота"

@@ -181,10 +181,18 @@ class SignalStore:
                     "SELECT ticket_id FROM excluded_sources WHERE signal_id=?", (s["id"],),
                 )}
                 incoming_ids = [ticket_id for ticket_id in incoming_ids if ticket_id not in excluded]
-                self._link_sources(s["id"], s["product"], incoming_ids)
                 old_ids = old.get("ticket_ids", [])
                 known_ids = set(old_ids)
                 additions = [item for item in incoming_ids if item not in known_ids]
+                if additions and old.get("method") == "complete_link_embeddings" and (
+                    s.get("method") != old["method"]
+                    or s.get("threshold") != old.get("threshold")
+                    or not known_ids.issubset(incoming_ids)
+                ):
+                    raise ValueError(
+                        "Для расширения сигнала нужен полный семантический анализ с прежним порогом"
+                    )
+                self._link_sources(s["id"], s["product"], incoming_ids)
                 if not additions:
                     continue
                 merged_ids = old_ids + additions
