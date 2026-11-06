@@ -1,0 +1,31 @@
+{
+  "dataset_manifest_sha256": "9b7f27a487fc6fce8968d1b5323c6fca528d08a4f518e72f1fcad3b1ba6b0cfb",
+  "dataset_version": "pulse-synthetic-v1",
+  "methods": {
+    "context": {
+      "min_tickets": 2,
+      "version": "context-v2"
+    },
+    "rules": {
+      "min_tickets": 2
+    }
+  },
+  "sources": {
+    "benchmark/__init__.py": "4420259114efbad4456821ef6f6dbf2713a2b163a538b5f474f680ae7e0762da",
+    "benchmark/__main__.py": "e9208069362105537b20d3e18b9a76b488d5e6d7d65c42b3dcf0fdd89aadd5d8",
+    "benchmark/artifact_io.py": "7a6b54e6c648c9fc30881c9f88f83432cd79bf81fac68a2b1818cbf0bd6dba75",
+    "benchmark/engine.py": "d7b25e38d29a9175e66aa762f75b552c3a52977610d05b9b34790ab3232622a6",
+    "benchmark/metrics.py": "e3b79783ab06f9a8cc495af9e3c2654b405fb58a1e9a7d42e9a1ffd55493059a",
+    "benchmark/protocol.py": "9398544199f4e052fdf87cc869f921eda50f8e4701bed8f05065889e6b051246",
+    "benchmark/reports.py": "ab8b7b81f7e3bd91129bf5ca6ed1973fd9c134e9bbb958b531688c486dca89ea",
+    "benchmark/tfidf.py": "cc8747121df313c194e00aa65f43659995cbd743b773c56a802db673cedc68c0",
+    "context_eval.py": "00287561b1261667bd3d8482a9ac3146f8069dfb63c4b0bba5710010fca69b43",
+    "ollama_embeddings.py": "c24de2c2a5d2da17df26a11b58d7d4cff011bb9890767e075b3bb2c42bed7c41",
+    "pipeline.py": "3e2e67f7dc13b9293348d3a7694a76afe3a2c3cfa2b0003d3000c00c8862c60e",
+    "pulse.py": "dd477d0c45887da4a13648bcbf8c957d0024ef26eebc4d1e0f98477c76e91749",
+    "semantic.py": "6d9315df9fdf33219a7c2b30235874e9717c649f961d7adfdcefc3dec6a140b5",
+    "ticket_context.py": "c7d30c88ef89900caa5246a64a11e4ae69f1b62f08d5071b70daed1bc322d01b"
+  },
+  "split": "development",
+  "version": "pulse-context-evaluation-v1"
+}

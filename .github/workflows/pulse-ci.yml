@@ -54,5 +54,13 @@ jobs:
         run: python -m benchmark verify --directory benchmarks/pulse-synthetic-v1/holdout
       - name: Verify contextual evaluation evidence
         run: python -m context_eval verify --dataset datasets/pulse-context-holdout-v1 --output benchmarks/pulse-context-holdout-v1/holdout
+      - name: Verify contextual development and validation evidence
+        run: |
+          for split in development validation
+          do
+            verification=$(python -m context_eval verify --dataset datasets/pulse-synthetic-v1 --output "benchmarks/pulse-context-v2/$split")
+            printf '%s\n' "$verification"
+            printf '%s\n' "$verification" | python -c 'import json, sys; assert json.load(sys.stdin)["source_matches_current"]'
+          done
       - name: Audit runtime dependencies
         run: pip-audit -r requirements-api.txt
