@@ -166,7 +166,7 @@ async function openDetail(id,notice){
  const path="/signals/"+encodeURIComponent(id);
  root.replaceChildren(element("p","Загрузка доказательств…","empty"));
  try{
-  const [card,history]=await Promise.all([request(path),request(path+"/timeline")]);
+  const [card,history]=await Promise.all([request(path+"/card"),request(path+"/timeline")]);
   if(load!==detailLoad)return;
   const status=feedback();
   status.textContent=notice||"";

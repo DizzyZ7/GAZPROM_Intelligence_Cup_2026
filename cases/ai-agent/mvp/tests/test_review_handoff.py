@@ -6,6 +6,7 @@ from concurrent.futures import ThreadPoolExecutor
 from contextlib import closing
 from pathlib import Path
 from threading import Barrier
+from urllib.parse import quote
 from unittest.mock import patch
 
 
@@ -46,7 +47,7 @@ class ReviewHandoffTests(unittest.TestCase):
         return response.json()
 
     def detail(self):
-        response = self.client.get(self.url)
+        response = self.client.get(self.url + "/card")
         self.assertEqual(response.status_code, 200, response.text)
         return response.json()
 
@@ -141,6 +142,76 @@ class ReviewHandoffTests(unittest.TestCase):
         self.assertEqual(len(excluded), 1)
         self.assertEqual(excluded[0]["ticket_id"], "booking-history")
         self.assertEqual(excluded[0]["actor"], "demo-reviewer")
+
+    def test_product_with_slash_can_be_reviewed_and_handed_off(self):
+        product = "Кабинет/Бронирование"
+        self.import_tickets([dict(ticket, product=product) for ticket in self.tickets[:3]])
+        signal_id = quote(product + ":bug:booking_queue", safe="")
+        self.url = "/signals/" + signal_id
+        self.assertEqual(self.exclude(self.detail(), "booking-history").status_code, 200)
+        self.assertEqual(self.submit_review(self.detail()).status_code, 200)
+        response = self.client.get(self.url + "/audit")
+        self.assertEqual(response.status_code, 200, response.text)
+        self.assertEqual(response.json()[0]["action"], "approved")
+        decision = self.client.post("/product-queue/" + signal_id + "/decision", json={
+            "decision": "known", "reason": "Есть задача в бэклоге",
+        })
+        self.assertEqual(decision.status_code, 200, decision.text)
+        self.assertEqual(self.queue()[0]["snapshot"]["ticket_count"], 2)
+        history = self.client.get(self.url + "/timeline")
+        self.assertEqual(history.status_code, 200, history.text)
+        self.assertEqual(history.json()[-1]["type"], "product_decision")
+
+    def test_signal_routes_keep_trailing_slash_redirects(self):
+        for method, path in (
+            ("GET", "/signals/"),
+            ("GET", self.url + "/"),
+            ("GET", self.url + "/card/"),
+            ("GET", self.url + "/timeline/"),
+            ("POST", self.url + "/review/"),
+        ):
+            with self.subTest(method=method, path=path):
+                response = self.client.request(method, path, follow_redirects=False)
+                self.assertEqual(response.status_code, 307, response.text)
+
+    def test_card_routes_keep_product_with_line_break_addressable(self):
+        product = "Кабинет\nБронирование"
+        self.import_tickets([dict(ticket, product=product) for ticket in self.tickets[:2]])
+        signal_id = product + ":bug:booking_queue"
+        self.url = "/signals/" + quote(signal_id, safe="")
+        self.assertEqual(self.client.get(self.url).status_code, 200)
+        self.assertEqual(self.detail()["id"], signal_id)
+        self.assertEqual(self.submit_review(self.detail()).status_code, 200)
+        self.assertEqual(self.client.get(self.url + "/timeline").status_code, 200)
+
+    def test_card_suffix_disambiguates_semantic_ids_with_slashes(self):
+        from pulse import Ticket
+        from service import ExactTokenProvider, ingest_batch
+        from store import SignalStore
+
+        groups = (
+            ("a", "z-1", "Очередь ошибка 404 при печати пропуска"),
+            ("a/audit", "z-2", "Бронирование ошибка 404 в истории старых талонов"),
+            ("b/", "z-3", "Очередь ошибка 404 на экране записи"),
+        )
+        tickets = [Ticket(ticket_id, "P", text)
+                   for first, second, text in groups for ticket_id in (first, second)]
+        with closing(SignalStore(self.db)) as store:
+            ingest_batch(store, tickets, mode="semantic", provider=ExactTokenProvider())
+        for first, second, _ in groups:
+            with self.subTest(anchor=first):
+                signal_id = "P:bug:booking_queue:" + first
+                encoded = quote(signal_id, safe="")
+                self.url = "/signals/" + encoded
+                card = self.detail()
+                self.assertEqual(card["id"], signal_id)
+                self.assertEqual(card["ticket_ids"], [first, second])
+                self.assertEqual(self.submit_review(card).status_code, 200)
+                decision = self.client.post("/product-queue/" + encoded + "/decision", json={
+                    "decision": "known", "reason": "Есть задача в бэклоге",
+                })
+                self.assertEqual(decision.status_code, 200, decision.text)
+        self.assertEqual(len(self.queue()), 3)
 
     def test_exclusion_preserves_exact_cli_identifiers(self):
         from service import import_tickets

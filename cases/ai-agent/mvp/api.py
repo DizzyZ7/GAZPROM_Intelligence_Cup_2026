@@ -8,10 +8,17 @@ from fastapi.responses import FileResponse, JSONResponse
 from fastapi import FastAPI, Header, HTTPException, Depends
 from fastapi.exceptions import RequestValidationError
 from pydantic import BaseModel, Field, ConfigDict, StrictStr, StringConstraints
+from starlette.convertors import PathConvertor, register_url_convertor
 from store import SignalStore
 from evidence import get_signal
 from pulse import Ticket
 from service import ingest_batch
+
+class SignalIdConvertor(PathConvertor):
+    # Сохраняет все символы декодированного ID, включая перевод строки.
+    regex = r"[\s\S]+"
+
+register_url_convertor("pulse_signal_id", SignalIdConvertor())
 
 app = FastAPI(title="ТИИм Pulse — проверка сигналов", version="0.6.0")
 DB_PATH = os.getenv("PULSE_DB", str(Path(__file__).with_name("pulse-demo.sqlite3")))
@@ -65,14 +72,14 @@ def signals(status: str | None = None, actor: str = Depends(reviewer)):
         except ValueError as exc:
             raise HTTPException(status_code=422, detail=str(exc)) from exc
 
-@app.get("/signals/{signal_id}/audit")
+@app.get("/signals/{signal_id:pulse_signal_id}/audit")
 def audit(signal_id: str, actor: str = Depends(reviewer)):
     with storage() as store:
         if not any(x["id"] == signal_id for x in store.list_signals()):
             raise HTTPException(status_code=404, detail="Сигнал не найден")
         return store.audit(signal_id)
 
-@app.post("/signals/{signal_id}/review")
+@app.post("/signals/{signal_id:pulse_signal_id}/review")
 def review(signal_id: str, request: ReviewRequest, actor: str = Depends(reviewer)):
     with storage() as store:
         try:
@@ -84,7 +91,7 @@ def review(signal_id: str, request: ReviewRequest, actor: str = Depends(reviewer
             raise HTTPException(status_code=409, detail=str(exc)) from exc
     return {"signal_id": signal_id, "status": request.action, "reviewer": actor}
 
-@app.post("/signals/{signal_id}/exclude")
+@app.post("/signals/{signal_id:pulse_signal_id}/exclude")
 def exclude_source(signal_id: str, request: ExclusionRequest, actor: str = Depends(reviewer)):
     with storage() as store:
         try:
@@ -100,7 +107,7 @@ def product_queue(actor: str = Depends(reviewer)):
     with storage() as store:
         return store.queue()
 
-@app.post("/product-queue/{signal_id}/decision")
+@app.post("/product-queue/{signal_id:pulse_signal_id}/decision")
 def decide_product(signal_id: str, request: ProductDecisionRequest, actor: str = Depends(reviewer)):
     with storage() as store:
         try:
@@ -111,15 +118,7 @@ def decide_product(signal_id: str, request: ProductDecisionRequest, actor: str =
             raise HTTPException(status_code=409, detail=str(exc)) from exc
     return {"signal_id": signal_id, "decision": request.decision, "decided_by": actor}
 
-@app.get("/signals/{signal_id}")
-def signal_detail(signal_id: str, actor: str = Depends(reviewer)):
-    with storage() as store:
-        try:
-            return get_signal(store, signal_id)
-        except KeyError as exc:
-            raise HTTPException(status_code=404, detail="Сигнал не найден") from exc
-
-@app.get("/signals/{signal_id}/timeline")
+@app.get("/signals/{signal_id:pulse_signal_id}/timeline")
 def signal_timeline(signal_id: str, actor: str = Depends(reviewer)):
     with storage() as store:
         try:
@@ -147,6 +146,15 @@ def signal_timeline(signal_id: str, actor: str = Depends(reviewer)):
                        "action": owner_decision["decision"], "actor": owner_decision["decided_by"],
                        "reason": owner_decision["reason"]})
     return sorted(events, key=lambda event: event["at"])
+
+@app.get("/signals/{signal_id:pulse_signal_id}/card")
+@app.get("/signals/{signal_id}")
+def signal_detail(signal_id: str, actor: str = Depends(reviewer)):
+    with storage() as store:
+        try:
+            return get_signal(store, signal_id)
+        except KeyError as exc:
+            raise HTTPException(status_code=404, detail="Сигнал не найден") from exc
 
 @app.get("/dashboard", include_in_schema=False)
 def dashboard():

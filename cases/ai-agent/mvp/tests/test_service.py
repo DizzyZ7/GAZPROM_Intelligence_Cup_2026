@@ -3,7 +3,8 @@ import tempfile
 import unittest
 from pathlib import Path
 from evidence import get_signal
-from service import import_tickets
+from pulse import Ticket
+from service import ExactTokenProvider, import_tickets, ingest_batch
 from store import SignalStore
 
 class SameVector:
@@ -92,7 +93,6 @@ class ServiceTests(unittest.TestCase):
             store.close()
 
     def test_rules_cannot_merge_two_existing_semantic_signals(self):
-        from pulse import Ticket
         store = SignalStore(self.db)
         try:
             store.stage_tickets([Ticket(str(i), "P", "Очередь ошибка 404") for i in range(1, 6)])
@@ -117,6 +117,42 @@ class ServiceTests(unittest.TestCase):
             self.assertEqual(len(store.staged_tickets()), 5)
             self.assertEqual(len(store.list_signals()), 2)
             self.assertEqual([s["status"] for s in store.list_signals()], ["approved", "rejected"])
+        finally:
+            store.close()
+
+    def test_semantic_replay_does_not_recreate_excluded_only_cluster(self):
+        booking_error = "Бронирование очереди ошибка 404 подтверждение слота"
+        tickets = [
+            Ticket("a", "P", "Бронирование очереди ошибка 404 старый талон"),
+            Ticket("b", "P", booking_error),
+            Ticket("c", "P", booking_error),
+        ]
+        store = SignalStore(self.db)
+        try:
+            ingest_batch(store, tickets)
+            provider = ExactTokenProvider()
+            before = ingest_batch(store, tickets, mode="semantic", provider=provider)
+            self.assertEqual(before["signals_found"], 1)
+            self.assertEqual(before["new_signals"], 0)
+            original, = store.list_signals()
+            signal_id = original["id"]
+            for ticket_id in ("b", "c"):
+                card = get_signal(store, signal_id)
+                store.exclude_source(signal_id, ticket_id, "analyst", "Другой сбой",
+                                     expected_revision=card["revision"])
+
+            replay = ingest_batch(store, tickets, mode="semantic", provider=provider)
+            self.assertEqual(replay["staged_new"], 0)
+            self.assertEqual(replay["new_signals"], 0)
+            self.assertEqual([row["id"] for row in store.list_signals()], [signal_id])
+            self.assertEqual(get_signal(store, signal_id)["ticket_ids"], ["a"])
+
+            later = ingest_batch(store, [Ticket("d", "P", booking_error)],
+                                 mode="semantic", provider=provider)
+            self.assertEqual(later["new_signals"], 1)
+            independent, = [row for row in store.list_signals() if row["id"] != signal_id]
+            self.assertEqual(get_signal(store, independent["id"])["ticket_ids"], ["b", "c", "d"])
+            self.assertEqual(get_signal(store, signal_id)["ticket_ids"], ["a"])
         finally:
             store.close()
 if __name__=="__main__":
