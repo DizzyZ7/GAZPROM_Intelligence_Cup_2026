@@ -1,0 +1,3 @@
+method,category_macro_f1,category_accuracy,abstention_fraction,pair_count,tp,fp,fn,tn,precision,recall,f1,false_merge_fraction,missed_repeat_fraction,signals,cross_product_pairs,resolved_gold_pairs,instruction_cases_detected,instruction_cases_in_clusters,analysis_seconds,tickets_per_second
+rules,0.06880570409982174,0.16,0.96,4950,0,1,71,4878,0.0,0.0,0.0,1.0,1.0,1,0,,0,0,0.0005138100000294799,194624.4720699529
+context,0.6909309014572173,0.66,0.4,4950,7,2,64,4877,0.7777777777777778,0.09859154929577464,0.175,0.2222222222222222,0.9014084507042254,5,0,7,5,0,0.02567585599990707,3894.709488959664

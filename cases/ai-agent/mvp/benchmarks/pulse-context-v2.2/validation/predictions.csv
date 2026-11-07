@@ -1,0 +1,201 @@
+ticket_id,product,case_type,gold_category,predicted_category,predicted_workflow,gold_cluster,predicted_cluster,operation,symptom,reason,method
+t_056151c5ec8c8e609cad,Горизонт: Запись,,other,unknown,unclassified,,,,,,rules
+t_05dbb32448b290446b75,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|rare_leap_date,,,,,rules
+t_10dcd427a4d1d4b12709,Вектор: Портал,,how_to,unknown,unclassified,,,,,,rules
+t_1534857c61fd07ffbdfd,Вектор: Портал,,feature_request,unknown,unclassified,Вектор: Портал|dark_theme,,,,,rules
+t_15ef0fe3e67381bfc95a,Горизонт: Запись,,bug,unknown,unclassified,Горизонт: Запись|booking_slot_lost,,,,,rules
+t_1809c5a1610171ea213c,Север: Кабинет,,bug,bug,booking_queue,Север: Кабинет|booking_slot_lost,Север: Кабинет:bug:booking_queue,,,,rules
+t_19ec82a345383360a268,Горизонт: Запись,,bug,bug,booking_queue,Горизонт: Запись|booking_slot_lost,,,,,rules
+t_1f11faba58f8f9613f1f,Вектор: Портал,,bug,unknown,unclassified,Вектор: Портал|booking_slot_lost,,,,,rules
+t_236ee8d86931c184c95e,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|timezone_shift,,,,,rules
+t_247e9612199ffa1fe1d0,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|rare_print_border,,,,,rules
+t_24bc7f2ec764b30c7cf2,Вектор: Портал,,how_to,unknown,unclassified,,,,,,rules
+t_2dbfbc410f786e6d436c,Север: Кабинет,,unknown,unknown,unclassified,,,,,,rules
+t_33d00b4ef64c968a02df,Север: Кабинет,,how_to,unknown,unclassified,,,,,,rules
+t_36e5b9d2bdd6152d4bd9,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|booking_slot_lost,,,,,rules
+t_37155aa7ff20cc955521,Вектор: Портал,,other,unknown,unclassified,,,,,,rules
+t_3789f427391d85f3d012,Север: Кабинет,,unknown,bug,booking_queue,,Север: Кабинет:bug:booking_queue,,,,rules
+t_37d1c23755ada75fecce,Север: Кабинет,,how_to,unknown,unclassified,,,,,,rules
+t_386f6fe99c3224e8345b,Вектор: Портал,,bug,unknown,unclassified,Вектор: Портал|timezone_shift,,,,,rules
+t_3b311c789da443587425,Горизонт: Запись,,feature_request,unknown,unclassified,Горизонт: Запись|dark_theme,,,,,rules
+t_3dce38cf56a645da4f1d,Север: Кабинет,,feature_request,unknown,unclassified,Север: Кабинет|dark_theme,,,,,rules
+t_3e64e755844d38250f49,Вектор: Портал,,unknown,unknown,unclassified,,,,,,rules
+t_404e31de05e3e2fcfd1b,Горизонт: Запись,,bug,unknown,unclassified,Горизонт: Запись|timezone_shift,,,,,rules
+t_4495f45eb56a6e7876e2,Горизонт: Запись,,bug,unknown,unclassified,Горизонт: Запись|booking_slot_lost,,,,,rules
+t_4d4a5a2ca1a63664e411,Вектор: Портал,,service_request,unknown,unclassified,,,,,,rules
+t_5090096151b20679476c,Вектор: Портал,,service_request,unknown,unclassified,,,,,,rules
+t_5190d6884624d045b02f,Горизонт: Запись,,feature_request,unknown,unclassified,Горизонт: Запись|dark_theme,,,,,rules
+t_527ad1b85c3610165871,Вектор: Портал,,unknown,unknown,unclassified,,,,,,rules
+t_53b889b266d79702e5c3,Горизонт: Запись,,bug,unknown,unclassified,Горизонт: Запись|timezone_shift,,,,,rules
+t_56ea7eed0c524f8ab3b6,Вектор: Портал,,bug,unknown,unclassified,Вектор: Портал|timezone_shift,,,,,rules
+t_57c13a06715c9055c24a,Север: Кабинет,,how_to,unknown,unclassified,,,,,,rules
+t_57eb5e2019a311cfea65,Вектор: Портал,,service_request,unknown,unclassified,,,,,,rules
+t_59965737badd1c5fe439,Север: Кабинет,,other,unknown,unclassified,,,,,,rules
+t_5b211e4260e479362150,Горизонт: Запись,,unknown,unknown,unclassified,,,,,,rules
+t_5dd0c84b0ee186974971,Горизонт: Запись,,feature_request,unknown,unclassified,Горизонт: Запись|dark_theme,,,,,rules
+t_640040141eb9cde54fbf,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|timezone_shift,,,,,rules
+t_64e3c14b2e377c7bc528,Горизонт: Запись,,how_to,unknown,unclassified,,,,,,rules
+t_64fd8003ae8c864b297d,Север: Кабинет,,feature_request,unknown,unclassified,Север: Кабинет|dark_theme,,,,,rules
+t_6711f66f70a9dcd550f9,Север: Кабинет,,how_to,unknown,unclassified,,,,,,rules
+t_67981287ccadcd13e49b,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|booking_slot_lost,,,,,rules
+t_6b5bbb3b49edc8a6dbf7,Север: Кабинет,,service_request,unknown,unclassified,,,,,,rules
+t_6d95aa74b0433e9c1912,Север: Кабинет,,other,unknown,unclassified,,,,,,rules
+t_6ee3b8fcbbd86fca341d,Горизонт: Запись,,feature_request,unknown,unclassified,Горизонт: Запись|dark_theme,,,,,rules
+t_6fecea12afbf47a8c276,Север: Кабинет,,other,unknown,unclassified,,,,,,rules
+t_6ffe646c8d99f5f3cf6f,Север: Кабинет,,feature_request,unknown,unclassified,Север: Кабинет|dark_theme,,,,,rules
+t_7b07539051d125ea9364,Горизонт: Запись,,bug,unknown,unclassified,,,,,,rules
+t_7b7233e206671acc5c42,Север: Кабинет,,other,unknown,unclassified,,,,,,rules
+t_7cce7c4392ad570c13a8,Вектор: Портал,,how_to,unknown,unclassified,,,,,,rules
+t_8424fb7d5dbc64e218a7,Горизонт: Запись,,other,unknown,unclassified,,,,,,rules
+t_85d2a82099daf2e0b38d,Горизонт: Запись,,how_to,unknown,unclassified,,,,,,rules
+t_884646f000ca130b7382,Горизонт: Запись,,service_request,unknown,unclassified,,,,,,rules
+t_8ad56536d78cad4b805c,Горизонт: Запись,,unknown,unknown,unclassified,,,,,,rules
+t_900671c1654f0b2c75bc,Вектор: Портал,,bug,unknown,unclassified,Вектор: Портал|timezone_shift,,,,,rules
+t_9103d34487508609824b,Горизонт: Запись,,other,unknown,unclassified,,,,,,rules
+t_921573815ba2aa09a272,Горизонт: Запись,,bug,unknown,unclassified,Горизонт: Запись|timezone_shift,,,,,rules
+t_946ec566df5b6c985585,Вектор: Портал,,feature_request,unknown,unclassified,Вектор: Портал|dark_theme,,,,,rules
+t_96228e5fe2a4ef2530f2,Вектор: Портал,,unknown,unknown,unclassified,,,,,,rules
+t_9674f5f0ff99fab91840,Горизонт: Запись,,how_to,unknown,unclassified,,,,,,rules
+t_9a44634021d9e99972d7,Вектор: Портал,,service_request,unknown,unclassified,,,,,,rules
+t_9bba50ac3de00f2523f4,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|timezone_shift,,,,,rules
+t_9d66c4aa77ea8c032e12,Вектор: Портал,,bug,unknown,unclassified,Вектор: Портал|booking_slot_lost,,,,,rules
+t_9e3468432424a961897a,Север: Кабинет,,how_to,unknown,unclassified,,,,,,rules
+t_9f82847a1e46bbf9dd0d,Горизонт: Запись,,bug,unknown,unclassified,Горизонт: Запись|timezone_shift,,,,,rules
+t_a1ef4bfdc80c1278e979,Вектор: Портал,,service_request,unknown,unclassified,,,,,,rules
+t_a224a16ea718f81363a7,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|timezone_shift,,,,,rules
+t_a61cb2b2b17ccf2272be,Горизонт: Запись,,service_request,unknown,unclassified,,,,,,rules
+t_a72afd234b9f37d9fd3b,Горизонт: Запись,,how_to,unknown,unclassified,,,,,,rules
+t_ab6994bcc09b4657e8a2,Вектор: Портал,,other,unknown,unclassified,,,,,,rules
+t_abb28a2f751d0f3bf04c,Север: Кабинет,,other,unknown,unclassified,,,,,,rules
+t_abb4ad25df5c6169d5cd,Вектор: Портал,,how_to,unknown,unclassified,,,,,,rules
+t_acc0a37895246712039d,Горизонт: Запись,,unknown,unknown,unclassified,,,,,,rules
+t_b05835521e3341c5ae5e,Вектор: Портал,,bug,unknown,unclassified,Вектор: Портал|booking_slot_lost,,,,,rules
+t_b1ebce73507ed4ac2929,Север: Кабинет,,service_request,unknown,unclassified,,,,,,rules
+t_b614f74cf01e1556a830,Север: Кабинет,,feature_request,unknown,unclassified,Север: Кабинет|dark_theme,,,,,rules
+t_b868f49790e1d51867a9,Горизонт: Запись,,feature_request,unknown,unclassified,Горизонт: Запись|dark_theme,,,,,rules
+t_b92e72f6486553b07d28,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|booking_slot_lost,,,,,rules
+t_bb032a2b7b400e1b82e2,Север: Кабинет,,unknown,unknown,unclassified,,,,,,rules
+t_bdc0150a0c985a76e518,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|booking_slot_lost,,,,,rules
+t_be6ae8d0df7b8a7c7a2f,Север: Кабинет,,service_request,unknown,unclassified,,,,,,rules
+t_c0462e2df4f42cb8eb1b,Горизонт: Запись,,other,unknown,unclassified,,,,,,rules
+t_c0b6dbfab137e4a2e6c9,Вектор: Портал,,other,unknown,unclassified,,,,,,rules
+t_ca5bdec9636d263fa19d,Север: Кабинет,,feature_request,unknown,unclassified,Север: Кабинет|dark_theme,,,,,rules
+t_cf9ee2062c1968b9a994,Вектор: Портал,,bug,bug,booking_queue,Вектор: Портал|booking_slot_lost,,,,,rules
+t_d16cd8735423e6dd725d,Север: Кабинет,,service_request,unknown,unclassified,,,,,,rules
+t_d1eeb5d27b84578804ba,Горизонт: Запись,,service_request,unknown,unclassified,,,,,,rules
+t_d88bc42a9d58ede942f8,Горизонт: Запись,,service_request,unknown,unclassified,,,,,,rules
+t_dceb885963e05151f07c,Горизонт: Запись,,unknown,unknown,unclassified,,,,,,rules
+t_dd39a6c89ddf2b46ecaf,Вектор: Портал,,feature_request,unknown,unclassified,Вектор: Портал|dark_theme,,,,,rules
+t_e66c6124167aa55a9210,Север: Кабинет,,unknown,unknown,unclassified,,,,,,rules
+t_e7d8260a3b68f760ccdd,Горизонт: Запись,,service_request,unknown,unclassified,,,,,,rules
+t_e857d7b550c9e213066f,Вектор: Портал,,other,unknown,unclassified,,,,,,rules
+t_e94da2fe795af1e74852,Горизонт: Запись,,bug,unknown,unclassified,Горизонт: Запись|booking_slot_lost,,,,,rules
+t_eb88ecee5ea2a629028f,Горизонт: Запись,,how_to,unknown,unclassified,,,,,,rules
+t_eca7d1828a75f75ee82c,Вектор: Портал,,bug,unknown,unclassified,,,,,,rules
+t_efd7fbb2900f9d83f241,Горизонт: Запись,,other,unknown,unclassified,,,,,,rules
+t_f098146f96456094ec15,Вектор: Портал,,unknown,unknown,unclassified,,,,,,rules
+t_f2bfd31985760c0a859d,Горизонт: Запись,,unknown,unknown,unclassified,,,,,,rules
+t_f59569bfd24ba2c26e3f,Горизонт: Запись,,bug,unknown,unclassified,Горизонт: Запись|timezone_shift,,,,,rules
+t_f758c09fb31ff6c73c03,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|timezone_shift,,,,,rules
+t_f7f7730842dea162f1dd,Вектор: Портал,,unknown,unknown,unclassified,,,,,,rules
+t_f9d959bf5f1e3fb687d6,Вектор: Портал,,feature_request,unknown,unclassified,Вектор: Портал|dark_theme,,,,,rules
+t_056151c5ec8c8e609cad,Горизонт: Запись,,other,other,general,,,,,informational,context
+t_05dbb32448b290446b75,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|rare_leap_date,,,,untrusted_instruction,context
+t_10dcd427a4d1d4b12709,Вектор: Портал,,how_to,unknown,unclassified,,,,,untrusted_instruction,context
+t_1534857c61fd07ffbdfd,Вектор: Портал,,feature_request,feature_request,appearance,Вектор: Портал|dark_theme,ctx-1b17e16b44a7f9aa416cbcc23c7f5357,appearance,dark_theme,context_resolved,context
+t_15ef0fe3e67381bfc95a,Горизонт: Запись,,bug,bug,booking_queue,Горизонт: Запись|booking_slot_lost,ctx-564214939c9236c8b7ab09c480c3078e,booking_queue,missing_record,context_resolved,context
+t_1809c5a1610171ea213c,Север: Кабинет,,bug,bug,booking_queue,Север: Кабинет|booking_slot_lost,ctx-bbfb6612fedd23922e61f04aa4bf0166,booking_queue,missing_record,context_resolved,context
+t_19ec82a345383360a268,Горизонт: Запись,,bug,bug,booking_queue,Горизонт: Запись|booking_slot_lost,ctx-564214939c9236c8b7ab09c480c3078e,booking_queue,missing_record,context_resolved,context
+t_1f11faba58f8f9613f1f,Вектор: Портал,,bug,unknown,unclassified,Вектор: Портал|booking_slot_lost,,,,insufficient_context,context
+t_236ee8d86931c184c95e,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|timezone_shift,,,,insufficient_context,context
+t_247e9612199ffa1fe1d0,Север: Кабинет,,bug,bug,unclassified,Север: Кабинет|rare_print_border,,,,missing_workflow,context
+t_24bc7f2ec764b30c7cf2,Вектор: Портал,,how_to,how_to,unclassified,,,,,guidance_requested,context
+t_2dbfbc410f786e6d436c,Север: Кабинет,,unknown,unknown,unclassified,,,,,insufficient_context,context
+t_33d00b4ef64c968a02df,Север: Кабинет,,how_to,how_to,unclassified,,,,,guidance_requested,context
+t_36e5b9d2bdd6152d4bd9,Север: Кабинет,,bug,bug,attachments,Север: Кабинет|booking_slot_lost,,,,missing_operation,context
+t_37155aa7ff20cc955521,Вектор: Портал,,other,other,general,,,,,informational,context
+t_3789f427391d85f3d012,Север: Кабинет,,unknown,bug,booking_queue,,ctx-bbfb6612fedd23922e61f04aa4bf0166,booking_queue,missing_record,context_resolved,context
+t_37d1c23755ada75fecce,Север: Кабинет,,how_to,how_to,report_export,,,,,guidance_requested,context
+t_386f6fe99c3224e8345b,Вектор: Портал,,bug,unknown,unclassified,Вектор: Портал|timezone_shift,,,,insufficient_context,context
+t_3b311c789da443587425,Горизонт: Запись,,feature_request,feature_request,appearance,Горизонт: Запись|dark_theme,,appearance,dark_theme,context_resolved,context
+t_3dce38cf56a645da4f1d,Север: Кабинет,,feature_request,feature_request,attachments,Север: Кабинет|dark_theme,,,,missing_symptom,context
+t_3e64e755844d38250f49,Вектор: Портал,,unknown,unknown,unclassified,,,,,insufficient_context,context
+t_404e31de05e3e2fcfd1b,Горизонт: Запись,,bug,bug,unclassified,Горизонт: Запись|timezone_shift,,,,missing_workflow,context
+t_4495f45eb56a6e7876e2,Горизонт: Запись,,bug,bug,unclassified,Горизонт: Запись|booking_slot_lost,,,,missing_workflow,context
+t_4d4a5a2ca1a63664e411,Вектор: Портал,,service_request,unknown,unclassified,,,,,insufficient_context,context
+t_5090096151b20679476c,Вектор: Портал,,service_request,service_request,permissions,,,,,individual_request,context
+t_5190d6884624d045b02f,Горизонт: Запись,,feature_request,unknown,unclassified,Горизонт: Запись|dark_theme,,,,untrusted_instruction,context
+t_527ad1b85c3610165871,Вектор: Портал,,unknown,unknown,unclassified,,,,,insufficient_context,context
+t_53b889b266d79702e5c3,Горизонт: Запись,,bug,unknown,unclassified,Горизонт: Запись|timezone_shift,,,,insufficient_context,context
+t_56ea7eed0c524f8ab3b6,Вектор: Портал,,bug,bug,unclassified,Вектор: Портал|timezone_shift,,,,missing_workflow,context
+t_57c13a06715c9055c24a,Север: Кабинет,,how_to,how_to,unclassified,,,,,guidance_requested,context
+t_57eb5e2019a311cfea65,Вектор: Портал,,service_request,unknown,unclassified,,,,,insufficient_context,context
+t_59965737badd1c5fe439,Север: Кабинет,,other,bug,notifications,,,,,missing_symptom,context
+t_5b211e4260e479362150,Горизонт: Запись,,unknown,unknown,unclassified,,,,,insufficient_context,context
+t_5dd0c84b0ee186974971,Горизонт: Запись,,feature_request,feature_request,unclassified,Горизонт: Запись|dark_theme,,,,missing_workflow,context
+t_640040141eb9cde54fbf,Север: Кабинет,,bug,bug,unclassified,Север: Кабинет|timezone_shift,,,,missing_workflow,context
+t_64e3c14b2e377c7bc528,Горизонт: Запись,,how_to,how_to,report_export,,,,,guidance_requested,context
+t_64fd8003ae8c864b297d,Север: Кабинет,,feature_request,feature_request,unclassified,Север: Кабинет|dark_theme,,,,missing_workflow,context
+t_6711f66f70a9dcd550f9,Север: Кабинет,,how_to,how_to,unclassified,,,,,guidance_requested,context
+t_67981287ccadcd13e49b,Север: Кабинет,,bug,bug,unclassified,Север: Кабинет|booking_slot_lost,,,,missing_workflow,context
+t_6b5bbb3b49edc8a6dbf7,Север: Кабинет,,service_request,service_request,unclassified,,,,,individual_request,context
+t_6d95aa74b0433e9c1912,Север: Кабинет,,other,other,general,,,,,informational,context
+t_6ee3b8fcbbd86fca341d,Горизонт: Запись,,feature_request,feature_request,unclassified,Горизонт: Запись|dark_theme,,,,missing_workflow,context
+t_6fecea12afbf47a8c276,Север: Кабинет,,other,bug,notifications,,,,,missing_symptom,context
+t_6ffe646c8d99f5f3cf6f,Север: Кабинет,,feature_request,feature_request,appearance,Север: Кабинет|dark_theme,ctx-5c925484e24fc58f7a78662c8b300e38,appearance,dark_theme,context_resolved,context
+t_7b07539051d125ea9364,Горизонт: Запись,,bug,bug,booking_queue,,,booking_queue,wrong_time,context_resolved,context
+t_7b7233e206671acc5c42,Север: Кабинет,,other,unknown,unclassified,,,,,insufficient_context,context
+t_7cce7c4392ad570c13a8,Вектор: Портал,,how_to,how_to,unclassified,,,,,guidance_requested,context
+t_8424fb7d5dbc64e218a7,Горизонт: Запись,,other,unknown,unclassified,,,,,untrusted_instruction,context
+t_85d2a82099daf2e0b38d,Горизонт: Запись,,how_to,how_to,unclassified,,,,,guidance_requested,context
+t_884646f000ca130b7382,Горизонт: Запись,,service_request,unknown,unclassified,,,,,insufficient_context,context
+t_8ad56536d78cad4b805c,Горизонт: Запись,,unknown,unknown,unclassified,,,,,insufficient_context,context
+t_900671c1654f0b2c75bc,Вектор: Портал,,bug,unknown,unclassified,Вектор: Портал|timezone_shift,,,,insufficient_context,context
+t_9103d34487508609824b,Горизонт: Запись,,other,other,general,,,,,informational,context
+t_921573815ba2aa09a272,Горизонт: Запись,,bug,unknown,unclassified,Горизонт: Запись|timezone_shift,,,,insufficient_context,context
+t_946ec566df5b6c985585,Вектор: Портал,,feature_request,feature_request,attachments,Вектор: Портал|dark_theme,,,,missing_symptom,context
+t_96228e5fe2a4ef2530f2,Вектор: Портал,,unknown,unknown,unclassified,,,,,insufficient_context,context
+t_9674f5f0ff99fab91840,Горизонт: Запись,,how_to,how_to,report_export,,,,,guidance_requested,context
+t_9a44634021d9e99972d7,Вектор: Портал,,service_request,service_request,permissions,,,,,individual_request,context
+t_9bba50ac3de00f2523f4,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|timezone_shift,,,,insufficient_context,context
+t_9d66c4aa77ea8c032e12,Вектор: Портал,,bug,unknown,unclassified,Вектор: Портал|booking_slot_lost,,,,insufficient_context,context
+t_9e3468432424a961897a,Север: Кабинет,,how_to,how_to,attachments,,,,,guidance_requested,context
+t_9f82847a1e46bbf9dd0d,Горизонт: Запись,,bug,unknown,unclassified,Горизонт: Запись|timezone_shift,,,,insufficient_context,context
+t_a1ef4bfdc80c1278e979,Вектор: Портал,,service_request,service_request,permissions,,,,,individual_request,context
+t_a224a16ea718f81363a7,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|timezone_shift,,,,insufficient_context,context
+t_a61cb2b2b17ccf2272be,Горизонт: Запись,,service_request,unknown,unclassified,,,,,insufficient_context,context
+t_a72afd234b9f37d9fd3b,Горизонт: Запись,,how_to,how_to,unclassified,,,,,guidance_requested,context
+t_ab6994bcc09b4657e8a2,Вектор: Портал,,other,other,general,,,,,informational,context
+t_abb28a2f751d0f3bf04c,Север: Кабинет,,other,bug,notifications,,,,,missing_symptom,context
+t_abb4ad25df5c6169d5cd,Вектор: Портал,,how_to,how_to,unclassified,,,,,guidance_requested,context
+t_acc0a37895246712039d,Горизонт: Запись,,unknown,unknown,unclassified,,,,,insufficient_context,context
+t_b05835521e3341c5ae5e,Вектор: Портал,,bug,bug,booking_queue,Вектор: Портал|booking_slot_lost,ctx-2b0ad3bd5a17fddca0ac807da8d71039,booking_queue,missing_record,context_resolved,context
+t_b1ebce73507ed4ac2929,Север: Кабинет,,service_request,service_request,permissions,,,,,individual_request,context
+t_b614f74cf01e1556a830,Север: Кабинет,,feature_request,feature_request,unclassified,Север: Кабинет|dark_theme,,,,missing_workflow,context
+t_b868f49790e1d51867a9,Горизонт: Запись,,feature_request,feature_request,unclassified,Горизонт: Запись|dark_theme,,,,missing_workflow,context
+t_b92e72f6486553b07d28,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|booking_slot_lost,,,,insufficient_context,context
+t_bb032a2b7b400e1b82e2,Север: Кабинет,,unknown,unknown,unclassified,,,,,insufficient_context,context
+t_bdc0150a0c985a76e518,Север: Кабинет,,bug,bug,booking_queue,Север: Кабинет|booking_slot_lost,ctx-bbfb6612fedd23922e61f04aa4bf0166,booking_queue,missing_record,context_resolved,context
+t_be6ae8d0df7b8a7c7a2f,Север: Кабинет,,service_request,unknown,unclassified,,,,,insufficient_context,context
+t_c0462e2df4f42cb8eb1b,Горизонт: Запись,,other,bug,notifications,,,,,missing_symptom,context
+t_c0b6dbfab137e4a2e6c9,Вектор: Портал,,other,unknown,unclassified,,,,,insufficient_context,context
+t_ca5bdec9636d263fa19d,Север: Кабинет,,feature_request,feature_request,appearance,Север: Кабинет|dark_theme,ctx-5c925484e24fc58f7a78662c8b300e38,appearance,dark_theme,context_resolved,context
+t_cf9ee2062c1968b9a994,Вектор: Портал,,bug,bug,booking_queue,Вектор: Портал|booking_slot_lost,ctx-2b0ad3bd5a17fddca0ac807da8d71039,booking_queue,missing_record,context_resolved,context
+t_d16cd8735423e6dd725d,Север: Кабинет,,service_request,service_request,unclassified,,,,,individual_request,context
+t_d1eeb5d27b84578804ba,Горизонт: Запись,,service_request,unknown,unclassified,,,,,insufficient_context,context
+t_d88bc42a9d58ede942f8,Горизонт: Запись,,service_request,service_request,permissions,,,,,individual_request,context
+t_dceb885963e05151f07c,Горизонт: Запись,,unknown,unknown,unclassified,,,,,insufficient_context,context
+t_dd39a6c89ddf2b46ecaf,Вектор: Портал,,feature_request,feature_request,appearance,Вектор: Портал|dark_theme,ctx-1b17e16b44a7f9aa416cbcc23c7f5357,appearance,dark_theme,context_resolved,context
+t_e66c6124167aa55a9210,Север: Кабинет,,unknown,unknown,unclassified,,,,,insufficient_context,context
+t_e7d8260a3b68f760ccdd,Горизонт: Запись,,service_request,unknown,unclassified,,,,,insufficient_context,context
+t_e857d7b550c9e213066f,Вектор: Портал,,other,bug,notifications,,,,,missing_symptom,context
+t_e94da2fe795af1e74852,Горизонт: Запись,,bug,bug,booking_queue,Горизонт: Запись|booking_slot_lost,ctx-564214939c9236c8b7ab09c480c3078e,booking_queue,missing_record,context_resolved,context
+t_eb88ecee5ea2a629028f,Горизонт: Запись,,how_to,unknown,unclassified,,,,,insufficient_context,context
+t_eca7d1828a75f75ee82c,Вектор: Портал,,bug,unknown,unclassified,,,,,mixed_intents,context
+t_efd7fbb2900f9d83f241,Горизонт: Запись,,other,service_request,permissions,,,,,individual_request,context
+t_f098146f96456094ec15,Вектор: Портал,,unknown,unknown,unclassified,,,,,untrusted_instruction,context
+t_f2bfd31985760c0a859d,Горизонт: Запись,,unknown,unknown,unclassified,,,,,insufficient_context,context
+t_f59569bfd24ba2c26e3f,Горизонт: Запись,,bug,bug,unclassified,Горизонт: Запись|timezone_shift,,,,missing_workflow,context
+t_f758c09fb31ff6c73c03,Север: Кабинет,,bug,unknown,unclassified,Север: Кабинет|timezone_shift,,,,insufficient_context,context
+t_f7f7730842dea162f1dd,Вектор: Портал,,unknown,unknown,unclassified,,,,,insufficient_context,context
+t_f9d959bf5f1e3fb687d6,Вектор: Портал,,feature_request,feature_request,unclassified,Вектор: Портал|dark_theme,,,,missing_workflow,context

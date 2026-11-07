@@ -1,0 +1,531 @@
+{
+  "dataset_version": "pulse-synthetic-v1",
+  "methods": {
+    "context": {
+      "analysis_seconds": 0.0754726180000489,
+      "classification": {
+        "abstention_fraction": 0.5133333333333333,
+        "accuracy": 0.43333333333333335,
+        "confusion_matrix": {
+          "bug": {
+            "bug": 80,
+            "feature_request": 1,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 73
+          },
+          "feature_request": {
+            "bug": 0,
+            "feature_request": 42,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 32
+          },
+          "how_to": {
+            "bug": 0,
+            "feature_request": 0,
+            "how_to": 6,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 12
+          },
+          "other": {
+            "bug": 0,
+            "feature_request": 0,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 18
+          },
+          "service_request": {
+            "bug": 1,
+            "feature_request": 0,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 17
+          },
+          "unknown": {
+            "bug": 16,
+            "feature_request": 0,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 2
+          }
+        },
+        "count": 300,
+        "macro_f1": 0.31310912185089895,
+        "macro_precision": 0.4690789111791269,
+        "macro_recall": 0.25524875524875523,
+        "per_category": {
+          "bug": {
+            "f1": 0.6374501992031872,
+            "precision": 0.8247422680412371,
+            "recall": 0.5194805194805194,
+            "support": 154
+          },
+          "feature_request": {
+            "f1": 0.717948717948718,
+            "precision": 0.9767441860465116,
+            "recall": 0.5675675675675675,
+            "support": 74
+          },
+          "how_to": {
+            "f1": 0.5,
+            "precision": 1.0,
+            "recall": 0.3333333333333333,
+            "support": 18
+          },
+          "other": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 18
+          },
+          "service_request": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 18
+          },
+          "unknown": {
+            "f1": 0.023255813953488372,
+            "precision": 0.012987012987012988,
+            "recall": 0.1111111111111111,
+            "support": 18
+          }
+        }
+      },
+      "clustering": {
+        "f1": 0.10689655172413794,
+        "false_merge_fraction": 0.27906976744186046,
+        "fn": 506,
+        "fp": 12,
+        "missed_repeat_fraction": 0.9422718808193669,
+        "pair_count": 44850,
+        "precision": 0.7209302325581395,
+        "recall": 0.05772811918063315,
+        "tn": 44301,
+        "tp": 31
+      },
+      "cross_product_pairs": 0,
+      "errors": {
+        "false_merges": [
+          [
+            "t_099d7b3ec54aa8400104",
+            "t_507636c2150675c33d2d"
+          ],
+          [
+            "t_099d7b3ec54aa8400104",
+            "t_e48dbf6bb7d5423a2a3d"
+          ],
+          [
+            "t_0c3a69b58e87f6d6eec2",
+            "t_4274175fb729a7ccd673"
+          ],
+          [
+            "t_0c3a69b58e87f6d6eec2",
+            "t_ce1e1d0df4b253645962"
+          ],
+          [
+            "t_4ef5977bbff3f042b929",
+            "t_9e3d91d134739d970eb8"
+          ],
+          [
+            "t_4ef5977bbff3f042b929",
+            "t_b449c48da0136e567780"
+          ],
+          [
+            "t_4ef5977bbff3f042b929",
+            "t_f683f8d478ab5859412c"
+          ],
+          [
+            "t_507636c2150675c33d2d",
+            "t_e48dbf6bb7d5423a2a3d"
+          ],
+          [
+            "t_524bf05650e9fb33f102",
+            "t_f0d40dd0f56a4408b97a"
+          ],
+          [
+            "t_9e3d91d134739d970eb8",
+            "t_b449c48da0136e567780"
+          ],
+          [
+            "t_9e3d91d134739d970eb8",
+            "t_f683f8d478ab5859412c"
+          ],
+          [
+            "t_b449c48da0136e567780",
+            "t_f683f8d478ab5859412c"
+          ]
+        ],
+        "missed_repeats": [
+          [
+            "t_034cf6101c7802a8b5a6",
+            "t_13c3091fd90ac6c090c7"
+          ],
+          [
+            "t_034cf6101c7802a8b5a6",
+            "t_5f29fc9a5ef47c4e71ff"
+          ],
+          [
+            "t_034cf6101c7802a8b5a6",
+            "t_80e457679bbb92105d46"
+          ],
+          [
+            "t_034cf6101c7802a8b5a6",
+            "t_c698daea254e1c416aed"
+          ],
+          [
+            "t_034cf6101c7802a8b5a6",
+            "t_ce7f1395b598471a7c1c"
+          ],
+          [
+            "t_050a64fa1be5ee8a66ee",
+            "t_4737a1a1e2346daa7f56"
+          ],
+          [
+            "t_050a64fa1be5ee8a66ee",
+            "t_5c079bdf5b7f68cf1778"
+          ],
+          [
+            "t_050a64fa1be5ee8a66ee",
+            "t_7104288bab65f749040f"
+          ],
+          [
+            "t_050a64fa1be5ee8a66ee",
+            "t_92c436da7bd1959a9b7b"
+          ],
+          [
+            "t_0637b8d12763cef30ea7",
+            "t_27931417b84ce15836e5"
+          ],
+          [
+            "t_0637b8d12763cef30ea7",
+            "t_333cd9f1e4c0b7ad3069"
+          ],
+          [
+            "t_0637b8d12763cef30ea7",
+            "t_3777c58e391e55dc5828"
+          ],
+          [
+            "t_0637b8d12763cef30ea7",
+            "t_4d00682a65dad0c1c3e7"
+          ],
+          [
+            "t_0637b8d12763cef30ea7",
+            "t_88aad5fb7c299163fd29"
+          ],
+          [
+            "t_0637b8d12763cef30ea7",
+            "t_df2e1645e1444e298fc4"
+          ]
+        ],
+        "wrong_categories": [
+          "t_027f5ee9846382883eb5",
+          "t_034cf6101c7802a8b5a6",
+          "t_050a64fa1be5ee8a66ee",
+          "t_0731ba2bdeb02d29d23c",
+          "t_099d7b3ec54aa8400104",
+          "t_09cdb81485b86a2c8fff",
+          "t_0c29f063f991aeeb45ce",
+          "t_0c3a69b58e87f6d6eec2",
+          "t_0dbeefd3a74e96a65aaf",
+          "t_0e6e580df6298cd0bece",
+          "t_122223f376ffb82dea83",
+          "t_12af95c0829f2bcd49e5",
+          "t_134364bfedb2c3f207c2",
+          "t_136206f5ad1c7fc62247",
+          "t_13c3091fd90ac6c090c7"
+        ]
+      },
+      "instruction_cases": 16,
+      "instruction_cases_detected": 12,
+      "instruction_cases_in_clusters": 0,
+      "reasons": {
+        "ambiguous_operation": 10,
+        "ambiguous_workflow": 25,
+        "context_resolved": 48,
+        "guidance_requested": 6,
+        "insufficient_context": 142,
+        "missing_operation": 3,
+        "missing_symptom": 13,
+        "missing_workflow": 41,
+        "untrusted_instruction": 12
+      },
+      "resolved_gold_pairs": 31,
+      "signals": 14,
+      "tickets_per_second": 3974.9515513004417
+    },
+    "rules": {
+      "analysis_seconds": 0.001811731000088912,
+      "classification": {
+        "abstention_fraction": 0.6766666666666666,
+        "accuracy": 0.33666666666666667,
+        "confusion_matrix": {
+          "bug": {
+            "bug": 55,
+            "feature_request": 0,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 99
+          },
+          "feature_request": {
+            "bug": 1,
+            "feature_request": 28,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 45
+          },
+          "how_to": {
+            "bug": 13,
+            "feature_request": 0,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 5
+          },
+          "other": {
+            "bug": 0,
+            "feature_request": 0,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 18
+          },
+          "service_request": {
+            "bug": 0,
+            "feature_request": 0,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 18
+          },
+          "unknown": {
+            "bug": 0,
+            "feature_request": 0,
+            "how_to": 0,
+            "other": 0,
+            "service_request": 0,
+            "unknown": 18
+          }
+        },
+        "count": 300,
+        "macro_f1": 0.200864846340974,
+        "macro_precision": 0.31429523333571313,
+        "macro_recall": 0.28925353925353925,
+        "per_category": {
+          "bug": {
+            "f1": 0.49327354260089684,
+            "precision": 0.7971014492753623,
+            "recall": 0.35714285714285715,
+            "support": 154
+          },
+          "feature_request": {
+            "f1": 0.5490196078431373,
+            "precision": 1.0,
+            "recall": 0.3783783783783784,
+            "support": 74
+          },
+          "how_to": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 18
+          },
+          "other": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 18
+          },
+          "service_request": {
+            "f1": 0.0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "support": 18
+          },
+          "unknown": {
+            "f1": 0.16289592760180996,
+            "precision": 0.08866995073891626,
+            "recall": 1.0,
+            "support": 18
+          }
+        }
+      },
+      "clustering": {
+        "f1": 0.25390625,
+        "false_merge_fraction": 0.7330595482546202,
+        "fn": 407,
+        "fp": 357,
+        "missed_repeat_fraction": 0.7579143389199255,
+        "pair_count": 44850,
+        "precision": 0.2669404517453799,
+        "recall": 0.24208566108007448,
+        "tn": 43956,
+        "tp": 130
+      },
+      "cross_product_pairs": 0,
+      "errors": {
+        "false_merges": [
+          [
+            "t_004e25e1cbbe6b24509d",
+            "t_087f601e69e24decaeac"
+          ],
+          [
+            "t_004e25e1cbbe6b24509d",
+            "t_107d25b65e952d2508c7"
+          ],
+          [
+            "t_004e25e1cbbe6b24509d",
+            "t_307c1c0a87695790c723"
+          ],
+          [
+            "t_004e25e1cbbe6b24509d",
+            "t_36fb140f147bb2dc51d2"
+          ],
+          [
+            "t_004e25e1cbbe6b24509d",
+            "t_8f50968cff405a3666f9"
+          ],
+          [
+            "t_004e25e1cbbe6b24509d",
+            "t_9479cea37856763aa75a"
+          ],
+          [
+            "t_004e25e1cbbe6b24509d",
+            "t_9b96d2de073ea18aa64e"
+          ],
+          [
+            "t_004e25e1cbbe6b24509d",
+            "t_9e2fde8e9458fc603dee"
+          ],
+          [
+            "t_004e25e1cbbe6b24509d",
+            "t_b261ee72f9716b729dcb"
+          ],
+          [
+            "t_004e25e1cbbe6b24509d",
+            "t_befb0fd7775d0147267f"
+          ],
+          [
+            "t_004e25e1cbbe6b24509d",
+            "t_c3aeb2f0d887465041e9"
+          ],
+          [
+            "t_004e25e1cbbe6b24509d",
+            "t_e13cc2df803c0c7306e7"
+          ],
+          [
+            "t_004e25e1cbbe6b24509d",
+            "t_f0ad7b0d940516d222d3"
+          ],
+          [
+            "t_004e25e1cbbe6b24509d",
+            "t_fa58fc18838f96dfc3e2"
+          ],
+          [
+            "t_004e25e1cbbe6b24509d",
+            "t_fef108fa03eec3c231f7"
+          ]
+        ],
+        "missed_repeats": [
+          [
+            "t_050a64fa1be5ee8a66ee",
+            "t_4737a1a1e2346daa7f56"
+          ],
+          [
+            "t_050a64fa1be5ee8a66ee",
+            "t_5c079bdf5b7f68cf1778"
+          ],
+          [
+            "t_050a64fa1be5ee8a66ee",
+            "t_7104288bab65f749040f"
+          ],
+          [
+            "t_050a64fa1be5ee8a66ee",
+            "t_92c436da7bd1959a9b7b"
+          ],
+          [
+            "t_0637b8d12763cef30ea7",
+            "t_27931417b84ce15836e5"
+          ],
+          [
+            "t_0637b8d12763cef30ea7",
+            "t_333cd9f1e4c0b7ad3069"
+          ],
+          [
+            "t_0637b8d12763cef30ea7",
+            "t_3777c58e391e55dc5828"
+          ],
+          [
+            "t_0637b8d12763cef30ea7",
+            "t_4d00682a65dad0c1c3e7"
+          ],
+          [
+            "t_0637b8d12763cef30ea7",
+            "t_88aad5fb7c299163fd29"
+          ],
+          [
+            "t_0637b8d12763cef30ea7",
+            "t_df2e1645e1444e298fc4"
+          ],
+          [
+            "t_084f8647612ff46a75e4",
+            "t_171db0cdd7d51d2da2b7"
+          ],
+          [
+            "t_084f8647612ff46a75e4",
+            "t_18e5515e394317bc439a"
+          ],
+          [
+            "t_084f8647612ff46a75e4",
+            "t_319bb17977eed57566f3"
+          ],
+          [
+            "t_084f8647612ff46a75e4",
+            "t_65ade6552470f54ddc04"
+          ],
+          [
+            "t_084f8647612ff46a75e4",
+            "t_8488ea607d9d1992b17c"
+          ]
+        ],
+        "wrong_categories": [
+          "t_004e25e1cbbe6b24509d",
+          "t_027f5ee9846382883eb5",
+          "t_050a64fa1be5ee8a66ee",
+          "t_0637b8d12763cef30ea7",
+          "t_084f8647612ff46a75e4",
+          "t_09cdb81485b86a2c8fff",
+          "t_0b17f0807253e67cfcae",
+          "t_0c29f063f991aeeb45ce",
+          "t_0d7c26a65b728513b180",
+          "t_0dbeefd3a74e96a65aaf",
+          "t_0e6e580df6298cd0bece",
+          "t_0fba558bc898356cca95",
+          "t_10d03974b2af99847c84",
+          "t_114466dce85a71e4076c",
+          "t_122223f376ffb82dea83"
+        ]
+      },
+      "instruction_cases": 16,
+      "instruction_cases_detected": 0,
+      "instruction_cases_in_clusters": 4,
+      "reasons": {},
+      "resolved_gold_pairs": null,
+      "signals": 11,
+      "tickets_per_second": 165587.49614886387
+    }
+  },
+  "python": "3.12.14",
+  "split": "development",
+  "tickets": 300,
+  "version": "pulse-context-evaluation-v1"
+}
