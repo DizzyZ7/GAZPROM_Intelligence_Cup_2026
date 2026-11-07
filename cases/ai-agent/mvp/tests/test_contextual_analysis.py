@@ -176,6 +176,64 @@ class ContextualAnalysisTests(unittest.TestCase):
         )
         self.assertEqual(result["classified"][2]["reason"], "missing_operation")
 
+    def test_same_status_separates_login_and_password_reset(self):
+        texts = {
+            "login-a": "При входе в кабинет открывается страница с кодом 404.",
+            "login-b": "Не могу войти в кабинет, получаю HTTP 404. Сброс пароля не помог.",
+            "reset-a": "При сбросе пароля открывается страница с кодом 404.",
+            "reset-b": "Вход работает. Во время сброса пароля получаю HTTP 404.",
+            "unclear": "Кабинет и пароль: HTTP 404.",
+            "incoming-mail": "Входящее письмо о пароле открывается со статусом HTTP 404.",
+            "account-identifier": "Логин правильный, при смене пароля получаю HTTP 404.",
+        }
+        result = analyze_contextual(
+            [Ticket(identity, "P", text) for identity, text in texts.items()]
+        )
+        self.assertEqual(
+            {
+                signal["context"]["operation"]: signal["ticket_ids"]
+                for signal in result["signals"]
+            },
+            {"login": ["login-a", "login-b"], "password_reset": ["reset-a", "reset-b"]},
+        )
+        classified = {row["id"]: row for row in result["classified"]}
+        self.assertEqual(classified["unclear"]["reason"], "missing_operation")
+        self.assertEqual(classified["incoming-mail"]["reason"], "missing_operation")
+        self.assertEqual(
+            classified["account-identifier"]["reason"], "missing_operation"
+        )
+
+    def test_explicit_failures_in_two_access_operations_abstain(self):
+        context = classify_context(
+            "При входе в кабинет HTTP 404. При сбросе пароля также HTTP 404."
+        )
+        self.assertEqual(context.reason, "ambiguous_operation")
+        self.assertFalse(context.groupable)
+
+    def test_excluded_access_operation_cannot_explain_a_failure(self):
+        for text in (
+            "Ошибка HTTP 404 возникает после выхода, а не при входе.",
+            "Ошибка HTTP 404 не связана со сбросом пароля, возникает при выходе.",
+            "Сброс пароля тут ни при чем. При выходе HTTP 404.",
+        ):
+            with self.subTest(text=text):
+                context = classify_context(text)
+                self.assertEqual(context.reason, "missing_operation")
+                self.assertFalse(context.groupable)
+
+    def test_access_feature_requests_keep_an_explicit_operation(self):
+        for text, operation in (
+            ("Добавьте возможность предпросмотра на экране входа.", "login"),
+            ("Нужна возможность предпросмотра при сбросе пароля.", "password_reset"),
+        ):
+            with self.subTest(text=text):
+                context = classify_context(text)
+                self.assertEqual(
+                    (context.category, context.operation),
+                    ("feature_request", operation),
+                )
+                self.assertTrue(context.groupable)
+
     def test_same_vehicle_error_cannot_merge_save_and_remove(self):
         texts = (
             "При сохранении автомобиля HTTP 500",

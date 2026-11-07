@@ -6,7 +6,7 @@ from dataclasses import dataclass
 
 from pulse import redact
 
-ANALYSIS_VERSION = "context-v2.1"
+ANALYSIS_VERSION = "context-v2.2"
 ACTIONABLE = {"bug", "feature_request"}
 _LOOKALIKE_WORD = re.compile(r"\b[а-яabcehkmoptxy]+\b")
 _CYRILLIC = re.compile(r"[а-я]")
@@ -36,6 +36,14 @@ _RESOLVED = _phrase(
 _NEGATION_BEFORE = re.compile(r"\b(?:не|без|нет)[ \t]+$")
 _NEGATION_AFTER = re.compile(
     r"[ \t]+(?:(?:больше|уже|сейчас)[ \t]+)?(?:нет\b|не\s+(?:наблюда|появля|возника))"
+)
+_OPERATION_NEGATION_BEFORE = re.compile(
+    r"\b(?:не\s+(?:при|во\s+время)|"
+    r"не\s+(?:связан\w*|относ\w*)\s+(?:с|со|к))\s+"
+    r"(?:(?:процедур|операци)\w*\s+)?$"
+)
+_OPERATION_NEGATION_AFTER = re.compile(
+    r"\s+(?:(?:тут|здесь)\s+)?(?:ни\s+при\s+чем|не\s+(?:связан\w*|затронут\w*))\b"
 )
 _WORD_END = re.compile(r"\w*")
 _HTTP_CODE = _phrase(
@@ -260,6 +268,10 @@ _OPERATIONS = {
         "refund": _phrase(r"возврат|вернуть\s+(?:деньг|средств)"),
         "receipt": _phrase(r"чек\w*\b|квитанц"),
     },
+    "account_access": {
+        "login": _phrase(r"вход(?:а|е|у|ом)?\b|войти\b|авторизац|аутентификац"),
+        "password_reset": _phrase(r"(?:сброс|восстановлен)\w*\s+парол"),
+    },
     "attachments": {
         "upload": _phrase(r"прикреп|загруз\w*\s+(?:новый\s+)?файл"),
         "download": _DOWNLOAD,
@@ -277,7 +289,13 @@ _OPERATIONS = {
         "sign": _phrase(r"подпис"),
     },
 }
-_OPERATION_REQUIRED = {"attachments", "report_export", "vehicle_registry", "contract"}
+_OPERATION_REQUIRED = {
+    "attachments",
+    "report_export",
+    "vehicle_registry",
+    "contract",
+    "account_access",
+}
 
 
 @dataclass(frozen=True)
@@ -322,13 +340,15 @@ def _workflow(text):
     return scope, None
 
 
-def _observations(text, pattern):
+def _observations(
+    text, pattern, *, negation_before=_NEGATION_BEFORE, negation_after=_NEGATION_AFTER
+):
     for match in pattern.finditer(text):
         start = match.start()
         end = _WORD_END.match(text, match.end()).end()
-        if not _NEGATION_BEFORE.search(
-            text, max(0, start - 12), start
-        ) and not _NEGATION_AFTER.match(text, end):
+        if not negation_before.search(
+            text, max(0, start - 64), start
+        ) and not negation_after.match(text, end):
             yield match
 
 
@@ -351,6 +371,29 @@ def _problem(text):
     ]
     observed = sorted(codes) + symptoms or actions
     return bool(observed or next(_observations(text, _FAILURE), None)), observed
+
+
+def _operations(text, workflow, category):
+    rules = _OPERATIONS.get(workflow, {})
+    if workflow != "account_access":
+        return _matches(text, rules)
+    operations = set()
+    for clause in re.split(r"[!?;\n]+|\.(?!\d)", text):
+        if category == "feature_request" or _problem(clause)[0]:
+            operations.update(
+                operation
+                for operation, rule in rules.items()
+                if next(
+                    _observations(
+                        clause,
+                        rule,
+                        negation_before=_OPERATION_NEGATION_BEFORE,
+                        negation_after=_OPERATION_NEGATION_AFTER,
+                    ),
+                    None,
+                )
+            )
+    return sorted(operations)
 
 
 def classify_context(text):
@@ -414,7 +457,7 @@ def classify_context(text):
     if len(symptoms) != 1:
         reason = "ambiguous_symptom" if symptoms else "missing_symptom"
         return TicketContext(category, workflow, reason=reason)
-    operations = _matches(observed, _OPERATIONS.get(workflow, {}))
+    operations = _operations(observed, workflow, category)
     if len(operations) > 1 or (workflow in _OPERATION_REQUIRED and not operations):
         return TicketContext(
             category,
