@@ -5,6 +5,9 @@ import json
 import re
 from pathlib import Path
 
+EMAIL_TOKEN = re.compile(r'[\w.+-]+')
+EMAIL_ADDRESS = re.compile(r'[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}')
+
 PATTERNS = [
     ('bug', 'booking_queue', ('очеред', 'брониров'), ('404', 'ошибк', 'не существует')),
     ('bug', 'contract_next_button', ('договор', 'оферт'), ('кнопк', 'далее', 'не реагирует')),
@@ -29,7 +32,23 @@ def classify(text: str) -> tuple[str, str, float]:
 
 def redact(text: str) -> str:
     text = re.sub(r'(?<!\d)(?:\+7|8)[\s\-()]*\d{3}[\s\-()]*\d{3}[\s\-]*\d{2}[\s\-]*\d{2}(?!\d)', '[PHONE]', text)
-    return re.sub(r'[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}', '[EMAIL]', text)
+    if '@' not in text:
+        return text
+    parts = []
+    cursor = 0
+    # Проверяем целый токен перед @ один раз, а не каждый его суффикс.
+    for token in EMAIL_TOKEN.finditer(text):
+        if token.end() == len(text) or text[token.end()] != '@':
+            continue
+        # Предыдущий адрес может занимать только начало этого токена.
+        start = max(cursor, token.start())
+        match = EMAIL_ADDRESS.match(text, start)
+        if match:
+            parts.extend((text[cursor:start], '[EMAIL]'))
+            cursor = match.end()
+    if not parts:
+        return text
+    return ''.join(parts) + text[cursor:]
 
 def analyze(tickets: list[Ticket], threshold: int = 2) -> dict:
     groups = defaultdict(list)
