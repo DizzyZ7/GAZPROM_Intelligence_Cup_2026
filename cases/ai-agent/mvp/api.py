@@ -13,6 +13,7 @@ from store import SignalStore
 from evidence import get_signal
 from pulse import Ticket
 from service import ingest_batch
+from http_limits import RequestBodyLimit
 
 class SignalIdConvertor(PathConvertor):
     # Сохраняет все символы декодированного ID, включая перевод строки.
@@ -21,6 +22,7 @@ class SignalIdConvertor(PathConvertor):
 register_url_convertor("pulse_signal_id", SignalIdConvertor())
 
 app = FastAPI(title="ТИИм Pulse — проверка сигналов", version="0.6.0")
+app.add_middleware(RequestBodyLimit)
 DB_PATH = os.getenv("PULSE_DB", str(Path(__file__).with_name("pulse-demo.sqlite3")))
 TOKEN = os.getenv("PULSE_REVIEW_TOKEN")
 
