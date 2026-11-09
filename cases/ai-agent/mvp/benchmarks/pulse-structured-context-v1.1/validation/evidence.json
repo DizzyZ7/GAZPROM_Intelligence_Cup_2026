@@ -1,0 +1,200 @@
+[
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "6a379a54d7b4bc6b7a4981fd671473f51f0e2e32c69e94599e8b625c0f1bf1fd",
+    "symptom_span": null,
+    "ticket_id": "t_15ef0fe3e67381bfc95a"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_abstained",
+    "sanitized_text_sha256": "a667ac5ba99759eee4da51288e936c6fdb178dee26fd94a67831b08ea6548adb",
+    "symptom_span": null,
+    "ticket_id": "t_236ee8d86931c184c95e"
+  },
+  {
+    "model_called": false,
+    "operation_span": null,
+    "reason": "mixed_intents",
+    "sanitized_text_sha256": "5f1986e714189e809ec184abc29aaaf8f603c166adc7c845f9dce8d14a41fe72",
+    "symptom_span": null,
+    "ticket_id": "t_3789f427391d85f3d012"
+  },
+  {
+    "model_called": false,
+    "operation_span": null,
+    "reason": "guidance_requested",
+    "sanitized_text_sha256": "e3aff9946f22b3b70d2c949ee55e8c9e0d5ab71c36911b5aa6379ea0b219f606",
+    "symptom_span": null,
+    "ticket_id": "t_37d1c23755ada75fecce"
+  },
+  {
+    "model_called": true,
+    "operation_span": [
+      10,
+      66
+    ],
+    "reason": "context_resolved",
+    "sanitized_text_sha256": "5b54f9b1475b66d182e1c1eb061d6cd0c096f46b8a3fdd288c597791cfb6750c",
+    "symptom_span": [
+      10,
+      66
+    ],
+    "ticket_id": "t_404e31de05e3e2fcfd1b"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_non_signal",
+    "sanitized_text_sha256": "8427e344eed4da233614e3be919434203cffe4b4e0268fb12940b0e86c1c54e5",
+    "symptom_span": null,
+    "ticket_id": "t_4d4a5a2ca1a63664e411"
+  },
+  {
+    "model_called": false,
+    "operation_span": null,
+    "reason": "individual_request",
+    "sanitized_text_sha256": "bdf9d9fce434533f0433c636ffff29db7e080f65d0898b8cfdb205e8d776c84d",
+    "symptom_span": null,
+    "ticket_id": "t_5090096151b20679476c"
+  },
+  {
+    "model_called": false,
+    "operation_span": null,
+    "reason": "untrusted_instruction",
+    "sanitized_text_sha256": "cbe3d9fde43ecef8c51989b7495bfffcaf94cf72b40efdbac0f045bd3b6847f9",
+    "symptom_span": null,
+    "ticket_id": "t_5190d6884624d045b02f"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unanchored_key",
+    "sanitized_text_sha256": "b4f2b8249e48b3a14e57d66dcd479d2c8faf634fdaaa46a9263af502327a735c",
+    "symptom_span": null,
+    "ticket_id": "t_5dd0c84b0ee186974971"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_non_signal",
+    "sanitized_text_sha256": "09485498d48786cf21ddd439b29752d1da9ab5e3b0e3812fdbad5caea2d7d64b",
+    "symptom_span": null,
+    "ticket_id": "t_7b7233e206671acc5c42"
+  },
+  {
+    "model_called": false,
+    "operation_span": null,
+    "reason": "guidance_requested",
+    "sanitized_text_sha256": "76796143ef12e5328185c1250c527e7b35153c37b7871f7ee353ceec088cb5e6",
+    "symptom_span": null,
+    "ticket_id": "t_7cce7c4392ad570c13a8"
+  },
+  {
+    "model_called": false,
+    "operation_span": null,
+    "reason": "guidance_requested",
+    "sanitized_text_sha256": "540999767a5687818c7d69c50870dbabe5b7bff52b04ebb1e18104d138be6a91",
+    "symptom_span": null,
+    "ticket_id": "t_85d2a82099daf2e0b38d"
+  },
+  {
+    "model_called": false,
+    "operation_span": null,
+    "reason": "informational",
+    "sanitized_text_sha256": "a706173d2f64dda9e2cb8a8c3f0253cfe0b3c185d85bbba6b682463b3b9f9d4e",
+    "symptom_span": null,
+    "ticket_id": "t_9103d34487508609824b"
+  },
+  {
+    "model_called": false,
+    "operation_span": null,
+    "reason": "guidance_requested",
+    "sanitized_text_sha256": "4732413ac2da5d72f1e1ac69fc9c2075203ff36b509270e775390bbfbd22a74a",
+    "symptom_span": null,
+    "ticket_id": "t_9674f5f0ff99fab91840"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unanchored_key",
+    "sanitized_text_sha256": "14470cfaaa8323b0729e3cde68e201827917c45e0f405a896858ebbed9fd1707",
+    "symptom_span": null,
+    "ticket_id": "t_9bba50ac3de00f2523f4"
+  },
+  {
+    "model_called": false,
+    "operation_span": null,
+    "reason": "informational",
+    "sanitized_text_sha256": "e3d59831569fa67489180f8a25338d2066ec744be65fbadaa5330036e01ff8f6",
+    "symptom_span": null,
+    "ticket_id": "t_ab6994bcc09b4657e8a2"
+  },
+  {
+    "model_called": false,
+    "operation_span": null,
+    "reason": "guidance_requested",
+    "sanitized_text_sha256": "78314e042d5013cf98cc4cf6222c52232325e16b7187c3ad7526c3fd2dcb03fa",
+    "symptom_span": null,
+    "ticket_id": "t_abb4ad25df5c6169d5cd"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "14ee69a0848abadf3ceb58625e56a0234395cff9e51316746028c4e144c349ff",
+    "symptom_span": null,
+    "ticket_id": "t_b614f74cf01e1556a830"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unanchored_key",
+    "sanitized_text_sha256": "bb619b05204640e858eff48bce78f858c2b0b26837f33f25811e79855f446ff7",
+    "symptom_span": null,
+    "ticket_id": "t_ca5bdec9636d263fa19d"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "f2714d9536031cb50ad0688535ba4c783bd6e7d0a4e1d7bb1bf0b8a76104552f",
+    "symptom_span": null,
+    "ticket_id": "t_dd39a6c89ddf2b46ecaf"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_abstained",
+    "sanitized_text_sha256": "e38326a06124047992d0ad2bf75977028761f3aa9c4085e26d10e7215012a73c",
+    "symptom_span": null,
+    "ticket_id": "t_e857d7b550c9e213066f"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unanchored_key",
+    "sanitized_text_sha256": "c64dd5eec8dfa6a24489b86a1e9b788440d877ba8d3d97e219dcea939017b6a0",
+    "symptom_span": null,
+    "ticket_id": "t_e94da2fe795af1e74852"
+  },
+  {
+    "model_called": false,
+    "operation_span": null,
+    "reason": "mixed_intents",
+    "sanitized_text_sha256": "c856a57e5ce0396aae28c57d778bfe635d96d17dc46f3f81eca0bd1aae14030b",
+    "symptom_span": null,
+    "ticket_id": "t_efd7fbb2900f9d83f241"
+  },
+  {
+    "model_called": false,
+    "operation_span": null,
+    "reason": "untrusted_instruction",
+    "sanitized_text_sha256": "6ab4ad42fe4061288e6e470c5cc33f0877a7438d8b0e45825dc240adaeb576fb",
+    "symptom_span": null,
+    "ticket_id": "t_f098146f96456094ec15"
+  }
+]

@@ -1,0 +1,3 @@
+method,status,classification_macro_f1,retrieval_precision,retrieval_recall,retrieval_f1,cluster_precision,cluster_recall,cluster_f1,false_merge_fraction,missed_repeat_fraction,total_seconds,tickets_per_second,python_peak_bytes
+rules_v2_3,ok,0.698941798941799,1.0,0.25,0.4,1.0,0.25,0.4,0.0,0.75,0.017199250999965443,1395.4096024325838,135907
+structured,ok,0.5583333333333333,0.0,0.0,0.0,0.0,0.0,0.0,,1.0,128.51437786099996,0.18674953261617305,

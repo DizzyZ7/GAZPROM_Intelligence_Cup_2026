@@ -1,0 +1,392 @@
+[
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unanchored_key",
+    "sanitized_text_sha256": "4de6464ec86a27342ea7d3a7ccc20926cc882f637306a58acd9abb838b102aa1",
+    "symptom_span": null,
+    "ticket_id": "06b791fa50c2d3295d74"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "3b2388c2fd17aa7ca290205ec763b3946f8c2006d3fcbff9422c3367da58a37f",
+    "symptom_span": null,
+    "ticket_id": "0a8c162852e6f777c3ab"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "1921a66e960e452eee60162fdfe538e9b03a4a8ac3fde095ea1a83ad66cfd7e9",
+    "symptom_span": null,
+    "ticket_id": "0f9a6627d2b17a2ecbd7"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unanchored_key",
+    "sanitized_text_sha256": "f94ba87256914ca974080bdddb7e71576b41b0eb0d37f933db4eb8c2bca0bcb3",
+    "symptom_span": null,
+    "ticket_id": "111bd8c52f0d46b83708"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "872df78202831c34c79e09dc323a520cca080369489cd4653b7f36f8f3e54b34",
+    "symptom_span": null,
+    "ticket_id": "19bfd178c55cf4a175cf"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_abstained",
+    "sanitized_text_sha256": "e4ad4056c8294bba8f4d309b3e8e8b27d70f46d694103e419603c6fa2fa6746e",
+    "symptom_span": null,
+    "ticket_id": "1a5668201e76cbc53dab"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "60b3f1e5a6d5363fd4890449de086ac560f117dc85eb566e464147a2359b853c",
+    "symptom_span": null,
+    "ticket_id": "1d00b4898b9c131aa63a"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_abstained",
+    "sanitized_text_sha256": "17dce5112db85de7d537224051fa343130d6384ed5a9fe30a3f889d31d4d8e0c",
+    "symptom_span": null,
+    "ticket_id": "1e3d7c5516e7409a1fb2"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_non_signal",
+    "sanitized_text_sha256": "250539078327a8cbd4ec52bd3fa4b260d03668f2dc38011bc347d0e70b14447f",
+    "symptom_span": null,
+    "ticket_id": "209d1b2ec10c3ffb4860"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unanchored_key",
+    "sanitized_text_sha256": "003cea1a35b340e2e932be8534353e8120b53481e95dd567219fe33e54872cd8",
+    "symptom_span": null,
+    "ticket_id": "21ae24f1b0826d7f6b6c"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "a5c49590d6254ad89dd30a93551823bfafb8fe5b1740836b1eddcb1b80a1e8ba",
+    "symptom_span": null,
+    "ticket_id": "25f7ab634a8c289897a9"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "02a7f9055956a587f27e8e66f3a1fe1e7ed602b6c4d5bf278c9deeef55d17c3b",
+    "symptom_span": null,
+    "ticket_id": "2e8cca082a9012f591e3"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unanchored_key",
+    "sanitized_text_sha256": "fee9b4832e36a193e5c179d83f4fef5cf610e19c6b214d5d801809f2cf9a8f30",
+    "symptom_span": null,
+    "ticket_id": "47ff50b80d2f8da9f80c"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unanchored_key",
+    "sanitized_text_sha256": "c8511d84f60bff40c936d1f2566224ae0b14849ba87c647a058a5a40189f99a5",
+    "symptom_span": null,
+    "ticket_id": "49787d2ee807eb8c2214"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "invalid_proposal",
+    "sanitized_text_sha256": "7a4285ca8888bb146fd65ac22a89641953cf224e52d85b022828fcaa605ce999",
+    "symptom_span": null,
+    "ticket_id": "4ac2f9f392bb06cae36c"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "b9a230725db5ae1779621b0f10d9de0fbfb4e2fd4e098160785a1846e1f1d6fd",
+    "symptom_span": null,
+    "ticket_id": "5349038c3fec4dce563d"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_abstained",
+    "sanitized_text_sha256": "ca5b390a1939341cd44324a8c597aab8b43e5ae4d5dd6cc2867c2e125af1cf67",
+    "symptom_span": null,
+    "ticket_id": "57a7f4bbed0c8f78cda6"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "invalid_proposal",
+    "sanitized_text_sha256": "ea5902d4bf97f24050f794dcf2acc341bc77860abea3acd643f145ff3e7991b2",
+    "symptom_span": null,
+    "ticket_id": "59c2a47a0d259a42f96c"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_abstained",
+    "sanitized_text_sha256": "651b6c3c3f3c78a966bbbe56ed448dfda11f42d0059d8d6e6ffae737f3091055",
+    "symptom_span": null,
+    "ticket_id": "5a286eb4a676bfd27e1e"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "46f41f20483f131c94eff49119d6c2d99a073a2d8904c93382a398826faf2059",
+    "symptom_span": null,
+    "ticket_id": "5f0e8a2ed7a82eca785c"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "3b8f3b0a3cec122a13b8c8bb50b867ffd3157f831d299badb789c00bad7f3a47",
+    "symptom_span": null,
+    "ticket_id": "65a097b84043706f4036"
+  },
+  {
+    "model_called": false,
+    "operation_span": null,
+    "reason": "ambiguous_workflow",
+    "sanitized_text_sha256": "7a98b02e1992a87dac8c4c04147c3f7a3919ea19fc6d40ad6501a3195bd4463f",
+    "symptom_span": null,
+    "ticket_id": "670d6db45a103d52b982"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_non_signal",
+    "sanitized_text_sha256": "6725227f4d44a2da1cf394a621eceaae7289a9992a68fd0780b64c97d963bfdd",
+    "symptom_span": null,
+    "ticket_id": "745e55c8a5afecafea70"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_non_signal",
+    "sanitized_text_sha256": "8a0a3d19ff1429ed1a5d766f5a69cc8ffc21c4f4f325693003c2a4c13dfb0541",
+    "symptom_span": null,
+    "ticket_id": "782451ddbdd38cf10a35"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "48f8be234fdc58ea8dc146c3f93163e9637fab6b6b115a757c9f4fc82d804d06",
+    "symptom_span": null,
+    "ticket_id": "7d9760369759324b2d04"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_abstained",
+    "sanitized_text_sha256": "5520fecfad428d812b88e41c517fa1763fd589cc74a9a0ab12582dc0ccd29020",
+    "symptom_span": null,
+    "ticket_id": "8bdbed538d5065ddd533"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "invalid_proposal",
+    "sanitized_text_sha256": "1962621176be908bd9eda28f7a4c4e4adaa9d1f6ee6f118ca218609619987122",
+    "symptom_span": null,
+    "ticket_id": "9180ab86b82160cfd80e"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unanchored_key",
+    "sanitized_text_sha256": "5d8786edbde39ae7c6b78aabb2dbdb4b27aecbc4f785469798cf87747e1c183d",
+    "symptom_span": null,
+    "ticket_id": "a19511dacaf02909827e"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_non_signal",
+    "sanitized_text_sha256": "520f30094491e96f5e1edaa951068ad6cc45731b456107a2cf2319819d71016e",
+    "symptom_span": null,
+    "ticket_id": "a57eaccf5c3bb1295722"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "09ad64d0f2c7cc7671af6ac70eab22594f7b0df5eb9098152135af517d53eee6",
+    "symptom_span": null,
+    "ticket_id": "a86465c7765752c398fd"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_abstained",
+    "sanitized_text_sha256": "fbc8d3acbc585a0d86bc7fb5fb00a8d8d4dffe61acbeef27563b515161f0125f",
+    "symptom_span": null,
+    "ticket_id": "be387ec6658ad4538203"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_non_signal",
+    "sanitized_text_sha256": "e30194d1d211708cfdad30a6f517a5a0f7f5f90f1f8a042df290a5beedea499b",
+    "symptom_span": null,
+    "ticket_id": "be698fb0e7a70a6d3726"
+  },
+  {
+    "model_called": true,
+    "operation_span": [
+      13,
+      73
+    ],
+    "reason": "context_resolved",
+    "sanitized_text_sha256": "972ecb799901502b8fbbca708dad6f7aa4f65af021b12f5c5c3dfec6ac11ad0f",
+    "symptom_span": [
+      102,
+      150
+    ],
+    "ticket_id": "be933a6d1dd7b89cc09c"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unanchored_key",
+    "sanitized_text_sha256": "a6f441f5223f1c692af75b29adc016316d2f9ef187ab77aeb6c04fb26bfe12fd",
+    "symptom_span": null,
+    "ticket_id": "c0fbca5755f341eb7c4b"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unanchored_key",
+    "sanitized_text_sha256": "558f4116d8ada51bc709422eeffa921a50bddc9275404ca98abe62fb71ac1873",
+    "symptom_span": null,
+    "ticket_id": "c8f4d3012c869312e0b0"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unanchored_key",
+    "sanitized_text_sha256": "9aa7236321fb0322af67487548785bebb7d31cee475cb1e49cd0f203da719ee3",
+    "symptom_span": null,
+    "ticket_id": "ccfd427fce72e5b443d1"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_non_signal",
+    "sanitized_text_sha256": "2dc1513f3d418712ad762fa9a8565a9ae08cb46c9b6cad2c071f1017d5d48588",
+    "symptom_span": null,
+    "ticket_id": "cf8965d252047620b246"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "invalid_proposal",
+    "sanitized_text_sha256": "504f52e87b706dc795fb6bab5deabc71d9f0f68b0b6c2deb4280aa45152ec320",
+    "symptom_span": null,
+    "ticket_id": "d6f0370038197ee2efb6"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "invalid_proposal",
+    "sanitized_text_sha256": "8309bc9a2cfe63c203273b30c52436c49ea98742fd173b3e7a42fd8d0ba53dbf",
+    "symptom_span": null,
+    "ticket_id": "db7177745910147059cd"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "invalid_proposal",
+    "sanitized_text_sha256": "2b5ff1be9be2263f022c4baceb55b4eb8dbe1f441928ba870222847474367aba",
+    "symptom_span": null,
+    "ticket_id": "e71b6b8346c2841e8167"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "invalid_proposal",
+    "sanitized_text_sha256": "23f16c4f6874e9d7cd81a39d473ea2c8bb24157d218d2f5ae402152f522aeca9",
+    "symptom_span": null,
+    "ticket_id": "e790975a364266ddc5e2"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "1ca80aaea1c6eb4e000a692e0d102c8d2f7965b1036a30af34cdfd1e20a1842a",
+    "symptom_span": null,
+    "ticket_id": "e7b5092f62ef5493ed6f"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "invalid_proposal",
+    "sanitized_text_sha256": "b450cb23f4ea1004b6df37c6fc3498c3d3ce2d9805a32b5eda1927a6a95c4cd1",
+    "symptom_span": null,
+    "ticket_id": "e99d7814d24965787cc2"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_non_signal",
+    "sanitized_text_sha256": "95c46046c9d331be27227538dc9b29b943a4015d58c39298ac4a3a6dedaa8f1b",
+    "symptom_span": null,
+    "ticket_id": "eaada979c1a9f770b97f"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "54caeecff6573aa43c5c5f84c2083838bcd1ba33dbfb4b84dc214dc5ec3ad4b6",
+    "symptom_span": null,
+    "ticket_id": "f1696dc3695fa566a99c"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "invalid_proposal",
+    "sanitized_text_sha256": "2031b76e81df359c382c99608c1f45353747988294e3ef627891470f5ed5c076",
+    "symptom_span": null,
+    "ticket_id": "f45d724b2076553730af"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_non_signal",
+    "sanitized_text_sha256": "b19a2015a722e832d0a357d30c00680ad7b811c0dc6eeae49684e22607ff4699",
+    "symptom_span": null,
+    "ticket_id": "f7a41b41e2addb7a9248"
+  },
+  {
+    "model_called": true,
+    "operation_span": null,
+    "reason": "invalid_proposal",
+    "sanitized_text_sha256": "009586e5aadb26ffecae389659c68849ced6c876aef10075e74b4e791ec8aa14",
+    "symptom_span": null,
+    "ticket_id": "f833a47f3b616b7c8dbd"
+  }
+]

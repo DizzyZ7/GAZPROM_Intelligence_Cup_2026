@@ -1,0 +1,161 @@
+{
+  "calibration": {},
+  "classification": {
+    "abstention_fraction": 0.7857142857142857,
+    "accuracy": 0.21428571428571427,
+    "confusion_matrix": {
+      "bug": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 1,
+        "unknown": 5
+      },
+      "feature_request": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 5
+      },
+      "how_to": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 0
+      },
+      "other": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 2,
+        "service_request": 0,
+        "unknown": 0
+      },
+      "service_request": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 0
+      },
+      "unknown": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 1
+      }
+    },
+    "count": 14,
+    "macro_f1": 0.19444444444444445,
+    "macro_precision": 0.1818181818181818,
+    "macro_recall": 0.3333333333333333,
+    "per_category": {
+      "bug": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 6
+      },
+      "feature_request": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 5
+      },
+      "how_to": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 0
+      },
+      "other": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "support": 2
+      },
+      "service_request": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 0
+      },
+      "unknown": {
+        "f1": 0.16666666666666666,
+        "precision": 0.09090909090909091,
+        "recall": 1.0,
+        "support": 1
+      }
+    }
+  },
+  "classifier": "structured-context-v1.1",
+  "clustering": {
+    "f1": 0.0,
+    "false_merge_fraction": null,
+    "fn": 0,
+    "fp": 0,
+    "missed_repeat_fraction": null,
+    "pair_count": 91,
+    "precision": 0.0,
+    "recall": 0.0,
+    "signal_candidates": 0,
+    "singleton_count": 14,
+    "tn": 91,
+    "tp": 0
+  },
+  "decision_reasons": {
+    "mixed_intents": 3,
+    "model_non_signal": 3,
+    "unanchored_key": 6,
+    "untrusted_instruction": 1,
+    "unverified_evidence": 1
+  },
+  "grounded_slots": {
+    "accepted_despite_abstention": [],
+    "both_hit": 0,
+    "labeled": 0,
+    "must_abstain_cases": 0,
+    "operation_hit": 0,
+    "symptom_hit": 0
+  },
+  "inference_status": "complete",
+  "method": "structured",
+  "model": {
+    "digest": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+    "model": "qwen3.5:4b",
+    "ollama_version": "0.40.15"
+  },
+  "model_calls": 10,
+  "retrieval_pairs": {
+    "f1": 0.0,
+    "false_merge_fraction": null,
+    "fn": 0,
+    "fp": 0,
+    "missed_repeat_fraction": null,
+    "pair_count": 91,
+    "precision": 0.0,
+    "recall": 0.0,
+    "tn": 91,
+    "tp": 0
+  },
+  "retrieval_top_k": {
+    "k": 5,
+    "precision_at_k": 0.0,
+    "queries_with_repeats": 0,
+    "query_hit_fraction": null,
+    "recall_at_k": 0.0,
+    "relevant_neighbors": 0,
+    "returned_neighbors": 0,
+    "returned_precision_at_k": 0.0
+  },
+  "status": "ok",
+  "threshold": null
+}

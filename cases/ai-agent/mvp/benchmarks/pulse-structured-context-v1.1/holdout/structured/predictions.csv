@@ -1,0 +1,49 @@
+ticket_id,product,category,workflow,classifier_score,operation,symptom,reason,groupable,cluster_id,gold_category,gold_workflow,gold_cluster_id
+06b791fa50c2d3295d74,zvukokov,unknown,unclassified,,,,unanchored_key,False,64b2f1d4e9fe507ea0e9,feature_request,Печать карты расстановки микрофонов,zvukokov/print-layout-scale-bar
+0a8c162852e6f777c3ab,mitselestroi,unknown,unclassified,,,,unverified_evidence,False,4dba59504abdc4994daf,feature_request,Печать этикетки партии субстрата,mitselestroi/print-next-inspection-date
+0f9a6627d2b17a2ecbd7,atriumnik,unknown,unclassified,,,,unverified_evidence,False,a09833420355e1e862f8,feature_request,Рассылка приглашений на экскурсию,atriumnik/invitation-entry-qr
+111bd8c52f0d46b83708,atriumnik,unknown,unclassified,,,,unanchored_key,False,5095497395db17cbc7fa,bug,Отмена групповой брони,
+19bfd178c55cf4a175cf,atriumnik,unknown,unclassified,,,,unverified_evidence,False,62020b56f7a10b72ff9d,bug,Перенос брони экскурсии,atriumnik/move-original-stays-blocked
+1a5668201e76cbc53dab,mitselestroi,unknown,unclassified,,,,model_abstained,False,ad1eec2511c2e0db94a9,unknown,Недостаточно данных,
+1d00b4898b9c131aa63a,kernopis,unknown,unclassified,,,,unverified_evidence,False,60f119e7d0686b1dc71a,bug,Импорт CSV с замерами керна,kernopis/import-decimal-comma-dropped
+1e3d7c5516e7409a1fb2,mitselestroi,unknown,unclassified,,,,model_abstained,False,1d70ab2f26bf9bd4423d,unknown,Несколько операций,
+209d1b2ec10c3ffb4860,shlyupomer,how_to,unclassified,,,,model_non_signal,False,926c9c558dd5f87d4155,how_to,Выгрузка суточной очереди шлюзований,
+21ae24f1b0826d7f6b6c,kernopis,unknown,unclassified,,,,unanchored_key,False,a586a0e8daeaade21ab6,feature_request,Выгрузка журнала образцов,
+25f7ab634a8c289897a9,teneshov,unknown,unclassified,,,,unverified_evidence,False,84936639197b66916167,bug,Подтверждение возврата костюма,teneshov/return-still-issued
+2e8cca082a9012f591e3,zvukokov,unknown,unclassified,,,,unverified_evidence,False,2a1dbaac13b039d9277f,bug,Прослушивание эталона калибровки,zvukokov/reference-overlapping-duplicate
+47ff50b80d2f8da9f80c,shlyupomer,unknown,unclassified,,,,unanchored_key,False,8f69e3511f6c68d0bca4,bug,Отмена окна шлюзования,
+49787d2ee807eb8c2214,teneshov,unknown,unclassified,,,,unanchored_key,False,0073e8ba464b5639434f,feature_request,Оформление акта возврата костюма,teneshov/return-act-damage-photo
+4ac2f9f392bb06cae36c,mitselestroi,unknown,unclassified,,,,invalid_proposal,False,420cd14b2eaf6d7df5ad,bug,Печать этикетки партии субстрата,
+5349038c3fec4dce563d,mitselestroi,unknown,unclassified,,,,unverified_evidence,False,2852679029fd317955ab,bug,Печать этикетки партии субстрата,mitselestroi/print-qr-clipped
+57a7f4bbed0c8f78cda6,kernopis,unknown,unclassified,,,,model_abstained,False,36b11491f257d05f8317,bug,Импорт CSV с замерами керна,kernopis/import-decimal-comma-dropped
+59c2a47a0d259a42f96c,teneshov,unknown,unclassified,,,,invalid_proposal,False,be4a17d06b721951caf6,feature_request,Оформление акта возврата костюма,
+5a286eb4a676bfd27e1e,shlyupomer,unknown,unclassified,,,,model_abstained,False,697ace83627647ae26ab,bug,Перенос окна шлюзования,shlyupomer/move-original-stays-blocked
+5f0e8a2ed7a82eca785c,zvukokov,unknown,unclassified,,,,unverified_evidence,False,50156e988c96e07b370b,bug,Прослушивание эталона калибровки,
+65a097b84043706f4036,shlyupomer,unknown,unclassified,,,,unverified_evidence,False,d463df6c622a258c95a6,bug,Перенос окна шлюзования,shlyupomer/move-original-stays-blocked
+670d6db45a103d52b982,shlyupomer,unknown,unclassified,,,,ambiguous_workflow,False,4be3cbb8e38d4a0ae124,feature_request,Выгрузка суточной очереди шлюзований,shlyupomer/export-draft-column
+745e55c8a5afecafea70,zvukokov,other,unclassified,,,,model_non_signal,False,01381550540086a46b79,other,Обзор состояния зала,
+782451ddbdd38cf10a35,kernopis,how_to,unclassified,,,,model_non_signal,False,89a96ac7d23596d017c0,how_to,Импорт CSV с замерами керна,
+7d9760369759324b2d04,atriumnik,unknown,unclassified,,,,unverified_evidence,False,c1059f014aeb099d4305,feature_request,Рассылка приглашений на экскурсию,atriumnik/invitation-entry-qr
+8bdbed538d5065ddd533,mitselestroi,unknown,unclassified,,,,model_abstained,False,157983d27eee1c94da40,bug,Печать этикетки партии субстрата,mitselestroi/print-qr-clipped
+9180ab86b82160cfd80e,zvukokov,unknown,unclassified,,,,invalid_proposal,False,19b8050cfc6cd1a7bd6f,bug,Живой мониторинг входа микрофона,
+a19511dacaf02909827e,teneshov,unknown,unclassified,,,,unanchored_key,False,e10605c0c5e4bf9fb1da,other,Повторная проверка возврата костюма,
+a57eaccf5c3bb1295722,teneshov,how_to,unclassified,,,,model_non_signal,False,f33510c541a2d25056db,feature_request,Оформление акта возврата костюма,teneshov/return-act-damage-photo
+a86465c7765752c398fd,shlyupomer,unknown,unclassified,,,,unverified_evidence,False,e951eb9cf7704703dd50,bug,Перенос окна шлюзования,
+be387ec6658ad4538203,zvukokov,unknown,unclassified,,,,model_abstained,False,7ea17b4c965b76a35259,feature_request,Печать карты расстановки микрофонов,zvukokov/print-layout-scale-bar
+be698fb0e7a70a6d3726,teneshov,service_request,unclassified,,,,model_non_signal,False,d5c1d4a36c30877a18b0,service_request,Получение архивного акта возврата,
+be933a6d1dd7b89cc09c,atriumnik,bug,structured_operation,,перенос брони экскурсии,пять мест в понедельник не вернулись в продажу,context_resolved,True,88eb6679d2c0f982b21b,bug,Перенос брони экскурсии,atriumnik/move-original-stays-blocked
+c0fbca5755f341eb7c4b,atriumnik,unknown,unclassified,,,,unanchored_key,False,f2540338f1acee59aa9f,bug,Перенос брони экскурсии,
+c8f4d3012c869312e0b0,teneshov,unknown,unclassified,,,,unanchored_key,False,f545ca1a4f779c65d74a,bug,Подтверждение возврата костюма,
+ccfd427fce72e5b443d1,zvukokov,unknown,unclassified,,,,unanchored_key,False,0d7bc16d2ef587bbaf18,bug,Прослушивание эталона калибровки,zvukokov/reference-overlapping-duplicate
+cf8965d252047620b246,atriumnik,service_request,unclassified,,,,model_non_signal,False,b9e7e9f5a19b7b874b8f,service_request,Управление доступом экскурсоводов,
+d6f0370038197ee2efb6,kernopis,unknown,unclassified,,,,invalid_proposal,False,8ce098e520b39912a6e3,bug,Импорт CSV с замерами керна,kernopis/import-decimal-comma-dropped
+db7177745910147059cd,kernopis,unknown,unclassified,,,,invalid_proposal,False,f2dd08dc3d32bbc87575,feature_request,Выгрузка журнала образцов,kernopis/export-orientation-column
+e71b6b8346c2841e8167,kernopis,unknown,unclassified,,,,invalid_proposal,False,cce8560b4dc7b68cfb9d,bug,Импорт CSV с замерами керна,
+e790975a364266ddc5e2,shlyupomer,unknown,unclassified,,,,invalid_proposal,False,a32d0250a738d447161a,bug,Перенос окна шлюзования,shlyupomer/move-original-stays-blocked
+e7b5092f62ef5493ed6f,kernopis,unknown,unclassified,,,,unverified_evidence,False,d9f0406f05fc1ddd8d7e,feature_request,Выгрузка журнала образцов,kernopis/export-orientation-column
+e99d7814d24965787cc2,mitselestroi,unknown,unclassified,,,,invalid_proposal,False,85cd3ee1ede5bc158d1e,bug,Печать этикетки партии субстрата,mitselestroi/print-qr-clipped
+eaada979c1a9f770b97f,atriumnik,other,unclassified,,,,model_non_signal,False,79f1d804100e6f2883f2,other,Проверка переноса брони экскурсии,
+f1696dc3695fa566a99c,mitselestroi,unknown,unclassified,,,,unverified_evidence,False,6ecf135a586f2a87a3f2,feature_request,Печать этикетки партии субстрата,mitselestroi/print-next-inspection-date
+f45d724b2076553730af,shlyupomer,unknown,unclassified,,,,invalid_proposal,False,a83c1edfb2648b92f062,feature_request,Выгрузка суточной очереди шлюзований,shlyupomer/export-draft-column
+f7a41b41e2addb7a9248,zvukokov,other,unclassified,,,,model_non_signal,False,db45cd6152d322de4598,unknown,Планирование проверки калибровки,
+f833a47f3b616b7c8dbd,teneshov,unknown,unclassified,,,,invalid_proposal,False,18cc9b2bd11c3e6ae9d7,bug,Подтверждение возврата костюма,teneshov/return-still-issued
