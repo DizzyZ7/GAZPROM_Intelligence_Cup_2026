@@ -1,0 +1,7 @@
+gold_category,bug,feature_request,how_to,service_request,other,unknown
+bug,6,0,0,0,0,15
+feature_request,0,2,0,0,0,4
+how_to,0,0,0,0,0,1
+service_request,0,1,0,0,0,0
+other,1,0,0,0,0,4
+unknown,0,0,0,0,0,2

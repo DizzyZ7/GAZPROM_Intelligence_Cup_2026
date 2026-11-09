@@ -1,0 +1,139 @@
+{
+  "calibration": {},
+  "classification": {
+    "abstention_fraction": 0.7222222222222222,
+    "accuracy": 0.2777777777777778,
+    "confusion_matrix": {
+      "bug": {
+        "bug": 6,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 15
+      },
+      "feature_request": {
+        "bug": 0,
+        "feature_request": 2,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 4
+      },
+      "how_to": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 1
+      },
+      "other": {
+        "bug": 1,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 4
+      },
+      "service_request": {
+        "bug": 0,
+        "feature_request": 1,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 0
+      },
+      "unknown": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 2
+      }
+    },
+    "count": 36,
+    "macro_f1": 0.1693121693121693,
+    "macro_precision": 0.2667887667887668,
+    "macro_recall": 0.2698412698412698,
+    "per_category": {
+      "bug": {
+        "f1": 0.42857142857142855,
+        "precision": 0.8571428571428571,
+        "recall": 0.2857142857142857,
+        "support": 21
+      },
+      "feature_request": {
+        "f1": 0.4444444444444444,
+        "precision": 0.6666666666666666,
+        "recall": 0.3333333333333333,
+        "support": 6
+      },
+      "how_to": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 1
+      },
+      "other": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 5
+      },
+      "service_request": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 1
+      },
+      "unknown": {
+        "f1": 0.14285714285714285,
+        "precision": 0.07692307692307693,
+        "recall": 1.0,
+        "support": 2
+      }
+    }
+  },
+  "classifier": "context-v2.3",
+  "clustering": {
+    "f1": 0.0,
+    "false_merge_fraction": null,
+    "fn": 11,
+    "fp": 0,
+    "missed_repeat_fraction": 1.0,
+    "pair_count": 630,
+    "precision": 0.0,
+    "recall": 0.0,
+    "signal_candidates": 0,
+    "singleton_count": 36,
+    "tn": 619,
+    "tp": 0
+  },
+  "method": "rules",
+  "retrieval_pairs": {
+    "f1": 0.0,
+    "false_merge_fraction": null,
+    "fn": 11,
+    "fp": 0,
+    "missed_repeat_fraction": 1.0,
+    "pair_count": 630,
+    "precision": 0.0,
+    "recall": 0.0,
+    "tn": 619,
+    "tp": 0
+  },
+  "retrieval_top_k": {
+    "k": 5,
+    "precision_at_k": 0.0,
+    "queries_with_repeats": 16,
+    "query_hit_fraction": 0.0,
+    "recall_at_k": 0.0,
+    "relevant_neighbors": 22,
+    "returned_neighbors": 0,
+    "returned_precision_at_k": 0.0
+  },
+  "status": "ok",
+  "threshold": null
+}

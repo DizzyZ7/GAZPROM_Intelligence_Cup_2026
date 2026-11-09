@@ -1,0 +1,3 @@
+ticket_id,rank,neighbor_id
+t_15ef0fe3e67381bfc95a,1,t_e94da2fe795af1e74852
+t_e94da2fe795af1e74852,1,t_15ef0fe3e67381bfc95a
