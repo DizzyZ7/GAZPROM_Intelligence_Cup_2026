@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "dataset_version": "pulse-structured-holdout-v1",
+  "counts": {
+    "holdout": 48
+  },
+  "files": {
+    "holdout.inputs.json": {
+      "sha256": "735e5604ea75ebcbc95bd162c839a56cafef3c9e90e459de761e3e893c72c9ca",
+      "bytes": 23108
+    },
+    "holdout.labels.jsonl": {
+      "sha256": "5960c7e7a225a87b34bdb556964eac262d427c110bb9ed79bb848f9fd25a904f",
+      "bytes": 37093
+    },
+    "README.md": {
+      "sha256": "4fef336586baabba514aeea5b62ca10d58bfbd47adb4e62ba41ca86e4720f507",
+      "bytes": 3976
+    }
+  }
+}

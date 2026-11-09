@@ -1,0 +1,15 @@
+ticket_id,product,category,workflow,classifier_score,operation,symptom,reason,groupable,cluster_id,gold_category,gold_workflow,gold_cluster_id
+t_307c1c0a87695790c723,Вектор: Портал,unknown,unclassified,,,,unanchored_key,False,9ef78062da5782575773,bug,sms_recovery,Вектор: Портал|sms_expired
+t_33216175fbf3be9ed60a,Вектор: Портал,unknown,unclassified,,,,untrusted_instruction,False,f9b15edc68aeaf1f2a0a,feature_request,report_export,Вектор: Портал|scheduled_export
+t_3777c58e391e55dc5828,Север: Кабинет,unknown,unclassified,,,,unanchored_key,False,5b6030b2f162e6413bf1,bug,vehicle_registry,Север: Кабинет|vehicle_missing
+t_39fcd0a37cb1ed968d53,Горизонт: Запись,unknown,unclassified,,,,unanchored_key,False,e88fc6aad8be6c8e618c,feature_request,contact_edit,Горизонт: Запись|multi_contact
+t_4b6d35a1801a0164a758,Вектор: Портал,other,unclassified,,,,model_non_signal,False,a4c5e4735bbc62d2280c,other,general,
+t_558d97fcde81eb1bbfbe,Север: Кабинет,unknown,unclassified,,,,mixed_intents,False,71912f202a33e30661b5,bug,booking_queue,
+t_6abef93ae9d20a1b3ee9,Север: Кабинет,other,unclassified,,,,model_non_signal,False,8ce1e7fffd5374b53b9a,other,general,
+t_9c3178e4032bee59d7e2,Горизонт: Запись,service_request,unclassified,,,,model_non_signal,False,8591641a7e74d765e147,bug,payment,Горизонт: Запись|double_charge
+t_af14b815528c5756574d,Север: Кабинет,unknown,unclassified,,,,mixed_intents,False,a5b658eb47c6abc33014,unknown,unclassified,
+t_b11f04a84f2fc5cd5493,Горизонт: Запись,unknown,unclassified,,,,unanchored_key,False,35a8b3248d618a922331,bug,sms_recovery,Горизонт: Запись|sms_missing
+t_befb0fd7775d0147267f,Вектор: Портал,unknown,unclassified,,,,mixed_intents,False,c6d0c01511aa7a1b89aa,bug,vehicle_registry,
+t_d04eb0b869dfda53031a,Север: Кабинет,unknown,unclassified,,,,unanchored_key,False,993466fdcc18a7bb09a6,feature_request,booking_queue,Север: Кабинет|queue_notification
+t_e3343f749f15041a95a1,Горизонт: Запись,unknown,unclassified,,,,unverified_evidence,False,4ab2f552ad36cd838a6d,feature_request,report_export,Горизонт: Запись|scheduled_export
+t_ec90ee6100248cd3b90e,Вектор: Портал,unknown,unclassified,,,,unanchored_key,False,dcdf4b56e7c43b5fdfba,feature_request,contact_edit,Вектор: Портал|contact_edit

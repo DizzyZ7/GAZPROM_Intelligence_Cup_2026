@@ -1,0 +1,139 @@
+{
+  "calibration": {},
+  "classification": {
+    "abstention_fraction": 0.5,
+    "accuracy": 0.5714285714285714,
+    "confusion_matrix": {
+      "bug": {
+        "bug": 4,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 2
+      },
+      "feature_request": {
+        "bug": 0,
+        "feature_request": 3,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 2
+      },
+      "how_to": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 0
+      },
+      "other": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 2
+      },
+      "service_request": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 0
+      },
+      "unknown": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 1
+      }
+    },
+    "count": 14,
+    "macro_f1": 0.3,
+    "macro_precision": 0.35714285714285715,
+    "macro_recall": 0.37777777777777777,
+    "per_category": {
+      "bug": {
+        "f1": 0.8,
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "support": 6
+      },
+      "feature_request": {
+        "f1": 0.75,
+        "precision": 1.0,
+        "recall": 0.6,
+        "support": 5
+      },
+      "how_to": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 0
+      },
+      "other": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 2
+      },
+      "service_request": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 0
+      },
+      "unknown": {
+        "f1": 0.25,
+        "precision": 0.14285714285714285,
+        "recall": 1.0,
+        "support": 1
+      }
+    }
+  },
+  "classifier": "context-v2.3",
+  "clustering": {
+    "f1": 0.0,
+    "false_merge_fraction": null,
+    "fn": 0,
+    "fp": 0,
+    "missed_repeat_fraction": null,
+    "pair_count": 91,
+    "precision": 0.0,
+    "recall": 0.0,
+    "signal_candidates": 0,
+    "singleton_count": 14,
+    "tn": 91,
+    "tp": 0
+  },
+  "method": "rules",
+  "retrieval_pairs": {
+    "f1": 0.0,
+    "false_merge_fraction": null,
+    "fn": 0,
+    "fp": 0,
+    "missed_repeat_fraction": null,
+    "pair_count": 91,
+    "precision": 0.0,
+    "recall": 0.0,
+    "tn": 91,
+    "tp": 0
+  },
+  "retrieval_top_k": {
+    "k": 5,
+    "precision_at_k": 0.0,
+    "queries_with_repeats": 0,
+    "query_hit_fraction": null,
+    "recall_at_k": 0.0,
+    "relevant_neighbors": 0,
+    "returned_neighbors": 0,
+    "returned_precision_at_k": 0.0
+  },
+  "status": "ok",
+  "threshold": null
+}

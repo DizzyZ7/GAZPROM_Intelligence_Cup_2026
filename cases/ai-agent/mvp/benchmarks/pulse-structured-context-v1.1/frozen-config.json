@@ -1,0 +1,40 @@
+{
+  "holdout_manifest_sha256": "f88b58e06c0d3c5c5f20a694b5b5741423e365a85061c88f3f9e5c00e03062a8",
+  "model": {
+    "digest": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+    "model": "qwen3.5:4b",
+    "ollama_version": "0.40.15"
+  },
+  "options": {
+    "num_ctx": 2048,
+    "num_predict": 256,
+    "seed": 20261109,
+    "temperature": 0
+  },
+  "pairing": "exact_product_category_operation_symptom",
+  "prompt_sha256": "0488f9cc53c1c155588dd92d6a618bd4e4f0de3778c086ce2c3c7d017d7c33a4",
+  "reference_manifest_sha256": "9b7f27a487fc6fce8968d1b5323c6fca528d08a4f518e72f1fcad3b1ba6b0cfb",
+  "sample_counts": {
+    "development": 14,
+    "validation": 24
+  },
+  "sample_seed": 20261109,
+  "slot_min_f1": 0.5,
+  "sources": {
+    "benchmark/__init__.py": "4420259114efbad4456821ef6f6dbf2713a2b163a538b5f474f680ae7e0762da",
+    "benchmark/__main__.py": "ff44ab57c22e56ed6b5943cf9b6179802831d96703bebd91969abcf04443629f",
+    "benchmark/artifact_io.py": "7a6b54e6c648c9fc30881c9f88f83432cd79bf81fac68a2b1818cbf0bd6dba75",
+    "benchmark/engine.py": "1213c426303fda090e2e6dc836467663b3a5682a442d2e8ad01c805ea8d47401",
+    "benchmark/metrics.py": "e3b79783ab06f9a8cc495af9e3c2654b405fb58a1e9a7d42e9a1ffd55493059a",
+    "benchmark/protocol.py": "6851d6e5099b20be870cd287b480081fd2a2f0d8fa0219ff8fa38a3072ffb4dd",
+    "benchmark/reports.py": "363e670d36cfd292793e8c3b3e24f42c2021ab8b4f6dcdb6eef37288988a9e70",
+    "benchmark/tfidf.py": "cc8747121df313c194e00aa65f43659995cbd743b773c56a802db673cedc68c0",
+    "ollama_embeddings.py": "c24de2c2a5d2da17df26a11b58d7d4cff011bb9890767e075b3bb2c42bed7c41",
+    "pulse.py": "9f5cd08edde3ce90dc6686045d3bda6407a5ea6a57598c455eb40c89f152ba3b",
+    "semantic.py": "6d9315df9fdf33219a7c2b30235874e9717c649f961d7adfdcefc3dec6a140b5",
+    "structured_context.py": "18b8dc20de60591e19e1a7abc826b223d445f5ceba27136da4021972ca7133de",
+    "structured_eval.py": "e60fe28bb92154e4b91d61316ffa54323baa3bc5c7cb1c6aca6e897c26c00368",
+    "ticket_context.py": "a58026e1f8aa34747dabdd390c732926899afbfb408b8ef5b05072550ed26854"
+  },
+  "version": "structured-context-v1.1"
+}
