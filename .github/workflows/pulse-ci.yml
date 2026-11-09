@@ -51,6 +51,8 @@ jobs:
           ruff format --isolated --check ticket_context.py context_pipeline.py context_eval.py tests/test_context*.py tests/test_dataset_review.py
           ruff check --isolated --select E9,F,I structured_context.py structured_eval.py tests/test_structured*.py
           ruff format --isolated --check structured_context.py structured_eval.py tests/test_structured*.py
+          ruff check --isolated --select E9,F,I span_context.py span_eval.py tests/test_span*.py
+          ruff format --isolated --check span_context.py span_eval.py tests/test_span*.py
           bandit -q -r . -x ./tests -ll
       - name: Validate committed dataset
         run: python -m dataset validate --directory datasets/pulse-synthetic-v1
@@ -83,6 +85,12 @@ jobs:
             --reference datasets/pulse-synthetic-v1 \
             --holdout datasets/pulse-structured-holdout-v1 \
             --output benchmarks/pulse-structured-context-v1.1
+      - name: Verify fragment extraction and normalization evidence
+        run: |
+          python -m span_eval verify \
+            --reference datasets/pulse-synthetic-v1 \
+            --holdout datasets/pulse-span-holdout-v1 \
+            --output benchmarks/pulse-span-context-v1
       - name: Verify independent control reproducibility
         run: |
           python datasets/pulse-independent-20261109/generate_dataset.py --check datasets/pulse-independent-20261109/benchmark
@@ -91,5 +99,5 @@ jobs:
           cp -R datasets/pulse-independent-20261109/source_snapshots "$pulse_repro_dir/"
           python "$pulse_repro_dir/generate_dataset.py" --verify-reproducible
           python "$pulse_repro_dir/generate_dataset.py" --check "$pulse_repro_dir/benchmark"
-      - name: Audit runtime dependencies
-        run: pip-audit -r requirements-api.txt
+      - name: Audit dependencies
+        run: pip-audit -r requirements-api.txt -r requirements-dev.txt

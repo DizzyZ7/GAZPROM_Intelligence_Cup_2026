@@ -1,0 +1,467 @@
+[
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "cd27c388f956045c6addfa2ef40def6adbe79d868020caa2b76dd54a9c2ef34b",
+    "symptom_span": [
+      32,
+      103
+    ],
+    "ticket_id": "t_002ad2f6aea249afafa7"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "f2b78d0e6285e6ce20ea569110b6015b1458aa6fe4467e222bfe809a51895036",
+    "symptom_span": null,
+    "ticket_id": "t_0417f277dc3b4bcbb399"
+  },
+  {
+    "admitted": true,
+    "category": "bug",
+    "model_called": true,
+    "operation_span": [
+      0,
+      26
+    ],
+    "reason": "context_resolved",
+    "sanitized_text_sha256": "459dfc9ffe2d7d0cc8a41b73c734e20c9c87246e849c3f6e1fefc0b23e99a49b",
+    "symptom_span": [
+      28,
+      59
+    ],
+    "ticket_id": "t_19a0ce4e315642e48e8d"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": false,
+    "operation_span": null,
+    "reason": "ambiguous_workflow",
+    "sanitized_text_sha256": "8cd1be8edcec72d319cbe70469bc0e4b125803a48a021c4011cf18146e0697e4",
+    "symptom_span": null,
+    "ticket_id": "t_1b5870dae9c0418dafa1"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "2078db9317e1a21099ebbfdeea13726a3a64c4e5e6fd0583ee3c3e71e78774ce",
+    "symptom_span": [
+      37,
+      62
+    ],
+    "ticket_id": "t_2242c2a05ed044ec921f"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "eaaf789d7264884300e3966d7bfd8b0b0478f3f964afc6e3c1a85429891b25ea",
+    "symptom_span": [
+      70,
+      116
+    ],
+    "ticket_id": "t_23d5be37fa294ef58232"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "cf963e8693dc7a6bba820160afe340e4739579ebdfb1498c7f42746de65f2846",
+    "symptom_span": [
+      44,
+      89
+    ],
+    "ticket_id": "t_25f1405d6755411094c0"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "057987f26331788291373427b7de044f4d2b99efca80367086d942e30c0f365a",
+    "symptom_span": [
+      81,
+      110
+    ],
+    "ticket_id": "t_28776d6c90934809be70"
+  },
+  {
+    "admitted": false,
+    "category": "other",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_non_signal",
+    "sanitized_text_sha256": "b964886d3ab7e572db27b483a1e719adf5c03b52802a904201908ba7962731b6",
+    "symptom_span": null,
+    "ticket_id": "t_2d6718b3211f4cf79fc7"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "07be8885fefa2213c4d625459d4bee10bab6e265da3940fd5be934394106086b",
+    "symptom_span": [
+      105,
+      157
+    ],
+    "ticket_id": "t_3175d1ce222c427c91cb"
+  },
+  {
+    "admitted": true,
+    "category": "bug",
+    "model_called": true,
+    "operation_span": [
+      19,
+      47
+    ],
+    "reason": "context_resolved",
+    "sanitized_text_sha256": "567c7acf11de55d36e3239aa573eb56fa374317aeacac68011f5da1c07051033",
+    "symptom_span": [
+      49,
+      97
+    ],
+    "ticket_id": "t_4ee5c695e2a64c4b90f0"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "7c1beb970c48f79e72bffe99d18e379179b3468427c9a78917799c2a32ffd93d",
+    "symptom_span": [
+      60,
+      81
+    ],
+    "ticket_id": "t_4fa7c473d67f4d3985d4"
+  },
+  {
+    "admitted": false,
+    "category": "how_to",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_non_signal",
+    "sanitized_text_sha256": "94652fe8b420ae8c9f0b7a47ddac3c59931c637a3e95800f045e912ec97bb4f7",
+    "symptom_span": null,
+    "ticket_id": "t_60b41fedde284593b240"
+  },
+  {
+    "admitted": true,
+    "category": "bug",
+    "model_called": true,
+    "operation_span": [
+      20,
+      46
+    ],
+    "reason": "context_resolved",
+    "sanitized_text_sha256": "00306457dc90929d74505c74a2517ce317b1d5ec00768005155710c42b1a4986",
+    "symptom_span": [
+      48,
+      82
+    ],
+    "ticket_id": "t_682822fdbc454a1ea493"
+  },
+  {
+    "admitted": true,
+    "category": "bug",
+    "model_called": true,
+    "operation_span": [
+      0,
+      87
+    ],
+    "reason": "context_resolved",
+    "sanitized_text_sha256": "b09a5eef66a26f2dc7137bc32a39029ffd7b06850c38eda45228e0606b28820c",
+    "symptom_span": [
+      89,
+      154
+    ],
+    "ticket_id": "t_6cab1434420e4afeb501"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": [
+      0,
+      39
+    ],
+    "reason": "unrelated_evidence",
+    "sanitized_text_sha256": "ae679ec2f6890a6a7efc625d9cd0808f756493b3cfb144e23254b308999795e5",
+    "symptom_span": [
+      41,
+      100
+    ],
+    "ticket_id": "t_7507fbf036464ca8af3b"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": false,
+    "operation_span": null,
+    "reason": "untrusted_instruction",
+    "sanitized_text_sha256": "45216e4fa21e7ce52a34c82bb54861b9eb8ee8b281107a814ff8b5438d558aab",
+    "symptom_span": null,
+    "ticket_id": "t_7f4607eb3a12406a9a86"
+  },
+  {
+    "admitted": true,
+    "category": "bug",
+    "model_called": true,
+    "operation_span": [
+      0,
+      34
+    ],
+    "reason": "context_resolved",
+    "sanitized_text_sha256": "4c525cb64000ae7984657e42993352ed4e311ee084a6ad6627d5d47ec3c40e53",
+    "symptom_span": [
+      46,
+      113
+    ],
+    "ticket_id": "t_7f4c1a327205425e8626"
+  },
+  {
+    "admitted": true,
+    "category": "bug",
+    "model_called": true,
+    "operation_span": [
+      54,
+      101
+    ],
+    "reason": "context_resolved",
+    "sanitized_text_sha256": "cb4f0468c11bf1ed47b05e920741422cc610a81eed20ac402edc3d300216797b",
+    "symptom_span": [
+      103,
+      126
+    ],
+    "ticket_id": "t_8adcafef7bb54f95b386"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "ffe572c522fa0c955821565bc1544a55a43109a6df5fb5c911f66e99a34d82b0",
+    "symptom_span": null,
+    "ticket_id": "t_8b789f8945d54003a8b1"
+  },
+  {
+    "admitted": true,
+    "category": "bug",
+    "model_called": true,
+    "operation_span": [
+      51,
+      68
+    ],
+    "reason": "context_resolved",
+    "sanitized_text_sha256": "90c1568a9d49a4314eed2e7707afdb87f924f3b1a8419bcd8f1e8134486a2029",
+    "symptom_span": [
+      70,
+      96
+    ],
+    "ticket_id": "t_8ba7e6d1f3704a8380e5"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "6f33943ce0a1f57083da269eca028b20de25e25161318470fd918ac3d7f6c88b",
+    "symptom_span": null,
+    "ticket_id": "t_97322eab52df493b992d"
+  },
+  {
+    "admitted": true,
+    "category": "bug",
+    "model_called": true,
+    "operation_span": [
+      0,
+      22
+    ],
+    "reason": "context_resolved",
+    "sanitized_text_sha256": "5bf2fb68fc77c858ab31faef98aa82a4e244fb3293c5e51cf1d166e11372d692",
+    "symptom_span": [
+      24,
+      84
+    ],
+    "ticket_id": "t_9fbfced69d9d488eb853"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "78835fcc6f2edfca72fe29d59b77fac03e94bb010cb5064165411cb97490b502",
+    "symptom_span": [
+      35,
+      51
+    ],
+    "ticket_id": "t_a21c0cf3169541eda7c9"
+  },
+  {
+    "admitted": true,
+    "category": "bug",
+    "model_called": true,
+    "operation_span": [
+      24,
+      58
+    ],
+    "reason": "context_resolved",
+    "sanitized_text_sha256": "afb6bfc9f69c90622615a23255a36b332603622d6032d3454af959f87c085c9a",
+    "symptom_span": [
+      68,
+      103
+    ],
+    "ticket_id": "t_a984a2ed0e184a1986c5"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "3d33fdd53a517b1c06b8ee0d6f402fa7785b34e7f2f79bcd499647f1055d59ac",
+    "symptom_span": null,
+    "ticket_id": "t_aec7d844c2604e5b839d"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": false,
+    "operation_span": null,
+    "reason": "untrusted_instruction",
+    "sanitized_text_sha256": "eedd64406d7bcd78d4d5da69fe702d815cc8aa6505d73aa625612a0e6b6cfdb8",
+    "symptom_span": null,
+    "ticket_id": "t_cd10139fda0247bf8d0b"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "1b6f31cb65a6d238267bec397124864e56b4c74070a2f96fe0fc1df0641499aa",
+    "symptom_span": null,
+    "ticket_id": "t_d923a47d200449e682b3"
+  },
+  {
+    "admitted": true,
+    "category": "bug",
+    "model_called": true,
+    "operation_span": [
+      0,
+      26
+    ],
+    "reason": "context_resolved",
+    "sanitized_text_sha256": "cb1006e8d3e4d54925acecdad1aacd936c4fe16fde559a07c2ba4758be4f5939",
+    "symptom_span": [
+      30,
+      64
+    ],
+    "ticket_id": "t_dbc86b79d19e46f6bea6"
+  },
+  {
+    "admitted": false,
+    "category": "other",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_non_signal",
+    "sanitized_text_sha256": "61419905233d0e1ca1dc65a3e328e95745ffe3c2d89fca1365ab23a28e3dd370",
+    "symptom_span": null,
+    "ticket_id": "t_dd2fdba66e1f4bf9be78"
+  },
+  {
+    "admitted": false,
+    "category": "service_request",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_non_signal",
+    "sanitized_text_sha256": "c7c954db860da8464e1ff6b608c9aab53ad41e26f34afeabb7bf29b9dca7723b",
+    "symptom_span": null,
+    "ticket_id": "t_e68b8deb702343438d9c"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "08fe2b6dae003028df248538c39eab2cc056a25e1a16541ef6401fea7f3bcaee",
+    "symptom_span": null,
+    "ticket_id": "t_e999b35b0e00416c8b76"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "unverified_evidence",
+    "sanitized_text_sha256": "8c4db14f39b6ddf124941fca28fccde9e40478fe6d2668277a4f1ff85ff7fa28",
+    "symptom_span": [
+      84,
+      129
+    ],
+    "ticket_id": "t_eda383c95fa645b5a598"
+  },
+  {
+    "admitted": false,
+    "category": "unknown",
+    "model_called": true,
+    "operation_span": [
+      0,
+      31
+    ],
+    "reason": "unrelated_evidence",
+    "sanitized_text_sha256": "93055db2d1fbb7a5b340730d7907c8637f2f599de67101463e1299df26df72d3",
+    "symptom_span": [
+      68,
+      131
+    ],
+    "ticket_id": "t_ef55c8ad184046b585ef"
+  },
+  {
+    "admitted": true,
+    "category": "bug",
+    "model_called": true,
+    "operation_span": [
+      0,
+      26
+    ],
+    "reason": "context_resolved",
+    "sanitized_text_sha256": "459dfc9ffe2d7d0cc8a41b73c734e20c9c87246e849c3f6e1fefc0b23e99a49b",
+    "symptom_span": [
+      28,
+      59
+    ],
+    "ticket_id": "t_f8e61fac173a464a8f6c"
+  },
+  {
+    "admitted": false,
+    "category": "service_request",
+    "model_called": true,
+    "operation_span": null,
+    "reason": "model_non_signal",
+    "sanitized_text_sha256": "4a00ee8a66f8892fb1af16a7306ee381eedea6df80af57843eb04e91e97b03b1",
+    "symptom_span": null,
+    "ticket_id": "t_fadba2ec650c4185a58d"
+  }
+]

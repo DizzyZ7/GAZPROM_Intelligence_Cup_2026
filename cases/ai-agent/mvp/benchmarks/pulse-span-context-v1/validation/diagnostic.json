@@ -1,0 +1,33 @@
+{
+  "admitted": 2,
+  "decision_reasons": {
+    "context_resolved": 2,
+    "guidance_requested": 5,
+    "individual_request": 1,
+    "informational": 2,
+    "mixed_intents": 2,
+    "model_abstained": 1,
+    "model_non_signal": 4,
+    "overlapping_evidence": 1,
+    "untrusted_instruction": 2,
+    "unverified_evidence": 4
+  },
+  "fragment_quality": {
+    "accepted_despite_abstention": [],
+    "admitted_both_hit": 0,
+    "both_hit": 0,
+    "labeled": 0,
+    "must_abstain": 0,
+    "operation_hit": 0,
+    "symptom_hit": 0
+  },
+  "gold_quotes_only": null,
+  "inference_seconds": 89.06128268199973,
+  "model": {
+    "digest": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+    "model": "qwen3.5:4b",
+    "ollama_version": "0.40.15"
+  },
+  "model_calls": 12,
+  "spans_both_verified": 3
+}

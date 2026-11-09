@@ -1,0 +1,25 @@
+ticket_id,product,category,workflow,operation,symptom,groupable,reason,cluster_id,gold_category,gold_workflow,gold_cluster_id
+t_15ef0fe3e67381bfc95a,Горизонт: Запись,unknown,unclassified,,,False,overlapping_evidence,c278a162e2223472ba1b,bug,booking_queue,Горизонт: Запись|booking_slot_lost
+t_236ee8d86931c184c95e,Север: Кабинет,other,unclassified,,,False,model_non_signal,3b1768790561fd53c0c7,bug,booking_timezone,Север: Кабинет|timezone_shift
+t_3789f427391d85f3d012,Север: Кабинет,unknown,unclassified,,,False,mixed_intents,fddeb30012acefb19c6f,unknown,unclassified,
+t_37d1c23755ada75fecce,Север: Кабинет,how_to,unclassified,,,False,guidance_requested,5b05dd3c262186db7d1b,how_to,report_export,
+t_404e31de05e3e2fcfd1b,Горизонт: Запись,bug,quoted_operation,зап сохраня,на три час раньш выбра времен,True,context_resolved,2585b6980653cde92b42,bug,booking_timezone,Горизонт: Запись|timezone_shift
+t_4d4a5a2ca1a63664e411,Вектор: Портал,service_request,unclassified,,,False,model_non_signal,00400a7e4df593a9c438,service_request,permissions,
+t_5090096151b20679476c,Вектор: Портал,service_request,unclassified,,,False,individual_request,a9522487b545c7355296,service_request,permissions,
+t_5190d6884624d045b02f,Горизонт: Запись,unknown,unclassified,,,False,untrusted_instruction,ccced40b3bf6b33459b7,feature_request,appearance,Горизонт: Запись|dark_theme
+t_5dd0c84b0ee186974971,Горизонт: Запись,unknown,unclassified,,,False,unverified_evidence,447a790b834e4c50f794,feature_request,appearance,Горизонт: Запись|dark_theme
+t_7b7233e206671acc5c42,Север: Кабинет,other,unclassified,,,False,model_non_signal,3704fa7c71ad57b97c5f,other,general,
+t_7cce7c4392ad570c13a8,Вектор: Портал,how_to,unclassified,,,False,guidance_requested,bc496b21b422456048fb,how_to,report_export,
+t_85d2a82099daf2e0b38d,Горизонт: Запись,how_to,unclassified,,,False,guidance_requested,abebce290f48d6f4629e,how_to,report_export,
+t_9103d34487508609824b,Горизонт: Запись,other,unclassified,,,False,informational,710dd253b0607c4e1ae8,other,general,
+t_9674f5f0ff99fab91840,Горизонт: Запись,how_to,unclassified,,,False,guidance_requested,9f9a089c8e57cae4c451,how_to,report_export,
+t_9bba50ac3de00f2523f4,Север: Кабинет,how_to,unclassified,,,False,model_non_signal,09cfb42bfda3d2eee670,bug,booking_timezone,Север: Кабинет|timezone_shift
+t_ab6994bcc09b4657e8a2,Вектор: Портал,other,unclassified,,,False,informational,356d8c790116ec04c276,other,general,
+t_abb4ad25df5c6169d5cd,Вектор: Портал,how_to,unclassified,,,False,guidance_requested,6271ef9b98398079783a,how_to,report_export,
+t_b614f74cf01e1556a830,Север: Кабинет,unknown,unclassified,,,False,unverified_evidence,a5a49d3b04469d037472,feature_request,appearance,Север: Кабинет|dark_theme
+t_ca5bdec9636d263fa19d,Север: Кабинет,unknown,unclassified,,,False,unverified_evidence,9b6c8a33745c47f72884,feature_request,appearance,Север: Кабинет|dark_theme
+t_dd39a6c89ddf2b46ecaf,Вектор: Портал,unknown,unclassified,,,False,unverified_evidence,8e9fcb0b4706ad7768b7,feature_request,appearance,Вектор: Портал|dark_theme
+t_e857d7b550c9e213066f,Вектор: Портал,unknown,unclassified,,,False,model_abstained,b699196742366dfbba04,other,general,
+t_e94da2fe795af1e74852,Горизонт: Запись,bug,quoted_operation,захож снов,выбра слот пропа,True,context_resolved,61dfcd864e6d02e83f29,bug,booking_queue,Горизонт: Запись|booking_slot_lost
+t_efd7fbb2900f9d83f241,Горизонт: Запись,unknown,unclassified,,,False,mixed_intents,04a86b7bcf6c96c822f9,other,general,
+t_f098146f96456094ec15,Вектор: Портал,unknown,unclassified,,,False,untrusted_instruction,860ce944b23297e18959,unknown,unclassified,

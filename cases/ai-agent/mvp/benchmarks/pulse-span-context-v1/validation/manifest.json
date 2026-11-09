@@ -1,0 +1,33 @@
+{
+  "configuration_sha256": "9cf9268de99cd79a85c00343c74fa8625bac7ee7283b0098ae03f154520402d3",
+  "dataset_manifest_sha256": "9b7f27a487fc6fce8968d1b5323c6fca528d08a4f518e72f1fcad3b1ba6b0cfb",
+  "files": {
+    "comparison.csv": "e02a253bc6335637adaf2b61259bb828a39d812beea26b88558b8cb8b61ee072",
+    "diagnostic.json": "491a74ba70c725de5e6b9cfd927821c4980214539363f037e0aa34204f9036da",
+    "evidence.json": "cc87f52e5a0ab575f5494768855a96f1d1e9cfd798160278b3f9e50128f4ae4c",
+    "literal/confusion.csv": "f67ff70fd1eae0ee767235f9f3e61205a005b84ddc15210bc1957ffca72be362",
+    "literal/errors.json": "6b5ab0ef5676eba3daee8fc782406df02b47d84621d1baf8df2be9e6146aa681",
+    "literal/groups.json": "24592b0733a30cd0b19b1070dd7e2fe98ac655829724a3125f699fc9ad49775f",
+    "literal/performance.json": "2e0a8b5ae85aa3f2728b135fc4fb01a90707758ca02bc79c255703104041bb9f",
+    "literal/predictions.csv": "a6d95c61f223112bbbe1cdce989c8f0f582c61d1a701685f1c6ce96942c8493e",
+    "literal/report.json": "c36a950d00e43ef82c1e9da3ff724cd8294283b653faee9fa62b0bebae4966e0",
+    "literal/retrieval.csv": "94b7af999ffe2912dcfaee61da4358e9caaba8f17441ec3ae4087fcc60315082",
+    "normalized/confusion.csv": "f67ff70fd1eae0ee767235f9f3e61205a005b84ddc15210bc1957ffca72be362",
+    "normalized/errors.json": "6b5ab0ef5676eba3daee8fc782406df02b47d84621d1baf8df2be9e6146aa681",
+    "normalized/groups.json": "24592b0733a30cd0b19b1070dd7e2fe98ac655829724a3125f699fc9ad49775f",
+    "normalized/performance.json": "9dce98d33a58842ce360d8c11eaf7bfedbaa166d62faf33f0d2e7d7f89c5bc89",
+    "normalized/predictions.csv": "6a508efa3a24247da60d5e3fa07a71918b01d09828f67e36b8dd550e9a6c990a",
+    "normalized/report.json": "a7c1844e880e5cf034321c5f2a0066a24bfbece87ec3dd0d582d8737b392268f",
+    "normalized/retrieval.csv": "94b7af999ffe2912dcfaee61da4358e9caaba8f17441ec3ae4087fcc60315082",
+    "rules_v2_3/confusion.csv": "81e4f9225dd5730bade6813dbf7cbf08707aee0d73e59a6ee4da488a2a80b73e",
+    "rules_v2_3/errors.json": "fba1561c7194f39d747903cd8185863cb7ca6ccbf223c436401f11730e16dfe2",
+    "rules_v2_3/groups.json": "202a66e16adecebb2e85541a4d8cea272c4a346ac2459d78a900b04220b894a2",
+    "rules_v2_3/performance.json": "18afd88e619efc5112b21599dd72c6cd8fc72e990453f9b701dfa1cca349dc23",
+    "rules_v2_3/predictions.csv": "e8c6d4ca2f26a6cdef69958caa2b34aef87df2fd6447b8fb81e2f2350006637e",
+    "rules_v2_3/report.json": "f992eac4541b821fb29e10d624fa10bc32e0a66441d3daba35ba93a08b428520",
+    "rules_v2_3/retrieval.csv": "2be02614048e7a399931abf5dab92b343c1a79722f9305903c6b7bfdad389238"
+  },
+  "inputs_sha256": "b39a8b869686044c74086bf89316d6eeaed64a666009b668fe4ca14e456d057a",
+  "split": "validation",
+  "status": "complete"
+}

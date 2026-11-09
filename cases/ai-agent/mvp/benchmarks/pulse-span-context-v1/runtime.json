@@ -1,0 +1,23 @@
+{
+  "configuration_sha256": "9cf9268de99cd79a85c00343c74fa8625bac7ee7283b0098ae03f154520402d3",
+  "host": {
+    "cgroup_memory_limit_bytes": 8589934592,
+    "cpu": "AMD EPYC 9V74",
+    "cpu_quota_cores": 8
+  },
+  "model": {
+    "artifact_bytes": 3324173934,
+    "context_length": 2048,
+    "digest": "d8b0f5e9760cd1682034f292d7ef72ec46f432149be0df7574bf2d6e92e38c04",
+    "model": "qwen3.5:4b",
+    "ollama_loaded_size_bytes": 3077528615,
+    "ollama_version": "0.40.15",
+    "ollama_vram_bytes": 0,
+    "quantization": "Q4_K_M"
+  },
+  "ollama": {
+    "cloud_disabled": true,
+    "num_parallel": 1,
+    "runner": "llamacpp"
+  }
+}
