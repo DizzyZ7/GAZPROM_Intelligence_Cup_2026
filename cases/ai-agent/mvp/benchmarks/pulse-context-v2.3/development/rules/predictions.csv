@@ -1,0 +1,301 @@
+ticket_id,product,category,workflow,classifier_score,operation,symptom,reason,groupable,cluster_id,gold_category,gold_workflow,gold_cluster_id
+t_004e25e1cbbe6b24509d,Вектор: Портал,how_to,sms_recovery,,,,guidance_requested,False,f30aa632477f288b2bce,how_to,sms_recovery,
+t_027f5ee9846382883eb5,Горизонт: Запись,unknown,unclassified,,,,mixed_intents,False,1935202ad2fb1601a23b,feature_request,report_export,
+t_034cf6101c7802a8b5a6,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,fbd5c219ceb8cc375805,feature_request,contact_edit,Горизонт: Запись|contact_edit
+t_050a64fa1be5ee8a66ee,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,05b73aa369f5bbc0b041,bug,vehicle_registry,Вектор: Портал|vehicle_missing
+t_0637b8d12763cef30ea7,Север: Кабинет,bug,unclassified,,,,missing_workflow,False,9af6fb7a2f38482fe66a,bug,vehicle_registry,Север: Кабинет|vehicle_missing
+t_0731ba2bdeb02d29d23c,Север: Кабинет,bug,unclassified,,,,missing_workflow,False,681946a27dc466e761b1,unknown,unclassified,
+t_084f8647612ff46a75e4,Север: Кабинет,bug,payment,,payment,duplicate,context_resolved,True,ce78d80a8acee61d9eb4,bug,payment,Север: Кабинет|double_charge
+t_087f601e69e24decaeac,Вектор: Портал,bug,sms_recovery,,sms_recovery,missing_delivery,context_resolved,True,94504915c8759d66e90b,bug,sms_recovery,Вектор: Портал|sms_missing
+t_099d7b3ec54aa8400104,Горизонт: Запись,unknown,unclassified,,,,missing_evidence,False,6befd8bf60832a365527,unknown,unclassified,
+t_09cdb81485b86a2c8fff,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,c6332c4c2b1992d0978b,bug,report_download,Вектор: Портал|report_404
+t_0b17f0807253e67cfcae,Вектор: Портал,bug,report_download,,report_download,http_404,context_resolved,True,12514deb009bb6508cc1,bug,report_download,Вектор: Портал|report_404
+t_0b39b3f5b074d6db1d99,Север: Кабинет,bug,sms_recovery,,sms_recovery,expired,context_resolved,True,0f2bee6123330fc8d4f5,bug,sms_recovery,Север: Кабинет|sms_expired
+t_0c29f063f991aeeb45ce,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,097eccc110cbfd002537,bug,booking_queue,Север: Кабинет|booking_404
+t_0c3a69b58e87f6d6eec2,Горизонт: Запись,unknown,unclassified,,,,mixed_intents,False,dcb6f0d95e5d44126a33,unknown,unclassified,
+t_0d7c26a65b728513b180,Вектор: Портал,feature_request,contact_edit,,contact_edit,multiple_contacts,context_resolved,True,dec3e2f74c71f0b34a04,feature_request,contact_edit,Вектор: Портал|multi_contact
+t_0dbeefd3a74e96a65aaf,Север: Кабинет,feature_request,booking_queue,,booking_queue,notification_delivery,context_resolved,True,1eb70c134e55b19155b2,feature_request,booking_queue,Север: Кабинет|queue_notification
+t_0e6e580df6298cd0bece,Вектор: Портал,unknown,unclassified,,,,mixed_intents,False,a35ea1d351c56a927766,bug,report_download,
+t_0fba558bc898356cca95,Горизонт: Запись,feature_request,report_download,,report_download,schedule,context_resolved,True,dac34b5cc45790eb3b5b,feature_request,report_export,Горизонт: Запись|scheduled_export
+t_107d25b65e952d2508c7,Вектор: Портал,bug,sms_recovery,,sms_recovery,expired,context_resolved,True,015f72cf1e9a85b19858,bug,sms_recovery,Вектор: Портал|sms_expired
+t_10d03974b2af99847c84,Горизонт: Запись,feature_request,booking_queue,,booking_queue,notification_delivery,context_resolved,True,0f83ef8e83eb6ad9f286,feature_request,booking_queue,Горизонт: Запись|queue_notification
+t_114466dce85a71e4076c,Горизонт: Запись,bug,unclassified,,,,missing_workflow,False,c62d3c15065f1e153706,bug,contract_download,Горизонт: Запись|contract_file_404
+t_122223f376ffb82dea83,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,e3ed8b63a1de93c10f19,bug,report_download,Север: Кабинет|report_404
+t_12af95c0829f2bcd49e5,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,f46b397080807efacfc3,bug,booking_queue,Горизонт: Запись|booking_404
+t_134364bfedb2c3f207c2,Горизонт: Запись,bug,unclassified,,,,missing_workflow,False,26eb64bf22b93b7dedb5,unknown,unclassified,
+t_136206f5ad1c7fc62247,Север: Кабинет,bug,sms_recovery,,sms_recovery,missing_delivery,context_resolved,True,78149e913bf3bb13fcb1,bug,sms_recovery,Север: Кабинет|sms_missing
+t_13c3091fd90ac6c090c7,Горизонт: Запись,feature_request,contact_edit,,contact_edit,edit_contact,context_resolved,True,b59ae7e1f5f13041a0a7,feature_request,contact_edit,Горизонт: Запись|contact_edit
+t_158fdde6704501485a10,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,f4ff6c3a2eb5edbd2927,bug,report_download,Север: Кабинет|report_404
+t_166e17370585786a5438,Вектор: Портал,feature_request,booking_queue,,booking_queue,notification_delivery,context_resolved,True,b90eba39a5c60fb11e6f,feature_request,booking_queue,Вектор: Портал|queue_notification
+t_169c7b14d1d72748a339,Вектор: Портал,bug,payment,,payment,duplicate,context_resolved,True,d653f1598c7521d7ee7b,bug,payment,Вектор: Портал|double_charge
+t_171db0cdd7d51d2da2b7,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,71a67b4cccb82ccec230,bug,payment,Север: Кабинет|double_charge
+t_175c18c48ee6365a7212,Вектор: Портал,feature_request,booking_queue,,booking_queue,notification_delivery,context_resolved,True,b90eba39a5c60fb11e6f,feature_request,booking_queue,Вектор: Портал|queue_notification
+t_18e5515e394317bc439a,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,0c987045297f6fd801a9,bug,payment,Север: Кабинет|double_charge
+t_1b59907609b45d4b3599,Север: Кабинет,bug,sms_recovery,,sms_recovery,rejected_input,context_resolved,True,54fc022583f888cdeacd,bug,sms_recovery,Север: Кабинет|sms_expired
+t_1be62832d91e35944928,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,330f06e07a4b9de0ccee,bug,contract_download,Вектор: Портал|contract_file_404
+t_1dbdd86062aa0401fd47,Север: Кабинет,bug,vehicle_registry,,,,ambiguous_operation,False,3ad8560d826c37484498,bug,vehicle_registry,Север: Кабинет|vehicle_duplicate
+t_22dad89e28f62be33071,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,98aa24fe73a547b9e9bb,unknown,unclassified,
+t_230ed46d5284187e3a79,Вектор: Портал,feature_request,contact_edit,,contact_edit,multiple_contacts,context_resolved,True,dec3e2f74c71f0b34a04,feature_request,contact_edit,Вектор: Портал|multi_contact
+t_24a9d90635a99537a0b9,Вектор: Портал,bug,vehicle_registry,,save,duplicate,context_resolved,True,d18f3d1893c788f1e0ed,bug,vehicle_registry,Вектор: Портал|vehicle_duplicate
+t_251ba187e2b2ba129fc1,Север: Кабинет,bug,vehicle_registry,,save,duplicate,context_resolved,True,92eddbab0b3dfb7129cd,bug,vehicle_registry,Север: Кабинет|vehicle_duplicate
+t_25c74044bddd1b334ec9,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,2a25779485301dddbdc8,service_request,ticket_lifecycle,
+t_270f4dcc91a18ed35800,Север: Кабинет,feature_request,unclassified,,,,missing_workflow,False,a8fd75d713e5f2b25a0f,feature_request,contact_edit,Север: Кабинет|contact_edit
+t_2743325d7c46b5d02b15,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,f14c852b0a859ab2ecc6,bug,payment,Горизонт: Запись|double_charge
+t_27931417b84ce15836e5,Север: Кабинет,bug,vehicle_registry,,record_retention,missing_record,context_resolved,True,9a89eb7154b011253c85,bug,vehicle_registry,Север: Кабинет|vehicle_missing
+t_28c8a0c3043afa06ac83,Горизонт: Запись,bug,vehicle_registry,,,,ambiguous_operation,False,16df629600f5b46c505b,bug,vehicle_registry,Горизонт: Запись|vehicle_duplicate
+t_29796c77e05a5b45b4fa,Вектор: Портал,feature_request,unclassified,,,,missing_workflow,False,457851f0f4d2d4700a02,feature_request,contact_edit,Вектор: Портал|contact_edit
+t_2993f0b1e90348f201a1,Вектор: Портал,bug,unclassified,,,,missing_workflow,False,0b6268e47e7c9f6e6365,unknown,unclassified,
+t_29c1497d247121291d2d,Горизонт: Запись,bug,sms_recovery,,sms_recovery,missing_delivery,context_resolved,True,6f324ab31505d60492b1,bug,sms_recovery,Горизонт: Запись|sms_missing
+t_29e66a346e99e775c6d5,Горизонт: Запись,bug,vehicle_registry,,save,duplicate,context_resolved,True,6c0d549e8bc84d93c516,bug,vehicle_registry,Горизонт: Запись|vehicle_duplicate
+t_2a2f366226c30c8606f6,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,bb2c5a8c10597bf72318,how_to,sms_recovery,
+t_2a367fd4830d0284e009,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,cea60f98d3c5391655bf,other,general,
+t_2c93cffda1ce4aa0c4a9,Север: Кабинет,feature_request,unclassified,,,,missing_workflow,False,8c0a603df9f9bce87833,feature_request,contact_edit,Север: Кабинет|multi_contact
+t_2deaa2620c13bc72f813,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,b501ba4a5c6d3fde1b8f,other,general,
+t_2e11cc4bda3e1d7b966e,Вектор: Портал,feature_request,contact_edit,,contact_edit,multiple_contacts,context_resolved,True,dec3e2f74c71f0b34a04,feature_request,contact_edit,Вектор: Портал|multi_contact
+t_2e449eb347df8bd78712,Север: Кабинет,bug,unclassified,,,,missing_workflow,False,7d3f00339813049017a6,bug,contract_download,Север: Кабинет|contract_file_404
+t_2e7e7d963bb265931926,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,94d317748e7803076efd,how_to,sms_recovery,
+t_2ec30142b49fccfd1f43,Север: Кабинет,bug,contract,,,,missing_symptom,False,612ad3a5be813d0ba09b,bug,contract_download,Север: Кабинет|contract_file_404
+t_307c1c0a87695790c723,Вектор: Портал,bug,sms_recovery,,sms_recovery,expired,context_resolved,True,015f72cf1e9a85b19858,bug,sms_recovery,Вектор: Портал|sms_expired
+t_319bb17977eed57566f3,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,b657c6712ee8655246b3,bug,payment,Север: Кабинет|double_charge
+t_32b496222ff24df1c076,Вектор: Портал,bug,contract,,,,missing_symptom,False,8ff3604571c81ec2aba7,bug,contract_download,Вектор: Портал|contract_file_404
+t_32ba60d5da37568f6afa,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,f783705782a52101489f,other,general,
+t_33216175fbf3be9ed60a,Вектор: Портал,unknown,unclassified,,,,untrusted_instruction,False,f9b15edc68aeaf1f2a0a,feature_request,report_export,Вектор: Портал|scheduled_export
+t_333cd9f1e4c0b7ad3069,Север: Кабинет,bug,vehicle_registry,,record_retention,missing_record,context_resolved,True,9a89eb7154b011253c85,bug,vehicle_registry,Север: Кабинет|vehicle_missing
+t_3477d6da0a7af1c43916,Вектор: Портал,feature_request,report_export,,export,schedule,context_resolved,True,299bd9e1a15ff4c19dcd,feature_request,report_export,Вектор: Портал|scheduled_export
+t_34c8e639f04e82eded10,Север: Кабинет,bug,sms_recovery,,sms_recovery,expired,context_resolved,True,0f2bee6123330fc8d4f5,bug,sms_recovery,Север: Кабинет|sms_expired
+t_36dc9ff170b2dd645e79,Север: Кабинет,bug,vehicle_registry,,save,duplicate,context_resolved,True,92eddbab0b3dfb7129cd,bug,vehicle_registry,Север: Кабинет|vehicle_duplicate
+t_36fb140f147bb2dc51d2,Вектор: Портал,bug,sms_recovery,,sms_recovery,missing_delivery,context_resolved,True,94504915c8759d66e90b,bug,sms_recovery,Вектор: Портал|sms_missing
+t_3777c58e391e55dc5828,Север: Кабинет,bug,unclassified,,,,missing_workflow,False,5b6030b2f162e6413bf1,bug,vehicle_registry,Север: Кабинет|vehicle_missing
+t_37f7d229b03b075f7353,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,411687e750828c9a5c29,service_request,ticket_lifecycle,
+t_38921e5f6e51ad714595,Север: Кабинет,bug,vehicle_registry,,save,duplicate,context_resolved,True,92eddbab0b3dfb7129cd,bug,vehicle_registry,Север: Кабинет|vehicle_duplicate
+t_38dc1a2473b828e0f30c,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,560aafecae6ca1c8d1ec,how_to,sms_recovery,
+t_394501ec675861ec9c8f,Горизонт: Запись,bug,vehicle_registry,,record_retention,missing_record,context_resolved,True,73ba6863e524be77a682,bug,vehicle_registry,Горизонт: Запись|vehicle_missing
+t_39cf88aabd8309bfd0d1,Вектор: Портал,bug,payment,,payment,duplicate,context_resolved,True,d653f1598c7521d7ee7b,bug,payment,Вектор: Портал|double_charge
+t_39fcd0a37cb1ed968d53,Горизонт: Запись,feature_request,contact_edit,,contact_edit,multiple_contacts,context_resolved,True,6aa6fdf2a19263a6ff4f,feature_request,contact_edit,Горизонт: Запись|multi_contact
+t_3b0ee151ff9892d8d5cc,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,08085bc54e7d4ee05fa6,service_request,ticket_lifecycle,
+t_3bc2d74327677b1b4876,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,782e2e0a3e31a73c58bc,bug,vehicle_registry,Вектор: Портал|vehicle_duplicate
+t_3d31ff3dc2866b27e26a,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,0f7b8a0b4aa47fec2a7f,how_to,sms_recovery,
+t_3e37817c465a94efffea,Север: Кабинет,bug,booking_queue,,booking_queue,http_404,context_resolved,True,1bffe33c1e0f15ea9864,bug,booking_queue,Север: Кабинет|booking_404
+t_3e51714944097a0e10d6,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,3b570a99fe1d5f32754c,bug,contract_download,Горизонт: Запись|contract_file_404
+t_3e88b27af4550c3e6549,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,06c1e5a964139eeb1b6b,service_request,ticket_lifecycle,
+t_40b89d3309a8f30ac475,Север: Кабинет,bug,booking_queue,,booking_queue,http_404,context_resolved,True,1bffe33c1e0f15ea9864,bug,booking_queue,Север: Кабинет|booking_404
+t_41c5e52b77d101361e88,Горизонт: Запись,unknown,unclassified,,,,untrusted_instruction,False,9ba3c13b6f2c202af67c,bug,report_download,Горизонт: Запись|report_404
+t_4274175fb729a7ccd673,Горизонт: Запись,bug,report_download,,report_download,http_404,context_resolved,True,952c9197e1bcecaab921,bug,report_download,Горизонт: Запись|report_404
+t_4323e346699a8f2e4430,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,2c671700fe753577b76c,bug,sms_recovery,Горизонт: Запись|sms_missing
+t_4425b2154e1b0cb8d24f,Север: Кабинет,feature_request,report_export,,export,schedule,context_resolved,True,96994b2f130e294d2f4e,feature_request,report_export,Север: Кабинет|scheduled_export
+t_445eb7cb18a3a65d5229,Горизонт: Запись,bug,contract,,,,missing_symptom,False,12cd327dc09f264f99a3,bug,contract_download,Горизонт: Запись|contract_file_404
+t_4737a1a1e2346daa7f56,Вектор: Портал,bug,vehicle_registry,,record_retention,missing_record,context_resolved,True,ec34a151ec4ea8086243,bug,vehicle_registry,Вектор: Портал|vehicle_missing
+t_48086b9578aaf7089b15,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,0c3d5765b56bc98fe5c4,bug,report_download,Вектор: Портал|report_404
+t_4b6d35a1801a0164a758,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,a4c5e4735bbc62d2280c,other,general,
+t_4be24af9475a78a499e0,Горизонт: Запись,bug,sms_recovery,,sms_recovery,expired,context_resolved,True,cfe6fab1aa77c794deaf,bug,sms_recovery,Горизонт: Запись|sms_expired
+t_4d00682a65dad0c1c3e7,Север: Кабинет,bug,vehicle_registry,,record_retention,missing_record,context_resolved,True,9a89eb7154b011253c85,bug,vehicle_registry,Север: Кабинет|vehicle_missing
+t_4ebc36cd40df49be84a8,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,46819495564f2a21ed52,bug,sms_recovery,Север: Кабинет|sms_missing
+t_4ebd6ec853f4597345d0,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,230054ced0aa9ad32b7c,how_to,sms_recovery,
+t_4ef5977bbff3f042b929,Вектор: Портал,unknown,unclassified,,,,mixed_intents,False,25b2a7b03dc2597e8702,service_request,ticket_lifecycle,
+t_4f66183197f6438fd9b7,Горизонт: Запись,bug,contract,,,,missing_symptom,False,702e010898c426683389,bug,contract_download,Горизонт: Запись|contract_file_404
+t_507636c2150675c33d2d,Горизонт: Запись,unknown,unclassified,,,,missing_evidence,False,3c9f062287052203a329,unknown,unclassified,
+t_50de7aa899ec131321c6,Вектор: Портал,feature_request,contact_edit,,contact_edit,multiple_contacts,context_resolved,True,dec3e2f74c71f0b34a04,feature_request,contact_edit,Вектор: Портал|multi_contact
+t_51cb24cfdfdc97d65392,Вектор: Портал,feature_request,report_download,,report_download,schedule,context_resolved,True,2a906d3c1ebc90a2f9ec,feature_request,report_export,Вектор: Портал|scheduled_export
+t_524bf05650e9fb33f102,Север: Кабинет,unknown,unclassified,,,,missing_evidence,False,6e926a4b974b9da34ddc,unknown,unclassified,
+t_52c0a0b87a153bb1ad15,Горизонт: Запись,feature_request,booking_queue,,booking_queue,notification_delivery,context_resolved,True,0f83ef8e83eb6ad9f286,feature_request,booking_queue,Горизонт: Запись|queue_notification
+t_52ddcf3a0d2a88aa7cd2,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,e3805c2170ec52158beb,other,general,
+t_5387655584b002558668,Север: Кабинет,bug,contract,,,,missing_symptom,False,b14cdd097985896ba3e8,bug,contract_download,Север: Кабинет|contract_file_404
+t_53b4c5cc3360d727930e,Вектор: Портал,feature_request,booking_queue,,booking_queue,notification_delivery,context_resolved,True,b90eba39a5c60fb11e6f,feature_request,booking_queue,Вектор: Портал|queue_notification
+t_53f26e3423e083eb2cd6,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,2925f32e67bff09c3481,service_request,ticket_lifecycle,
+t_556f20043b25a91f46b7,Север: Кабинет,bug,sms_recovery,,sms_recovery,expired,context_resolved,True,0f2bee6123330fc8d4f5,bug,sms_recovery,Север: Кабинет|sms_expired
+t_558d97fcde81eb1bbfbe,Север: Кабинет,unknown,unclassified,,,,mixed_intents,False,71912f202a33e30661b5,bug,booking_queue,
+t_56a45dd37776e20161d1,Север: Кабинет,unknown,unclassified,,,,untrusted_instruction,False,012309c6dd64455f6361,bug,sms_recovery,Север: Кабинет|sms_missing
+t_575161de893192d79181,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,29f98d0d3becedaf57d0,service_request,ticket_lifecycle,
+t_576e9393d1484a526654,Север: Кабинет,bug,contract,,,,missing_symptom,False,1499fbe0ad605e784c6d,bug,contract_download,Север: Кабинет|contract_file_404
+t_586420b42dec25ef7e80,Горизонт: Запись,bug,vehicle_registry,,save,duplicate,context_resolved,True,6c0d549e8bc84d93c516,bug,vehicle_registry,Горизонт: Запись|vehicle_duplicate
+t_5a3679bd8643eba57791,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,1fc9d88e91d7950ad7be,bug,sms_recovery,Горизонт: Запись|sms_expired
+t_5a87ddd1f4e3bf29aaca,Север: Кабинет,feature_request,contact_edit,,contact_edit,multiple_contacts,context_resolved,True,d612e2abaa9bf09859c3,feature_request,contact_edit,Север: Кабинет|multi_contact
+t_5c079bdf5b7f68cf1778,Вектор: Портал,bug,unclassified,,,,missing_workflow,False,d6e8f07e53920afbe945,bug,vehicle_registry,Вектор: Портал|vehicle_missing
+t_5c2da246a51f055a55b6,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,8c3d4b22bd718e82a13a,service_request,ticket_lifecycle,
+t_5c798fbe510fa017d64e,Горизонт: Запись,feature_request,report_export,,export,schedule,context_resolved,True,501bed3dc9ce544ff3d4,feature_request,report_export,Горизонт: Запись|scheduled_export
+t_5c7ae239c62873e4cfe0,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,be3a36d1b9e848188eb8,service_request,ticket_lifecycle,
+t_5e324abf4f1b287f50c5,Север: Кабинет,bug,unclassified,,,,missing_workflow,False,c467b2620a1e63fc0ff8,bug,contract_download,Север: Кабинет|contract_file_404
+t_5e65fdc94bb6754d760b,Вектор: Портал,unknown,unclassified,,,,untrusted_instruction,False,c9e214268bfb662a239c,bug,payment,Вектор: Портал|double_charge
+t_5f29fc9a5ef47c4e71ff,Горизонт: Запись,feature_request,contact_edit,,contact_edit,edit_contact,context_resolved,True,b59ae7e1f5f13041a0a7,feature_request,contact_edit,Горизонт: Запись|contact_edit
+t_60989a18f85942bd4c33,Горизонт: Запись,bug,unclassified,,,,missing_workflow,False,5b44fa72d3ad9bd842a3,bug,vehicle_registry,Горизонт: Запись|vehicle_missing
+t_61a0b59e76c34b6bbc13,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,947991c493717d126ae3,service_request,ticket_lifecycle,
+t_65ade6552470f54ddc04,Север: Кабинет,bug,payment,,payment,duplicate,context_resolved,True,ce78d80a8acee61d9eb4,bug,payment,Север: Кабинет|double_charge
+t_66011938ead22df1bb09,Вектор: Портал,bug,vehicle_registry,,save,duplicate,context_resolved,True,d18f3d1893c788f1e0ed,bug,vehicle_registry,Вектор: Портал|vehicle_duplicate
+t_67d674cc63f59d5f33f2,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,b579664b9e2edb7a21a7,bug,sms_recovery,Горизонт: Запись|sms_expired
+t_68eed789f2bf2995b506,Горизонт: Запись,bug,vehicle_registry,,save,duplicate,context_resolved,True,6c0d549e8bc84d93c516,bug,vehicle_registry,Горизонт: Запись|vehicle_duplicate
+t_6a445260c0d8d971e170,Горизонт: Запись,how_to,sms_recovery,,,,guidance_requested,False,f0c535f1bed234194388,how_to,sms_recovery,
+t_6a5d1c55a2766c1a216b,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,7c4b786ed120fcecfbcb,bug,booking_queue,Вектор: Портал|booking_404
+t_6a9b8845613e9367fd65,Вектор: Портал,feature_request,contact_edit,,contact_edit,edit_contact,context_resolved,True,26adfc4a6851876dbe75,feature_request,contact_edit,Вектор: Портал|contact_edit
+t_6abef93ae9d20a1b3ee9,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,8ce1e7fffd5374b53b9a,other,general,
+t_6c3e5c873a625d907fe6,Север: Кабинет,bug,unclassified,,,,missing_workflow,False,81ea09c6b4d12aecd668,bug,contract_download,Север: Кабинет|contract_file_404
+t_6cb7f4fe0fb17933d907,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,f635ec7c62e65ab90985,bug,booking_queue,Горизонт: Запись|booking_404
+t_6eab81c73dae0e3f182a,Вектор: Портал,feature_request,report_export,,export,schedule,context_resolved,True,299bd9e1a15ff4c19dcd,feature_request,report_export,Вектор: Портал|scheduled_export
+t_6f6992e5caeedbe72b1a,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,27ba99389e81df60ad30,bug,booking_queue,Вектор: Портал|booking_404
+t_7104288bab65f749040f,Вектор: Портал,bug,unclassified,,,,missing_workflow,False,30d96bdcb34416eb1d01,bug,vehicle_registry,Вектор: Портал|vehicle_missing
+t_74bb85c16ad778855d2a,Горизонт: Запись,bug,vehicle_registry,,record_retention,missing_record,context_resolved,True,73ba6863e524be77a682,bug,vehicle_registry,Горизонт: Запись|vehicle_missing
+t_75543861fe134aa0d1ef,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,665a5d456fe6b3445ab9,bug,report_download,Горизонт: Запись|report_404
+t_75cc0a4dd886c18610ff,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,c92f98bc89e6f89df10e,bug,vehicle_registry,Вектор: Портал|vehicle_duplicate
+t_78572aed206b7a01a3bc,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,8cb73a9776d7fc75af7a,bug,payment,Вектор: Портал|double_charge
+t_7896811c9df96495062d,Горизонт: Запись,feature_request,booking_queue,,,,missing_symptom,False,3f071dfb3f6dad141d89,feature_request,booking_queue,Горизонт: Запись|queue_notification
+t_7949d18bd9c5ebe22bfe,Север: Кабинет,bug,contract_download,,contract_download,http_404,context_resolved,True,84179c7aec9991619667,bug,contract_download,Север: Кабинет|contract_file_404
+t_7a2f18cf1a61f69d7192,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,7b649426185b63265b96,bug,report_download,Горизонт: Запись|report_404
+t_7aafb59f4950bd3ac4c9,Север: Кабинет,feature_request,report_export,,export,schedule,context_resolved,True,96994b2f130e294d2f4e,feature_request,report_export,Север: Кабинет|scheduled_export
+t_7b311a0e9dcf124c92ff,Вектор: Портал,unknown,unclassified,,,,untrusted_instruction,False,e320b594ea5ed7ad9eed,bug,sms_recovery,Вектор: Портал|sms_expired
+t_7c17aa62920a8a270c24,Горизонт: Запись,bug,sms_recovery,,sms_recovery,rejected_input,context_resolved,True,1a36216e6532780d29b9,bug,sms_recovery,Горизонт: Запись|sms_expired
+t_7c7b987cfe4598398be7,Север: Кабинет,feature_request,contact_edit,,contact_edit,edit_contact,context_resolved,True,9559c902f64251627d72,feature_request,contact_edit,Север: Кабинет|contact_edit
+t_7cc22b2089cf650bce9f,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,356b963d6267dc2f246c,feature_request,contact_edit,Вектор: Портал|contact_edit
+t_7de397c9f68943041ba6,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,6356dba67b37b604045e,bug,report_download,Север: Кабинет|report_404
+t_7df1b0305de19b8211c6,Вектор: Портал,feature_request,contact_edit,,contact_edit,edit_contact,context_resolved,True,26adfc4a6851876dbe75,feature_request,contact_edit,Вектор: Портал|contact_edit
+t_7f4880bc2268ef4fe1a7,Горизонт: Запись,bug,sms_recovery,,sms_recovery,missing_delivery,context_resolved,True,6f324ab31505d60492b1,bug,sms_recovery,Горизонт: Запись|sms_missing
+t_7f61d723fbd223fb7417,Горизонт: Запись,feature_request,contact_edit,,contact_edit,multiple_contacts,context_resolved,True,6aa6fdf2a19263a6ff4f,feature_request,contact_edit,Горизонт: Запись|multi_contact
+t_80e457679bbb92105d46,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,573c8fa0ee49548431d8,feature_request,contact_edit,Горизонт: Запись|contact_edit
+t_81d0e58b92a739389bfd,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,5c2a2dfdfe0b6750017a,bug,booking_queue,Вектор: Портал|booking_404
+t_84250ac569dba87e5ed5,Вектор: Портал,unknown,unclassified,,,,untrusted_instruction,False,d302e16a3477940902b6,bug,contract_download,Вектор: Портал|contract_file_404
+t_8488ea607d9d1992b17c,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,1b6667c478aae70bcad3,bug,payment,Север: Кабинет|double_charge
+t_863845cb63863bad7c56,Горизонт: Запись,bug,contract_download,,contract_download,http_404,context_resolved,True,a58b3d8b212dc3d221a6,bug,contract_download,Горизонт: Запись|contract_file_404
+t_8829dd86cd97c871714c,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,d7a34997c5c99fc29192,bug,booking_queue,Вектор: Портал|booking_404
+t_88aad5fb7c299163fd29,Север: Кабинет,unknown,unclassified,,,,untrusted_instruction,False,ea78e37ebc7bfdf88c96,bug,vehicle_registry,Север: Кабинет|vehicle_missing
+t_88fd07b956b56f68e875,Север: Кабинет,feature_request,contact_edit,,contact_edit,edit_contact,context_resolved,True,9559c902f64251627d72,feature_request,contact_edit,Север: Кабинет|contact_edit
+t_8913793d65bf2f6338fc,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,5eda506b82c9e5131c66,bug,report_download,Север: Кабинет|report_404
+t_897612ddd95521ec1d92,Горизонт: Запись,unknown,unclassified,,,,untrusted_instruction,False,037a1978f75409bbd9c0,feature_request,contact_edit,Горизонт: Запись|multi_contact
+t_89e13745609e5afae8e7,Север: Кабинет,feature_request,contact_edit,,contact_edit,multiple_contacts,context_resolved,True,d612e2abaa9bf09859c3,feature_request,contact_edit,Север: Кабинет|multi_contact
+t_8a46b5690d78d048671a,Горизонт: Запись,how_to,sms_recovery,,,,guidance_requested,False,c03b77f11066e6c52763,how_to,sms_recovery,
+t_8a6a36a8e8a8ec6ba4cb,Вектор: Портал,feature_request,contact_edit,,contact_edit,multiple_contacts,context_resolved,True,dec3e2f74c71f0b34a04,feature_request,contact_edit,Вектор: Портал|multi_contact
+t_8aa04293e4483d925cf7,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,2e66b8d61b34b1527bae,bug,contract_download,Вектор: Портал|contract_file_404
+t_8d122e7e8cb70097242d,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,e4ee10031150d1a9bc5c,bug,payment,Горизонт: Запись|double_charge
+t_8d4e7531633a73453707,Горизонт: Запись,feature_request,booking_queue,,,,missing_symptom,False,de4bdbc4caaa062fddeb,feature_request,booking_queue,Горизонт: Запись|queue_notification
+t_8d60deeceff44fe978c0,Вектор: Портал,bug,payment,,payment,duplicate,context_resolved,True,d653f1598c7521d7ee7b,bug,payment,Вектор: Портал|double_charge
+t_8dab945e0992df3f0b25,Север: Кабинет,unknown,unclassified,,,,untrusted_instruction,False,f5344c354232ab2b5b74,bug,quantity_input,Север: Кабинет|rare_decimal
+t_8e1108057d50502e1507,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,8c0c56d9f38a7caa8578,other,general,
+t_8e4e2f6f3c70bc0571df,Север: Кабинет,unknown,unclassified,,,,mixed_intents,False,08088795e2a15c214a93,feature_request,contact_edit,
+t_8e5122b630cdcbe77724,Вектор: Портал,bug,vehicle_registry,,save,duplicate,context_resolved,True,d18f3d1893c788f1e0ed,bug,vehicle_registry,Вектор: Портал|vehicle_duplicate
+t_8f50968cff405a3666f9,Вектор: Портал,unknown,unclassified,,,,untrusted_instruction,False,2ae78770aaabed164239,how_to,sms_recovery,
+t_8fd72e41b393cd7dd6d8,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,372cbce1bdf4d5b4b7ba,other,general,
+t_92c436da7bd1959a9b7b,Вектор: Портал,bug,vehicle_registry,,record_retention,missing_record,context_resolved,True,ec34a151ec4ea8086243,bug,vehicle_registry,Вектор: Портал|vehicle_missing
+t_9479cea37856763aa75a,Вектор: Портал,bug,sms_recovery,,sms_recovery,missing_delivery,context_resolved,True,94504915c8759d66e90b,bug,sms_recovery,Вектор: Портал|sms_missing
+t_94d07eda00599356b580,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,2497ec0ef11a58e6c2e7,other,general,
+t_957fa4ebe611719d81c8,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,7d14aa17f393779f8cb0,service_request,ticket_lifecycle,
+t_95d034559629f6275290,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,ec2dc0346cf08c21e45a,bug,contract_download,Вектор: Портал|contract_file_404
+t_95f6594faf262c3bb2c2,Север: Кабинет,unknown,unclassified,,,,untrusted_instruction,False,cd7c43f5d51760a71b53,bug,vehicle_registry,Север: Кабинет|vehicle_duplicate
+t_988f109672144b457037,Север: Кабинет,bug,unclassified,,,,missing_workflow,False,72ef9f5fdc3b4612e882,bug,archive_sort,Север: Кабинет|rare_archive_sort
+t_995656cb44ed993440a8,Вектор: Портал,bug,unclassified,,,,missing_workflow,False,1f7fe7411f4c88fec277,unknown,unclassified,
+t_99adee5d18d2aa508f19,Север: Кабинет,feature_request,unclassified,,,,missing_workflow,False,ad3df181927e7201c0c3,feature_request,contact_edit,Север: Кабинет|multi_contact
+t_99af753fc60621a710a8,Север: Кабинет,bug,sms_recovery,,sms_recovery,rejected_input,context_resolved,True,54fc022583f888cdeacd,bug,sms_recovery,Север: Кабинет|sms_expired
+t_99faa80c7b37f5380a1f,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,23573f6dee2e97f73aa0,feature_request,booking_queue,Север: Кабинет|queue_notification
+t_9aaf16c2d5efddab02ab,Вектор: Портал,bug,booking_queue,,booking_queue,http_404,context_resolved,True,88b5323c07d30a4721fb,bug,booking_queue,Вектор: Портал|booking_404
+t_9b96d2de073ea18aa64e,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,37c1ced90f80a4b57df4,how_to,sms_recovery,
+t_9c3178e4032bee59d7e2,Горизонт: Запись,bug,payment,,payment,duplicate,context_resolved,True,8591641a7e74d765e147,bug,payment,Горизонт: Запись|double_charge
+t_9e2fde8e9458fc603dee,Вектор: Портал,bug,sms_recovery,,sms_recovery,rejected_input,context_resolved,True,05c2a28de39f39cc45e7,bug,sms_recovery,Вектор: Портал|sms_expired
+t_9e3d91d134739d970eb8,Вектор: Портал,unknown,unclassified,,,,missing_evidence,False,542107daea1e0fbf87c6,unknown,unclassified,
+t_a08592f9a03cb46361d0,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,f5daf2a2990beef7faf1,bug,booking_queue,Горизонт: Запись|booking_404
+t_a0943a084309a6ab3219,Вектор: Портал,feature_request,report_export,,export,schedule,context_resolved,True,299bd9e1a15ff4c19dcd,feature_request,report_export,Вектор: Портал|scheduled_export
+t_a09a098df9f286007a7b,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,e19163d717c9cae79e6c,service_request,ticket_lifecycle,
+t_a0e05ba4660f77ee5a79,Север: Кабинет,bug,sms_recovery,,sms_recovery,missing_delivery,context_resolved,True,78149e913bf3bb13fcb1,bug,sms_recovery,Север: Кабинет|sms_missing
+t_a15e95a30f38921e824b,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,b987f06d6bf6f286c3fc,bug,vehicle_registry,Горизонт: Запись|vehicle_missing
+t_a1c6a99011f236e33350,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,51194cb8d1954f7aa7e9,bug,booking_queue,Вектор: Портал|booking_404
+t_a2d15687722a385aaf3b,Горизонт: Запись,bug,sms_recovery,,sms_recovery,missing_delivery,context_resolved,True,6f324ab31505d60492b1,bug,sms_recovery,Горизонт: Запись|sms_missing
+t_a3162c16dbf0d5ae36b8,Горизонт: Запись,unknown,unclassified,,,,mixed_intents,False,212f8f0131281f2fe6a6,feature_request,contact_edit,
+t_a39cfaa96390cae435b3,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,c50d6a09060fb526515b,how_to,sms_recovery,
+t_a3b73c19c54efcc137e7,Север: Кабинет,bug,vehicle_registry,,save,duplicate,context_resolved,True,92eddbab0b3dfb7129cd,bug,vehicle_registry,Север: Кабинет|vehicle_duplicate
+t_a7a61c14c83dc9503f42,Север: Кабинет,unknown,unclassified,,,,mixed_intents,False,7233777711fefa3a966f,other,general,
+t_a90e7ee1e808c7438a98,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,dee74900eb2dc78044c8,other,general,
+t_a984363969c366196baa,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,f120484a31292390e32b,other,general,
+t_aa3804828a9a7c6e5864,Горизонт: Запись,bug,unclassified,,,,missing_workflow,False,17c9c29b6cc9220b4ad7,bug,contract_download,Горизонт: Запись|contract_file_404
+t_ab0927b7faf1b4c78e09,Горизонт: Запись,unknown,unclassified,,,,untrusted_instruction,False,6b2c81c4543e9b0332b1,unknown,unclassified,
+t_ab8db00c4c8cfa8d2271,Север: Кабинет,how_to,sms_recovery,,,,guidance_requested,False,65edfa3a26077f4088f8,how_to,sms_recovery,
+t_ac2920994ffdd2f057f4,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,1ca34ac9d1ce8bf5c707,how_to,sms_recovery,
+t_ad032607ddbecdc0e97d,Горизонт: Запись,unknown,unclassified,,,,mixed_intents,False,7d79596517e3af828065,bug,vehicle_registry,
+t_af14b815528c5756574d,Север: Кабинет,unknown,unclassified,,,,mixed_intents,False,a5b658eb47c6abc33014,unknown,unclassified,
+t_af3fbd02b61ca2e9662c,Север: Кабинет,bug,sms_recovery,,sms_recovery,missing_delivery,context_resolved,True,78149e913bf3bb13fcb1,bug,sms_recovery,Север: Кабинет|sms_missing
+t_af752adbace68dcbd065,Горизонт: Запись,unknown,unclassified,,,,mixed_intents,False,635f1f5052f3f35a51a0,bug,sms_recovery,
+t_b02f4057f64850833ad8,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,8517ba02a534aba07680,service_request,ticket_lifecycle,
+t_b11f04a84f2fc5cd5493,Горизонт: Запись,bug,sms_recovery,,sms_recovery,missing_delivery,context_resolved,True,6f324ab31505d60492b1,bug,sms_recovery,Горизонт: Запись|sms_missing
+t_b12ca9d8c55ffe185021,Горизонт: Запись,unknown,unclassified,,,,untrusted_instruction,False,e2197f39fe92feec1771,bug,booking_queue,Горизонт: Запись|booking_404
+t_b193788900b5e8b4e38a,Север: Кабинет,feature_request,contact_edit,,contact_edit,multiple_contacts,context_resolved,True,d612e2abaa9bf09859c3,feature_request,contact_edit,Север: Кабинет|multi_contact
+t_b20f31b6f47af9fd59be,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,849adb91f0d1d9075582,how_to,sms_recovery,
+t_b261ee72f9716b729dcb,Вектор: Портал,bug,sms_recovery,,sms_recovery,expired,context_resolved,True,015f72cf1e9a85b19858,bug,sms_recovery,Вектор: Портал|sms_expired
+t_b312b32f1d00fa8c93c6,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,ea71a0cd6f0e96ac4232,service_request,ticket_lifecycle,
+t_b3fff31bcf7dd6bdd554,Вектор: Портал,unknown,unclassified,,,,mixed_intents,False,96c8d740b50c65bab251,feature_request,booking_queue,
+t_b449c48da0136e567780,Вектор: Портал,unknown,unclassified,,,,missing_evidence,False,75ed4dfd3d7295b80947,unknown,unclassified,
+t_b533b1d7b4c32a6ed783,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,fc1db5e7972163341c5c,feature_request,booking_queue,Вектор: Портал|queue_notification
+t_b5c43c1cd580932a69fc,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,80c7a69b3d3e397bc265,service_request,ticket_lifecycle,
+t_b5c97f8cca09c670baf2,Север: Кабинет,feature_request,contact_edit,,contact_edit,edit_contact,context_resolved,True,9559c902f64251627d72,feature_request,contact_edit,Север: Кабинет|contact_edit
+t_b67ef2db0f249508750e,Север: Кабинет,unknown,unclassified,,,,mixed_intents,False,5437ee4b97101d1f8088,bug,sms_recovery,
+t_b6a4dca82e9c9e35b630,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,11dfb1b14a4a4258290c,bug,sms_recovery,Горизонт: Запись|sms_expired
+t_b857c014597fa282d592,Вектор: Портал,bug,payment,,payment,duplicate,context_resolved,True,d653f1598c7521d7ee7b,bug,payment,Вектор: Портал|double_charge
+t_b8c6f6c67a438f8eb785,Горизонт: Запись,bug,unclassified,,,,missing_workflow,False,e43fdcd0d0ad6fc1e979,bug,vehicle_registry,Горизонт: Запись|vehicle_missing
+t_bb07d88f9e49714c41e3,Вектор: Портал,unknown,unclassified,,,,untrusted_instruction,False,0db8bd051f8ab66fefb7,other,general,
+t_bb3617f957f980e0fae8,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,9b0e7bbbbd70a37bda87,service_request,ticket_lifecycle,
+t_bbdcb1871bb537849439,Север: Кабинет,feature_request,report_download,,report_download,schedule,context_resolved,True,bc6ebbf0435cc0db3171,feature_request,report_export,Север: Кабинет|scheduled_export
+t_bcc635ff155dbe763b06,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,65826b42b9ccd21469d5,other,general,
+t_befb0fd7775d0147267f,Вектор: Портал,unknown,unclassified,,,,mixed_intents,False,c6d0c01511aa7a1b89aa,bug,vehicle_registry,
+t_bf3335bf168c77fb46d2,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,8768ba05df2409afddd1,other,general,
+t_c125ff913f1c91d5c97a,Север: Кабинет,feature_request,booking_queue,,booking_queue,notification_delivery,context_resolved,True,1eb70c134e55b19155b2,feature_request,booking_queue,Север: Кабинет|queue_notification
+t_c27ca0ac185562c65151,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,a094d4a6ff9883c3f07a,other,general,
+t_c30719e85711e2645b6d,Горизонт: Запись,bug,booking_queue,,booking_queue,http_404,context_resolved,True,8c3f74b76b8bd7083f7d,bug,booking_queue,Горизонт: Запись|booking_404
+t_c39aee8060d1ecd29eea,Вектор: Портал,bug,vehicle_registry,,save,duplicate,context_resolved,True,d18f3d1893c788f1e0ed,bug,vehicle_registry,Вектор: Портал|vehicle_duplicate
+t_c3aeb2f0d887465041e9,Вектор: Портал,bug,sms_recovery,,sms_recovery,expired,context_resolved,True,015f72cf1e9a85b19858,bug,sms_recovery,Вектор: Портал|sms_expired
+t_c5f3e3809b71f05bf87d,Вектор: Портал,feature_request,contact_edit,,contact_edit,edit_contact,context_resolved,True,26adfc4a6851876dbe75,feature_request,contact_edit,Вектор: Портал|contact_edit
+t_c61d3d5f7d5a61874553,Север: Кабинет,feature_request,unclassified,,,,missing_workflow,False,921a43993440cf1700db,feature_request,contact_edit,Север: Кабинет|multi_contact
+t_c698daea254e1c416aed,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,b1da77b10412101fd051,feature_request,contact_edit,Горизонт: Запись|contact_edit
+t_c82f2115faaaf51de32f,Вектор: Портал,feature_request,contact_edit,,contact_edit,multiple_contacts,context_resolved,True,dec3e2f74c71f0b34a04,feature_request,contact_edit,Вектор: Портал|multi_contact
+t_c91295b041daf4a98e91,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,f196acf224353bb955f9,bug,report_download,Север: Кабинет|report_404
+t_ca8e69ae1453cf628cdc,Вектор: Портал,unknown,unclassified,,,,mixed_intents,False,c44e353b0f3935787599,bug,contract_download,
+t_ccbf1903cf60837e0449,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,ce9de49b2746ba020c2b,bug,booking_queue,Горизонт: Запись|booking_404
+t_cdbf1ff638fa23337d5e,Горизонт: Запись,feature_request,booking_queue,,booking_queue,notification_delivery,context_resolved,True,0f83ef8e83eb6ad9f286,feature_request,booking_queue,Горизонт: Запись|queue_notification
+t_cdfd5d6c7ecc768ebe67,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,dbde6d8146bff321325c,bug,sms_recovery,Вектор: Портал|sms_missing
+t_ce1e1d0df4b253645962,Горизонт: Запись,bug,report_download,,report_download,http_404,context_resolved,True,952c9197e1bcecaab921,bug,report_download,Горизонт: Запись|report_404
+t_ce7f1395b598471a7c1c,Горизонт: Запись,unknown,unclassified,,,,untrusted_instruction,False,d661422093296a2bbde4,feature_request,contact_edit,Горизонт: Запись|contact_edit
+t_ceef235b83afcaace431,Север: Кабинет,unknown,unclassified,,,,mixed_intents,False,dea08445c7b41e0e968f,bug,payment,
+t_d04eb0b869dfda53031a,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,993466fdcc18a7bb09a6,feature_request,booking_queue,Север: Кабинет|queue_notification
+t_d06ce388950fb69f7327,Север: Кабинет,feature_request,booking_queue,,booking_queue,notification_delivery,context_resolved,True,1eb70c134e55b19155b2,feature_request,booking_queue,Север: Кабинет|queue_notification
+t_d0fba11c375c3676fcbd,Вектор: Портал,feature_request,booking_queue,,booking_queue,notification_delivery,context_resolved,True,b90eba39a5c60fb11e6f,feature_request,booking_queue,Вектор: Портал|queue_notification
+t_d120c2879bd2bccc95ff,Север: Кабинет,bug,sms_recovery,,sms_recovery,rejected_input,context_resolved,True,54fc022583f888cdeacd,bug,sms_recovery,Север: Кабинет|sms_expired
+t_d37d953982c162d5462f,Горизонт: Запись,feature_request,contact_edit,,contact_edit,multiple_contacts,context_resolved,True,6aa6fdf2a19263a6ff4f,feature_request,contact_edit,Горизонт: Запись|multi_contact
+t_d4f94dfd22940ad90175,Север: Кабинет,feature_request,report_download,,report_download,schedule,context_resolved,True,bc6ebbf0435cc0db3171,feature_request,report_export,Север: Кабинет|scheduled_export
+t_d6cca40b0837e1a95ceb,Горизонт: Запись,bug,vehicle_registry,,save,duplicate,context_resolved,True,6c0d549e8bc84d93c516,bug,vehicle_registry,Горизонт: Запись|vehicle_duplicate
+t_da4dce9842942c25b8a6,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,76e6aae674a8b64fafda,bug,booking_queue,Север: Кабинет|booking_404
+t_da766405ff0adc9a19dd,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,2142ed7f5d2d2e1187a2,bug,payment,Горизонт: Запись|double_charge
+t_dc2827e829df1119df31,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,2e0a611b65269c4519dc,bug,payment,Горизонт: Запись|double_charge
+t_de2c150ce27f2aaa6885,Север: Кабинет,bug,vehicle_registry,,save,duplicate,context_resolved,True,92eddbab0b3dfb7129cd,bug,vehicle_registry,Север: Кабинет|vehicle_duplicate
+t_deb0a2c6ed61347d6025,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,d65e4d961a6adf4669c0,bug,report_download,Вектор: Портал|report_404
+t_df2e1645e1444e298fc4,Север: Кабинет,bug,unclassified,,,,missing_workflow,False,e7df34decb40bc57cbb7,bug,vehicle_registry,Север: Кабинет|vehicle_missing
+t_e0a3721a95e07323b027,Север: Кабинет,feature_request,report_download,,report_download,schedule,context_resolved,True,bc6ebbf0435cc0db3171,feature_request,report_export,Север: Кабинет|scheduled_export
+t_e102436023063dcb4652,Горизонт: Запись,feature_request,report_export,,export,schedule,context_resolved,True,501bed3dc9ce544ff3d4,feature_request,report_export,Горизонт: Запись|scheduled_export
+t_e13117e170290a7807a7,Север: Кабинет,bug,unclassified,,,,missing_workflow,False,8975faae3bec588ef4e5,unknown,unclassified,
+t_e13287ab104979ab270b,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,837de0147a68ac792bfe,bug,report_download,Горизонт: Запись|report_404
+t_e13cc2df803c0c7306e7,Вектор: Портал,bug,sms_recovery,,sms_recovery,missing_delivery,context_resolved,True,94504915c8759d66e90b,bug,sms_recovery,Вектор: Портал|sms_missing
+t_e3343f749f15041a95a1,Горизонт: Запись,feature_request,report_export,,export,schedule,context_resolved,True,501bed3dc9ce544ff3d4,feature_request,report_export,Горизонт: Запись|scheduled_export
+t_e4630bb2755b24faccbf,Горизонт: Запись,bug,vehicle_registry,,record_retention,missing_record,context_resolved,True,73ba6863e524be77a682,bug,vehicle_registry,Горизонт: Запись|vehicle_missing
+t_e48dbf6bb7d5423a2a3d,Горизонт: Запись,unknown,unclassified,,,,missing_evidence,False,c707e9ac30191d68a1cb,unknown,unclassified,
+t_e4b72eabea780b1cd3ae,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,b05b1f4cdb58291a6ee2,other,general,
+t_e4cac34e3b890c584357,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,971439f8770dda567c0a,bug,report_download,Север: Кабинет|report_404
+t_e55c7a0d899b6854a3e1,Горизонт: Запись,feature_request,contact_edit,,contact_edit,multiple_contacts,context_resolved,True,6aa6fdf2a19263a6ff4f,feature_request,contact_edit,Горизонт: Запись|multi_contact
+t_e5b818b02028e4f630e1,Север: Кабинет,feature_request,booking_queue,,booking_queue,notification_delivery,context_resolved,True,1eb70c134e55b19155b2,feature_request,booking_queue,Север: Кабинет|queue_notification
+t_e6d3f169fac79a64c4a0,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,ab42e81c47c95c3d7fcc,service_request,ticket_lifecycle,
+t_e7739033e46cc3afe70d,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,e232b231515ca7d5d985,bug,sms_recovery,Горизонт: Запись|sms_missing
+t_e898af8352dfec53b2a1,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,c81d015263b4e0c85099,feature_request,contact_edit,Север: Кабинет|contact_edit
+t_e97528b0079794ab3c71,Горизонт: Запись,unknown,unclassified,,,,insufficient_context,False,c19c21ab1970270d88b0,bug,payment,Горизонт: Запись|double_charge
+t_e9b702b273931ab6df0b,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,c7457a7d71947f4a55c1,bug,booking_queue,Север: Кабинет|booking_404
+t_eb1e9067bd162c8cb761,Север: Кабинет,feature_request,contact_edit,,contact_edit,multiple_contacts,context_resolved,True,d612e2abaa9bf09859c3,feature_request,contact_edit,Север: Кабинет|multi_contact
+t_eb48b0748a1247517575,Вектор: Портал,bug,report_download,,report_download,http_404,context_resolved,True,12514deb009bb6508cc1,bug,report_download,Вектор: Портал|report_404
+t_ec90ee6100248cd3b90e,Вектор: Портал,feature_request,contact_edit,,contact_edit,edit_contact,context_resolved,True,26adfc4a6851876dbe75,feature_request,contact_edit,Вектор: Портал|contact_edit
+t_ed01124a6fa1a64e3dbb,Горизонт: Запись,feature_request,report_export,,export,schedule,context_resolved,True,501bed3dc9ce544ff3d4,feature_request,report_export,Горизонт: Запись|scheduled_export
+t_ee2e06b33a74d7c015ac,Горизонт: Запись,unknown,unclassified,,,,untrusted_instruction,False,f69f1288be99b421b1b0,feature_request,booking_queue,Горизонт: Запись|queue_notification
+t_ef9cafd2ccbf0277b5b5,Вектор: Портал,feature_request,report_export,,export,schedule,context_resolved,True,299bd9e1a15ff4c19dcd,feature_request,report_export,Вектор: Портал|scheduled_export
+t_f0500d00832e999f333b,Север: Кабинет,bug,sms_recovery,,sms_recovery,rejected_input,context_resolved,True,54fc022583f888cdeacd,bug,sms_recovery,Север: Кабинет|sms_expired
+t_f0ad7b0d940516d222d3,Вектор: Портал,bug,sms_recovery,,sms_recovery,missing_delivery,context_resolved,True,94504915c8759d66e90b,bug,sms_recovery,Вектор: Портал|sms_missing
+t_f0d40dd0f56a4408b97a,Север: Кабинет,unknown,unclassified,,,,missing_evidence,False,b815b2047c34caff9e8d,unknown,unclassified,
+t_f28280e600603c4df242,Север: Кабинет,bug,unclassified,,,,missing_workflow,False,b958983dece012df600f,unknown,unclassified,
+t_f306b89ff58a6d1fb010,Горизонт: Запись,how_to,sms_recovery,,,,guidance_requested,False,86238c939b950ab8cf04,how_to,sms_recovery,
+t_f569bf09c9a7e7a967ce,Север: Кабинет,bug,report_download,,report_download,http_404,context_resolved,True,11f1a075a9253387b5b9,bug,report_download,Север: Кабинет|report_404
+t_f5c756cfe390d463cca9,Север: Кабинет,bug,booking_queue,,booking_queue,http_404,context_resolved,True,1bffe33c1e0f15ea9864,bug,booking_queue,Север: Кабинет|booking_404
+t_f5fd3ce1d164cdfd20fd,Север: Кабинет,feature_request,booking_queue,,booking_queue,notification_delivery,context_resolved,True,1eb70c134e55b19155b2,feature_request,booking_queue,Север: Кабинет|queue_notification
+t_f683f8d478ab5859412c,Вектор: Портал,unknown,unclassified,,,,missing_evidence,False,d18b1f8b7d1c96ec9599,unknown,unclassified,
+t_f8a457e0b4afe641f2c3,Север: Кабинет,unknown,unclassified,,,,insufficient_context,False,bfc0a607cf4c5e8f5169,how_to,sms_recovery,
+t_f8caeb1d9efd5db474bc,Север: Кабинет,bug,sms_recovery,,sms_recovery,missing_delivery,context_resolved,True,78149e913bf3bb13fcb1,bug,sms_recovery,Север: Кабинет|sms_missing
+t_f96c4ee065c8a1d369d2,Север: Кабинет,feature_request,report_export,,export,schedule,context_resolved,True,96994b2f130e294d2f4e,feature_request,report_export,Север: Кабинет|scheduled_export
+t_fa58fc18838f96dfc3e2,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,ec3d87adb8eb513417d8,how_to,sms_recovery,
+t_fd52424ad47a5d0a1e2f,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,b7cf9f8f7f8f6260cd42,service_request,ticket_lifecycle,
+t_fee3265dbb222121ea8e,Вектор: Портал,unknown,unclassified,,,,insufficient_context,False,dd2ffbc63b01a7dc5b29,other,general,
+t_fef108fa03eec3c231f7,Вектор: Портал,unknown,unclassified,,,,mixed_intents,False,3ec40fc6cd4e7b427052,how_to,sms_recovery,
