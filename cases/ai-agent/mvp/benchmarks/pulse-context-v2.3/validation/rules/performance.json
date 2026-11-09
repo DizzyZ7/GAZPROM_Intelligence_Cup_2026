@@ -1,0 +1,12 @@
+{
+  "classification_seconds": 0.04379121500005567,
+  "clustering_seconds": 0.017411070999514777,
+  "cpu_seconds": 0.07290734500000001,
+  "pair_count": 4950,
+  "pair_scoring_seconds": 0.01168627200058836,
+  "python_peak_bytes": 1904446,
+  "representation_seconds": 1.8357000044488814e-05,
+  "ticket_count": 100,
+  "tickets_per_second": 1371.612006895658,
+  "total_seconds": 0.0729069150002033
+}

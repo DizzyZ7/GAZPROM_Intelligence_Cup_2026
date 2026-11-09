@@ -1,0 +1,76 @@
+{
+  "benchmark_version": "pulse-benchmark-v1",
+  "classifier": "context",
+  "classifier_version": "context-v2.3",
+  "configuration_sha256": "303cf5257b4d4ebc0f4e7a0ba6f02e8ed968e4cdaa20438abd3758bd8230f964",
+  "dataset_manifest_sha256": "2fde7e0d00b95b99a6cad5f3888fe75c2906e5fc2b7c4e38215e5791c1fab4e2",
+  "dataset_version": "pulse-independent-20261109",
+  "max_pairs": 200000,
+  "methods": {
+    "embeddings": {
+      "best_validation_f1": 0.1794871794871795,
+      "best_validation_tp": 7,
+      "calibration_status": "selected",
+      "descriptor": {
+        "model": "bge-m3:567m",
+        "provider": "ollama-loopback",
+        "revision": "7907646426070047a77226ac3e684fbbe8410524f7b4a74d02837e43f2146bab"
+      },
+      "gold_positive_pairs": 71,
+      "status": "ready",
+      "threshold": 0.6
+    },
+    "rules": {
+      "status": "ready",
+      "threshold": null
+    },
+    "tfidf": {
+      "best_validation_f1": 0.15584415584415584,
+      "best_validation_tp": 6,
+      "calibration_status": "selected",
+      "gold_positive_pairs": 71,
+      "status": "ready",
+      "threshold": 0.05
+    }
+  },
+  "schema_version": 1,
+  "selection_objective": "clustering.pairwise_f1; затем меньше fp; затем больший порог",
+  "selection_split": "validation",
+  "source_fingerprints": {
+    "benchmark/__init__.py": "4420259114efbad4456821ef6f6dbf2713a2b163a538b5f474f680ae7e0762da",
+    "benchmark/__main__.py": "ff44ab57c22e56ed6b5943cf9b6179802831d96703bebd91969abcf04443629f",
+    "benchmark/artifact_io.py": "7a6b54e6c648c9fc30881c9f88f83432cd79bf81fac68a2b1818cbf0bd6dba75",
+    "benchmark/engine.py": "1213c426303fda090e2e6dc836467663b3a5682a442d2e8ad01c805ea8d47401",
+    "benchmark/metrics.py": "e3b79783ab06f9a8cc495af9e3c2654b405fb58a1e9a7d42e9a1ffd55493059a",
+    "benchmark/protocol.py": "6851d6e5099b20be870cd287b480081fd2a2f0d8fa0219ff8fa38a3072ffb4dd",
+    "benchmark/reports.py": "363e670d36cfd292793e8c3b3e24f42c2021ab8b4f6dcdb6eef37288988a9e70",
+    "benchmark/tfidf.py": "cc8747121df313c194e00aa65f43659995cbd743b773c56a802db673cedc68c0",
+    "ollama_embeddings.py": "c24de2c2a5d2da17df26a11b58d7d4cff011bb9890767e075b3bb2c42bed7c41",
+    "pulse.py": "9f5cd08edde3ce90dc6686045d3bda6407a5ea6a57598c455eb40c89f152ba3b",
+    "semantic.py": "6d9315df9fdf33219a7c2b30235874e9717c649f961d7adfdcefc3dec6a140b5",
+    "ticket_context.py": "a58026e1f8aa34747dabdd390c732926899afbfb408b8ef5b05072550ed26854"
+  },
+  "tfidf_state_sha256": "f04134d2607e6677817c2056f64315bc5f165cd890f780d13e1248f80b4d4da3",
+  "threshold_grid": [
+    0.05,
+    0.1,
+    0.15,
+    0.2,
+    0.25,
+    0.3,
+    0.35,
+    0.4,
+    0.45,
+    0.5,
+    0.55,
+    0.6,
+    0.65,
+    0.7,
+    0.75,
+    0.8,
+    0.85,
+    0.9,
+    0.95
+  ],
+  "top_k": 5
+}

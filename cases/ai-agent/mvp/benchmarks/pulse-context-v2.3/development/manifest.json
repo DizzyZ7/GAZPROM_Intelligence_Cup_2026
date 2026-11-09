@@ -1,0 +1,144 @@
+{
+  "benchmark_version": "pulse-benchmark-v1",
+  "configuration_sha256": "303cf5257b4d4ebc0f4e7a0ba6f02e8ed968e4cdaa20438abd3758bd8230f964",
+  "dataset_manifest_sha256": "2fde7e0d00b95b99a6cad5f3888fe75c2906e5fc2b7c4e38215e5791c1fab4e2",
+  "environment": {
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.39",
+    "python": "3.12.14"
+  },
+  "evaluation_split": "development",
+  "files": {
+    "comparison.csv": {
+      "bytes": 997,
+      "sha256": "64ba4d9db8d69dc4f90ed73ddb9a78b0851d2a3aa69fcfaa60248f54a603e4e3"
+    },
+    "comparison.md": {
+      "bytes": 1514,
+      "sha256": "36aba81ae3291f99aaf2f72205ea8853e100639249d1a1da2622251f0e9afd33"
+    },
+    "embeddings/confusion.csv": {
+      "bytes": 208,
+      "sha256": "a221c050077e0b982f3f92ca8262ead668e767d2cc33e013505f38b78ca0b1a4"
+    },
+    "embeddings/errors.json": {
+      "bytes": 47304,
+      "sha256": "865b02094a86bb46fc98f5370b522213ab8aa962c5137fc362b78f26e312a326"
+    },
+    "embeddings/groups.json": {
+      "bytes": 10819,
+      "sha256": "12735472afc63f04a632ce7636f717db48ea1138074284a0ce906b70990a3a51"
+    },
+    "embeddings/performance.json": {
+      "bytes": 379,
+      "sha256": "b9ece71d3a66b7609040cdbc0126f421e8c28cb974b400c1927d1846eade31bb"
+    },
+    "embeddings/predictions.csv": {
+      "bytes": 55174,
+      "sha256": "3da7d8934bb6c92d151f697345e0562b6f187afa22b0a078e9a5617da34b5725"
+    },
+    "embeddings/report.json": {
+      "bytes": 3571,
+      "sha256": "99b9cb15d3b0883be509271125af7184b3fe86a243773741d8861e6934593ddc"
+    },
+    "embeddings/retrieval.csv": {
+      "bytes": 13851,
+      "sha256": "018f68b452ade60bee51c9395a3cf4bf8328648b3c1293c52fc5e4749e28af14"
+    },
+    "frozen-config.json": {
+      "bytes": 2761,
+      "sha256": "e7349f00c910adb5e84f78b49163ff3e027ff255b1ead4c1181a42241c1236e7"
+    },
+    "legacy_rules/confusion.csv": {
+      "bytes": 208,
+      "sha256": "23f8f969fef8b68f70b84ca2b38eb228400566f4db21e4a199e5de8437296b32"
+    },
+    "legacy_rules/errors.json": {
+      "bytes": 83268,
+      "sha256": "b378015c0ca96a771a60185de7218c05e4ad7764bd3dba08f9180b845cf80fdc"
+    },
+    "legacy_rules/groups.json": {
+      "bytes": 10723,
+      "sha256": "27d7cdd3f2b3495476237a36efc3a1e1f0f29eb91c6ecb9afcbd9d50b72d285d"
+    },
+    "legacy_rules/performance.json": {
+      "bytes": 396,
+      "sha256": "c2adbd839be7f830abe9aaadf2bed4eb1fd08a8a726dd5faf0cc70baa515f10c"
+    },
+    "legacy_rules/predictions.csv": {
+      "bytes": 45387,
+      "sha256": "0e7dc326f8aa60bdea90a85b85cb381a04f10b769eb9d7fdcf84c7a967d277b9"
+    },
+    "legacy_rules/report.json": {
+      "bytes": 3358,
+      "sha256": "fe22658870783fb06371cd20e843597013c55f6689cc69164fb5674e7fa317dd"
+    },
+    "legacy_rules/retrieval.csv": {
+      "bytes": 22011,
+      "sha256": "95331ec62bfe598ef7343b4e6ac9dfeaa74e152cd5ca504e8879391108e54a60"
+    },
+    "rules/confusion.csv": {
+      "bytes": 208,
+      "sha256": "a221c050077e0b982f3f92ca8262ead668e767d2cc33e013505f38b78ca0b1a4"
+    },
+    "rules/errors.json": {
+      "bytes": 48338,
+      "sha256": "b834895f1ef5f50436ce0df19fe2a5fdf2686c3dc4ec1f8a8898557b3bc5b336"
+    },
+    "rules/groups.json": {
+      "bytes": 10787,
+      "sha256": "5e8513ea7f4cd5df5cc60a0322f21dd3f879f0266fcdb6088f1866c27b99041c"
+    },
+    "rules/performance.json": {
+      "bytes": 382,
+      "sha256": "7d4442a297fad387b379a643181a29e7080e7af65a4160081d1ab090e8207214"
+    },
+    "rules/predictions.csv": {
+      "bytes": 55174,
+      "sha256": "e6a25f7ab512fc6bd828184114bb30695ce04b44c3e40fcc5a8a2a30ab074042"
+    },
+    "rules/report.json": {
+      "bytes": 3256,
+      "sha256": "fae4d314c91f9fc7b0142fc0345457ed886eb3277c0a8017e3991d5321f8bab0"
+    },
+    "rules/retrieval.csv": {
+      "bytes": 14619,
+      "sha256": "2a3092d3bd099ee688daed6bc4538ca92ce3d682742784ea0c62cba01c69c5b7"
+    },
+    "tfidf/confusion.csv": {
+      "bytes": 208,
+      "sha256": "a221c050077e0b982f3f92ca8262ead668e767d2cc33e013505f38b78ca0b1a4"
+    },
+    "tfidf/errors.json": {
+      "bytes": 47098,
+      "sha256": "5d298fc4f698dee83b2c9ab29baebfd86f62f7da24110d0c5a4c8fae1c921b6c"
+    },
+    "tfidf/groups.json": {
+      "bytes": 10811,
+      "sha256": "3487b63232b6d6d03a250fc1a7c285386986c81fdf5de9e037485038f3095f27"
+    },
+    "tfidf/performance.json": {
+      "bytes": 381,
+      "sha256": "ad9f8b17e67fee83d8906c8a4dae097247d645ce43644ad765fe533fa4743ab8"
+    },
+    "tfidf/predictions.csv": {
+      "bytes": 55174,
+      "sha256": "262af50aff3f51c0c2478985590b1b261ac41b00fd782318e0822cded6baa4f4"
+    },
+    "tfidf/report.json": {
+      "bytes": 3385,
+      "sha256": "8f8343ca53acec26d68dcb868e39459f323320463ce4fac4c15ec549ded6c8cb"
+    },
+    "tfidf/retrieval.csv": {
+      "bytes": 13851,
+      "sha256": "6106ec6b237fd064d5e7eff3c6e8d1744601797f995260d4951358a9bddf2929"
+    }
+  },
+  "methods": {
+    "embeddings": "ok",
+    "legacy_rules": "ok",
+    "rules": "ok",
+    "tfidf": "ok"
+  },
+  "schema_version": 1,
+  "status": "complete"
+}

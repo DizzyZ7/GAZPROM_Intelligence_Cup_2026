@@ -1,0 +1,5 @@
+method,status,classification_macro_f1,retrieval_precision,retrieval_recall,retrieval_f1,cluster_precision,cluster_recall,cluster_f1,false_merge_fraction,missed_repeat_fraction,total_seconds,tickets_per_second,python_peak_bytes
+rules,ok,0.18475224453485325,0.0,0.0,0.0,0.0,0.0,0.0,,1.0,0.08084544999928767,1484.313588471056,2791517
+tfidf,ok,0.18475224453485325,0.0,0.0,0.0,0.0,0.0,0.0,,1.0,0.07768518100056099,1544.6961499534054,2679104
+embeddings,ok,0.18475224453485325,0.0,0.0,0.0,0.0,0.0,0.0,,1.0,0.07757169099932071,1546.9560925396204,2680829
+legacy_rules,ok,0.026041666666666668,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.04088726899954054,2934.898880170952,2654295

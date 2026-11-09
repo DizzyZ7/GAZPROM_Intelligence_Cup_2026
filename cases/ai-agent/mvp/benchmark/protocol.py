@@ -11,7 +11,14 @@ from urllib.error import URLError
 from pulse import Ticket, redact
 
 from .artifact_io import csv_bytes, json_bytes, read_json, sha256, write_directory
-from .engine import MAX_PAIRS, METHODS, analyze_method, apply_threshold
+from .engine import (
+    CLASSIFIER_VERSIONS,
+    CLASSIFIERS,
+    MAX_PAIRS,
+    METHODS,
+    analyze_method,
+    apply_threshold,
+)
 from .metrics import CATEGORIES
 from .reports import comparison_files, method_files, score_analysis
 from .tfidf import TfidfModel
@@ -31,6 +38,7 @@ def source_fingerprints():
         root / "pulse.py",
         root / "semantic.py",
         root / "ollama_embeddings.py",
+        root / "ticket_context.py",
     ] + sorted((root / "benchmark").glob("*.py"))
     return {str(path.relative_to(root)): sha256(path.read_bytes()) for path in files}
 
@@ -176,10 +184,18 @@ def _select(analysis, sources, labels):
 
 
 def calibrate(
-    dataset_dir, output, provider=None, descriptor=None, unavailable_reason=None
+    dataset_dir,
+    output,
+    provider=None,
+    descriptor=None,
+    unavailable_reason=None,
+    *,
+    classifier="rules",
 ):
+    _require(classifier in CLASSIFIERS, "Неизвестный классификатор")
     if Path(output).exists():
         raise FileExistsError("Калибровка уже существует")
+    frozen_sources = source_fingerprints()
     if provider is not None:
         descriptor = _descriptor(descriptor)
     reader = DatasetReader(dataset_dir)
@@ -190,7 +206,9 @@ def calibrate(
     fit_seconds = time.perf_counter() - started
     state = json_bytes(tfidf.to_state())
     tickets = [Ticket(**row) for row in sources]
-    initial = analyze_method("tfidf", tickets, threshold=GRID[0], tfidf=tfidf)
+    initial = analyze_method(
+        "tfidf", tickets, threshold=GRID[0], tfidf=tfidf, classifier=classifier
+    )
     threshold, rows, selection = _select(initial, sources, labels)
     methods = {
         "rules": {"status": "ready", "threshold": None},
@@ -204,7 +222,11 @@ def calibrate(
     if provider is not None:
         try:
             initial = analyze_method(
-                "embeddings", tickets, threshold=GRID[0], provider=provider
+                "embeddings",
+                tickets,
+                threshold=GRID[0],
+                provider=provider,
+                classifier=classifier,
             )
             semantic_threshold, semantic_rows, semantic_selection = _select(
                 initial, sources, labels
@@ -232,11 +254,14 @@ def calibrate(
         "threshold_grid": list(GRID),
         "top_k": 5,
         "max_pairs": MAX_PAIRS,
-        "source_fingerprints": source_fingerprints(),
+        "source_fingerprints": frozen_sources,
         "tfidf_state_sha256": sha256(state),
         "methods": methods,
+        "classifier": classifier,
+        "classifier_version": CLASSIFIER_VERSIONS[classifier],
     }
     config["configuration_sha256"] = sha256(json_bytes(config))
+    _require(frozen_sources == source_fingerprints(), "Код изменен во время калибровки")
     write_directory(
         output,
         {
@@ -276,6 +301,14 @@ def _load_frozen(reader, calibration_dir):
         "Неизвестный протокол оценки",
     )
     _require(
+        config.get("classifier", "rules") in CLASSIFIERS, "Неизвестный классификатор"
+    )
+    _require(
+        config.get("classifier_version", "rules-v1")
+        == CLASSIFIER_VERSIONS[config.get("classifier", "rules")],
+        "Версия классификатора отличается от зафиксированной",
+    )
+    _require(
         config["dataset_manifest_sha256"] == reader.fingerprint,
         "Набор отличается от использованного при калибровке",
     )
@@ -293,7 +326,16 @@ def _load_frozen(reader, calibration_dir):
     return config, TfidfModel.from_state(json.loads(state))
 
 
-def evaluate(dataset_dir, calibration_dir, output, provider=None, descriptor=None):
+def evaluate(
+    dataset_dir,
+    calibration_dir,
+    output,
+    provider=None,
+    descriptor=None,
+    *,
+    split="holdout",
+):
+    _require(split in ("development", "validation", "holdout"), "Неизвестная выборка")
     output, calibration_dir = Path(output), Path(calibration_dir)
     if output.exists():
         raise FileExistsError("Отчет уже существует")
@@ -309,7 +351,7 @@ def evaluate(dataset_dir, calibration_dir, output, provider=None, descriptor=Non
         _require(
             provider is None, "Нельзя подключать новый метод после фиксации протокола"
         )
-    receipt = calibration_dir / "holdout-receipt.json"
+    receipt = calibration_dir / f"{split}-receipt.json"
     with receipt.open("x", encoding="utf-8") as stream:
         stream.write(
             json_bytes(
@@ -320,9 +362,10 @@ def evaluate(dataset_dir, calibration_dir, output, provider=None, descriptor=Non
             ).decode()
         )
     try:
-        sources, labels = reader.read_split("holdout")
+        sources, _ = reader.read_split(split, gold=False)
         tickets = [Ticket(**row) for row in sources]
         files, reports, performance = {}, {}, {}
+        analyses = {}
         for method in METHODS:
             settings = config["methods"][method]
             analysis, missing = None, settings
@@ -334,6 +377,7 @@ def evaluate(dataset_dir, calibration_dir, output, provider=None, descriptor=Non
                         threshold=settings["threshold"],
                         tfidf=tfidf,
                         provider=provider,
+                        classifier=config.get("classifier", "rules"),
                     )
                     performance[method] = analysis["performance"]
                 except (ValueError, RuntimeError, OSError, URLError) as exc:
@@ -344,12 +388,26 @@ def evaluate(dataset_dir, calibration_dir, output, provider=None, descriptor=Non
                         "reason": "Ошибка провайдера при финальной оценке: "
                         + type(exc).__name__,
                     }
+            analyses[method] = (analysis, missing)
+        if config.get("classifier") == "context":
+            legacy = dict(analyze_method("rules", tickets), method="legacy_rules")
+            analyses["legacy_rules"] = (legacy, {"status": "ready", "threshold": None})
+            performance["legacy_rules"] = legacy["performance"]
+        # Эталоны открываются после предсказаний всех методов.
+        _, labels = reader.read_split(split)
+        for method, (analysis, missing) in analyses.items():
             partial, report = method_files(
                 method, analysis, sources, labels, k=config["top_k"], missing=missing
             )
+            report["evaluation_split"] = split
+            partial[method + "/report.json"] = json_bytes(report)
             files.update(partial)
             reports[method] = report
-        files.update(comparison_files(reports, performance))
+        files.update(comparison_files(reports, performance, split=split))
+        _require(
+            config["source_fingerprints"] == source_fingerprints(),
+            "Код изменен во время оценки",
+        )
         files["frozen-config.json"] = json_bytes(config)
         summary = {
             "schema_version": 1,
@@ -357,7 +415,7 @@ def evaluate(dataset_dir, calibration_dir, output, provider=None, descriptor=Non
             "status": "complete"
             if all(r["status"] == "ok" for r in reports.values())
             else "partial",
-            "evaluation_split": "holdout",
+            "evaluation_split": split,
             "configuration_sha256": config["configuration_sha256"],
             "dataset_manifest_sha256": reader.fingerprint,
             "methods": {m: r["status"] for m, r in reports.items()},
@@ -397,6 +455,10 @@ def evaluate(dataset_dir, calibration_dir, output, provider=None, descriptor=Non
 def verify_report(directory):
     root = Path(directory)
     manifest = read_json(root / "manifest.json")
+    config = read_json(root / "frozen-config.json")
+    expected_methods = set(METHODS) | (
+        {"legacy_rules"} if config.get("classifier") == "context" else set()
+    )
     _require(
         manifest.get("benchmark_version") == VERSION
         and isinstance(manifest.get("files"), dict),
@@ -404,13 +466,14 @@ def verify_report(directory):
     )
     _require(
         manifest.get("schema_version") == 1
-        and manifest.get("evaluation_split") == "holdout",
+        and manifest.get("evaluation_split")
+        in ("development", "validation", "holdout"),
         "Неверная схема или выборка отчета",
     )
     allowed = {"comparison.csv", "comparison.md", "frozen-config.json"}
     required = set(allowed)
     _require(
-        set(manifest.get("methods", {})) == set(METHODS),
+        set(manifest.get("methods", {})) == expected_methods,
         "Не все методы отражены в отчете",
     )
     expected_status = (
@@ -422,13 +485,18 @@ def verify_report(directory):
         manifest.get("status") == expected_status,
         "Итоговый статус не соответствует методам",
     )
-    for method in METHODS:
+    for method in sorted(expected_methods):
         status = manifest["methods"][method]
         _require(status in {"ok", "not_checked", "failed"}, "Неизвестный статус метода")
         report = read_json(root / method / "report.json")
         _require(
             report.get("method") == method and report.get("status") == status,
             "Статусы отчета не согласованы",
+        )
+        _require(
+            report.get("evaluation_split", "holdout")
+            == manifest.get("evaluation_split"),
+            "Выборка отчета не соответствует манифесту",
         )
         tasks = ("classification", "retrieval_pairs", "retrieval_top_k", "clustering")
         _require(
@@ -483,7 +551,9 @@ def verify_report(directory):
         {"comparison.csv", "comparison.md", "frozen-config.json"}.issubset(
             manifest["files"]
         )
-        and all(method + "/report.json" in manifest["files"] for method in METHODS),
+        and all(
+            method + "/report.json" in manifest["files"] for method in expected_methods
+        ),
         "Отчет неполон",
     )
     config = read_json(root / "frozen-config.json")
@@ -514,7 +584,7 @@ def local_ollama(model):
     """Локальная модель фиксируется по digest; транспорт использует запрет proxy/redirect."""
     from ollama_embeddings import OllamaEmbeddingProvider, urlopen
 
-    provider = OllamaEmbeddingProvider(model=model)
+    provider = OllamaEmbeddingProvider(model=model, timeout=120)
     with urlopen(
         provider.url.removesuffix("/api/embed") + "/api/tags", timeout=3
     ) as response:

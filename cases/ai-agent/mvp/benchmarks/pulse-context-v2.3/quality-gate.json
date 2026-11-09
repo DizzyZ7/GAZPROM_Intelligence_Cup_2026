@@ -1,0 +1,24 @@
+{
+  "api_context_enabled": false,
+  "expert_review": "pending_human",
+  "observed": {
+    "holdout_fn": 120,
+    "holdout_fp": 0,
+    "holdout_tp": 0,
+    "validation_cross_product_pairs": 0,
+    "validation_fn": 64,
+    "validation_fp": 0,
+    "validation_tp": 7
+  },
+  "reasons": [
+    "Полнота validation не выросла выше зафиксированного порога",
+    "На новом holdout не обнаружено ни одной эталонной пары",
+    "Доменная проверка эталонов человеком ожидается"
+  ],
+  "requirements": {
+    "cross_product_pairs": 0,
+    "validation_fp_at_most": 2,
+    "validation_tp_greater_than": 7
+  },
+  "status": "not_met"
+}

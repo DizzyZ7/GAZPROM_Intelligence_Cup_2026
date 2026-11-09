@@ -1,0 +1,140 @@
+{
+  "calibration": {},
+  "classification": {
+    "abstention_fraction": 0.96,
+    "accuracy": 0.16,
+    "confusion_matrix": {
+      "bug": {
+        "bug": 3,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 27
+      },
+      "feature_request": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 14
+      },
+      "how_to": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 14
+      },
+      "other": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 14
+      },
+      "service_request": {
+        "bug": 0,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 14
+      },
+      "unknown": {
+        "bug": 1,
+        "feature_request": 0,
+        "how_to": 0,
+        "other": 0,
+        "service_request": 0,
+        "unknown": 13
+      }
+    },
+    "count": 100,
+    "macro_f1": 0.06880570409982174,
+    "macro_precision": 0.14756944444444445,
+    "macro_recall": 0.17142857142857146,
+    "per_category": {
+      "bug": {
+        "f1": 0.17647058823529413,
+        "precision": 0.75,
+        "recall": 0.1,
+        "support": 30
+      },
+      "feature_request": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 14
+      },
+      "how_to": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 14
+      },
+      "other": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 14
+      },
+      "service_request": {
+        "f1": 0.0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "support": 14
+      },
+      "unknown": {
+        "f1": 0.23636363636363636,
+        "precision": 0.13541666666666666,
+        "recall": 0.9285714285714286,
+        "support": 14
+      }
+    }
+  },
+  "classifier": "rules-v1-shared; score не является вероятностью",
+  "clustering": {
+    "f1": 0.0,
+    "false_merge_fraction": 1.0,
+    "fn": 71,
+    "fp": 1,
+    "missed_repeat_fraction": 1.0,
+    "pair_count": 4950,
+    "precision": 0.0,
+    "recall": 0.0,
+    "signal_candidates": 1,
+    "singleton_count": 98,
+    "tn": 4878,
+    "tp": 0
+  },
+  "evaluation_split": "validation",
+  "method": "legacy_rules",
+  "retrieval_pairs": {
+    "f1": 0.0,
+    "false_merge_fraction": 1.0,
+    "fn": 71,
+    "fp": 1,
+    "missed_repeat_fraction": 1.0,
+    "pair_count": 4950,
+    "precision": 0.0,
+    "recall": 0.0,
+    "tn": 4878,
+    "tp": 0
+  },
+  "retrieval_top_k": {
+    "k": 5,
+    "precision_at_k": 0.0,
+    "queries_with_repeats": 40,
+    "query_hit_fraction": 0.0,
+    "recall_at_k": 0.0,
+    "relevant_neighbors": 142,
+    "returned_neighbors": 2,
+    "returned_precision_at_k": 0.0
+  },
+  "status": "ok",
+  "threshold": null
+}

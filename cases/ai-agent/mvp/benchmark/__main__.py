@@ -17,6 +17,10 @@ def main():
         command.add_argument("--output", required=True)
         command.add_argument("--ollama-model")
     final.add_argument("--calibration", required=True)
+    final.add_argument(
+        "--split", choices=("development", "validation", "holdout"), default="holdout"
+    )
+    tune.add_argument("--classifier", choices=("rules", "context"), default="rules")
     verify = sub.add_parser(
         "verify", help="Проверить сохраненные отчеты без нового инференса"
     )
@@ -41,11 +45,21 @@ def main():
                     )
             if args.command == "tune":
                 result = calibrate(
-                    args.dataset, args.output, provider, descriptor, reason
+                    args.dataset,
+                    args.output,
+                    provider,
+                    descriptor,
+                    reason,
+                    classifier=args.classifier,
                 )
             else:
                 result = evaluate(
-                    args.dataset, args.calibration, args.output, provider, descriptor
+                    args.dataset,
+                    args.calibration,
+                    args.output,
+                    provider,
+                    descriptor,
+                    split=args.split,
                 )
         print(json.dumps(result, ensure_ascii=False, sort_keys=True))
     except (ValueError, OSError, KeyError, TypeError) as exc:

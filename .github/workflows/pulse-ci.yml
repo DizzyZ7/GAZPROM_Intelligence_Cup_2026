@@ -47,10 +47,41 @@ jobs:
           ruff format --isolated --check benchmark tests/test_benchmark_*.py
           ruff check --isolated --select E9,F,I http_limits.py tests/test_http_limits.py tests/test_redaction_limits.py
           ruff format --isolated --check http_limits.py tests/test_http_limits.py tests/test_redaction_limits.py
+          ruff check --isolated --select E9,F,I ticket_context.py context_pipeline.py context_eval.py tests/test_context*.py tests/test_dataset_review.py
+          ruff format --isolated --check ticket_context.py context_pipeline.py context_eval.py tests/test_context*.py tests/test_dataset_review.py
           bandit -q -r . -x ./tests -ll
       - name: Validate committed dataset
         run: python -m dataset validate --directory datasets/pulse-synthetic-v1
       - name: Verify benchmark evidence
         run: python -m benchmark verify --directory benchmarks/pulse-synthetic-v1/holdout
+      - name: Verify current contextual experiment evidence
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from benchmark.artifact_io import read_json, sha256
+          from benchmark.protocol import DatasetReader, _load_frozen, verify_report
+          root = Path("benchmarks/pulse-context-v2.3")
+          reader = DatasetReader("datasets/pulse-independent-20261109/benchmark")
+          config, _ = _load_frozen(reader, root / "calibration")
+          for split in ("development", "validation", "holdout"):
+              report = verify_report(root / split)
+              assert report["source_matches_current"], report
+              assert report["configuration_sha256"] == config["configuration_sha256"]
+              receipt = read_json(root / "calibration" / f"{split}-receipt.json")
+              assert receipt == {
+                  "status": "completed",
+                  "configuration_sha256": config["configuration_sha256"],
+                  "report_manifest_sha256": sha256((root / split / "manifest.json").read_bytes()),
+              }, receipt
+              print(split, report)
+          PY
+      - name: Verify independent control reproducibility
+        run: |
+          python datasets/pulse-independent-20261109/generate_dataset.py --check datasets/pulse-independent-20261109/benchmark
+          pulse_repro_dir=$(mktemp -d)
+          cp datasets/pulse-independent-20261109/generate_dataset.py "$pulse_repro_dir/"
+          cp -R datasets/pulse-independent-20261109/source_snapshots "$pulse_repro_dir/"
+          python "$pulse_repro_dir/generate_dataset.py" --verify-reproducible
+          python "$pulse_repro_dir/generate_dataset.py" --check "$pulse_repro_dir/benchmark"
       - name: Audit runtime dependencies
         run: pip-audit -r requirements-api.txt
