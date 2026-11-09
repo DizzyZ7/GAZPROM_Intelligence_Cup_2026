@@ -87,7 +87,12 @@ class SpanContextTests(unittest.TestCase):
                 "форма не закрывается",
                 "overlapping_evidence",
             ),
-            (TEXT, ANSWER["operation_quote"], "форма", "weak_evidence"),
+            (
+                "При продлении сертификата форма зависает.",
+                ANSWER["operation_quote"],
+                "форма",
+                "weak_evidence",
+            ),
             (
                 "Я продлеваю сертификат. При подписании договора форма не закрывается.",
                 "продлеваю сертификат",
@@ -134,6 +139,27 @@ class SpanContextTests(unittest.TestCase):
                 propose = Mock(return_value=ANSWER)
                 extract_spans(TEXT + " Контакт" + phone + ".", propose)
                 propose.assert_called_once_with(TEXT + " Контакт[PHONE].")
+
+    def test_masks_explicit_phone_across_line_breaks(self):
+        propose = Mock(return_value=ANSWER)
+        extract_spans(TEXT + " Телефон +0\n(000) 123-45-67.", propose)
+        propose.assert_called_once_with(TEXT + " Телефон [PHONE].")
+
+    def test_guard_preserves_other_recognized_codes_and_trailing_negation(self):
+        for code in ("E13", "ERR_PAYMENT_TIMEOUT"):
+            with self.subTest(code=code):
+                source = "При продлении сертификата форма выдает ошибку " + code + "."
+                proposal = dict(ANSWER, symptom_quote="форма выдает ошибку")
+                self.assertEqual(
+                    extract_spans(source, Mock(return_value=proposal)).context.reason,
+                    "missing_error_code",
+                )
+        source = "При продлении сертификата форма закрывается не до конца."
+        proposal = dict(ANSWER, symptom_quote="форма закрывается")
+        self.assertEqual(
+            extract_spans(source, Mock(return_value=proposal)).context.reason,
+            "negation_outside_evidence",
+        )
 
     def test_payload_with_product_or_generated_keys_fails_schema(self):
         for extra in ({"product": "другой"}, {"operation": "сохранение"}):

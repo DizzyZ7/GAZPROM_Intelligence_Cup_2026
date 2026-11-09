@@ -53,7 +53,9 @@ SCHEMA = {
     "required": list(_FIELDS),
     "additionalProperties": False,
 }
-_PLUS_PHONE = re.compile(r"\+[ \t]*\(?[ \t]*\d(?:[ \t().\-\u2010-\u2015]*\d){7,}")
+_PLUS_PHONE = re.compile(
+    r"\+[ \t\r\n]*\(?[ \t\r\n]*\d(?:[ \t\r\n().\-\u2010-\u2015]*\d){7,}"
+)
 _RUSSIAN_WORD = re.compile(r"(?<!\w)[а-яА-ЯёЁ]+(?!\w)")
 _WORDS = re.compile(r"[^\W_]+")
 _OPERATION_START = re.compile(
@@ -65,9 +67,11 @@ _CLIPPED_NEGATION = re.compile(
     r"\b(?:не|нет|без)\s+(?:(?:сразу|совсем|даже|вовсе|всегда|обычно|больше)\s+){0,2}"
     r"[«\"'(]?\s*$"
 )
+_TRAILING_NEGATION = re.compile(r"^[ \t,]*(?:не|нет|без)\b")
 _ERROR_CODE = re.compile(
     r"\b(?:код\w*|ошибк\w*|http)\s*[:№#(]?\s*"
-    r"([a-z]{1,16}[-_]\d{1,8}|[-+]?\d{3,6})\b",
+    r"([a-z]{1,16}[-_]?\d{1,8}|[a-z]{2,16}(?:_[a-z0-9]{2,24}){1,4}|[-+]?\d{3,6})"
+    r"(?![\w-])",
     re.IGNORECASE,
 )
 
@@ -104,7 +108,9 @@ def _pair_guard(source, operation_span, symptom_span):
     symptom_start, symptom_end = symptom_span
     operation = source[op_start:op_end]
     symptom = source[symptom_start:symptom_end]
-    if _CLIPPED_NEGATION.search(_normalized(source[start:symptom_start])):
+    if _CLIPPED_NEGATION.search(
+        _normalized(source[start:symptom_start])
+    ) or _TRAILING_NEGATION.match(_normalized(source[symptom_end:end])):
         return "negation_outside_evidence"
     before_op = _normalized(source[start:op_start]).rstrip()
     if _OPERATION_NEGATED.search(_normalized(operation)) or any(
