@@ -9,10 +9,13 @@ from math import isfinite
 
 from pulse import Ticket, classify, redact
 from semantic import cosine
+from ticket_context import ANALYSIS_VERSION, classify_context
 
 from .tfidf import sparse_cosine
 
 METHODS = ("rules", "tfidf", "embeddings")
+CLASSIFIER_VERSIONS = {"rules": "rules-v1", "context": ANALYSIS_VERSION}
+CLASSIFIERS = tuple(CLASSIFIER_VERSIONS)
 MAX_PAIRS = 200000
 
 
@@ -80,6 +83,11 @@ def _context(left, right):
         return "classification_abstained"
     if left["workflow"] != right["workflow"]:
         return "different_workflow"
+    if left.get("groupable") is False or right.get("groupable") is False:
+        return "classification_abstained"
+    for field in ("operation", "symptom"):
+        if left.get(field) != right.get(field):
+            return "different_" + field
     return "context_pass"
 
 
@@ -108,9 +116,20 @@ def _validated_vectors(provider, texts):
 
 
 def analyze_method(
-    method, tickets, threshold=None, tfidf=None, provider=None, max_pairs=MAX_PAIRS
+    method,
+    tickets,
+    threshold=None,
+    tfidf=None,
+    provider=None,
+    max_pairs=MAX_PAIRS,
+    *,
+    classifier="rules",
 ):
-    if method not in METHODS or len({t.id for t in tickets}) != len(tickets):
+    if (
+        method not in METHODS
+        or classifier not in CLASSIFIERS
+        or len({t.id for t in tickets}) != len(tickets)
+    ):
         raise ValueError("Неизвестный метод или повторные ID")
     if (
         type(max_pairs) is not int
@@ -141,24 +160,39 @@ def analyze_method(
         predictions = []
         for ticket in sanitized:
             category, workflow, score = classify(ticket.text)
-            predictions.append(
-                {
-                    "ticket_id": ticket.id,
-                    "product": ticket.product,
-                    "category": category,
-                    "workflow": workflow,
-                    "classifier_score": score,
-                }
-            )
+            row = {
+                "ticket_id": ticket.id,
+                "product": ticket.product,
+                "category": category,
+                "workflow": workflow,
+                "classifier_score": score,
+            }
+            if classifier == "context":
+                context = classify_context(ticket.text)
+                row.update(
+                    category=context.category,
+                    workflow=context.workflow,
+                    classifier_score=None,
+                    operation=context.operation,
+                    symptom=context.symptom,
+                    reason=context.reason,
+                    groupable=context.groupable,
+                )
+            predictions.append(row)
         classified = time.perf_counter()
         texts = [t.text for t in sanitized]
-        vectors = (
-            tfidf.transform(texts)
-            if method == "tfidf"
-            else (
-                _validated_vectors(provider, texts) if method == "embeddings" else None
+        eligible = [
+            i for i, row in enumerate(predictions) if row.get("groupable", True)
+        ]
+        vectors = None
+        if method in {"tfidf", "embeddings"}:
+            selected = [texts[i] for i in eligible]
+            represented_vectors = (
+                tfidf.transform(selected)
+                if method == "tfidf"
+                else (_validated_vectors(provider, selected) if selected else [])
             )
-        )
+            vectors = dict(zip(eligible, represented_vectors))
         represented = time.perf_counter()
         pairs = []
         for i, j in combinations(range(len(predictions)), 2):
@@ -213,6 +247,11 @@ def analyze_method(
         }
         return {
             "method": method,
+            "classifier": (
+                "rules-v1-shared; score не является вероятностью"
+                if classifier == "rules"
+                else ANALYSIS_VERSION
+            ),
             "threshold": threshold,
             "predictions": predictions,
             "pairs": pairs,

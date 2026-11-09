@@ -1,0 +1,23 @@
+{
+  "byte_identity_verified_main_revision": "3f024406e892f6649cbc8469302d60b6205b2922",
+  "files": {
+    "development.inputs.json": {
+      "bytes": 169627,
+      "sha256": "9a664478135758e406e84c5b414ccfbb0f52f440dbd649b96845c72ff18bbdb0"
+    },
+    "development.labels.jsonl": {
+      "bytes": 300946,
+      "sha256": "1478cdbb6eaccb064424d99435dd57cc2a30e375cbbeb7e516639d2005890dbc"
+    },
+    "validation.inputs.json": {
+      "bytes": 56392,
+      "sha256": "c8c310923cde2df25b917223be7b3ff1aa0eda07ec555a44962bedbc20f144ee"
+    },
+    "validation.labels.jsonl": {
+      "bytes": 98749,
+      "sha256": "7b61b9f87230cff7014baa6bbc7da1ef3a164de7e4246c471c34c9e8cc7b126b"
+    }
+  },
+  "source_dataset_version": "pulse-synthetic-v1",
+  "source_revision": "a390b3df78944b2a0a89dd5dba1748c0fb6f5a30"
+}

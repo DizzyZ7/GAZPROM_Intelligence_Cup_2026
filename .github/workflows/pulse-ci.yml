@@ -47,6 +47,8 @@ jobs:
           ruff format --isolated --check benchmark tests/test_benchmark_*.py
           ruff check --isolated --select E9,F,I http_limits.py tests/test_http_limits.py tests/test_redaction_limits.py
           ruff format --isolated --check http_limits.py tests/test_http_limits.py tests/test_redaction_limits.py
+          ruff check --isolated --select E9,F,I ticket_context.py context_pipeline.py context_eval.py tests/test_context*.py tests/test_dataset_review.py
+          ruff format --isolated --check ticket_context.py context_pipeline.py context_eval.py tests/test_context*.py tests/test_dataset_review.py
           bandit -q -r . -x ./tests -ll
       - name: Validate committed dataset
         run: python -m dataset validate --directory datasets/pulse-synthetic-v1

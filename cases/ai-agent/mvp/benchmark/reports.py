@@ -34,7 +34,9 @@ def score_analysis(analysis, sources, labels, k=5):
         "status": "ok",
         "method": analysis["method"],
         "threshold": analysis["threshold"],
-        "classifier": "rules-v1-shared; score не является вероятностью",
+        "classifier": analysis.get(
+            "classifier", "rules-v1-shared; score не является вероятностью"
+        ),
         "classification": classification_metrics(
             [gold[r["ticket_id"]]["category"] for r in predictions],
             [r["category"] for r in predictions],
@@ -156,7 +158,9 @@ def method_files(method, analysis, sources, labels, k=5, missing=None):
         prefix + "errors.json": json_bytes(errors),
         prefix + "groups.json": json_bytes(analysis["groups"]),
         prefix + "predictions.csv": csv_bytes(
-            (
+            tuple(predictions[0])
+            if predictions
+            else (
                 "ticket_id",
                 "product",
                 "category",
@@ -175,12 +179,12 @@ def method_files(method, analysis, sources, labels, k=5, missing=None):
     return files, report
 
 
-def comparison_files(reports, performance):
+def comparison_files(reports, performance, *, split="holdout"):
     warnings = []
     rows, lines = (
         [],
         [
-            "# Сравнение методов на holdout",
+            f"# Сравнение методов на {split}",
             "",
             "| Метод | Статус | Категория: macro F1 | Поиск: F1 | Кластеры: pairwise F1 | Ложные объединения |",
             "| --- | --- | ---: | ---: | ---: | ---: |",
@@ -249,7 +253,7 @@ def comparison_files(reports, performance):
         "",
         *warnings,
         "",
-        "Классификатор общий для всех выполненных методов. Метки категории и сценария вычислены из текста, gold не используется для ограничения кандидатов.",
+        "Rules, TF-IDF и Embeddings используют общий выбранный классификатор. При контекстном анализе legacy_rules отдельно показывает прежний baseline. Метки ограничений вычислены из текста; gold не используется для ограничения кандидатов.",
         "Порог выбран на validation до финальной оценки. Отчеты задач и примеры ошибок сохранены отдельно.",
         "Набор синтетический, экспертная проверка ожидается. Результаты не подтверждают качество на корпоративном потоке.",
         "Время и Python peak memory относятся к одному локальному запуску с tracemalloc; это не нагрузочный тест API и не измерение памяти Ollama/GPU.",

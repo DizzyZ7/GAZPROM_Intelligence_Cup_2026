@@ -1,0 +1,70 @@
+{
+  "counts": {
+    "development": 300,
+    "holdout": 120,
+    "validation": 100
+  },
+  "dataset_version": "pulse-independent-20261109",
+  "expert_status": "pending_human",
+  "files": {
+    "benchmark/README.md": {
+      "bytes": 8362,
+      "sha256": "2c1d32d254a4608e79b1cbe45927d668bf3b1ce54a19402b58cfc89a05188b00"
+    },
+    "benchmark/catalog.json": {
+      "bytes": 83472,
+      "sha256": "7086e55da8c1cb767f2f94652b0ff354bb71fc44ed7b4c14a179aa9de5882cd6"
+    },
+    "benchmark/development.inputs.json": {
+      "bytes": 169627,
+      "sha256": "9a664478135758e406e84c5b414ccfbb0f52f440dbd649b96845c72ff18bbdb0"
+    },
+    "benchmark/development.labels.jsonl": {
+      "bytes": 300946,
+      "sha256": "1478cdbb6eaccb064424d99435dd57cc2a30e375cbbeb7e516639d2005890dbc"
+    },
+    "benchmark/holdout.inputs.json": {
+      "bytes": 52820,
+      "sha256": "66d6206bd8e306211f16d67b6aa54556d062e791717a0ebcf6b3c11c4391ecea"
+    },
+    "benchmark/holdout.labels.jsonl": {
+      "bytes": 166320,
+      "sha256": "eef157ae303f1ee02a677669ac8c41072fea335359509fa2549b0c9616054fce"
+    },
+    "benchmark/manifest.json": {
+      "bytes": 4186,
+      "sha256": "2fde7e0d00b95b99a6cad5f3888fe75c2906e5fc2b7c4e38215e5791c1fab4e2"
+    },
+    "benchmark/validation.inputs.json": {
+      "bytes": 56392,
+      "sha256": "c8c310923cde2df25b917223be7b3ff1aa0eda07ec555a44962bedbc20f144ee"
+    },
+    "benchmark/validation.labels.jsonl": {
+      "bytes": 98749,
+      "sha256": "7b61b9f87230cff7014baa6bbc7da1ef3a164de7e4246c471c34c9e8cc7b126b"
+    },
+    "generate_dataset.py": {
+      "bytes": 78458,
+      "sha256": "72dc0d23df210e8c67fb63cb98b28beb170e0bc5805785cd2f765c052585894a"
+    }
+  },
+  "holdout_categories": {
+    "bug": 52,
+    "feature_request": 34,
+    "how_to": 8,
+    "other": 8,
+    "service_request": 8,
+    "unknown": 10
+  },
+  "seed": 20261109,
+  "source_byte_identity_verified_main_revision": "3f024406e892f6649cbc8469302d60b6205b2922",
+  "status": "frozen",
+  "verification": {
+    "all_negative_structural_checks_rejected": true,
+    "byte_reproducibility": "passed",
+    "generated_files_compared": 9,
+    "model_execution": false,
+    "negative_structural_checks": 5,
+    "schema_and_product_isolation": "passed"
+  }
+}
