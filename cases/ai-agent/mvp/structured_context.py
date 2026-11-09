@@ -11,7 +11,7 @@ from benchmark.metrics import CATEGORIES
 from ollama_embeddings import urlopen
 from ticket_context import ACTIONABLE, TicketContext, classify_context, sanitized_text
 
-VERSION = "structured-context-v1"
+VERSION = "structured-context-v1.1"
 MODEL = "qwen3.5:4b"
 BASE_URL = "http://127.0.0.1:11434"
 TIMEOUT = 90
@@ -65,6 +65,7 @@ _DETACHED = re.compile(
 _WORD = re.compile(r"[а-яa-z0-9]+")
 _RUSSIAN = re.compile(r"[а-я]{4,}")
 _NEGATORS = {"не", "нет", "без"}
+_NEGATION_PREFIX = re.compile(r"\b(?:не|нет|без)\s+(?:совсем\s+)?[«\"'(]?\s*$")
 _MASK = re.compile(r"\[(?:PHONE|EMAIL)\]")
 _VETO = {"untrusted_instruction", "mixed_intents", "missing_evidence"}
 
@@ -175,12 +176,13 @@ def _validated(source, proposal, baseline):
     )
     next_clause = _CLAUSE.search(source, right)
     context_end = next_clause.start() if next_clause else len(source)
-    if _UNOBSERVED.search(_normalized(source[context_start:context_end])):
+    observed_context = _normalized(source[context_start:context_end])
+    if _UNOBSERVED.search(observed_context):
         return _refusal("unobserved_context")
-    if _DETACHED.search(
-        _normalized(source[left : max(operation_span[0], symptom_span[0])])
-    ):
+    if _DETACHED.search(observed_context):
         return _refusal("unrelated_evidence")
+    if _NEGATION_PREFIX.search(_normalized(source[context_start : symptom_span[0]])):
+        return _refusal("negation_outside_evidence")
     if not _anchored(operation, proposal["operation_quote"]) or not _anchored(
         symptom, proposal["symptom_quote"], preserve_negation=True
     ):

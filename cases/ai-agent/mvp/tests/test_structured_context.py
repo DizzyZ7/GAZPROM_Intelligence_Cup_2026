@@ -116,6 +116,20 @@ class StructuredContextTests(unittest.TestCase):
         self.assertEqual(result.context.reason, "unrelated_evidence")
         self.assertFalse(result.context.groupable)
 
+    def test_wide_overlapping_quotes_do_not_bypass_detachment(self):
+        source = "Продление сертификата прошло успешно. В другой форме окно закрывается без сохранения"
+        proposal = dict(REPLY, operation_quote=source, symptom_quote=source)
+        result = extract_context(source, Mock(return_value=proposal))
+        self.assertEqual(result.context.reason, "unrelated_evidence")
+        self.assertFalse(result.context.groupable)
+
+    def test_evidence_cannot_cut_off_the_symptom_negation(self):
+        source = "На шаге продления сертификата окно не закрывается без сохранения."
+        proposal = dict(REPLY, symptom_quote="закрывается без сохранения")
+        result = extract_context(source, Mock(return_value=proposal))
+        self.assertEqual(result.context.reason, "negation_outside_evidence")
+        self.assertFalse(result.context.groupable)
+
     def test_ambiguous_model_result_does_not_become_a_candidate(self):
         proposal = dict.fromkeys(REPLY, "")
         proposal["category"] = "unknown"
