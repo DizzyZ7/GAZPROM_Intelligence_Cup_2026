@@ -1,0 +1,17 @@
+{
+  "configuration_sha256": "968b237e7d513f05dc9dc217c45e34f4fe226b7beeab1c5c898932405ff27170",
+  "files": {
+    "candidates.csv": "6631c18d3db7f3e8f3d85add30b47f38c064cb5aa506fbd043b097dddba09ee9",
+    "comparison.csv": "86332028d33115a7e1bab390d4e9986087f62c5b15b2958b766dc1aac92a5976",
+    "errors.json": "4733ae178e0a4e99c4a8ca04481cdedb4d925b61b865d56a1d86a373fd33ebae",
+    "evidence.json": "0cd83e26798d655c94a5231bfebb6115caaa4d21eba0a2fb94b8c85f5787291b",
+    "grid.csv": "784d6c12719519fab98851255d3d06ad67ac07459600f469fa31ded3e4e50eca",
+    "report.json": "74fa4a778d91710f281f84a362aa68afe434e74f8c095c534d5fcb5da791ad27"
+  },
+  "inputs": {
+    "dataset_manifest_sha256": "8ba65f6a57621a90d7e36a7b02d18764e72b85b01eb306c94e9bbd6ae1b3ce9e",
+    "evidence_sha256": "7da390ec2ac5ac3634a4aa2d12baf52f55582831c4f42e0b78673dd078532d1c",
+    "inputs_sha256": "403bd05a192baf1b31de8560f4f0217b8ce9619041831458a3d7d0dd93d8893a"
+  },
+  "split": "validation"
+}

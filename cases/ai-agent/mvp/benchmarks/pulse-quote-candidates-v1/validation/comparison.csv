@@ -1,0 +1,3 @@
+method,pair_count,tp,fp,fn,tn,precision,recall,f1,missed_repeat_fraction,irrelevant_candidate_fraction
+normalized,435,0,0,12,423,0.0,0.0,0.0,1.0,
+semantic,435,1,0,11,423,1.0,0.08333333333333333,0.15384615384615385,0.9166666666666666,0.0
