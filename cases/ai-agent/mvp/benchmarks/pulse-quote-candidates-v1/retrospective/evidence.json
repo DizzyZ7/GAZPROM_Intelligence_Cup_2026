@@ -1,0 +1,375 @@
+[
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_002ad2f6aea249afafa7"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_0417f277dc3b4bcbb399"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "Печатаю наклейки из списка",
+      "operation_span": [
+        0,
+        26
+      ],
+      "product": "cedar_seal",
+      "source_sha256": "459dfc9ffe2d7d0cc8a41b73c734e20c9c87246e849c3f6e1fefc0b23e99a49b",
+      "symptom": "Из принтера выходит пустой лист",
+      "symptom_span": [
+        28,
+        59
+      ],
+      "ticket_id": "t_19a0ce4e315642e48e8d"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "t_19a0ce4e315642e48e8d"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_1b5870dae9c0418dafa1"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_2242c2a05ed044ec921f"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_23d5be37fa294ef58232"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_25f1405d6755411094c0"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_28776d6c90934809be70"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_2d6718b3211f4cf79fc7"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_3175d1ce222c427c91cb"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|",
+        "ни одн"
+      ],
+      "operation": "отправляю стикеры на принтер",
+      "operation_span": [
+        19,
+        47
+      ],
+      "product": "cedar_seal",
+      "source_sha256": "567c7acf11de55d36e3239aa573eb56fa374317aeacac68011f5da1c07051033",
+      "symptom": "Страница выходит белая целиком, ни одной надписи",
+      "symptom_span": [
+        49,
+        97
+      ],
+      "ticket_id": "t_4ee5c695e2a64c4b90f0"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "t_4ee5c695e2a64c4b90f0"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_4fa7c473d67f4d3985d4"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_60b41fedde284593b240"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|",
+        "не найд"
+      ],
+      "operation": "считываю штрихкод пробирки",
+      "operation_span": [
+        20,
+        46
+      ],
+      "product": "amber_hive",
+      "source_sha256": "00306457dc90929d74505c74a2517ce317b1d5ec00768005155710c42b1a4986",
+      "symptom": "появляется «Q41: штатив не найден»",
+      "symptom_span": [
+        48,
+        82
+      ],
+      "ticket_id": "t_682822fdbc454a1ea493"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "t_682822fdbc454a1ea493"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "После сохранения брони причала через полночь система отнимает у даты освобождения сутки",
+      "operation_span": [
+        0,
+        87
+      ],
+      "product": "lunar_quay",
+      "source_sha256": "b09a5eef66a26f2dc7137bc32a39029ffd7b06850c38eda45228e0606b28820c",
+      "symptom": "Ввела понедельник 01:20, в сохранённой карточке воскресенье 01:20",
+      "symptom_span": [
+        89,
+        154
+      ],
+      "ticket_id": "t_6cab1434420e4afeb501"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "t_6cab1434420e4afeb501"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_7507fbf036464ca8af3b"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_7f4607eb3a12406a9a86"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "Вручную запускаю один полив секции",
+      "operation_span": [
+        0,
+        34
+      ],
+      "product": "moss_route",
+      "source_sha256": "4c525cb64000ae7984657e42993352ed4e311ee084a6ad6627d5d47ec3c40e53",
+      "symptom": "два старта подряд с разницей в секунду, и клапан открывается дважды",
+      "symptom_span": [
+        46,
+        113
+      ],
+      "ticket_id": "t_7f4c1a327205425e8626"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "t_7f4c1a327205425e8626"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "У нового номера плавный уход длится ноль секунд",
+      "operation_span": [
+        54,
+        101
+      ],
+      "product": "flint_stage",
+      "source_sha256": "cb4f0468c11bf1ed47b05e920741422cc610a81eed20ac402edc3d300216797b",
+      "symptom": "в исходнике было четыре",
+      "symptom_span": [
+        103,
+        126
+      ],
+      "ticket_id": "t_8adcafef7bb54f95b386"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "t_8adcafef7bb54f95b386"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_8b789f8945d54003a8b1"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "Вписываю 6 секунд",
+      "operation_span": [
+        51,
+        68
+      ],
+      "product": "flint_stage",
+      "source_sha256": "90c1568a9d49a4314eed2e7707afdb87f924f3b1a8419bcd8f1e8134486a2029",
+      "symptom": "после «Применить» там ноль",
+      "symptom_span": [
+        70,
+        96
+      ],
+      "ticket_id": "t_8ba7e6d1f3704a8380e5"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "t_8ba7e6d1f3704a8380e5"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_97322eab52df493b992d"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|",
+        "не сохраня"
+      ],
+      "operation": "Копирую световую сцену",
+      "operation_span": [
+        0,
+        22
+      ],
+      "product": "flint_stage",
+      "source_sha256": "5bf2fb68fc77c858ab31faef98aa82a4e244fb3293c5e51cf1d166e11372d692",
+      "symptom": "В дубликате время затухания не сохраняется, становится 0 сек",
+      "symptom_span": [
+        24,
+        84
+      ],
+      "ticket_id": "t_9fbfced69d9d488eb853"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "t_9fbfced69d9d488eb853"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_a21c0cf3169541eda7c9"
+  },
+  {
+    "quote": null,
+    "reason": "incomplete_negative_scope",
+    "ticket_id": "t_a984a2ed0e184a1986c5"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_aec7d844c2604e5b839d"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_cd10139fda0247bf8d0b"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_d923a47d200449e682b3"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "Делаю копию световой сцены",
+      "operation_span": [
+        0,
+        26
+      ],
+      "product": "flint_stage",
+      "source_sha256": "cb1006e8d3e4d54925acecdad1aacd936c4fe16fde559a07c2ba4758be4f5939",
+      "symptom": "из списка пропадает исходная сцена",
+      "symptom_span": [
+        30,
+        64
+      ],
+      "ticket_id": "t_dbc86b79d19e46f6bea6"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "t_dbc86b79d19e46f6bea6"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_dd2fdba66e1f4bf9be78"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_e68b8deb702343438d9c"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_e999b35b0e00416c8b76"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_eda383c95fa645b5a598"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_ef55c8ad184046b585ef"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "Печатаю наклейки из списка",
+      "operation_span": [
+        0,
+        26
+      ],
+      "product": "moss_route",
+      "source_sha256": "459dfc9ffe2d7d0cc8a41b73c734e20c9c87246e849c3f6e1fefc0b23e99a49b",
+      "symptom": "Из принтера выходит пустой лист",
+      "symptom_span": [
+        28,
+        59
+      ],
+      "ticket_id": "t_f8e61fac173a464a8f6c"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "t_f8e61fac173a464a8f6c"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "t_fadba2ec650c4185a58d"
+  }
+]

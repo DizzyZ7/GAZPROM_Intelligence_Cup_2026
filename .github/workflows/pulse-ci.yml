@@ -53,6 +53,8 @@ jobs:
           ruff format --isolated --check structured_context.py structured_eval.py tests/test_structured*.py
           ruff check --isolated --select E9,F,I span_context.py span_eval.py tests/test_span*.py
           ruff format --isolated --check span_context.py span_eval.py tests/test_span*.py
+          ruff check --isolated --select E9,F,I quote_candidates*.py tests/test_quote_candidates*.py
+          ruff format --isolated --check quote_candidates*.py tests/test_quote_candidates*.py
           bandit -q -r . -x ./tests -ll
       - name: Validate committed dataset
         run: python -m dataset validate --directory datasets/pulse-synthetic-v1
@@ -91,6 +93,11 @@ jobs:
             --reference datasets/pulse-synthetic-v1 \
             --holdout datasets/pulse-span-holdout-v1 \
             --output benchmarks/pulse-span-context-v1
+      - name: Verify quote candidate search evidence
+        run: |
+          python -m quote_candidates_eval verify \
+            --dataset datasets/pulse-quote-search-v1 \
+            --output benchmarks/pulse-quote-candidates-v1
       - name: Verify independent control reproducibility
         run: |
           python datasets/pulse-independent-20261109/generate_dataset.py --check datasets/pulse-independent-20261109/benchmark
