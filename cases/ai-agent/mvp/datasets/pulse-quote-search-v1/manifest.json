@@ -1,0 +1,60 @@
+{
+  "counts": {
+    "holdout": 42,
+    "validation": 30
+  },
+  "dataset_version": "pulse-quote-search-v1",
+  "design_counts": {
+    "holdout": {
+      "abstain_tickets": 8,
+      "evidence": 36,
+      "inputs": 42,
+      "labels": 42,
+      "repeat_clusters": 8,
+      "repeat_tickets": 24,
+      "singleton_tickets": 10,
+      "veto_submissions": 2
+    },
+    "validation": {
+      "abstain_tickets": 6,
+      "evidence": 26,
+      "inputs": 30,
+      "labels": 30,
+      "repeat_clusters": 6,
+      "repeat_tickets": 18,
+      "singleton_tickets": 6,
+      "veto_submissions": 2
+    }
+  },
+  "files": {
+    "README.md": {
+      "bytes": 2931,
+      "sha256": "957941291bf354ca5bcee03e6809e149b895a6d0edeb928f4beded87f163ae91"
+    },
+    "holdout.evidence.json": {
+      "bytes": 10244,
+      "sha256": "9077cbb58b74a0741306371944240d399027cee36334c6d2ae81440df98f55b9"
+    },
+    "holdout.inputs.json": {
+      "bytes": 15995,
+      "sha256": "0f84b64a56889a811dd5a90742e26cc8c6341c9da9e65d0bcb862bd95d20e550"
+    },
+    "holdout.labels.jsonl": {
+      "bytes": 25155,
+      "sha256": "a3762d73a6d8733982b0f3bfebed4c807819b2de8ce97c21260de3d0912c9ff2"
+    },
+    "validation.evidence.json": {
+      "bytes": 7134,
+      "sha256": "7da390ec2ac5ac3634a4aa2d12baf52f55582831c4f42e0b78673dd078532d1c"
+    },
+    "validation.inputs.json": {
+      "bytes": 11387,
+      "sha256": "3c35183e7efefe21a87019fcbbe259bfab2479c8e370e91ff9e745496eacae2b"
+    },
+    "validation.labels.jsonl": {
+      "bytes": 17687,
+      "sha256": "5999f73e385f8144558778d4dd54befc14434c74bf34175c189765b063e6b0d2"
+    }
+  },
+  "schema_version": 1
+}

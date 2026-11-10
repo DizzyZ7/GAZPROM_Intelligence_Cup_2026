@@ -1,0 +1,218 @@
+{
+  "normalized": {
+    "false_candidates": [],
+    "miss_reasons": {
+      "different_negation": 2,
+      "evidence_abstained": 9
+    },
+    "missed_repeats": [
+      {
+        "left": "t_19a0ce4e315642e48e8d",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_23d5be37fa294ef58232",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_19a0ce4e315642e48e8d",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "different_negation",
+        "right": "t_4ee5c695e2a64c4b90f0",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_23d5be37fa294ef58232",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_4ee5c695e2a64c4b90f0",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_25f1405d6755411094c0",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_7f4c1a327205425e8626",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_682822fdbc454a1ea493",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_a984a2ed0e184a1986c5",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_6cab1434420e4afeb501",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_7507fbf036464ca8af3b",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_6cab1434420e4afeb501",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_eda383c95fa645b5a598",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_7507fbf036464ca8af3b",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_eda383c95fa645b5a598",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_8adcafef7bb54f95b386",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "different_negation",
+        "right": "t_9fbfced69d9d488eb853",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_8b789f8945d54003a8b1",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_d923a47d200449e682b3",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_97322eab52df493b992d",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_e999b35b0e00416c8b76",
+        "score": null,
+        "symptom_similarity": null
+      }
+    ]
+  },
+  "semantic": {
+    "false_candidates": [],
+    "miss_reasons": {
+      "different_negation": 2,
+      "evidence_abstained": 9
+    },
+    "missed_repeats": [
+      {
+        "left": "t_19a0ce4e315642e48e8d",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_23d5be37fa294ef58232",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_19a0ce4e315642e48e8d",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "different_negation",
+        "right": "t_4ee5c695e2a64c4b90f0",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_23d5be37fa294ef58232",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_4ee5c695e2a64c4b90f0",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_25f1405d6755411094c0",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_7f4c1a327205425e8626",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_682822fdbc454a1ea493",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_a984a2ed0e184a1986c5",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_6cab1434420e4afeb501",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_7507fbf036464ca8af3b",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_6cab1434420e4afeb501",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_eda383c95fa645b5a598",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_7507fbf036464ca8af3b",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_eda383c95fa645b5a598",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_8adcafef7bb54f95b386",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "different_negation",
+        "right": "t_9fbfced69d9d488eb853",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_8b789f8945d54003a8b1",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_d923a47d200449e682b3",
+        "score": null,
+        "symptom_similarity": null
+      },
+      {
+        "left": "t_97322eab52df493b992d",
+        "normalized_match": false,
+        "operation_similarity": null,
+        "reason": "evidence_abstained",
+        "right": "t_e999b35b0e00416c8b76",
+        "score": null,
+        "symptom_similarity": null
+      }
+    ]
+  }
+}

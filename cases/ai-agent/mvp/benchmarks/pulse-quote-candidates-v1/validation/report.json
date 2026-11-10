@@ -1,0 +1,93 @@
+{
+  "accepted_despite_abstention": [
+    "12bfb092fd172a5f"
+  ],
+  "accepted_evidence": 15,
+  "embedding_status": "checked",
+  "evidence_reasons": {
+    "ambiguous_negation": 2,
+    "context_resolved": 15,
+    "no_evidence": 4,
+    "non_actionable_category": 6,
+    "unobserved_context": 1,
+    "untrusted_instruction": 1,
+    "unverified_evidence": 1
+  },
+  "gold_positive_pairs": 12,
+  "guard_eligible_gold_pairs": 3,
+  "mandatory_abstentions": 6,
+  "methods": {
+    "normalized": {
+      "candidate_pairs": {
+        "f1": 0.0,
+        "fn": 12,
+        "fp": 0,
+        "irrelevant_candidate_fraction": null,
+        "missed_repeat_fraction": 1.0,
+        "pair_count": 435,
+        "precision": 0.0,
+        "recall": 0.0,
+        "tn": 423,
+        "tp": 0
+      },
+      "retrieval_top_k": {
+        "k": 3,
+        "precision_at_k": 0.0,
+        "queries_with_repeats": 12,
+        "query_hit_fraction": 0.0,
+        "recall_at_k": 0.0,
+        "relevant_neighbors": 24,
+        "returned_neighbors": 0,
+        "returned_precision_at_k": 0.0
+      }
+    },
+    "semantic": {
+      "candidate_pairs": {
+        "f1": 0.15384615384615385,
+        "fn": 11,
+        "fp": 0,
+        "irrelevant_candidate_fraction": 0.0,
+        "missed_repeat_fraction": 0.9166666666666666,
+        "pair_count": 435,
+        "precision": 1.0,
+        "recall": 0.08333333333333333,
+        "tn": 423,
+        "tp": 1
+      },
+      "retrieval_top_k": {
+        "k": 3,
+        "precision_at_k": 0.022222222222222223,
+        "queries_with_repeats": 12,
+        "query_hit_fraction": 0.16666666666666666,
+        "recall_at_k": 0.08333333333333333,
+        "relevant_neighbors": 24,
+        "returned_neighbors": 2,
+        "returned_precision_at_k": 1.0
+      }
+    }
+  },
+  "model": {
+    "digest": "7907646426070047a77226ac3e684fbbe8410524f7b4a74d02837e43f2146bab",
+    "model": "bge-m3:567m",
+    "ollama_version": "0.40.15"
+  },
+  "non_product_grouped_tickets": 6,
+  "pair_guards": {
+    "context_pass": 6,
+    "different_category": 2,
+    "different_error_code": 19,
+    "different_negation": 10,
+    "different_product": 68,
+    "evidence_abstained": 330
+  },
+  "performance": {
+    "embedded_fragments": 17,
+    "embedded_tickets": 9,
+    "scoring_seconds": 1.0324747469999238,
+    "tickets_per_second": 29.05640073732691,
+    "vector_dimensions": 1024
+  },
+  "split": "validation",
+  "threshold": 0.7,
+  "tickets": 30
+}

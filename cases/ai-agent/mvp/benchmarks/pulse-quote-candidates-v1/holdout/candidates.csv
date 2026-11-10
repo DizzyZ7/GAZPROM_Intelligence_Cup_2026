@@ -1,0 +1,3 @@
+method,query,neighbor,rank,product,category,operation_similarity,symptom_similarity,score,status
+semantic,eed2ebd81d920835,ffbf95983d71c445,1,pulse-flow,bug,0.76238732,0.84121969,0.76238732,pending_human_review
+semantic,ffbf95983d71c445,eed2ebd81d920835,1,pulse-flow,bug,0.76238732,0.84121969,0.76238732,pending_human_review

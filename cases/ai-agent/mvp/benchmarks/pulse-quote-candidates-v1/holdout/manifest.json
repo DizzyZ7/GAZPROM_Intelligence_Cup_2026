@@ -1,0 +1,16 @@
+{
+  "configuration_sha256": "968b237e7d513f05dc9dc217c45e34f4fe226b7beeab1c5c898932405ff27170",
+  "files": {
+    "candidates.csv": "cc5a882e2458326477a87bd3f3a816e5f40b33522169c3fe5329f1b3c4d5b313",
+    "comparison.csv": "f9773ecc0916dcd9fba686c95e855cc46374b38e7f1d9ff7447607bf292be8dc",
+    "errors.json": "cf10a364a2b0bf9419eff6f85d1224ad01e56335dd3352b05ec34ca1ef3f85ea",
+    "evidence.json": "4506e261c30cfe2d85eb24a6e0f2ada28678221e44512949b3e98649a6af768d",
+    "report.json": "058699542ffc0d0bf208b390d10e6ff3b614579627987ecb3695046afa2e8d5a"
+  },
+  "inputs": {
+    "dataset_manifest_sha256": "8ba65f6a57621a90d7e36a7b02d18764e72b85b01eb306c94e9bbd6ae1b3ce9e",
+    "evidence_sha256": "9077cbb58b74a0741306371944240d399027cee36334c6d2ae81440df98f55b9",
+    "inputs_sha256": "edcd43449e5830b60ae6ab1ed19417e9ae0a4d799885def6321e1f58149e5bb6"
+  },
+  "split": "holdout"
+}

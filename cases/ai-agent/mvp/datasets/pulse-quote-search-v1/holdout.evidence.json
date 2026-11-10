@@ -1,0 +1,218 @@
+[
+  {
+    "ticket_id": "02d57c7cbc814392",
+    "category": "bug",
+    "operation_quote": "«Вернуть на карту» из уже пробитого чека",
+    "symptom_quote": "До покупателя деньги так и не дошли, отказ RFD-431"
+  },
+  {
+    "ticket_id": "eed2ebd81d920835",
+    "category": "bug",
+    "operation_quote": "добавления условного подписанта в схему",
+    "symptom_quote": "два обязательных подписанта меняются местами"
+  },
+  {
+    "ticket_id": "3b2b508f73e19d0f",
+    "category": "bug",
+    "operation_quote": "включить запись завершённого исходящего звонка",
+    "symptom_quote": "в Bluetooth-гарнитуре нет звука"
+  },
+  {
+    "ticket_id": "08fdef98336a842d",
+    "category": "service_request",
+    "operation_quote": "изменить политику хранения записей аудита",
+    "symptom_quote": "Поставьте порог удаления событий на 180 дней"
+  },
+  {
+    "ticket_id": "7b4091be7f2738cb",
+    "category": "bug",
+    "operation_quote": "Оформила возврат покупки из карточки фискального чека",
+    "symptom_quote": "RFD-431: деньги не возвращены"
+  },
+  {
+    "ticket_id": "f63a4d241054dedd",
+    "category": "bug",
+    "operation_quote": "возврате оплаты по фискальному чеку",
+    "symptom_quote": "операция отклоняется с RFD-413, сумма не уходит на карту"
+  },
+  {
+    "ticket_id": "1ac538e9d5c0b6d8",
+    "category": "bug",
+    "operation_quote": "слиянии двух карточек товара",
+    "symptom_quote": "возврат отклоняется с RFD-431"
+  },
+  {
+    "ticket_id": "bb84ae86e6c6b06e",
+    "category": "bug",
+    "operation_quote": "закреплении внутренней заметки над перепиской",
+    "symptom_quote": "кнопки закрепления нет"
+  },
+  {
+    "ticket_id": "ffbf95983d71c445",
+    "category": "bug",
+    "operation_quote": "Вставили подписанта, который участвует по условию",
+    "symptom_quote": "первый и второй обязательные подписанты поменялись очередью"
+  },
+  {
+    "ticket_id": "314c847c089f1b2d",
+    "category": "bug",
+    "operation_quote": "свела две записи об одном товаре в одну",
+    "symptom_quote": "По запасной наклейке поиск пустой, в списке кодов её больше нет"
+  },
+  {
+    "ticket_id": "fec879f99e0b0e64",
+    "category": "bug",
+    "operation_quote": "Подключили его к цепочке подписей через развилку по сумме",
+    "symptom_quote": "из двух безусловных участников подписывает первым тот, кто был вторым"
+  },
+  {
+    "ticket_id": "bad03692fd669760",
+    "category": "bug",
+    "operation_quote": "возврате оплаты по фискальному чеку",
+    "symptom_quote": "операция отклонится с RFD-431"
+  },
+  {
+    "ticket_id": "dcbfb52e6363801d",
+    "category": "bug",
+    "operation_quote": "объединения двух карточек одного товара",
+    "symptom_quote": "дополнительный штрихкод исчезает из итоговой карточки"
+  },
+  {
+    "ticket_id": "3026f5691114fafa",
+    "category": "bug",
+    "operation_quote": "включить голосовое сообщение из чата",
+    "symptom_quote": "таймер не двигается, но в Bluetooth-гарнитуре звук есть"
+  },
+  {
+    "ticket_id": "34a8b9bd763fa80a",
+    "category": "bug",
+    "operation_quote": "Пускаю аудиосообщение собеседника из переписки",
+    "symptom_quote": "через беспроводные наушники слышно только тишину"
+  },
+  {
+    "ticket_id": "994a625881e72f8e",
+    "category": "bug",
+    "operation_quote": "слушаю войс в переписке",
+    "symptom_quote": "На блютузных ушах ни слова, бегунок при этом двигается"
+  },
+  {
+    "ticket_id": "64426919c230c393",
+    "category": "bug",
+    "operation_quote": "возврата оплаты по фискальному чеку",
+    "symptom_quote": "подтверждение для покупателя не печатается, хотя возврат завершён"
+  },
+  {
+    "ticket_id": "87f0a6cc7a444e68",
+    "category": "service_request",
+    "operation_quote": "поднять журнал аудита пилотного арендатора из архива",
+    "symptom_quote": "Для сверки нужны уже удалённые из интерфейса записи за январь"
+  },
+  {
+    "ticket_id": "cf221a67183702dd",
+    "category": "service_request",
+    "operation_quote": "отодвинуть автоочистку контрольного следа для пилотного арендатора",
+    "symptom_quote": "чтобы события аудита были доступны полгода, то есть 180 дней"
+  },
+  {
+    "ticket_id": "fe27d8a7ba6b0658",
+    "category": "feature_request",
+    "operation_quote": "работы с комментариями для коллег",
+    "symptom_quote": "добавьте возможность оставить один комментарий сверху постоянно"
+  },
+  {
+    "ticket_id": "7fcc95df15639d10",
+    "category": "bug",
+    "operation_quote": "перевыпуска ключа проверки подписи для вебхуков",
+    "symptom_quote": "событие со штампом на прежнем секрете всё равно приняли"
+  },
+  {
+    "ticket_id": "35781dc86dc846b7",
+    "category": "bug",
+    "operation_quote": "ротации секрета подписи вебхука",
+    "symptom_quote": "проверка всё ещё принимает подпись со старым секретом"
+  },
+  {
+    "ticket_id": "fe682468eb735989",
+    "category": "feature_request",
+    "operation_quote": "передаче смены через служебный комментарий",
+    "symptom_quote": "прикалывать эту заметку над диалогом, чтобы она оставалась наверху"
+  },
+  {
+    "ticket_id": "c332f1424b8f40c0",
+    "category": "bug",
+    "operation_quote": "включить голосовое сообщение из чата",
+    "symptom_quote": "в Bluetooth-гарнитуре нет звука"
+  },
+  {
+    "ticket_id": "eff8052df165c7d9",
+    "category": "bug",
+    "operation_quote": "Сменили ключ для подписывания обратных вызовов",
+    "symptom_quote": "Прежний ключ не перестал проходить проверку"
+  },
+  {
+    "ticket_id": "85e3f821b551c62c",
+    "category": "bug",
+    "operation_quote": "возврате оплаты по фискальному чеку",
+    "symptom_quote": "операция отклоняется с RFD-431, сумма не уходит на карту"
+  },
+  {
+    "ticket_id": "17ebcfd888fc0f82",
+    "category": "bug",
+    "operation_quote": "слили дубль позиции с основной записью",
+    "symptom_quote": "второй код для сканера потерялся"
+  },
+  {
+    "ticket_id": "128b3259fc255cd7",
+    "category": "bug",
+    "operation_quote": "возврате оплаты по фискальному чеку",
+    "symptom_quote": "операция отклоняется с RFD-431, сумма не уходит на карту"
+  },
+  {
+    "ticket_id": "6086370209e69a50",
+    "category": "bug",
+    "operation_quote": "импорта нового прайс-листа",
+    "symptom_quote": "дополнительный штрихкод исчезает из итоговой карточки"
+  },
+  {
+    "ticket_id": "360e048a449887fe",
+    "category": "feature_request",
+    "operation_quote": "закреплении внутренней заметки над перепиской",
+    "symptom_quote": "кнопки закрепления нет"
+  },
+  {
+    "ticket_id": "dd733faf06de3364",
+    "category": "how_to",
+    "operation_quote": "выгрузить наблюдателей обращения",
+    "symptom_quote": "не нахожу скачивание списка наблюдателей в CSV"
+  },
+  {
+    "ticket_id": "1375f4d6d9cd97fa",
+    "category": "how_to",
+    "operation_quote": "забрать из карточки всех, кто поставил её на отслеживание",
+    "symptom_quote": "Подскажите, как скачать этих людей таблицей CSV"
+  },
+  {
+    "ticket_id": "e1215299ded175a5",
+    "category": "how_to",
+    "operation_quote": "экспортировать подписчиков одной заявки",
+    "symptom_quote": "Где взять CSV с теми, кто только следит за обращением"
+  },
+  {
+    "ticket_id": "a6414ce6faee6146",
+    "category": "bug",
+    "operation_quote": "печати этикетки из PDF",
+    "symptom_quote": "буква «Ӧ» заменяется пустым квадратом"
+  },
+  {
+    "ticket_id": "bdbab28108d091c0",
+    "category": "service_request",
+    "operation_quote": "продлить хранение журнала аудита",
+    "symptom_quote": "для пилота нужен срок 180 дней"
+  },
+  {
+    "ticket_id": "99d79ce20915507f",
+    "category": "bug",
+    "operation_quote": "ротации секрета подписи вебхука",
+    "symptom_quote": "подпись с новым секретом не проходит, старый тоже уже отклоняется"
+  }
+]

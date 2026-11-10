@@ -1,0 +1,158 @@
+[
+  {
+    "ticket_id": "644027175fe668b4",
+    "category": "bug",
+    "operation_quote": "публикации ночного графика",
+    "symptom_quote": "появится ошибка SCH-218"
+  },
+  {
+    "ticket_id": "2c593ba8ac2e650f",
+    "category": "bug",
+    "operation_quote": "«Опубликовать» на расписании ночных смен",
+    "symptom_quote": "Ночная сетка так и висит в черновиках, в ответе SCH-218"
+  },
+  {
+    "ticket_id": "33c44e094b9af587",
+    "category": "bug",
+    "operation_quote": "отправить расписание ночных смен из черновика в общий доступ",
+    "symptom_quote": "SCH-218, график не публикуется"
+  },
+  {
+    "ticket_id": "bba2f53fd2ded066",
+    "category": "bug",
+    "operation_quote": "Настроили повторное уведомление о согласовании через 24 часа",
+    "symptom_quote": "у следующего согласующего в почте пусто"
+  },
+  {
+    "ticket_id": "229e898cb13cbec5",
+    "category": "how_to",
+    "operation_quote": "проследить передачи обращения между операторами",
+    "symptom_quote": "восстановить, кто забрал его у прежнего владельца и в какой момент"
+  },
+  {
+    "ticket_id": "7ca6cfab8078bbc0",
+    "category": "bug",
+    "operation_quote": "публикации ночного графика",
+    "symptom_quote": "в общей сетке ночные отметки не видны, сам график опубликован"
+  },
+  {
+    "ticket_id": "49c2a96a58718d6a",
+    "category": "bug",
+    "operation_quote": "импортировала как Excel-табель",
+    "symptom_quote": "размножила записи по каждому работнику"
+  },
+  {
+    "ticket_id": "210f4acd269a718c",
+    "category": "bug",
+    "operation_quote": "обновления подписки на календарь по ссылке",
+    "symptom_quote": "события на последний день февраля сдвигаются на 15 минут"
+  },
+  {
+    "ticket_id": "47ebdcc0943117d5",
+    "category": "bug",
+    "operation_quote": "публикации ночного графика",
+    "symptom_quote": "ошибка SCH-218, расписание остаётся черновиком"
+  },
+  {
+    "ticket_id": "ac31221507c6993e",
+    "category": "bug",
+    "operation_quote": "публикации ночного графика",
+    "symptom_quote": "ошибка SCH-281, расписание остаётся черновиком"
+  },
+  {
+    "ticket_id": "12bfb092fd172a5f",
+    "category": "bug",
+    "operation_quote": "суточного напоминания о согласовании",
+    "symptom_quote": "согласующему не пришло письмо"
+  },
+  {
+    "ticket_id": "0c05ab435271f1d7",
+    "category": "bug",
+    "operation_quote": "маршрут должен повторно напоминать об ожидающей визе через сутки",
+    "symptom_quote": "Очередной визирующий так и не получил почтовый пинг"
+  },
+  {
+    "ticket_id": "baa6df7351c43383",
+    "category": "service_request",
+    "operation_quote": "подключить команду финаудита к пробной среде",
+    "symptom_quote": "дать смотреть данные, запретив изменения"
+  },
+  {
+    "ticket_id": "26b604b5c0773c3d",
+    "category": "service_request",
+    "operation_quote": "выдать доступ к тестовому контуру",
+    "symptom_quote": "финансовым аудиторам нужна роль только для чтения"
+  },
+  {
+    "ticket_id": "ad8a93b42aff1766",
+    "category": "bug",
+    "operation_quote": "подтягиваю учёт рабочего времени из файла .xlsx",
+    "symptom_quote": "у каждой фамилии появилась вторая такая же запись"
+  },
+  {
+    "ticket_id": "2533900fc4329209",
+    "category": "bug",
+    "operation_quote": "публикации ночного графика",
+    "symptom_quote": "ошибка SCH-218, расписание остаётся черновиком"
+  },
+  {
+    "ticket_id": "c6d5cb686bf1f44a",
+    "category": "feature_request",
+    "operation_quote": "макросам для ответа",
+    "symptom_quote": "брать первое имя адресата из его карточки прямо в текст"
+  },
+  {
+    "ticket_id": "30cfa8290fcfaa20",
+    "category": "bug",
+    "operation_quote": "вставке имени клиента в шаблон ответа",
+    "symptom_quote": "переменной имени клиента нет"
+  },
+  {
+    "ticket_id": "a7ab00d4f8ccfb49",
+    "category": "bug",
+    "operation_quote": "загрузке табеля из XLSX",
+    "symptom_quote": "две одинаковые строки на сотрудника"
+  },
+  {
+    "ticket_id": "482b2808c5dc52b5",
+    "category": "bug",
+    "operation_quote": "копировании табеля прошлого месяца",
+    "symptom_quote": "две одинаковые строки на сотрудника"
+  },
+  {
+    "ticket_id": "d78b69271e7a41f1",
+    "category": "feature_request",
+    "operation_quote": "вставке имени клиента в шаблон ответа",
+    "symptom_quote": "переменной имени клиента нет"
+  },
+  {
+    "ticket_id": "de4619477b3b1065",
+    "category": "feature_request",
+    "operation_quote": "создании шаблонного ответа",
+    "symptom_quote": "обращение могло автоматически подставлять имя заказчика"
+  },
+  {
+    "ticket_id": "a41373a4d5affa10",
+    "category": "service_request",
+    "operation_quote": "настроить права команды в песочнице",
+    "symptom_quote": "Группе финансового аудита хватит просмотра без редактирования"
+  },
+  {
+    "ticket_id": "7612d174ce3ec690",
+    "category": "bug",
+    "operation_quote": "отправки суточного напоминания о согласовании",
+    "symptom_quote": "следующему согласующему не приходит письмо"
+  },
+  {
+    "ticket_id": "a119450339657ed7",
+    "category": "how_to",
+    "operation_quote": "посмотреть журнал смены ответственных по заявке",
+    "symptom_quote": "Где узнать автора переадресации и время"
+  },
+  {
+    "ticket_id": "6f6fcea7b5499bd9",
+    "category": "how_to",
+    "operation_quote": "Открыла историю назначения исполнителя",
+    "symptom_quote": "не нахожу, кто и когда сменил ответственного"
+  }
+]

@@ -1,0 +1,441 @@
+[
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "03c1ef6557dd7a9d"
+  },
+  {
+    "quote": null,
+    "reason": "untrusted_instruction",
+    "ticket_id": "0c05ab435271f1d7"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|",
+        "не пришл"
+      ],
+      "operation": "суточного напоминания о согласовании",
+      "operation_span": [
+        12,
+        48
+      ],
+      "product": "pulse-flow",
+      "source_sha256": "7237be187e575273e96304c6831c762363d80681af198d4bc5f9b1ee2328ff8f",
+      "symptom": "согласующему не пришло письмо",
+      "symptom_span": [
+        49,
+        78
+      ],
+      "ticket_id": "12bfb092fd172a5f"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "12bfb092fd172a5f"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "обновления подписки на календарь по ссылке",
+      "operation_span": [
+        6,
+        48
+      ],
+      "product": "pulse-flow",
+      "source_sha256": "eed961ce383825c1b30cb9e768d437f70834f53ffff210a8f44ec7fc81efb07c",
+      "symptom": "события на последний день февраля сдвигаются на 15 минут",
+      "symptom_span": [
+        49,
+        105
+      ],
+      "ticket_id": "210f4acd269a718c"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "210f4acd269a718c"
+  },
+  {
+    "quote": null,
+    "reason": "non_actionable_category",
+    "ticket_id": "229e898cb13cbec5"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": "SCH-218",
+      "negation": [
+        "|"
+      ],
+      "operation": "публикации ночного графика",
+      "operation_span": [
+        3,
+        29
+      ],
+      "product": "pulse-core",
+      "source_sha256": "be615c87ef01f5c7ae0f4cd716fdb28bcd3b24559103c66885fc770952c4d4ba",
+      "symptom": "ошибка SCH-218, расписание остаётся черновиком",
+      "symptom_span": [
+        40,
+        86
+      ],
+      "ticket_id": "2533900fc4329209"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "2533900fc4329209"
+  },
+  {
+    "quote": null,
+    "reason": "non_actionable_category",
+    "ticket_id": "26b604b5c0773c3d"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": "SCH-218",
+      "negation": [
+        "|"
+      ],
+      "operation": "«Опубликовать» на расписании ночных смен",
+      "operation_span": [
+        78,
+        118
+      ],
+      "product": "pulse-core",
+      "source_sha256": "d08130ce1fcf6646eedee7e5540d2492506ebf65c9f092f30aab4a7439d8712d",
+      "symptom": "Ночная сетка так и висит в черновиках, в ответе SCH-218",
+      "symptom_span": [
+        0,
+        55
+      ],
+      "ticket_id": "2c593ba8ac2e650f"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "2c593ba8ac2e650f"
+  },
+  {
+    "quote": null,
+    "reason": "ambiguous_negation",
+    "ticket_id": "30cfa8290fcfaa20"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": "SCH-218",
+      "negation": [
+        "|",
+        "не публик"
+      ],
+      "operation": "отправить расписание ночных смен из черновика в общий доступ",
+      "operation_span": [
+        7,
+        67
+      ],
+      "product": "pulse-core",
+      "source_sha256": "b66fe8539cfc922963b58798f38e1e4edb0432bec4832e2c320c4f98bfaa2d8b",
+      "symptom": "SCH-218, график не публикуется",
+      "symptom_span": [
+        87,
+        117
+      ],
+      "ticket_id": "33c44e094b9af587"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "33c44e094b9af587"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": "SCH-218",
+      "negation": [
+        "|"
+      ],
+      "operation": "публикации ночного графика",
+      "operation_span": [
+        3,
+        29
+      ],
+      "product": "pulse-desk",
+      "source_sha256": "be615c87ef01f5c7ae0f4cd716fdb28bcd3b24559103c66885fc770952c4d4ba",
+      "symptom": "ошибка SCH-218, расписание остаётся черновиком",
+      "symptom_span": [
+        40,
+        86
+      ],
+      "ticket_id": "47ebdcc0943117d5"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "47ebdcc0943117d5"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "копировании табеля прошлого месяца",
+      "operation_span": [
+        4,
+        38
+      ],
+      "product": "pulse-core",
+      "source_sha256": "ae70f03948e482332a08b50851a33d18b1a4f93b5e48a59088d95ef57873cac5",
+      "symptom": "две одинаковые строки на сотрудника",
+      "symptom_span": [
+        70,
+        105
+      ],
+      "ticket_id": "482b2808c5dc52b5"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "482b2808c5dc52b5"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "импортировала как Excel-табель",
+      "operation_span": [
+        52,
+        82
+      ],
+      "product": "pulse-core",
+      "source_sha256": "9a18d9cfde7ce4e6759295665e015cd456e330bf45b0283415836b540b1f67dd",
+      "symptom": "размножила записи по каждому работнику",
+      "symptom_span": [
+        96,
+        134
+      ],
+      "ticket_id": "49c2a96a58718d6a"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "49c2a96a58718d6a"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "4f6ac9fed305eba3"
+  },
+  {
+    "quote": null,
+    "reason": "unobserved_context",
+    "ticket_id": "644027175fe668b4"
+  },
+  {
+    "quote": null,
+    "reason": "non_actionable_category",
+    "ticket_id": "6f6fcea7b5499bd9"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|",
+        "не приход"
+      ],
+      "operation": "отправки суточного напоминания о согласовании",
+      "operation_span": [
+        34,
+        79
+      ],
+      "product": "pulse-flow",
+      "source_sha256": "d5763481cfc27458a6fca5dc30689c4713acb7b3641b28c7d0ddf3c09417a49e",
+      "symptom": "следующему согласующему не приходит письмо",
+      "symptom_span": [
+        80,
+        122
+      ],
+      "ticket_id": "7612d174ce3ec690"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "7612d174ce3ec690"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|",
+        "не видн"
+      ],
+      "operation": "публикации ночного графика",
+      "operation_span": [
+        6,
+        32
+      ],
+      "product": "pulse-core",
+      "source_sha256": "e11c5128d75b0aae02ce444a77e1ae29f5d9e425c0bf3590cbc20f2837665fd7",
+      "symptom": "в общей сетке ночные отметки не видны, сам график опубликован",
+      "symptom_span": [
+        68,
+        129
+      ],
+      "ticket_id": "7ca6cfab8078bbc0"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "7ca6cfab8078bbc0"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "8402882d8fdb24df"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "84a913b7903e4301"
+  },
+  {
+    "quote": null,
+    "reason": "non_actionable_category",
+    "ticket_id": "a119450339657ed7"
+  },
+  {
+    "quote": null,
+    "reason": "non_actionable_category",
+    "ticket_id": "a41373a4d5affa10"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "загрузке табеля из XLSX",
+      "operation_span": [
+        4,
+        27
+      ],
+      "product": "pulse-core",
+      "source_sha256": "6200d541ff27993eec494116bcf6cc6aaa39a2dc0b356a7589b50e2c66696425",
+      "symptom": "две одинаковые строки на сотрудника",
+      "symptom_span": [
+        51,
+        86
+      ],
+      "ticket_id": "a7ab00d4f8ccfb49"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "a7ab00d4f8ccfb49"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": "SCH-281",
+      "negation": [
+        "|"
+      ],
+      "operation": "публикации ночного графика",
+      "operation_span": [
+        3,
+        29
+      ],
+      "product": "pulse-core",
+      "source_sha256": "a20b1a0bc3a1bae600c59382dfd927b11bb7be0dda92c5121987309442c64357",
+      "symptom": "ошибка SCH-281, расписание остаётся черновиком",
+      "symptom_span": [
+        40,
+        86
+      ],
+      "ticket_id": "ac31221507c6993e"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "ac31221507c6993e"
+  },
+  {
+    "quote": null,
+    "reason": "unverified_evidence",
+    "ticket_id": "ad8a93b42aff1766"
+  },
+  {
+    "quote": null,
+    "reason": "non_actionable_category",
+    "ticket_id": "baa6df7351c43383"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "Настроили повторное уведомление о согласовании через 24 часа",
+      "operation_span": [
+        0,
+        60
+      ],
+      "product": "pulse-flow",
+      "source_sha256": "bb080c7d5626525eec2658e62be6e46ce25758a4eea7e009dbf34581691c0836",
+      "symptom": "у следующего согласующего в почте пусто",
+      "symptom_span": [
+        80,
+        119
+      ],
+      "ticket_id": "bba2f53fd2ded066"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "bba2f53fd2ded066"
+  },
+  {
+    "quote": {
+      "category": "feature_request",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "макросам для ответа",
+      "operation_span": [
+        92,
+        111
+      ],
+      "product": "pulse-desk",
+      "source_sha256": "6c19ef36335e76686563a87b77a30c9a77aa03e045acc7218267a21c6d8c89d7",
+      "symptom": "брать первое имя адресата из его карточки прямо в текст",
+      "symptom_span": [
+        114,
+        169
+      ],
+      "ticket_id": "c6d5cb686bf1f44a"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "c6d5cb686bf1f44a"
+  },
+  {
+    "quote": null,
+    "reason": "ambiguous_negation",
+    "ticket_id": "d78b69271e7a41f1"
+  },
+  {
+    "quote": {
+      "category": "feature_request",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "создании шаблонного ответа",
+      "operation_span": [
+        17,
+        43
+      ],
+      "product": "pulse-desk",
+      "source_sha256": "e432b8922e94284281ca95f4a1ff190d26d8be8d41e4a7098649007d29da045c",
+      "symptom": "обращение могло автоматически подставлять имя заказчика",
+      "symptom_span": [
+        44,
+        99
+      ],
+      "ticket_id": "de4619477b3b1065"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "de4619477b3b1065"
+  }
+]

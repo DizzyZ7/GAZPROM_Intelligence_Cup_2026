@@ -1,0 +1,600 @@
+[
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": "RFD-431",
+      "negation": [
+        "|",
+        "не дошл"
+      ],
+      "operation": "«Вернуть на карту» из уже пробитого чека",
+      "operation_span": [
+        68,
+        108
+      ],
+      "product": "pulse-core",
+      "source_sha256": "bb35fb148594b9b02cd3064afba22745bd5b2101f1e12109a3d2f6fe275bd671",
+      "symptom": "До покупателя деньги так и не дошли, отказ RFD-431",
+      "symptom_span": [
+        0,
+        50
+      ],
+      "ticket_id": "02d57c7cbc814392"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "02d57c7cbc814392"
+  },
+  {
+    "quote": null,
+    "reason": "non_actionable_category",
+    "ticket_id": "08fdef98336a842d"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "0c112a6bd521236c"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": "RFD-431",
+      "negation": [
+        "|",
+        "не уход"
+      ],
+      "operation": "возврате оплаты по фискальному чеку",
+      "operation_span": [
+        4,
+        39
+      ],
+      "product": "pulse-core",
+      "source_sha256": "fe4ee0c5d9db1f3a39ccd40055a752a97c2a808f14b70909200f3ee19c84bb0d",
+      "symptom": "операция отклоняется с RFD-431, сумма не уходит на карту",
+      "symptom_span": [
+        40,
+        96
+      ],
+      "ticket_id": "128b3259fc255cd7"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "128b3259fc255cd7"
+  },
+  {
+    "quote": null,
+    "reason": "non_actionable_category",
+    "ticket_id": "1375f4d6d9cd97fa"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "слили дубль позиции с основной записью",
+      "operation_span": [
+        37,
+        75
+      ],
+      "product": "pulse-core",
+      "source_sha256": "90e18052b0f52aee5dc03c54989de6032bc810abf5ac40a018999c19e4cecea3",
+      "symptom": "второй код для сканера потерялся",
+      "symptom_span": [
+        77,
+        109
+      ],
+      "ticket_id": "17ebcfd888fc0f82"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "17ebcfd888fc0f82"
+  },
+  {
+    "quote": null,
+    "reason": "unrelated_evidence",
+    "ticket_id": "1ac538e9d5c0b6d8"
+  },
+  {
+    "quote": null,
+    "reason": "unobserved_context",
+    "ticket_id": "3026f5691114fafa"
+  },
+  {
+    "quote": null,
+    "reason": "ambiguous_negation",
+    "ticket_id": "314c847c089f1b2d"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "Пускаю аудиосообщение собеседника из переписки",
+      "operation_span": [
+        36,
+        82
+      ],
+      "product": "pulse-desk",
+      "source_sha256": "39b441f3941480591ece98906fabfb04455ad6f4801e2f438ec7bb791dfb71d1",
+      "symptom": "через беспроводные наушники слышно только тишину",
+      "symptom_span": [
+        85,
+        133
+      ],
+      "ticket_id": "34a8b9bd763fa80a"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "34a8b9bd763fa80a"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "ротации секрета подписи вебхука",
+      "operation_span": [
+        16,
+        47
+      ],
+      "product": "pulse-flow",
+      "source_sha256": "75d81253766f1ae0fcfb4d1d4cb06692909daf0684460012e14ff927000b97f4",
+      "symptom": "проверка всё ещё принимает подпись со старым секретом",
+      "symptom_span": [
+        48,
+        101
+      ],
+      "ticket_id": "35781dc86dc846b7"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "35781dc86dc846b7"
+  },
+  {
+    "quote": null,
+    "reason": "ambiguous_negation",
+    "ticket_id": "360e048a449887fe"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "39c0a5cfbebfc766"
+  },
+  {
+    "quote": null,
+    "reason": "unobserved_context",
+    "ticket_id": "3b2b508f73e19d0f"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "461b9900ef757a99"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "импорта нового прайс-листа",
+      "operation_span": [
+        30,
+        56
+      ],
+      "product": "pulse-core",
+      "source_sha256": "ea245664a9438c7e41a898f53224c7c63771e28fdb0b002a4b92414bef8b3941",
+      "symptom": "дополнительный штрихкод исчезает из итоговой карточки",
+      "symptom_span": [
+        57,
+        110
+      ],
+      "ticket_id": "6086370209e69a50"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "6086370209e69a50"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|",
+        "не печата"
+      ],
+      "operation": "возврата оплаты по фискальному чеку",
+      "operation_span": [
+        33,
+        68
+      ],
+      "product": "pulse-core",
+      "source_sha256": "7ab5c434d871efa352d4ef432aabf060d3a39319f7899c31b60e422ef42d08aa",
+      "symptom": "подтверждение для покупателя не печатается, хотя возврат завершён",
+      "symptom_span": [
+        69,
+        134
+      ],
+      "ticket_id": "64426919c230c393"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "64426919c230c393"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "6fc1f7afe7e69b86"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": "RFD-431",
+      "negation": [
+        "|",
+        "не возвращ"
+      ],
+      "operation": "Оформила возврат покупки из карточки фискального чека",
+      "operation_span": [
+        0,
+        53
+      ],
+      "product": "pulse-core",
+      "source_sha256": "46e544921c94d8f9ba1e1b99cdd806515834aa7008def3b6e67b695c471d166e",
+      "symptom": "RFD-431: деньги не возвращены",
+      "symptom_span": [
+        62,
+        91
+      ],
+      "ticket_id": "7b4091be7f2738cb"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "7b4091be7f2738cb"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "перевыпуска ключа проверки подписи для вебхуков",
+      "operation_span": [
+        123,
+        170
+      ],
+      "product": "pulse-flow",
+      "source_sha256": "4d924f0d403e4068b8f83689524df5866c068d5d222ab284a1fa47b78225675c",
+      "symptom": "событие со штампом на прежнем секрете всё равно приняли",
+      "symptom_span": [
+        46,
+        101
+      ],
+      "ticket_id": "7fcc95df15639d10"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "7fcc95df15639d10"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": "RFD-431",
+      "negation": [
+        "|",
+        "не уход"
+      ],
+      "operation": "возврате оплаты по фискальному чеку",
+      "operation_span": [
+        4,
+        39
+      ],
+      "product": "pulse-flow",
+      "source_sha256": "fe4ee0c5d9db1f3a39ccd40055a752a97c2a808f14b70909200f3ee19c84bb0d",
+      "symptom": "операция отклоняется с RFD-431, сумма не уходит на карту",
+      "symptom_span": [
+        40,
+        96
+      ],
+      "ticket_id": "85e3f821b551c62c"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "85e3f821b551c62c"
+  },
+  {
+    "quote": null,
+    "reason": "non_actionable_category",
+    "ticket_id": "87f0a6cc7a444e68"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|",
+        "ни слов"
+      ],
+      "operation": "слушаю войс в переписке",
+      "operation_span": [
+        108,
+        131
+      ],
+      "product": "pulse-desk",
+      "source_sha256": "5cedccdbb2e1ed703e5b0b89e446a8a6eacd0ca391a3356fe3df8b87d0635dd5",
+      "symptom": "На блютузных ушах ни слова, бегунок при этом двигается",
+      "symptom_span": [
+        30,
+        84
+      ],
+      "ticket_id": "994a625881e72f8e"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "994a625881e72f8e"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|",
+        "не проход"
+      ],
+      "operation": "ротации секрета подписи вебхука",
+      "operation_span": [
+        16,
+        47
+      ],
+      "product": "pulse-flow",
+      "source_sha256": "be77cecf1e22788d49ed802d569cde753f9b7a9e5cd72a25b6c57ae7b82af237",
+      "symptom": "подпись с новым секретом не проходит, старый тоже уже отклоняется",
+      "symptom_span": [
+        48,
+        113
+      ],
+      "ticket_id": "99d79ce20915507f"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "99d79ce20915507f"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "печати этикетки из PDF",
+      "operation_span": [
+        51,
+        73
+      ],
+      "product": "pulse-flow",
+      "source_sha256": "52c7fb893dfcbd427040e2c16fe5c843f766415df6cdccb97bc4e3227a42b850",
+      "symptom": "буква «Ӧ» заменяется пустым квадратом",
+      "symptom_span": [
+        74,
+        111
+      ],
+      "ticket_id": "a6414ce6faee6146"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "a6414ce6faee6146"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "b5bfa664970f77c9"
+  },
+  {
+    "quote": null,
+    "reason": "unobserved_context",
+    "ticket_id": "bad03692fd669760"
+  },
+  {
+    "quote": null,
+    "reason": "ambiguous_negation",
+    "ticket_id": "bb84ae86e6c6b06e"
+  },
+  {
+    "quote": null,
+    "reason": "non_actionable_category",
+    "ticket_id": "bdbab28108d091c0"
+  },
+  {
+    "quote": null,
+    "reason": "unobserved_context",
+    "ticket_id": "c332f1424b8f40c0"
+  },
+  {
+    "quote": null,
+    "reason": "non_actionable_category",
+    "ticket_id": "cf221a67183702dd"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "объединения двух карточек одного товара",
+      "operation_span": [
+        6,
+        45
+      ],
+      "product": "pulse-core",
+      "source_sha256": "ecfc8f82e43e7e9939f6b0ec9d56f1f1a68a62157dbe5eccabb7f09627281d8e",
+      "symptom": "дополнительный штрихкод исчезает из итоговой карточки",
+      "symptom_span": [
+        46,
+        99
+      ],
+      "ticket_id": "dcbfb52e6363801d"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "dcbfb52e6363801d"
+  },
+  {
+    "quote": null,
+    "reason": "non_actionable_category",
+    "ticket_id": "dd733faf06de3364"
+  },
+  {
+    "quote": null,
+    "reason": "non_actionable_category",
+    "ticket_id": "e1215299ded175a5"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "добавления условного подписанта в схему",
+      "operation_span": [
+        6,
+        45
+      ],
+      "product": "pulse-flow",
+      "source_sha256": "8dd8f52321dbd1b47e30b896f89feb94360a2990dfe3a7fb7db9ee3b5e76086c",
+      "symptom": "два обязательных подписанта меняются местами",
+      "symptom_span": [
+        46,
+        90
+      ],
+      "ticket_id": "eed2ebd81d920835"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "eed2ebd81d920835"
+  },
+  {
+    "quote": null,
+    "reason": "unrelated_evidence",
+    "ticket_id": "eff8052df165c7d9"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": "RFD-413",
+      "negation": [
+        "|",
+        "не уход"
+      ],
+      "operation": "возврате оплаты по фискальному чеку",
+      "operation_span": [
+        4,
+        39
+      ],
+      "product": "pulse-core",
+      "source_sha256": "334252117e53d70302934c024a3f7a12c3939c08826c0f27a2436e8d0a6eb17f",
+      "symptom": "операция отклоняется с RFD-413, сумма не уходит на карту",
+      "symptom_span": [
+        40,
+        96
+      ],
+      "ticket_id": "f63a4d241054dedd"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "f63a4d241054dedd"
+  },
+  {
+    "quote": null,
+    "reason": "no_evidence",
+    "ticket_id": "fb54203403d6e233"
+  },
+  {
+    "quote": {
+      "category": "feature_request",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "работы с комментариями для коллег",
+      "operation_span": [
+        39,
+        72
+      ],
+      "product": "pulse-desk",
+      "source_sha256": "d89cf05241b5969f89c938236d65ec90e60aa813498aeca3391d1d9a701a9126",
+      "symptom": "добавьте возможность оставить один комментарий сверху постоянно",
+      "symptom_span": [
+        73,
+        136
+      ],
+      "ticket_id": "fe27d8a7ba6b0658"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "fe27d8a7ba6b0658"
+  },
+  {
+    "quote": {
+      "category": "feature_request",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "передаче смены через служебный комментарий",
+      "operation_span": [
+        53,
+        95
+      ],
+      "product": "pulse-desk",
+      "source_sha256": "dc4946abdb4a9f9215c1f930152eb07daaba7d4be8279d685bc9e1f919aab687",
+      "symptom": "прикалывать эту заметку над диалогом, чтобы она оставалась наверху",
+      "symptom_span": [
+        96,
+        162
+      ],
+      "ticket_id": "fe682468eb735989"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "fe682468eb735989"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "Подключили его к цепочке подписей через развилку по сумме",
+      "operation_span": [
+        57,
+        114
+      ],
+      "product": "pulse-flow",
+      "source_sha256": "5b05374b221f76ed6278d873ec88e57b99738162fba6737b8e25e286e4efc749",
+      "symptom": "из двух безусловных участников подписывает первым тот, кто был вторым",
+      "symptom_span": [
+        123,
+        192
+      ],
+      "ticket_id": "fec879f99e0b0e64"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "fec879f99e0b0e64"
+  },
+  {
+    "quote": {
+      "category": "bug",
+      "error_code": null,
+      "negation": [
+        "|"
+      ],
+      "operation": "Вставили подписанта, который участвует по условию",
+      "operation_span": [
+        0,
+        49
+      ],
+      "product": "pulse-flow",
+      "source_sha256": "622989d262b2df06b4eb2ee95269b45960c944b62ecc9a16819ead25cbde6e23",
+      "symptom": "первый и второй обязательные подписанты поменялись очередью",
+      "symptom_span": [
+        73,
+        132
+      ],
+      "ticket_id": "ffbf95983d71c445"
+    },
+    "reason": "context_resolved",
+    "ticket_id": "ffbf95983d71c445"
+  }
+]
