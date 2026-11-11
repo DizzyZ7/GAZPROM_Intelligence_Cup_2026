@@ -97,6 +97,9 @@ function renderSources(root,card,status){
    element("small",source.occurred_at||"Дата не указана","meta"),
    element("div",source.excerpt||"Фрагмент недоступен"),
   );
+  if(source.analysis_warning==="resolved_issue"){
+   item.append(element("p","В тексте указано устранение сбоя. Проверьте актуальность источника.","meta"));
+  }
   if(card.status==="pending_human_review"&&card.ticket_count>=2){
    const button=element("button","Это другая проблема","secondary");
    button.addEventListener("click",()=>{
@@ -144,11 +147,13 @@ function reviewForm(card,status){
  approve.value="approved";
  reject.value="rejected";
  const missingEvidence=card.sources.some(source=>source.excerpt===null);
- approve.disabled=card.ticket_count<2||missingEvidence;
+ const resolvedEvidence=card.sources.some(source=>source.analysis_warning==="resolved_issue");
+ approve.disabled=card.ticket_count<2||missingEvidence||resolvedEvidence;
  buttons.append(approve,reject);
  form.append(reason,buttons);
  if(card.ticket_count<2)form.append(element("small","Для подтверждения нужны хотя бы два источника.","meta"));
  if(missingEvidence)form.append(element("small","Повторите импорт или исключите источники без фрагментов.","meta"));
+ if(resolvedEvidence)form.append(element("small","Перед подтверждением проверьте и исключите источники с указанием устранения сбоя.","meta"));
  form.addEventListener("submit",event=>{
   event.preventDefault();
   const value=reason.value.trim();
@@ -275,7 +280,7 @@ $("import-submit").addEventListener("click",async()=>{
   const tickets=JSON.parse($("import-json").value);
   if(!Array.isArray(tickets)||tickets.length<1||tickets.length>500)throw Error("Нужен массив из 1–500 обращений");
   const result=await post("/imports",{tickets});
-  output.textContent="Загружено: "+result.processed+" · Новых обращений: "+result.staged_new+" · Всего проанализировано: "+result.analyzed_total+" · Сигналов: "+result.signals_found+" · Новых сигналов: "+result.new_signals;
+  output.textContent="Загружено: "+result.processed+" · Новых обращений: "+result.staged_new+" · Всего проанализировано: "+result.analyzed_total+" · С указанием устранения сбоя: "+(result.resolved_tickets||0)+" · Сигналов: "+result.signals_found+" · Новых сигналов: "+result.new_signals;
   await refresh();
  }catch(error){output.textContent="Ошибка импорта: "+error.message}
  finally{button.disabled=false}

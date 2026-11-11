@@ -5,6 +5,7 @@ from pulse import Ticket, analyze
 from pipeline import analyze_semantic
 from store import SignalStore
 from cluster_identity import reconcile
+from issue_status import filter_resolved
 
 class ExactTokenProvider:
     """Детерминированный демонстрационный провайдер, не является ML-моделью."""
@@ -30,12 +31,15 @@ def ingest_batch(store, tickets, mode="rules", provider=None, threshold=0.86, *,
         if mode == "semantic":
             result = analyze_semantic(accumulated, provider, threshold=threshold)
         else:
-            result = analyze(accumulated)
+            eligible, resolved = filter_resolved(accumulated)
+            result = analyze(eligible)
+            result["resolved_tickets"] = resolved
         # Смена метода анализа не должна обходить запрет на слияние старых сигналов.
         signals = reconcile(store, result["signals"])
         inserted = store.ingest(signals)
     return {"processed": len(tickets), "staged_new": staged,
-            "analyzed_total": result["processed"], "signals_found": len(signals),
+            "analyzed_total": len(accumulated), "signals_found": len(signals),
+            "resolved_tickets": result["resolved_tickets"],
             "new_signals": inserted, "mode": mode}
 
 

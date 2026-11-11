@@ -3,6 +3,7 @@ from collections import defaultdict
 from dataclasses import dataclass
 from pulse import Ticket, classify, redact
 from semantic import match_pair
+from issue_status import filter_resolved
 
 @dataclass(frozen=True)
 class EnrichedTicket:
@@ -19,11 +20,12 @@ def analyze_semantic(tickets: list[Ticket], provider, threshold: float = 0.86, m
         raise ValueError('Duplicate ticket IDs: revise source before processing')
     if any(not t.id or not t.product or not t.text.strip() for t in tickets):
         raise ValueError('Ticket requires id, product and text')
-    vectors = provider.embed([redact(t.text) for t in tickets]) if tickets else []
-    if len(vectors) != len(tickets):
+    eligible, resolved = filter_resolved(tickets)
+    vectors = provider.embed([redact(t.text) for t in eligible]) if eligible else []
+    if len(vectors) != len(eligible):
         raise ValueError('Embedding provider returned wrong number of vectors')
     enriched = []
-    for t, v in zip(tickets, vectors):
+    for t, v in zip(eligible, vectors):
         category, workflow, _ = classify(t.text)
         enriched.append(EnrichedTicket(t, category, workflow, v))
     buckets = defaultdict(list)
@@ -57,4 +59,5 @@ def analyze_semantic(tickets: list[Ticket], provider, threshold: float = 0.86, m
                 'threshold': threshold,
             })
     return {'processed': len(tickets), 'signals': signals,
+            'resolved_tickets': resolved,
             'unclassified': sum(x.category == 'unknown' for x in enriched)}
