@@ -8,6 +8,7 @@ from pathlib import Path
 
 from evidence import get_signal
 from pulse import Ticket, redact
+from issue_status import has_explicit_resolution
 
 STATES = {'pending_human_review', 'approved', 'rejected'}
 OWNER_DECISIONS = {'in_progress', 'known', 'needs_clarification'}
@@ -189,6 +190,13 @@ class SignalStore:
                     or s.get("threshold") != old.get("threshold")
                     or not known_ids.issubset(incoming_ids)
                 ):
+                    missing = sorted(known_ids.difference(incoming_ids))
+                    if any(source.get("analysis_warning") == "resolved_issue"
+                           for source in self.sources(s["id"], missing, s["product"])):
+                        raise ValueError(
+                            "В сохраненном сигнале есть указание на устранение сбоя. "
+                            "Требуется проверка аналитиком; пакет не сохранен"
+                        )
                     raise ValueError(
                         "Для расширения сигнала нужен полный семантический анализ с прежним порогом"
                     )
@@ -250,6 +258,10 @@ class SignalStore:
                 raise ValueError("Для подтверждения нужны хотя бы два обращения")
             if action == "approved" and any(source["excerpt"] is None for source in card["sources"]):
                 raise ValueError("У части источников отсутствуют связанные фрагменты")
+            if action == "approved" and any(
+                source.get("analysis_warning") == "resolved_issue" for source in card["sources"]
+            ):
+                raise ValueError("В источниках указано устранение сбоя. Проверьте и исключите неактуальные обращения")
             now = utcnow()
             self.db.execute('UPDATE signals SET status=?,updated_at=? WHERE id=?',
                             (action, now, signal_id))
@@ -269,7 +281,8 @@ class SignalStore:
         sources = []
         for ticket_id in ids:
             row = self.db.execute(
-                "SELECT t.text,d.occurred_at FROM signal_sources s "
+                "SELECT t.text,d.occurred_at,g.category FROM signal_sources s "
+                "JOIN signals g ON g.id=s.signal_id "
                 "JOIN staged_tickets t ON t.id=s.ticket_id LEFT JOIN ticket_dates d ON d.ticket_id=t.id "
                 "WHERE s.signal_id=? AND s.ticket_id=? AND t.product=?", (signal_id, ticket_id, product),
             ).fetchone()
@@ -278,6 +291,8 @@ class SignalStore:
                 "excerpt": row["text"][:300] if row else None,
                 "occurred_at": row["occurred_at"] if row else None,
             })
+            if row and row["category"] == "bug" and has_explicit_resolution(row["text"]):
+                sources[-1]["analysis_warning"] = "resolved_issue"
         return sources
 
     def exclude_source(self, signal_id, ticket_id, actor, reason, *, expected_revision):
