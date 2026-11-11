@@ -1,0 +1,78 @@
+{
+  "version": "pulse-partial-review-v1",
+  "status": "partial_received",
+  "source": "forwarded_by_user",
+  "received_date": "2026-11-11",
+  "reviewer_display_name": "Дима",
+  "packet_review_csv_sha256": "b64ab7bf1bc6070c27690b330b944477acce2bd92c0640ae986aed54f47362b1",
+  "packet_row_numbering": "one_based_data_rows",
+  "full_assessment_status": "pending_completed_csv",
+  "reported_annotations": [
+    {
+      "packet_row": 2,
+      "ticket_id": "t_122223f376ffb82dea83",
+      "reported_category": "bug",
+      "reported_workflow": "report_export",
+      "reported_comment": "Готовый отчёт не скачивается. В тексте есть Not Found, но числовой HTTP-код не указан."
+    },
+    {
+      "packet_row": 16,
+      "ticket_id": "t_3789f427391d85f3d012",
+      "reported_category": "unknown",
+      "reported_workflow": "unclassified",
+      "reported_comment": "В одном обращении две отдельные темы. Замедление описано без шага воспроизведения, а исчезновение записи после бронирования — отдельный наблюдаемый дефект. Для одной строки CSV оставил unknown и описал обе темы в комментарии."
+    },
+    {
+      "packet_row": 22,
+      "ticket_id": "t_884646f000ca130b7382",
+      "reported_category": "service_request",
+      "reported_workflow": "report_permissions",
+      "reported_comment": "Пользователь просит выдать права на отчёты. Ограничение соответствует текущей роли, признаков сбоя нет."
+    },
+    {
+      "packet_row": 28,
+      "ticket_id": "t_230ed46d5284187e3a79",
+      "reported_category": "feature_request",
+      "reported_workflow": "contact_edit",
+      "reported_comment": "Пользователь хочет хранить два номера одновременно. Это отдельная потребность от самостоятельной замены текущего номера в обращениях №5 и №8."
+    },
+    {
+      "packet_row": 38,
+      "ticket_id": "t_7949d18bd9c5ebe22bfe",
+      "reported_category": "bug",
+      "reported_workflow": "contract_download",
+      "reported_comment": "Ошибка 404 возникает при скачивании подписанного договора. С №2 не объединял: там другой объект и другой сценарий, хотя оба обращения про скачивание."
+    }
+  ],
+  "reported_distinct_issue_relations": [
+    {
+      "left_ticket_id": "t_122223f376ffb82dea83",
+      "right_ticket_id": "t_7949d18bd9c5ebe22bfe"
+    },
+    {
+      "left_ticket_id": "t_230ed46d5284187e3a79",
+      "right_ticket_id": "t_c5f3e3809b71f05bf87d"
+    },
+    {
+      "left_ticket_id": "t_230ed46d5284187e3a79",
+      "right_ticket_id": "t_7cc22b2089cf650bce9f"
+    }
+  ],
+  "engineering_observations": [
+    {
+      "packet_row": 2,
+      "ticket_id": "t_122223f376ffb82dea83",
+      "suggested_workflow": "report_download",
+      "reason": "Описано скачивание уже рассчитанного отчета.",
+      "annotation_question": "В исходном тексте есть Not Found. Числовой HTTP-код отсутствует, а эталонное normalized_intent содержит 404.",
+      "status": "pending_annotation_adjudication"
+    },
+    {
+      "packet_row": 22,
+      "ticket_id": "t_884646f000ca130b7382",
+      "canonical_workflow": "permissions",
+      "reported_alias": "report_permissions",
+      "reason": "В текущем словаре индивидуальный запрос доступа к отчетам обозначен permissions."
+    }
+  ]
+}
