@@ -165,5 +165,35 @@ class APITests(unittest.TestCase):
         finally:
             store.close()
 
+    def test_import_exposes_classification_without_echoing_source_contacts(self):
+        headers = {"X-Review-Token": "secret-test-token"}
+        response = self.client.post("/imports", headers=headers, json={"tickets": [
+            {"id": "contact", "product": "Q", "text": "Хочу изменять контактный номер в профиле. Пишите private@example.invalid"},
+            {"id": "missing", "product": "Q", "text": "Смотрите вложение, все там. Файл не прикрепился."},
+        ]})
+        self.assertEqual(response.status_code, 200, response.text)
+        rows = {row["id"]: row for row in response.json()["classified"]}
+        self.assertEqual(rows["contact"]["category"], "feature_request")
+        self.assertEqual(rows["missing"]["reason"], "missing_evidence")
+        self.assertTrue(rows["missing"]["needs_review"])
+        self.assertNotIn("private@example.invalid", response.text)
+
+    def test_import_replay_changes_no_evidence_and_rejects_changed_content(self):
+        headers = {"X-Review-Token": "secret-test-token"}
+        url = self.import_reviewable_signal(headers)
+        before = self.client.get(url, headers=headers).json()
+        timeline = self.client.get(url + "/timeline", headers=headers).json()
+        replay = self.client.post("/imports", headers=headers, json={"tickets": [
+            {"id": "review-1", "product": "Q", "text": "Очередь ошибка 404"},
+        ]})
+        self.assertEqual(replay.status_code, 200, replay.text)
+        self.assertEqual(replay.json()["staged_new"], 0)
+        changed = self.client.post("/imports", headers=headers, json={"tickets": [
+            {"id": "review-1", "product": "Q", "text": "Сбой исправили, все работает."},
+        ]})
+        self.assertEqual(changed.status_code, 409, changed.text)
+        self.assertEqual(self.client.get(url, headers=headers).json(), before)
+        self.assertEqual(self.client.get(url + "/timeline", headers=headers).json(), timeline)
+
 if __name__=="__main__":
     unittest.main()

@@ -200,6 +200,11 @@ class SignalStore:
                     raise ValueError(
                         "Для расширения сигнала нужен полный семантический анализ с прежним порогом"
                     )
+                if s.get("context") and additions and (
+                    old.get("context") not in (None, s["context"])
+                    or not known_ids.issubset(incoming_ids)
+                ):
+                    raise ValueError("Изменение контекста или состава сигнала требует согласования аналитика")
                 self._link_sources(s["id"], s["product"], incoming_ids)
                 if not additions:
                     continue
@@ -209,6 +214,9 @@ class SignalStore:
                     (s['id'],json.dumps(additions,ensure_ascii=False),utcnow()))
                 old['ticket_ids'] = merged_ids
                 old['ticket_count'] = len(merged_ids)
+                if s.get("context"):
+                    old["context"] = s["context"]
+                    old["analysis_version"] = s["analysis_version"]
                 if excluded:
                     old["examples"] = [
                         source["excerpt"] for source in self.sources(s["id"], merged_ids, s["product"])

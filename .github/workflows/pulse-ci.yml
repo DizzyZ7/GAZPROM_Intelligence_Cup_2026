@@ -57,6 +57,9 @@ jobs:
           ruff format --isolated --check quote_candidates*.py tests/test_quote_candidates*.py
           ruff check --isolated --select E9,F,I issue_status.py tests/test_active_issue.py
           ruff format --isolated --check issue_status.py tests/test_active_issue.py
+          ruff check --isolated --select E9,F,I product_context.py product_analysis.py tests/test_product_context.py
+          ruff format --isolated --check product_context.py product_analysis.py tests/test_product_context.py
+          node --check dashboard.js
           bandit -q -r . -x ./tests -ll
       - name: Validate committed dataset
         run: python -m dataset validate --directory datasets/pulse-synthetic-v1
