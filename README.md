@@ -34,7 +34,7 @@ Pulse находит повторяющиеся проблемы и потреб
 изменилась доказательная база сигнала. Проверенный снимок передается
 в очередь владельца продукта.
 
-[О продукте](cases/ai-agent/README.md) · [Запуск и демонстрация](cases/ai-agent/mvp/README.md#установка-и-запуск) · [Исходники](cases/ai-agent/mvp/) · [Проверки CI](https://github.com/DizzyZ7/GAZPROM_Intelligence_Cup_2026/actions/workflows/pulse-ci.yml)
+[О продукте](cases/ai-agent/README.md) · [Запуск](cases/ai-agent/README.md#проверить-локально) · [Демонстрация](cases/ai-agent/README.md#сценарий-демонстрации) · [Стек](cases/ai-agent/README.md#технологический-стек) · [Исходники](cases/ai-agent/mvp/) · [Проверки CI](https://github.com/DizzyZ7/GAZPROM_Intelligence_Cup_2026/actions/workflows/pulse-ci.yml)
 
 ### Ретейл · Маржрут
 
