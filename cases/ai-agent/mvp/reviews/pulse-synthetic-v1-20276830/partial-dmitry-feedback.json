@@ -1,0 +1,126 @@
+{
+  "version": "pulse-partial-review-v1",
+  "status": "partial_received",
+  "received_date": "2026-11-12",
+  "source": "forwarded_by_user",
+  "reviewer_display_name": "Дима",
+  "packet_review_csv_sha256": "5e74c81b018b2cff4dfcbc8d9fffe3a3c05ee34b74e5b7fa0d77813f99f2a2cf",
+  "reported_groups": [
+    {
+      "rows": [
+        {
+          "packet_row": 11,
+          "ticket_id": "t_8829dd86cd97c871714c"
+        },
+        {
+          "packet_row": 14,
+          "ticket_id": "t_6a5d1c55a2766c1a216b"
+        },
+        {
+          "packet_row": 20,
+          "ticket_id": "t_9aaf16c2d5efddab02ab"
+        },
+        {
+          "packet_row": 38,
+          "ticket_id": "t_a1c6a99011f236e33350"
+        }
+      ],
+      "comment": "В Векторе после выбора слота открывается отсутствующая страница, запись не завершается."
+    },
+    {
+      "rows": [
+        {
+          "packet_row": 25,
+          "ticket_id": "t_c91295b041daf4a98e91"
+        },
+        {
+          "packet_row": 29,
+          "ticket_id": "t_7de397c9f68943041ba6"
+        }
+      ],
+      "comment": "В Севере готовый отчет недоступен при скачивании."
+    },
+    {
+      "rows": [
+        {
+          "packet_row": 28,
+          "ticket_id": "t_034cf6101c7802a8b5a6"
+        },
+        {
+          "packet_row": 39,
+          "ticket_id": "t_5f29fc9a5ef47c4e71ff"
+        }
+      ],
+      "comment": "В Горизонте просят добавить самостоятельную смену контактного телефона."
+    }
+  ],
+  "reported_annotations": [
+    {
+      "packet_row": 5,
+      "ticket_id": "t_099d7b3ec54aa8400104",
+      "reported_category": "unknown",
+      "reported_comment": "Отсутствие вложения не подтверждает сбой загрузки."
+    },
+    {
+      "packet_row": 22,
+      "ticket_id": "t_b449c48da0136e567780",
+      "reported_category": "unknown",
+      "reported_comment": "Отсутствие вложения не подтверждает сбой загрузки."
+    },
+    {
+      "packet_row": 24,
+      "ticket_id": "t_027f5ee9846382883eb5",
+      "reported_category": "unknown",
+      "reported_comment": "Одновременно просьба автоматизировать экспорт и вопрос о восстановлении пароля."
+    },
+    {
+      "packet_row": 30,
+      "ticket_id": "t_c61d3d5f7d5a61874553",
+      "reported_category": null,
+      "reported_comment": "Добавить запасной номер и сохранить основной; без группы.",
+      "engineering_suggested_category": "feature_request"
+    },
+    {
+      "packet_row": 10,
+      "ticket_id": "t_9d66c4aa77ea8c032e12",
+      "reported_category": null,
+      "reported_comment": "Талон сначала появился, а пропал уже позже; не входит в группу сбоев записи.",
+      "engineering_suggested_category": "bug"
+    }
+  ],
+  "engineering_observations": [
+    "Seed воспроизведен без чтения эталонных меток. Полный заполненный CSV не получен.",
+    "Группа 11/14/20/38 передана человеком как одна проблема. Рабочие правила сохраняют различие Not Found и явно указанного 404; это расхождение требует отдельного решения аналитика."
+  ],
+  "unbound_feedback": {
+    "status": "pending_source_csv",
+    "reason": "Номера первых пяти комментариев не соответствуют ни пакету 20261109, ни воспроизведенному пакету 20276830. ID не назначены.",
+    "reported_annotations": [
+      {
+        "packet_row": 13,
+        "reported_category": "service_request",
+        "reported_comment": "Благодарность и просьба закрыть предыдущую заявку."
+      },
+      {
+        "packet_row": 15,
+        "reported_category": "unknown",
+        "reported_comment": "Исчезновение подтвержденного талона и сдвиг времени записи."
+      },
+      {
+        "packet_row": 23,
+        "reported_category": "unknown",
+        "reported_comment": "Пользователь ссылается на отсутствующий файл; исходная проблема неизвестна."
+      },
+      {
+        "packet_row": 39,
+        "reported_category": "unknown",
+        "reported_comment": "Просроченный код восстановления и недоступный файл договора."
+      },
+      {
+        "packet_row": 40,
+        "reported_category": "feature_request",
+        "reported_comment": "Напоминание перед подтвержденным приемом отличается от уведомления о подходящем слоте в строке 17."
+      }
+    ]
+  }
+}

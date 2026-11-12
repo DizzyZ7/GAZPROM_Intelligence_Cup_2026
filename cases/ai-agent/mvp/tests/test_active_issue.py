@@ -48,7 +48,7 @@ class ActiveIssueTests(unittest.TestCase):
             self.assertEqual(result["analyzed_total"], 2)
             self.assertEqual(result["resolved_tickets"], 1)
 
-    def test_negation_promises_and_recurrent_failure_remain_actionable(self):
+    def test_negation_promises_and_recurrent_failure_are_not_suppressed(self):
         texts = [
             ACTIVE,
             "Очередь ошибка 404. Сбой не исправили.",
@@ -85,11 +85,16 @@ class ActiveIssueTests(unittest.TestCase):
         ]
         with closing(SignalStore(self.db)) as store:
             tickets = [Ticket(str(i), "P", text) for i, text in enumerate(texts)]
-            ingest_batch(store, tickets)
-            (signal,) = store.list_signals()
+            result = ingest_batch(store, tickets)
+            self.assertEqual(result["resolved_tickets"], 0)
             self.assertEqual(
-                get_signal(store, signal["id"])["ticket_count"], len(texts)
+                {row["id"] for row in result["classified"]}, {t.id for t in tickets}
             )
+            for row in result["classified"]:
+                self.assertIn(row["category"], {"bug", "unknown"})
+                self.assertNotEqual(row["reason"], "resolved_issue")
+                if row["category"] == "unknown":
+                    self.assertTrue(row["needs_review"])
 
     def test_explicit_resolution_forms_are_not_clustered(self):
         texts = [

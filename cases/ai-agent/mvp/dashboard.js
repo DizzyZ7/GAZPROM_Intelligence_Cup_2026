@@ -184,6 +184,9 @@ async function openDetail(id,notice){
   if(card.reviewed_revision&&card.revision!==card.reviewed_revision){
    root.append(element("p","Доказательства дополнились после подтверждения. Проверенная версия доступна в очереди владельца.","evidence"));
   }
+  if(card.context){
+   root.append(element("p","Признаки группировки · "+card.context.operation+" · "+card.context.symptom,"meta"));
+  }
   renderSources(root,card,status);
   renderHistory(root,history);
   if(card.status==="pending_human_review")root.append(reviewForm(card,status));
@@ -273,14 +276,51 @@ $("import-file").addEventListener("change",async event=>{
  if(file.size>1024*1024){$("import-result").textContent="Файл превышает 1 МБ";return}
  $("import-json").value=await file.text();
 });
+const analysisReasons={
+ context_resolved:"Операция и результат определены",
+ mixed_intents:"Несколько независимых задач — нужна проверка",
+ ambiguous_workflow:"Не удалось выбрать один сценарий",
+ missing_evidence:"Недостаточно исходных сведений",
+ insufficient_context:"Недостаточно контекста",
+ missing_workflow:"Сценарий не определен",
+ missing_symptom:"Наблюдаемый результат не определен",
+ ambiguous_symptom:"Описано несколько результатов",
+ ambiguous_operation:"Описано несколько операций",
+ missing_operation:"Операция не определена",
+ declined_notification_request:"Нужно уточнить настройку нежелательных уведомлений",
+ ambiguous_notification_need:"Нужно уточнить, когда отправлять уведомление",
+ untrusted_instruction:"Обнаружены посторонние инструкции",
+ individual_request:"Индивидуальное действие поддержки",
+ guidance_requested:"Вопрос о порядке действий",
+ resolved_issue:"В тексте указано устранение сбоя",
+ informational:"Информационное сообщение",
+};
+function renderClassification(rows){
+ const root=$("import-classified");
+ root.replaceChildren();
+ if(!rows?.length)return;
+ const details=element("details");
+ details.append(element("summary","Результат разбора · обращений "+rows.length));
+ for(const row of rows){
+  const item=element("div",undefined,"evidence");
+  item.append(element("strong",row.id+" · "+row.product),
+   element("p",row.category+" · "+row.workflow,"meta"),
+   element("p",(row.needs_review?"Требуется проверка. ":"")+(analysisReasons[row.reason]||"Требуется проверка контекста")));
+  details.append(item);
+ }
+ root.append(details);
+}
+
 $("import-submit").addEventListener("click",async()=>{
  const output=$("import-result"),button=$("import-submit");
  button.disabled=true;
+ renderClassification([]);
  try{
   const tickets=JSON.parse($("import-json").value);
   if(!Array.isArray(tickets)||tickets.length<1||tickets.length>500)throw Error("Нужен массив из 1–500 обращений");
   const result=await post("/imports",{tickets});
   output.textContent="Загружено: "+result.processed+" · Новых обращений: "+result.staged_new+" · Всего проанализировано: "+result.analyzed_total+" · С указанием устранения сбоя: "+(result.resolved_tickets||0)+" · Сигналов: "+result.signals_found+" · Новых сигналов: "+result.new_signals;
+  renderClassification(result.classified);
   await refresh();
  }catch(error){output.textContent="Ошибка импорта: "+error.message}
  finally{button.disabled=false}

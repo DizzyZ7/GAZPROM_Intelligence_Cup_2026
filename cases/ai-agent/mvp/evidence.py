@@ -34,6 +34,9 @@ def _read_signal(store, signal_id):
         "sources": sources,
         "method": payload.get("method", "rules"),
     }
+    for key in ("context", "analysis_version"):
+        if key in payload:
+            evidence[key] = payload[key]
     # Добавление и последующее исключение источника не восстанавливают старую версию.
     content = json.dumps(
         [row["evidence_generation"], evidence],

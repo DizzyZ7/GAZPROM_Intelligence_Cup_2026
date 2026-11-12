@@ -1,11 +1,11 @@
 """Единая точка импорта и анализа обращений для CLI и API."""
 from pathlib import Path
 import json
-from pulse import Ticket, analyze
+from pulse import Ticket
 from pipeline import analyze_semantic
 from store import SignalStore
-from cluster_identity import reconcile
-from issue_status import filter_resolved
+from cluster_identity import reconcile, validate_existing_context
+from product_analysis import analyze_product
 
 class ExactTokenProvider:
     """Детерминированный демонстрационный провайдер, не является ML-моделью."""
@@ -23,7 +23,8 @@ def ingest_batch(store, tickets, mode="rules", provider=None, threshold=0.86, *,
     if any(not isinstance(value, str) or not value.strip()
            for ticket in tickets for value in (ticket.id, ticket.product, ticket.text, ticket.channel)):
         raise ValueError("Поля обращения должны быть непустыми строками")
-    if len({ticket.id for ticket in tickets}) != len(tickets):
+    requested_ids = {ticket.id for ticket in tickets}
+    if len(requested_ids) != len(tickets):
         raise ValueError("Повторяющиеся идентификаторы обращений")
     with store.atomic():
         staged = store.stage_tickets(tickets, ticket_dates=ticket_dates)
@@ -31,15 +32,15 @@ def ingest_batch(store, tickets, mode="rules", provider=None, threshold=0.86, *,
         if mode == "semantic":
             result = analyze_semantic(accumulated, provider, threshold=threshold)
         else:
-            eligible, resolved = filter_resolved(accumulated)
-            result = analyze(eligible)
-            result["resolved_tickets"] = resolved
+            result = analyze_product(accumulated)
         # Смена метода анализа не должна обходить запрет на слияние старых сигналов.
+        validate_existing_context(store, result["classified"])
         signals = reconcile(store, result["signals"])
         inserted = store.ingest(signals)
     return {"processed": len(tickets), "staged_new": staged,
             "analyzed_total": len(accumulated), "signals_found": len(signals),
             "resolved_tickets": result["resolved_tickets"],
+            "classified": [row for row in result["classified"] if row["id"] in requested_ids],
             "new_signals": inserted, "mode": mode}
 
 
