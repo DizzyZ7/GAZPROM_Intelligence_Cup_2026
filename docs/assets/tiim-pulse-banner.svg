@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" role="img" aria-labelledby="title desc">
+  <title id="title">ТИИм Pulse — цифровой пульс продуктов</title>
+  <desc id="desc">Локальный анализ обращений, версии источников и проверяемые продуктовые сигналы. Intelligence Cup 2026.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101e35"/><stop offset="1" stop-color="#203f60"/></linearGradient>
+    <linearGradient id="accent"><stop stop-color="#9aefe0"/><stop offset="1" stop-color="#4db9e7"/></linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#b7e7f2" stroke-opacity=".045"/></pattern>
+  </defs>
+  <rect width="1200" height="340" rx="24" fill="url(#bg)"/>
+  <rect width="1200" height="340" rx="24" fill="url(#grid)"/>
+  <circle cx="1080" cy="38" r="185" fill="#5ebbd6" opacity=".055"/>
+  <g font-family="DejaVu Sans,Arial,sans-serif">
+    <rect x="48" y="39" width="31" height="31" rx="9" fill="#83dfd3"/>
+    <path d="M54 55h5l3-8 5 17 4-9h3" fill="none" stroke="#142c46" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="94" y="61" fill="#d7edf7" font-size="18" font-weight="700">ТИИм</text>
+    <text x="167" y="61" fill="#93abc3" font-size="14">INTELLIGENCE CUP 2026</text>
+    <text x="46" y="159" fill="#ffffff" font-size="76" font-weight="700" letter-spacing="-3">Pulse</text>
+    <text x="49" y="205" fill="#d3e3f2" font-size="24">Цифровой пульс продуктов</text>
+    <text x="49" y="238" fill="#9db7cf" font-size="16">От обращений — к решениям с доказательствами</text>
+    <g font-size="12" fill="#b9dddE">
+      <rect x="49" y="271" width="148" height="30" rx="15" fill="#28445c"/>
+      <text x="66" y="291">Локальный контур</text>
+      <rect x="207" y="271" width="159" height="30" rx="15" fill="#28445c"/>
+      <text x="225" y="291">Версии источников</text>
+      <rect x="376" y="271" width="171" height="30" rx="15" fill="#28445c"/>
+      <text x="394" y="291">Проверка аналитиком</text>
+    </g>
+    <g transform="translate(718 62)">
+      <rect width="430" height="216" rx="18" fill="#10263d" stroke="#527a97" stroke-opacity=".5"/>
+      <text x="27" y="39" fill="#9ebbd0" font-size="11" letter-spacing="1.5">ОБРАЩЕНИЯ → ПРОДУКТОВЫЙ СИГНАЛ</text>
+      <path d="M28 105h42l17-24 22 48 25-72 28 89 23-41h46l17-16 17 16h133" fill="none" stroke="url(#accent)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M28 164h374" stroke="#294b66"/>
+      <circle cx="32" cy="188" r="4" fill="#83dfd3"/>
+      <text x="45" y="192" fill="#c0d6e6" font-size="12">Источники</text>
+      <circle cx="160" cy="188" r="4" fill="#70c9dc"/>
+      <text x="173" y="192" fill="#c0d6e6" font-size="12">Контекст</text>
+      <circle cx="281" cy="188" r="4" fill="#70b6e4"/>
+      <text x="294" y="192" fill="#c0d6e6" font-size="12">Решение</text>
+    </g>
+  </g>
+</svg>
