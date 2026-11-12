@@ -1,0 +1,48 @@
+name: Маржрут · проверки ретейл-кейса
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'cases/retail-marketing/**'
+      - '.github/workflows/marzhrut-ci.yml'
+  pull_request:
+    paths:
+      - 'cases/retail-marketing/**'
+      - '.github/workflows/marzhrut-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unit-and-aggregates:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11', '3.12']
+    defaults:
+      run:
+        working-directory: cases/retail-marketing
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: cases/retail-marketing/requirements.txt
+      - name: Зависимости
+        run: python -m pip install -r requirements.txt
+      - name: Компиляция
+        run: python -m compileall -q src tests
+      - name: Тесты и сохранность агрегатов
+        run: python -m unittest discover -s tests -v
+      - name: Проверка состава Git
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          for p in Path('.').rglob('*'):
+              if p.is_file() and p.suffix.lower() in {'.xlsb','.xlsm','.xlsx','.sqlite3'}:
+                  raise SystemExit(f'Запрещенный источник/база в дереве: {p}')
+          print('Непубличные входные книги и базы не обнаружены')
+          PY
