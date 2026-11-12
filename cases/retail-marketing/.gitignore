@@ -1,0 +1,12 @@
+# Исходные данные конкурса и локальные расчеты не отправлять в GitHub.
+*.xlsb
+*.xlsm
+*.xlsx
+*.sqlite
+*.sqlite3
+input/
+data/
+.venv/
+__pycache__/
+*.pyc
+.DS_Store

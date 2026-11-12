@@ -1,0 +1,68 @@
+{
+  "product": "МАРЖРУТ",
+  "version": "1.0.0",
+  "status": "retrospective analytical prototype, not a deployed pricing engine",
+  "source_file": "Кейс_Ретейл и маркетинг_Дополнительные данные.xlsb",
+  "months": [
+    "2023-09",
+    "2023-10",
+    "2023-11",
+    "2023-12",
+    "2024-01",
+    "2024-02",
+    "2024-03",
+    "2024-04",
+    "2024-05"
+  ],
+  "counts": {
+    "customers": 33146,
+    "unique_customer_ids": 33146,
+    "total_liters_9m": 29891102.55,
+    "station_fuel_pairs": 1837,
+    "stations_in_data": 642,
+    "stations_in_dictionary": 1655,
+    "client_metadata_rows": 33139,
+    "customers_without_metadata": 7,
+    "nonfuel_rows": 20316,
+    "customers_without_nonfuel_record": 12830,
+    "push_with_app_consent": 18969,
+    "eligible_price_signal": 23746,
+    "offer_target_with_push": 4823,
+    "margin_covered_customers": 33146
+  },
+  "rules": {
+    "minimum_station_fuel_peer_count": 8,
+    "min_active_months": 6,
+    "min_liters_9m": 200,
+    "min_price_gap_range_rub_per_liter": 1.0,
+    "shrinkage_penalty_rub_squared": 4.0,
+    "high_threshold": -0.08,
+    "moderate_threshold": -0.025
+  },
+  "sanity": {
+    "price_gap_first_month": -0.402,
+    "price_gap_last_month": 1.534,
+    "mean_volume_first_month": 120.647,
+    "mean_volume_last_month": 82.363,
+    "pearson_aggregate_monthly": -0.9417970353168562,
+    "share_active_months_at_least_six": 0.9395100464611115,
+    "split_eligible": 17568,
+    "split_sign_agreement": 0.4918602003642987,
+    "matched_margin_share": 1.0
+  },
+  "financial_inputs": {
+    "margin_rub_per_ton_from_source": true,
+    "opex_rub_per_ton_from_source": true,
+    "density_kg_per_liter_from_source": true,
+    "unit_margin_formula": "(margin_rub_per_ton - opex_rub_per_ton) * density_kg_per_liter / 1000",
+    "warning": "Assumes margin and OPEX are non-overlapping; verify accounting definition."
+  },
+  "caveats": [
+    "Индекс относительный (сравнение с потреблением клиентов той же АЗС/топлива/месяца), не причинная эластичность.",
+    "Нельзя доказать, что ценовое изменение вызвало изменение объема: остаются общие и индивидуальные неучтенные факторы.",
+    "Одна цена для группы АЗС×топливо×месяц; клиентские строки не независимые ценовые эксперименты.",
+    "Нет реальных результатов кампаний и контрольной группы; эффект и uplift только сценарные.",
+    "Указанные пороги — экспертные, не оптимизированные по независимой разметке.",
+    "Актуальность согласий и клиента должна перепроверяться на момент коммуникации."
+  ]
+}
