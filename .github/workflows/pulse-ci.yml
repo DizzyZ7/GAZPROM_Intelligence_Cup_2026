@@ -59,6 +59,8 @@ jobs:
           ruff format --isolated --check issue_status.py tests/test_active_issue.py
           ruff check --isolated --select E9,F,I product_context.py product_analysis.py tests/test_product_context.py
           ruff format --isolated --check product_context.py product_analysis.py tests/test_product_context.py
+          ruff check --isolated --select E9,F,I ticket_versions.py signal_updates.py tests/test_ticket_versions*.py
+          ruff format --isolated --check ticket_versions.py signal_updates.py tests/test_ticket_versions*.py
           node --check dashboard.js
           bandit -q -r . -x ./tests -ll
       - name: Validate committed dataset

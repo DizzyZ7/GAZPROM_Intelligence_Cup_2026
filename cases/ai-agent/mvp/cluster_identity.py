@@ -1,4 +1,5 @@
 """Сопоставление новых кластеров с ранее сохраненными сигналами."""
+import hashlib
 import json
 from collections import defaultdict
 
@@ -46,6 +47,7 @@ def reconcile(store, signals):
     for signal in signals:
         incoming = set(signal.get("ticket_ids", []))
         candidates = []
+        empty_candidates = []
         excluded_only = False
         for row in existing:
             if row["product"] != signal["product"]:
@@ -64,11 +66,19 @@ def reconcile(store, signals):
                 continue
             if overlap:
                 candidates.append((overlap,row["id"]))
+            elif (not previous and incoming.intersection(payload.get("historical_ticket_ids", []))
+                  and payload.get("context") == signal.get("context")
+                  and payload.get("context")
+                  and ("context_rules" if payload.get("method") in (None, "rules") else payload.get("method")) == signal.get("method")
+                  and payload.get("threshold") == signal.get("threshold")):
+                empty_candidates.append((0,row["id"]))
             elif incoming and incoming.issubset(excluded_by_signal.get(row["id"], ())):
                 excluded_only = True
         if excluded_only and not candidates:
             # Точный повтор исключенных источников не должен создавать новый сигнал.
             continue
+        if not candidates:
+            candidates = empty_candidates
         candidates.sort(key=lambda item:(-item[0],item[1]))
         if candidates:
             if len(candidates) > 1:
@@ -77,6 +87,13 @@ def reconcile(store, signals):
             if identity in used:
                 raise ValueError("Несколько новых кластеров соответствуют одному сигналу")
             signal = dict(signal,id=identity)
+        if not candidates:
+            collision = next((row for row in existing if row["id"] == signal["id"]), None)
+            if collision is not None:
+                old_context = json.loads(collision["payload"]).get("context")
+                if old_context and signal.get("context") and old_context != signal["context"]:
+                    digest = hashlib.sha256(json.dumps(signal["context"], sort_keys=True).encode()).hexdigest()[:16]
+                    signal = dict(signal, id=signal["id"]+":context:"+digest)
         if signal["id"] in used:
             raise ValueError("Повторный идентификатор кластера")
         used.add(signal["id"])

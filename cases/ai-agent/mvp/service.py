@@ -6,6 +6,8 @@ from pipeline import analyze_semantic
 from store import SignalStore
 from cluster_identity import reconcile, validate_existing_context
 from product_analysis import analyze_product
+from ticket_versions import stage_versions
+from signal_updates import capture_signals, detach_incompatible_sources, record_signal_changes
 
 class ExactTokenProvider:
     """Детерминированный демонстрационный провайдер, не является ML-моделью."""
@@ -14,7 +16,7 @@ class ExactTokenProvider:
         vocabulary = sorted({word for text in texts for word in normalize(text).split()})
         return [[float(word in normalize(text).split()) for word in vocabulary] or [0.0] for text in texts]
 
-def ingest_batch(store, tickets, mode="rules", provider=None, threshold=0.86, *, ticket_dates=None):
+def ingest_batch(store, tickets, mode="rules", provider=None, threshold=0.86, *, ticket_dates=None, ticket_versions=None):
     """Накопительный атомарный импорт для API и CLI, без внешних вызовов по умолчанию."""
     if mode not in ("rules", "semantic"):
         raise ValueError("Неизвестный режим анализа")
@@ -27,17 +29,21 @@ def ingest_batch(store, tickets, mode="rules", provider=None, threshold=0.86, *,
     if len(requested_ids) != len(tickets):
         raise ValueError("Повторяющиеся идентификаторы обращений")
     with store.atomic():
-        staged = store.stage_tickets(tickets, ticket_dates=ticket_dates)
+        before = capture_signals(store, requested_ids)
+        staged = stage_versions(store, tickets, ticket_versions, ticket_dates)
         accumulated = store.staged_tickets()
         if mode == "semantic":
             result = analyze_semantic(accumulated, provider, threshold=threshold)
         else:
             result = analyze_product(accumulated)
         # Смена метода анализа не должна обходить запрет на слияние старых сигналов.
+        reasons = detach_incompatible_sources(store, staged["updates"], result, before, mode=mode, threshold=threshold)
         validate_existing_context(store, result["classified"])
         signals = reconcile(store, result["signals"])
         inserted = store.ingest(signals)
-    return {"processed": len(tickets), "staged_new": staged,
+        changes = record_signal_changes(store, staged["updates"], before, reasons)
+    return {"processed": len(tickets), "staged_new": staged["inserted"], "updated_tickets": len(staged["updates"]),
+            "signal_changes": changes,
             "analyzed_total": len(accumulated), "signals_found": len(signals),
             "resolved_tickets": result["resolved_tickets"],
             "classified": [row for row in result["classified"] if row["id"] in requested_ids],
@@ -49,16 +55,19 @@ def import_tickets(db_path, file_path, mode="rules", provider=None, threshold=0.
     if not isinstance(raw, list) or any(not isinstance(row, dict) for row in raw):
         raise ValueError("Ожидается список обращений")
     ticket_dates = {}
+    ticket_versions = {}
     tickets = []
     for row in raw:
         data = dict(row)
         occurred_at = data.pop("occurred_at", None)
+        if "version" in data:
+            ticket_versions[data["id"]] = data.pop("version")
         ticket = Ticket(**data)
         tickets.append(ticket)
         if occurred_at is not None:
             ticket_dates[ticket.id] = occurred_at
     store = SignalStore(db_path)
     try:
-        return ingest_batch(store, tickets, mode, provider, threshold, ticket_dates=ticket_dates)
+        return ingest_batch(store, tickets, mode, provider, threshold, ticket_dates=ticket_dates, ticket_versions=ticket_versions)
     finally:
         store.close()
