@@ -46,6 +46,8 @@ class OfferScenario:
 def price_to_liter_margin(margin_rub_per_ton: float, opex_rub_per_ton: float,
                           density_kg_per_liter: float, subtract_opex: bool) -> float:
     """Учетная трактовка OPEX выбирается явно: double-count запрещен по умолчанию."""
+    if not all(isfinite(float(v)) for v in (margin_rub_per_ton, opex_rub_per_ton, density_kg_per_liter)):
+        raise ValueError('Финансовые показатели должны быть конечными числами')
     if min(margin_rub_per_ton, opex_rub_per_ton, density_kg_per_liter) < 0:
         raise ValueError('Отрицательный финансовый показатель')
     if density_kg_per_liter <= 0 or density_kg_per_liter >= 2:

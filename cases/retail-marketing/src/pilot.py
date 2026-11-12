@@ -5,6 +5,7 @@
 from __future__ import annotations
 import hmac
 import hashlib
+from math import isfinite
 
 
 def assign_arm(customer_id: str, experiment_id: str, secret: str,
@@ -25,6 +26,8 @@ def relative_uplift(treatment_liters: float, treatment_count: int,
     """Разница средних литров между группами; стратификация/CI нужны на пилоте."""
     if min(treatment_count, control_count) <= 0:
         raise ValueError('Нужны обе группы')
+    if not all(isfinite(float(v)) for v in (treatment_liters, control_liters)):
+        raise ValueError('Объемы должны быть конечными числами')
     if min(treatment_liters, control_liters) < 0:
         raise ValueError('Объемы не могут быть отрицательными')
     return treatment_liters / treatment_count - control_liters / control_count

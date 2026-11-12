@@ -1,0 +1,21 @@
+{
+  "status": "сценарное планирование, НЕ результат эксперимента",
+  "assumptions": {
+    "eligible": 4050,
+    "sample_share": 0.1,
+    "baseline_sd_liters": 50.71,
+    "target_effect_liters": 3.0,
+    "alpha": 0.05,
+    "power": 0.8,
+    "variance_reduction": 0.0
+  },
+  "sample_total": 405,
+  "treatment": 202,
+  "control": 203,
+  "mde_liters": 14.119,
+  "ci_halfwidth_liters": 9.877,
+  "required_per_arm_for_target": 4486,
+  "required_total_for_target": 8972,
+  "enough_candidates_for_target": false,
+  "caveat": "SD — исторический ориентир, не известная будущая дисперсия; кластеризация, сезонность и иные эффекты могут увеличить MDE."
+}
