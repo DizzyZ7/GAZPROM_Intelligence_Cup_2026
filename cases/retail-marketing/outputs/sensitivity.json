@@ -1,0 +1,180 @@
+{
+  "segmentation": {
+    "method": "joint scaling of the two negative thresholds, fixed eligibility and scores",
+    "disclaimer": "Robustness of an observational segmentation rule, not price elasticity or a campaign uplift",
+    "customers": 33146,
+    "scenarios": [
+      {
+        "scenario": "мягче на 20%",
+        "threshold_multiplier": 0.8,
+        "high_threshold": -0.064,
+        "moderate_threshold": -0.02,
+        "high_signal": 7049,
+        "moderate_signal": 1165,
+        "no_signal": 15532,
+        "insufficient_data": 9400,
+        "candidates": 8214,
+        "target_with_historical_push": 4910,
+        "changed_segment_vs_baseline": 491
+      },
+      {
+        "scenario": "базовый",
+        "threshold_multiplier": 1.0,
+        "high_threshold": -0.08,
+        "moderate_threshold": -0.025,
+        "high_signal": 6715,
+        "moderate_signal": 1342,
+        "no_signal": 15689,
+        "insufficient_data": 9400,
+        "candidates": 8057,
+        "target_with_historical_push": 4823,
+        "changed_segment_vs_baseline": 0
+      },
+      {
+        "scenario": "строже на 20%",
+        "threshold_multiplier": 1.2,
+        "high_threshold": -0.096,
+        "moderate_threshold": -0.03,
+        "high_signal": 6426,
+        "moderate_signal": 1486,
+        "no_signal": 15834,
+        "insufficient_data": 9400,
+        "candidates": 7912,
+        "target_with_historical_push": 4743,
+        "changed_segment_vs_baseline": 434
+      }
+    ]
+  },
+  "bonus_economics": {
+    "status": "hypothetical inputs, NOT experiment results",
+    "assumptions": {
+      "margin_rub_per_liter": 9.94,
+      "basket_liters": 40.0,
+      "redemption_probability": 0.4,
+      "communication_cost_rub": 0.1,
+      "opex_note": "Margin is illustrative and depends on approved OPEX accounting."
+    },
+    "rows": [
+      {
+        "bonus_rub_per_liter": 0.3,
+        "assumed_uplift_liters": 0.0,
+        "reward_cost_rub": 4.8,
+        "break_even_liters": 0.493,
+        "scenario_profit_rub_per_treatment": -4.9,
+        "scenario_positive": false
+      },
+      {
+        "bonus_rub_per_liter": 0.3,
+        "assumed_uplift_liters": 0.5,
+        "reward_cost_rub": 4.8,
+        "break_even_liters": 0.493,
+        "scenario_profit_rub_per_treatment": 0.07,
+        "scenario_positive": true
+      },
+      {
+        "bonus_rub_per_liter": 0.3,
+        "assumed_uplift_liters": 1.0,
+        "reward_cost_rub": 4.8,
+        "break_even_liters": 0.493,
+        "scenario_profit_rub_per_treatment": 5.04,
+        "scenario_positive": true
+      },
+      {
+        "bonus_rub_per_liter": 0.3,
+        "assumed_uplift_liters": 3.0,
+        "reward_cost_rub": 4.8,
+        "break_even_liters": 0.493,
+        "scenario_profit_rub_per_treatment": 24.92,
+        "scenario_positive": true
+      },
+      {
+        "bonus_rub_per_liter": 0.3,
+        "assumed_uplift_liters": 5.0,
+        "reward_cost_rub": 4.8,
+        "break_even_liters": 0.493,
+        "scenario_profit_rub_per_treatment": 44.8,
+        "scenario_positive": true
+      },
+      {
+        "bonus_rub_per_liter": 0.5,
+        "assumed_uplift_liters": 0.0,
+        "reward_cost_rub": 8.0,
+        "break_even_liters": 0.815,
+        "scenario_profit_rub_per_treatment": -8.1,
+        "scenario_positive": false
+      },
+      {
+        "bonus_rub_per_liter": 0.5,
+        "assumed_uplift_liters": 0.5,
+        "reward_cost_rub": 8.0,
+        "break_even_liters": 0.815,
+        "scenario_profit_rub_per_treatment": -3.13,
+        "scenario_positive": false
+      },
+      {
+        "bonus_rub_per_liter": 0.5,
+        "assumed_uplift_liters": 1.0,
+        "reward_cost_rub": 8.0,
+        "break_even_liters": 0.815,
+        "scenario_profit_rub_per_treatment": 1.84,
+        "scenario_positive": true
+      },
+      {
+        "bonus_rub_per_liter": 0.5,
+        "assumed_uplift_liters": 3.0,
+        "reward_cost_rub": 8.0,
+        "break_even_liters": 0.815,
+        "scenario_profit_rub_per_treatment": 21.72,
+        "scenario_positive": true
+      },
+      {
+        "bonus_rub_per_liter": 0.5,
+        "assumed_uplift_liters": 5.0,
+        "reward_cost_rub": 8.0,
+        "break_even_liters": 0.815,
+        "scenario_profit_rub_per_treatment": 41.6,
+        "scenario_positive": true
+      },
+      {
+        "bonus_rub_per_liter": 1.0,
+        "assumed_uplift_liters": 0.0,
+        "reward_cost_rub": 16.0,
+        "break_even_liters": 1.62,
+        "scenario_profit_rub_per_treatment": -16.1,
+        "scenario_positive": false
+      },
+      {
+        "bonus_rub_per_liter": 1.0,
+        "assumed_uplift_liters": 0.5,
+        "reward_cost_rub": 16.0,
+        "break_even_liters": 1.62,
+        "scenario_profit_rub_per_treatment": -11.13,
+        "scenario_positive": false
+      },
+      {
+        "bonus_rub_per_liter": 1.0,
+        "assumed_uplift_liters": 1.0,
+        "reward_cost_rub": 16.0,
+        "break_even_liters": 1.62,
+        "scenario_profit_rub_per_treatment": -6.16,
+        "scenario_positive": false
+      },
+      {
+        "bonus_rub_per_liter": 1.0,
+        "assumed_uplift_liters": 3.0,
+        "reward_cost_rub": 16.0,
+        "break_even_liters": 1.62,
+        "scenario_profit_rub_per_treatment": 13.72,
+        "scenario_positive": true
+      },
+      {
+        "bonus_rub_per_liter": 1.0,
+        "assumed_uplift_liters": 5.0,
+        "reward_cost_rub": 16.0,
+        "break_even_liters": 1.62,
+        "scenario_profit_rub_per_treatment": 33.6,
+        "scenario_positive": true
+      }
+    ]
+  }
+}
