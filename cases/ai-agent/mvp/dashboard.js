@@ -94,9 +94,10 @@ function renderSources(root,card,status){
   const item=element("div",undefined,"evidence source");
   item.append(
    element("strong",source.ticket_id),
-   element("small",source.occurred_at||"Дата не указана","meta"),
+   element("small",(source.occurred_at||"Дата не указана")+(source.version?" · Версия "+source.version:""),"meta"),
    element("div",source.excerpt||"Фрагмент недоступен"),
   );
+  if(source.version)item.append(ticketHistory(source.ticket_id));
   if(source.analysis_warning==="resolved_issue"){
    item.append(element("p","В тексте указано устранение сбоя. Проверьте актуальность источника.","meta"));
   }
@@ -118,12 +119,46 @@ function renderSources(root,card,status){
  }
 }
 
+function ticketHistory(ticketId){
+ const details=element("details");
+ details.append(element("summary","История версий обращения "+ticketId));
+ let loaded=false,loading=false;
+ details.addEventListener("toggle",async()=>{
+  if(!details.open||loaded||loading)return;
+  loading=true;
+  const output=element("div");
+  details.append(output);
+  try{
+   const versions=await request("/tickets/"+encodeURIComponent(ticketId)+"/versions");
+   for(const version of versions){
+    const item=element("div",undefined,"evidence");
+    item.append(element("small","Версия "+version.version+" · "+version.imported_at,"meta"),element("p",version.text));
+    output.append(item);
+   }
+   loaded=true;
+  }catch(error){output.append(element("p",error.message,"error"));}
+  finally{loading=false;}
+ });
+ return details;
+}
+
+function changeExplanation(event){
+ const reasons={resolved_issue:"Клиент сообщил об устранении сбоя",context_changed:"Источник больше не подтверждает прежнюю проблему",source_updated:"Обновлены сведения источника",source_added:"Источник подтверждает этот сигнал"};
+ const lines=event.updates.map(u=>u.ticket_id+": версия "+u.from_version+" → "+u.to_version+". "+(reasons[u.reason]||"Изменены сведения"));
+ lines.push("Активных источников стало "+event.sources_after+" вместо "+event.sources_before+".");
+ if(event.added_ticket_ids.length)lines.push("Добавлены: "+event.added_ticket_ids.join(", ")+".");
+ if(event.removed_ticket_ids.length)lines.push("Перестали подтверждать сигнал: "+event.removed_ticket_ids.join(", ")+".");
+ return lines.join(" ");
+}
+
 function renderHistory(root,history){
  root.append(element("h4","История сигнала"));
  const list=element("ol",undefined,"timeline");
  for(const event of history){
   let line;
-  if(event.type==="evidence_added"){
+  if(event.type==="ticket_updated"){
+   line=changeExplanation(event);
+  }else if(event.type==="evidence_added"){
    line="Добавлены обращения: "+event.added_ticket_ids.join(", ");
   }else if(event.type==="source_excluded"){
    line="Исключен источник "+event.ticket_id+" · "+event.reason;
@@ -182,7 +217,11 @@ async function openDetail(id,notice){
    status,
   );
   if(card.reviewed_revision&&card.revision!==card.reviewed_revision){
-   root.append(element("p","Доказательства дополнились после подтверждения. Проверенная версия доступна в очереди владельца.","evidence"));
+   root.append(element("p","Доказательства изменились после подтверждения. Требуется повторная проверка. Ранее подтвержденный снимок доступен в очереди владельца.","evidence"));
+  }
+  if(card.latest_change){
+   root.append(element("p",changeExplanation(card.latest_change),"evidence"));
+   for(const id of card.latest_change.removed_ticket_ids)root.append(ticketHistory(id));
   }
   if(card.context){
    root.append(element("p","Признаки группировки · "+card.context.operation+" · "+card.context.symptom,"meta"));
@@ -319,7 +358,7 @@ $("import-submit").addEventListener("click",async()=>{
   const tickets=JSON.parse($("import-json").value);
   if(!Array.isArray(tickets)||tickets.length<1||tickets.length>500)throw Error("Нужен массив из 1–500 обращений");
   const result=await post("/imports",{tickets});
-  output.textContent="Загружено: "+result.processed+" · Новых обращений: "+result.staged_new+" · Всего проанализировано: "+result.analyzed_total+" · С указанием устранения сбоя: "+(result.resolved_tickets||0)+" · Сигналов: "+result.signals_found+" · Новых сигналов: "+result.new_signals;
+  output.textContent="Загружено: "+result.processed+" · Новых обращений: "+result.staged_new+" · Обновленных обращений: "+(result.updated_tickets||0)+" · Всего проанализировано: "+result.analyzed_total+" · С указанием устранения сбоя: "+(result.resolved_tickets||0)+" · Сигналов: "+result.signals_found+" · Новых сигналов: "+result.new_signals;
   renderClassification(result.classified);
   await refresh();
  }catch(error){output.textContent="Ошибка импорта: "+error.message}

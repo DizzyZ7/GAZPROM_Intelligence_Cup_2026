@@ -7,7 +7,7 @@ from typing import Annotated, Literal
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi import FastAPI, Header, HTTPException, Depends
 from fastapi.exceptions import RequestValidationError
-from pydantic import BaseModel, Field, ConfigDict, StrictStr, StringConstraints
+from pydantic import BaseModel, Field, ConfigDict, StrictStr, StrictInt, StringConstraints
 from starlette.convertors import PathConvertor, register_url_convertor
 from store import SignalStore
 from evidence import get_signal
@@ -21,7 +21,7 @@ class SignalIdConvertor(PathConvertor):
 
 register_url_convertor("pulse_signal_id", SignalIdConvertor())
 
-app = FastAPI(title="ТИИм Pulse — проверка сигналов", version="0.6.0")
+app = FastAPI(title="ТИИм Pulse — проверка сигналов", version="0.7.0")
 app.add_middleware(RequestBodyLimit)
 DB_PATH = os.getenv("PULSE_DB", str(Path(__file__).with_name("pulse-demo.sqlite3")))
 TOKEN = os.getenv("PULSE_REVIEW_TOKEN")
@@ -130,6 +130,7 @@ def signal_timeline(signal_id: str, actor: str = Depends(reviewer)):
         decisions = store.audit(signal_id)
         exclusions = store.exclusions(signal_id)
         owner_decision = store.product_decision(signal_id)
+        changes = store.signal_changes(signal_id)
     events = [
         {"type": "evidence_added", "at": row["created_at"],
          "added_ticket_ids": row["added_ticket_ids"]}
@@ -147,7 +148,7 @@ def signal_timeline(signal_id: str, actor: str = Depends(reviewer)):
         events.append({"type": "product_decision", "at": owner_decision["decided_at"],
                        "action": owner_decision["decision"], "actor": owner_decision["decided_by"],
                        "reason": owner_decision["reason"]})
-    return sorted(events, key=lambda event: event["at"])
+    return sorted(events + changes, key=lambda event: event["at"])
 
 @app.get("/signals/{signal_id:pulse_signal_id}/card")
 @app.get("/signals/{signal_id}")
@@ -176,6 +177,7 @@ class TicketInput(BaseModel):
     text: StrictStr = Field(min_length=1, max_length=10000)
     channel: StrictStr = Field(default="web", min_length=1, max_length=64)
     occurred_at: StrictStr | None = Field(default=None, max_length=40)
+    version: StrictInt = Field(default=1, ge=1, le=2**63-1)
 
 class ImportRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
@@ -183,15 +185,25 @@ class ImportRequest(BaseModel):
 
 @app.post("/imports")
 def import_batch(payload: ImportRequest, actor: str = Depends(reviewer)):
-    tickets = [Ticket(**item.model_dump(exclude={"occurred_at"})) for item in payload.tickets]
+    tickets = [Ticket(**item.model_dump(exclude={"occurred_at", "version"})) for item in payload.tickets]
     ticket_dates = {item.id: item.occurred_at for item in payload.tickets
                     if item.occurred_at is not None}
+    versions = {item.id: item.version for item in payload.tickets if "version" in item.model_fields_set}
     ids = [t.id for t in tickets]
     if len(set(ids)) != len(ids):
         raise HTTPException(status_code=422, detail="Повторяющиеся идентификаторы обращений")
     with storage() as store:
         try:
-            result = ingest_batch(store, tickets, ticket_dates=ticket_dates)
+            result = ingest_batch(store, tickets, ticket_dates=ticket_dates, ticket_versions=versions)
         except ValueError as exc:
             raise HTTPException(status_code=409, detail=str(exc)) from exc
     return result
+
+
+@app.get("/tickets/{ticket_id:pulse_signal_id}/versions")
+def ticket_versions(ticket_id: str, actor: str = Depends(reviewer)):
+    with storage() as store:
+        try:
+            return store.ticket_history(ticket_id)
+        except KeyError as exc:
+            raise HTTPException(status_code=404, detail="Обращение не найдено") from exc

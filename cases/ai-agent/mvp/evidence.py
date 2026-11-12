@@ -13,7 +13,8 @@ def _read_signal(store, signal_id):
     row = store.db.execute("""
         SELECT s.*, q.snapshot,
           (SELECT COUNT(*) FROM evidence_events e WHERE e.signal_id=s.id) +
-          (SELECT COUNT(*) FROM excluded_sources x WHERE x.signal_id=s.id) AS evidence_generation
+          (SELECT COUNT(*) FROM excluded_sources x WHERE x.signal_id=s.id) +
+          (SELECT COUNT(*) FROM signal_change_events c WHERE c.signal_id=s.id) AS evidence_generation
         FROM signals s LEFT JOIN product_queue q ON q.signal_id=s.id
         WHERE s.id=?
     """, (signal_id,)).fetchone()
@@ -42,8 +43,13 @@ def _read_signal(store, signal_id):
         [row["evidence_generation"], evidence],
         ensure_ascii=False, sort_keys=True, separators=(",", ":"),
     )
+    revision = hashlib.sha256(content.encode("utf-8")).hexdigest()
+    reviewed = json.loads(row["snapshot"])["revision"] if row["snapshot"] else None
+    changes = store.signal_changes(signal_id)
     return dict(
-        evidence, revision=hashlib.sha256(content.encode("utf-8")).hexdigest(),
+        evidence, revision=revision,
+        requires_recheck=bool(reviewed and revision != reviewed),
+        latest_change=changes[-1] if changes else None,
         reviewed_revision=json.loads(row["snapshot"])["revision"] if row["snapshot"] else None,
         status=row["status"], created_at=row["created_at"], updated_at=row["updated_at"],
     )

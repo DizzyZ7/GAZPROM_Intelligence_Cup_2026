@@ -80,6 +80,8 @@ class SignalStore:
         );
         ''')
         self._upgrade_queue()
+        from ticket_versions import initialize
+        initialize(self)
 
     def _upgrade_queue(self):
         """Сохранить решения из ранней демонстрационной схемы очереди."""
@@ -107,27 +109,18 @@ class SignalStore:
             raise
 
     def stage_tickets(self, tickets, *, ticket_dates=None):
-        """Идемпотентное сохранение обезличенных обращений."""
-        ticket_dates = ticket_dates or {}
-        inserted = 0
-        with (nullcontext() if self.db.in_transaction else self.atomic()):
-            for ticket in tickets:
-                sanitized = redact(ticket.text)
-                row = self.db.execute(
-                    'SELECT product,text,channel FROM staged_tickets WHERE id=?',
-                    (ticket.id,)).fetchone()
-                if row is not None:
-                    if (row['product'],row['text'],row['channel']) != (
-                        ticket.product,sanitized,ticket.channel):
-                        raise ValueError('Идентификатор обращения уже используется с другим содержимым')
-                else:
-                    self.db.execute(
-                        'INSERT INTO staged_tickets(id,product,text,channel,created_at) VALUES(?,?,?,?,?)',
-                        (ticket.id,ticket.product,sanitized,ticket.channel,utcnow()))
-                    inserted += 1
-                if ticket.id in ticket_dates:
-                    self._stage_ticket_date(ticket.id, ticket_dates[ticket.id])
-        return inserted
+        from ticket_versions import stage_versions
+        return stage_versions(self, tickets, ticket_dates=ticket_dates)["inserted"]
+
+    def ticket_history(self, ticket_id):
+        from ticket_versions import history
+        return history(self, ticket_id)
+
+    def signal_changes(self, signal_id):
+        return [dict(json.loads(row["payload"]), at=row["created_at"])
+                for row in self.db.execute(
+                    "SELECT payload,created_at FROM signal_change_events WHERE signal_id=? ORDER BY id",
+                    (signal_id,))]
 
     def _stage_ticket_date(self, ticket_id, value):
         date = normalize_ticket_date(value)
@@ -289,7 +282,8 @@ class SignalStore:
         sources = []
         for ticket_id in ids:
             row = self.db.execute(
-                "SELECT t.text,d.occurred_at,g.category FROM signal_sources s "
+                "SELECT t.text,d.occurred_at,g.category,h.version FROM signal_sources s "
+                "LEFT JOIN ticket_heads h ON h.ticket_id=s.ticket_id "
                 "JOIN signals g ON g.id=s.signal_id "
                 "JOIN staged_tickets t ON t.id=s.ticket_id LEFT JOIN ticket_dates d ON d.ticket_id=t.id "
                 "WHERE s.signal_id=? AND s.ticket_id=? AND t.product=?", (signal_id, ticket_id, product),
@@ -299,6 +293,8 @@ class SignalStore:
                 "excerpt": row["text"][:300] if row else None,
                 "occurred_at": row["occurred_at"] if row else None,
             })
+            if row:
+                sources[-1]["version"] = row["version"] or 1
             if row and row["category"] == "bug" and has_explicit_resolution(row["text"]):
                 sources[-1]["analysis_warning"] = "resolved_issue"
         return sources
