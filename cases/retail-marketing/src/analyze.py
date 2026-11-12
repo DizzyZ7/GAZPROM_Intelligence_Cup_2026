@@ -10,6 +10,7 @@ from pathlib import Path
 from zipfile import ZipFile
 import numpy as np
 from xlsb_reader import get_book, sheet_rows
+from sensitivity import segment_stress, offer_stress, save_stress
 MONTHS=['2023-09','2023-10','2023-11','2023-12','2024-01','2024-02','2024-03','2024-04','2024-05']
 MIN_PEERS=8; MIN_ACTIVE_MONTHS=6; MIN_VOLUME_L=200; MIN_SPAN_RUB=1.0; SHRINKAGE_PENALTY=4.0
 
@@ -149,6 +150,9 @@ def build_outputs(input_path:Path, output_dir:Path):
                       # Исторический ориентир для power: SD индивидуального среднего за последние 3 месяца.
                       'sd_last_3m_avg_liters':round(float(recent_3m_avg.std(ddof=1)),2) if m.sum()>1 else None})
     dump_csv('pilot_groups.csv',pilot)
+    # Агрегированная проверка устойчивости порогов (+/-20%) и экономики трех бонусов.
+    stress=segment_stress(slope,eligible,push)
+    save_stress(output_dir/'sensitivity.json',stress,offer_stress())
     print(json.dumps({'counts':metrics['counts'],'segments':segments,'pilot':pilot,'sanity':metrics['sanity']},ensure_ascii=False,indent=2))
     return metrics,segments,months,pilot
 
