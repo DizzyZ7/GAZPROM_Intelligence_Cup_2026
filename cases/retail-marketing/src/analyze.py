@@ -144,7 +144,10 @@ def build_outputs(input_path:Path, output_dir:Path):
     pilot=[]
     for label in ['Высокий сигнал','Умеренный сигнал']:
         m=(seg==label)&push&np.isfinite(margin_per_liter)
-        pilot.append({'segment':label,'eligible_push_margin_customers':int(m.sum()),'mean_liters_per_month':round(float((total[m]/9).mean()),2) if m.sum() else 0,'mean_margin_rub_l':round(float(np.mean(margin_per_liter[m])),2) if m.sum() else 0})
+        recent_3m_avg=v[m,-3:].mean(axis=1)
+        pilot.append({'segment':label,'eligible_push_margin_customers':int(m.sum()),'mean_liters_per_month':round(float((total[m]/9).mean()),2) if m.sum() else 0,'mean_margin_rub_l':round(float(np.mean(margin_per_liter[m])),2) if m.sum() else 0,
+                      # Исторический ориентир для power: SD индивидуального среднего за последние 3 месяца.
+                      'sd_last_3m_avg_liters':round(float(recent_3m_avg.std(ddof=1)),2) if m.sum()>1 else None})
     dump_csv('pilot_groups.csv',pilot)
     print(json.dumps({'counts':metrics['counts'],'segments':segments,'pilot':pilot,'sanity':metrics['sanity']},ensure_ascii=False,indent=2))
     return metrics,segments,months,pilot
