@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="112" viewBox="0 0 1000 112" role="img" aria-labelledby="title desc">
+  <title id="title">Проверить локально</title>
+  <desc id="desc">Запуск панели и демонстрация на тестовых обращениях</desc>
+  <defs>
+    <linearGradient id="background"><stop stop-color="#102438"/><stop offset="1" stop-color="#1c3b54"/></linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#91c8dd" stroke-opacity=".09"/></pattern>
+  </defs>
+  <rect width="1000" height="112" rx="16" fill="url(#background)"/>
+  <rect width="1000" height="112" rx="16" fill="url(#grid)"/>
+  <rect x="30" y="27" width="4" height="58" rx="2" fill="#83d4d0"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="52" y="51" font-size="26" font-weight="700" fill="#f1f7fa">Проверить локально</text>
+    <text x="52" y="77" font-size="16" fill="#b8d2e0">Запуск панели и демонстрация на тестовых обращениях</text>
+  </g>
+  <g transform="translate(807 29)" fill="none" stroke="#83d4d0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="28" y="1" width="80" height="53" rx="8"/><path d="M28 13h80M46 24l10 8-10 8m19 0h19"/><circle cx="36" cy="7" r="1"/></g>
+</svg>

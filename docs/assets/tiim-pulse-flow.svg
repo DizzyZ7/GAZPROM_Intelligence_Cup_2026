@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="112" viewBox="0 0 1000 112" role="img" aria-labelledby="title desc">
+  <title id="title">Как работает Pulse</title>
+  <desc id="desc">Обращения → карточка → решение владельца</desc>
+  <defs>
+    <linearGradient id="background"><stop stop-color="#102438"/><stop offset="1" stop-color="#1c3b54"/></linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#91c8dd" stroke-opacity=".09"/></pattern>
+  </defs>
+  <rect width="1000" height="112" rx="16" fill="url(#background)"/>
+  <rect width="1000" height="112" rx="16" fill="url(#grid)"/>
+  <rect x="30" y="27" width="4" height="58" rx="2" fill="#83d4d0"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="52" y="51" font-size="26" font-weight="700" fill="#f1f7fa">Как работает Pulse</text>
+    <text x="52" y="77" font-size="16" fill="#b8d2e0">Обращения → карточка → решение владельца</text>
+  </g>
+  <g transform="translate(807 29)" fill="none" stroke="#83d4d0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M0 29h36l12-14 13 29 16-37 15 22h44"/><circle cx="0" cy="29" r="4"/><circle cx="136" cy="29" r="4"/></g>
+</svg>

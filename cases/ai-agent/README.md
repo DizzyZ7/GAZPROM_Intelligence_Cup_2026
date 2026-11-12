@@ -15,6 +15,7 @@
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=1b2838)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-663399?logo=css&logoColor=white)
+[![Ollama — офлайн-оценка](https://img.shields.io/badge/Ollama-offline%20eval-526477)](#локальные-модели-измеренные-результаты)
 
 [Запуск](#проверить-локально) · [Демо](#сценарий-демонстрации) · [Архитектура](#как-работает-pulse) · [Стек](#технологический-стек) · [Проверки и эксперименты](#что-можно-проверить) · [API и инструкция](mvp/README.md) · [Все кейсы команды](../../README.md)
 
@@ -36,6 +37,8 @@ Pulse связывает обращения с продуктовым сигна
 | Команда внедрения | Локальный API, CLI, проверяемый контракт версий и воспроизводимые проверки |
 
 ## Как работает Pulse
+
+![Обращения → карточка → решение владельца](../../docs/assets/tiim-pulse-flow.svg)
 
 ```mermaid
 flowchart TD
@@ -107,6 +110,8 @@ flowchart TD
 восстановление прежней карточки и ограничения семантического пересчета.
 
 ## Проверить локально
+
+![Запуск панели и демонстрация на тестовых обращениях](../../docs/assets/tiim-pulse-demo.svg)
 
 Нужен Python 3.11 или 3.12. Команды для Bash из корня клонированного репозитория:
 
